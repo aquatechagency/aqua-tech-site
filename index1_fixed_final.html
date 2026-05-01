@@ -2825,7 +2825,7 @@ input, textarea, select, button {
       if(el) el.href = url;
     };
 
-    setHref("socialWA", waUrl);
+    setHref("socialWA", getWhatsAppUrl());
     setHref("socialEmail", `mailto:${CONTACT_EMAIL}`);
     setHref("socialIG", INSTAGRAM_URL);
     setHref("socialFB", FACEBOOK_URL);
@@ -4086,6 +4086,10 @@ input, textarea, select, button {
       });
 
       updateLangToggleUI(lang);
+      const serviceSelectForLang = document.getElementById("fService");
+      if(serviceSelectForLang){
+        serviceSelectForLang.dispatchEvent(new Event("change", { bubbles: true }));
+      }
     }
 
 
