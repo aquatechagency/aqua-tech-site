@@ -2723,6 +2723,17 @@ input, textarea, select, button {
     const LINKEDIN_URL = "https://www.linkedin.com/in/aqua-tech-/";
     const GITHUB_URL = "https://github.com/aqua-tech-t";
 
+    // Keep the selected language available before any dynamic links/placeholders use it.
+    // This prevents the language script from crashing before translations are applied.
+    let currentLang = (function(){
+      try {
+        const saved = localStorage.getItem("aqua_lang");
+        return (saved === "ar" || saved === "en") ? saved : (document.documentElement.lang === "en" ? "en" : "ar");
+      } catch(e) {
+        return document.documentElement.lang === "en" ? "en" : "ar";
+      }
+    })();
+
 
 
     // Adaptive performance mode for mobile
@@ -2776,17 +2787,37 @@ input, textarea, select, button {
     })();
 
     // Set WhatsApp/Email links in one place
-    const WA_BASE_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(currentLang === "ar" ? "مرحبا، أريد الاستفسار عن خدمات Aqua.Tech" : "Hello, I want to ask about Aqua.Tech services")}`;
-    const waUrl = WA_BASE_URL;
-    const waHeader = document.getElementById("waLinkHeader");
-    const waContact = document.getElementById("waLinkContact");
-    const waMobile  = document.getElementById("waLinkMobile");
-    if(waHeader) waHeader.href = waUrl;
-    if(waContact) waContact.href = waUrl;
-    if(waMobile)  waMobile.href = waUrl;
+    function getWhatsAppUrl(){
+      const text = currentLang === "ar"
+        ? "مرحبا، أريد الاستفسار عن خدمات Aqua.Tech"
+        : "Hello, I want to ask about Aqua.Tech services";
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+    }
 
-    const emailLink = document.getElementById("emailLink");
-    if(emailLink) emailLink.href = `mailto:${CONTACT_EMAIL}`;
+    function updateDynamicContactLinks(){
+      const waUrl = getWhatsAppUrl();
+      [
+        "waLinkHeader",
+        "waLinkContact",
+        "waLinkMobile",
+        "socialWA",
+        "floatingContactBtn"
+      ].forEach((id)=>{
+        const el = document.getElementById(id);
+        if(el) el.href = waUrl;
+      });
+
+      document.querySelectorAll('a[href^="https://wa.me/"]').forEach((el)=>{
+        if(!el.id || ["waLinkHeader", "waLinkContact", "waLinkMobile", "socialWA", "floatingContactBtn"].includes(el.id)){
+          el.href = waUrl;
+        }
+      });
+
+      const emailLink = document.getElementById("emailLink");
+      if(emailLink) emailLink.href = `mailto:${CONTACT_EMAIL}`;
+    }
+
+    updateDynamicContactLinks();
 
     // Social links
     const setHref = (id, url) => {
@@ -3998,8 +4029,6 @@ input, textarea, select, button {
       }
     };
 
-    let currentLang = "ar";
-
     function getStoredLang(){
       try{
         const saved = localStorage.getItem("aqua_lang");
@@ -4221,6 +4250,7 @@ input, textarea, select, button {
       currentLang = (lang === "en") ? "en" : "ar";
       storeLang(currentLang);
       applyI18n(currentLang);
+      updateDynamicContactLinks();
     }
 
     function toggleLang(){
@@ -4245,10 +4275,12 @@ input, textarea, select, button {
     window.toggleLang = toggleLang;
     bindLangToggle();
     applyI18n(currentLang);
+    updateDynamicContactLinks();
 
     window.addEventListener("DOMContentLoaded", ()=>{
       bindLangToggle();
       applyI18n(currentLang);
+      updateDynamicContactLinks();
     });
 
 

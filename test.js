@@ -2,7 +2,7 @@ import http from 'k6/http';
 import { check, sleep } from 'k6';
 
 export default function () {
-  let res = http.get('https://aqua-tech-t.github.io/aqua-tech-site/');
+  let res = http.get('https://aqua-tech-site.vercel.app/');
 
   check(res, {
     'status is 200': (r) => r.status === 200,
