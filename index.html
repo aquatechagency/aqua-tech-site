@@ -4581,14 +4581,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const result = await response.json();
 
-      if (result && result.success) {
-        setStatusSafe("");
-        setLastSubmitTs();
-        form.reset();
-        if (fullPhoneInput) fullPhoneInput.value = "";
-        clearErrors();
-        if (typeof showSuccessModal === "function") showSuccessModal(getMsg("form.modalText", "سوف نتواصل معك في أقرب وقت"));
-      } else {
+if (result && result.success) {
+  if (typeof gtag === "function") {
+    gtag("event", "form_submit_success", {
+      event_category: "lead",
+      event_label: "contact_form",
+      service: payload.service || "unknown",
+      budget: payload.budget || "unknown",
+      timeline: payload.timeline || "unknown"
+    });
+  }
+
+  setStatusSafe("");
+  setLastSubmitTs();
+  form.reset();
+  if (fullPhoneInput) fullPhoneInput.value = "";
+  clearErrors();
+  if (typeof showSuccessModal === "function") showSuccessModal(getMsg("form.modalText", "سوف نتواصل معك في أقرب وقت"));
+} else {
         setStatusSafe(getMsg("msg.statusFail", "تعذر إرسال الطلب. حاول مرة أخرى."));
         console.error(result);
       }
