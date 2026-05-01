@@ -1055,11 +1055,21 @@ input, textarea, select, button {
 <span class="text-xs text-[var(--muted)]">🌐</span>
 </button>
 <!-- WhatsApp -->
-<a class="inline-flex items-center gap-2 rounded-2xl px-3 py-2 bg-white/5 hover:bg-white/7 border border-[var(--border)] transition" href="https://api.whatsapp.com/send/?phone=962780932199&text&type=phone_number&app_absent=0" id="waLinkHeader" target="_blank" rel="noopener noreferrer">
-<svg viewBox="0 0 24 24" class="h-4 w-4 text-[var(--p1)]" fill="currentColor" aria-hidden="true">
-  <path d="M20.52 3.48A11.94 11.94 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.33-1.67a11.86 11.86 0 0 0 5.73 1.46h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.45-8.41Zm-8.46 18.28h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.75.99 1-3.66-.24-.38a9.86 9.86 0 0 1-1.52-5.22c0-5.44 4.43-9.87 9.88-9.87 2.64 0 5.13 1.03 6.99 2.89a9.83 9.83 0 0 1 2.9 6.98c0 5.45-4.43 9.86-9.85 9.86Zm5.74-7.86c-.31-.15-1.85-.91-2.14-1.01-.29-.11-.5-.15-.72.15-.21.31-.82 1.01-1 1.22-.19.21-.37.23-.68.08-.31-.15-1.31-.48-2.49-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.47.13-.62.14-.14.31-.37.46-.55.15-.18.21-.31.31-.51.1-.21.05-.38-.03-.53-.08-.15-.72-1.74-.99-2.38-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.53.08-.81.38-.28.31-1.07 1.05-1.07 2.57s1.1 2.99 1.25 3.2c.15.21 2.17 3.3 5.25 4.63.73.31 1.3.49 1.74.62.73.23 1.39.2 1.92.12.58-.09 1.85-.76 2.11-1.49.26-.73.26-1.36.18-1.49-.08-.14-.29-.22-.6-.38Z"/>
-</svg>
-<span class="hidden sm:inline text-sm" data-i18n="btn.whatsapp">واتساب</span>
+<a 
+  class="inline-flex items-center gap-2 rounded-2xl px-3 py-2 bg-white/5 hover:bg-white/7 border border-[var(--border)] transition"
+  href="https://api.whatsapp.com/send/?phone=962780932199&text&type=phone_number&app_absent=0"
+  id="waLinkHeader"
+  target="_blank"
+  rel="noopener noreferrer"
+  onclick="gtag('event', 'whatsapp_click', {
+    event_category: 'lead',
+    event_label: 'header_whatsapp'
+  });"
+>
+  <svg viewBox="0 0 24 24" class="h-4 w-4 text-[var(--p1)]" fill="currentColor" aria-hidden="true">
+    <path d="M20.52 3.48A11.94 11.94 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.33-1.67a11.86 11.86 0 0 0 5.73 1.46h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.45-8.41Zm-8.46 18.28h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.75.99 1-3.66-.24-.38a9.86 9.86 0 0 1-1.52-5.22c0-5.44 4.43-9.87 9.88-9.87 2.64 0 5.13 1.03 6.99 2.89a9.83 9.83 0 0 1 2.9 6.98c0 5.45-4.43 9.86-9.85 9.86Zm5.74-7.86c-.31-.15-1.85-.91-2.14-1.01-.29-.11-.5-.15-.72.15-.21.31-.82 1.01-1 1.22-.19.21-.37.23-.68.08-.31-.15-1.31-.48-2.49-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.47.13-.62.14-.14.31-.37.46-.55.15-.18.21-.31.31-.51.1-.21.05-.38-.03-.53-.08-.15-.72-1.74-.99-2.38-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.53.08-.81.38-.28.31-1.07 1.05-1.07 2.57s1.1 2.99 1.25 3.2c.15.21 2.17 3.3 5.25 4.63.73.31 1.3.49 1.74.62.73.23 1.39.2 1.92.12.58-.09 1.85-.76 2.11-1.49.26-.73.26-1.36.18-1.49-.08-.14-.29-.22-.6-.38Z"/>
+  </svg>
+  <span class="hidden sm:inline text-sm" data-i18n="btn.whatsapp">واتساب</span>
 </a>
 
 <!-- Mobile menu button -->
@@ -1092,13 +1102,22 @@ input, textarea, select, button {
     <a class="mobile-nav-link" href="#faq" data-i18n="nav.faq">الأسئلة</a>
     <a class="mobile-nav-link" href="#contact" data-i18n="nav.contact">تواصل</a>
 
-    <a id="waLinkMobile" class="mt-3 inline-flex items-center justify-center gap-2 rounded-2xl px-4 py-3 bg-white/5 hover:bg-white/7 border border-[var(--border)] transition"
-       href="https://api.whatsapp.com/send/?phone=962780932199&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">
-      <svg viewBox="0 0 24 24" class="h-4 w-4 text-[var(--p1)]" fill="currentColor" aria-hidden="true">
-        <path d="M20.52 3.48A11.94 11.94 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.33-1.67a11.86 11.86 0 0 0 5.73 1.46h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.45-8.41Zm-8.46 18.28h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.75.99 1-3.66-.24-.38a9.86 9.86 0 0 1-1.52-5.22c0-5.44 4.43-9.87 9.88-9.87 2.64 0 5.13 1.03 6.99 2.89a9.83 9.83 0 0 1 2.9 6.98c0 5.45-4.43 9.86-9.85 9.86Zm5.74-7.86c-.31-.15-1.85-.91-2.14-1.01-.29-.11-.5-.15-.72.15-.21.31-.82 1.01-1 1.22-.19.21-.37.23-.68.08-.31-.15-1.31-.48-2.49-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.47.13-.62.14-.14.31-.37.46-.55.15-.18.21-.31.31-.51.1-.21.05-.38-.03-.53-.08-.15-.72-1.74-.99-2.38-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.53.08-.81.38-.28.31-1.07 1.05-1.07 2.57s1.1 2.99 1.25 3.2c.15.21 2.17 3.3 5.25 4.63.73.31 1.3.49 1.74.62.73.23 1.39.2 1.92.12.58-.09 1.85-.76 2.11-1.49.26-.73.26-1.36.18-1.49-.08-.14-.29-.22-.6-.38Z"/>
-      </svg>
-      <span data-i18n="btn.whatsapp">واتساب</span>
-    </a>
+<a 
+  id="waLinkMobile"
+  class="mt-3 inline-flex items-center justify-center gap-2 rounded-2xl px-4 py-3 bg-white/5 hover:bg-white/7 border border-[var(--border)] transition"
+  href="https://api.whatsapp.com/send/?phone=962780932199&text&type=phone_number&app_absent=0"
+  target="_blank"
+  rel="noopener noreferrer"
+  onclick="gtag('event', 'whatsapp_click', {
+    event_category: 'lead',
+    event_label: 'mobile_whatsapp'
+  });"
+>
+  <svg viewBox="0 0 24 24" class="h-4 w-4 text-[var(--p1)]" fill="currentColor" aria-hidden="true">
+    <path d="M20.52 3.48A11.94 11.94 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.33-1.67a11.86 11.86 0 0 0 5.73 1.46h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.45-8.41Zm-8.46 18.28h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.75.99 1-3.66-.24-.38a9.86 9.86 0 0 1-1.52-5.22c0-5.44 4.43-9.87 9.88-9.87 2.64 0 5.13 1.03 6.99 2.89a9.83 9.83 0 0 1 2.9 6.98c0 5.45-4.43 9.86-9.85 9.86Zm5.74-7.86c-.31-.15-1.85-.91-2.14-1.01-.29-.11-.5-.15-.72.15-.21.31-.82 1.01-1 1.22-.19.21-.37.23-.68.08-.31-.15-1.31-.48-2.49-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.47.13-.62.14-.14.31-.37.46-.55.15-.18.21-.31.31-.51.1-.21.05-.38-.03-.53-.08-.15-.72-1.74-.99-2.38-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.53.08-.81.38-.28.31-1.07 1.05-1.07 2.57s1.1 2.99 1.25 3.2c.15.21 2.17 3.3 5.25 4.63.73.31 1.3.49 1.74.62.73.23 1.39.2 1.92.12.58-.09 1.85-.76 2.11-1.49.26-.73.26-1.36.18-1.49-.08-.14-.29-.22-.6-.38Z"/>
+  </svg>
+  <span data-i18n="btn.whatsapp">واتساب</span>
+</a>
   </div>
 </div>
 
@@ -2213,8 +2232,19 @@ input, textarea, select, button {
 <div class="space-y-3 text-sm text-[var(--muted2)]">
 <div class="rounded-3xl p-5 bg-white/5 border border-[var(--border)]">
 <div class="text-[var(--muted)] text-xs" data-i18n="contact.wa">واتساب</div>
-<a class="mt-1 inline-flex underline underline-offset-4 hover:text-white transition relative z-10 pointer-events-auto" href="https://api.whatsapp.com/send/?phone=962780932199&text&type=phone_number&app_absent=0" id="waLinkContact" target="_blank" data-external="1" rel="noopener noreferrer">
-<span data-i18n="contact.waAction">ابدأ معنا عبر واتساب</span>
+<a 
+  class="mt-1 inline-flex underline underline-offset-4 hover:text-white transition relative z-10 pointer-events-auto"
+  href="https://api.whatsapp.com/send/?phone=962780932199&text&type=phone_number&app_absent=0"
+  id="waLinkContact"
+  target="_blank"
+  data-external="1"
+  rel="noopener noreferrer"
+  onclick="gtag('event', 'whatsapp_click', {
+    event_category: 'lead',
+    event_label: 'contact_whatsapp'
+  });"
+>
+  <span data-i18n="contact.waAction">ابدأ معنا عبر واتساب</span>
 </a>
 </div>
 <div class="rounded-3xl p-5 bg-white/5 border border-[var(--border)]">
@@ -2227,11 +2257,25 @@ input, textarea, select, button {
 <div class="text-[var(--muted)] text-xs" data-i18n="contact.social">حسابات التواصل</div>
 <div class="mt-3 flex flex-wrap gap-2 md:grid md:grid-cols-2 md:gap-3">
 <!-- WhatsApp -->
-<a aria-label="WhatsApp" class="inline-flex items-center justify-center md:justify-start gap-0 md:gap-3 h-10 w-10 sm:h-11 sm:w-11 md:h-auto md:min-h-[84px] md:w-full rounded-2xl md:rounded-3xl bg-[var(--surface)]/70 border border-[var(--border)] hover:bg-[var(--surface)]/90 hover:text-white transition relative z-10 pointer-events-auto md:px-4 md:py-4" href="https://api.whatsapp.com/send/?phone=962780932199&text&type=phone_number&app_absent=0" id="socialWA" rel="noopener noreferrer" target="_blank" title="WhatsApp" data-external="1">
-<svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-<path d="M20.52 3.48A11.94 11.94 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.33-1.67a11.86 11.86 0 0 0 5.73 1.46h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.45-8.41Zm-8.46 18.28h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.75.99 1-3.66-.24-.38a9.86 9.86 0 0 1-1.52-5.22c0-5.44 4.43-9.87 9.88-9.87 2.64 0 5.13 1.03 6.99 2.89a9.83 9.83 0 0 1 2.9 6.98c0 5.45-4.43 9.86-9.85 9.86Zm5.74-7.86c-.31-.15-1.85-.91-2.14-1.01-.29-.11-.5-.15-.72.15-.21.31-.82 1.01-1 1.22-.19.21-.37.23-.68.08-.31-.15-1.31-.48-2.49-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.47.13-.62.14-.14.31-.37.46-.55.15-.18.21-.31.31-.51.1-.21.05-.38-.03-.53-.08-.15-.72-1.74-.99-2.38-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.53.08-.81.38-.28.31-1.07 1.05-1.07 2.57s1.1 2.99 1.25 3.2c.15.21 2.17 3.3 5.25 4.63.73.31 1.3.49 1.74.62.73.23 1.39.2 1.92.12.58-.09 1.85-.76 2.11-1.49.26-.73.26-1.36.18-1.49-.08-.14-.29-.22-.6-.38Z"></path>
-</svg>
-<span class="hidden md:inline text-sm font-medium">WhatsApp</span></a>
+<a 
+  aria-label="WhatsApp"
+  class="inline-flex items-center justify-center md:justify-start gap-0 md:gap-3 h-10 w-10 sm:h-11 sm:w-11 md:h-auto md:min-h-[84px] md:w-full rounded-2xl md:rounded-3xl bg-[var(--surface)]/70 border border-[var(--border)] hover:bg-[var(--surface)]/90 hover:text-white transition relative z-10 pointer-events-auto md:px-4 md:py-4"
+  href="https://api.whatsapp.com/send/?phone=962780932199&text&type=phone_number&app_absent=0"
+  id="socialWA"
+  rel="noopener noreferrer"
+  target="_blank"
+  title="WhatsApp"
+  data-external="1"
+  onclick="gtag('event', 'whatsapp_click', {
+    event_category: 'lead',
+    event_label: 'social_whatsapp'
+  });"
+>
+  <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M20.52 3.48A11.94 11.94 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.33-1.67a11.86 11.86 0 0 0 5.73 1.46h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.45-8.41Zm-8.46 18.28h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.75.99 1-3.66-.24-.38a9.86 9.86 0 0 1-1.52-5.22c0-5.44 4.43-9.87 9.88-9.87 2.64 0 5.13 1.03 6.99 2.89a9.83 9.83 0 0 1 2.9 6.98c0 5.45-4.43 9.86-9.85 9.86Zm5.74-7.86c-.31-.15-1.85-.91-2.14-1.01-.29-.11-.5-.15-.72.15-.21.31-.82 1.01-1 1.22-.19.21-.37.23-.68.08-.31-.15-1.31-.48-2.49-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.47.13-.62.14-.14.31-.37.46-.55.15-.18.21-.31.31-.51.1-.21.05-.38-.03-.53-.08-.15-.72-1.74-.99-2.38-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.53.08-.81.38-.28.31-1.07 1.05-1.07 2.57s1.1 2.99 1.25 3.2c.15.21 2.17 3.3 5.25 4.63.73.31 1.3.49 1.74.62.73.23 1.39.2 1.92.12.58-.09 1.85-.76 2.11-1.49.26-.73.26-1.36.18-1.49-.08-.14-.29-.22-.6-.38Z"></path>
+  </svg>
+  <span class="hidden md:inline text-sm font-medium">WhatsApp</span>
+</a>
 <!-- Email -->
 <a aria-label="Email" class="inline-flex items-center justify-center md:justify-start gap-0 md:gap-3 h-10 w-10 sm:h-11 sm:w-11 md:h-auto md:min-h-[84px] md:w-full rounded-2xl md:rounded-3xl bg-[var(--surface)]/70 border border-[var(--border)] hover:bg-[var(--surface)]/90 hover:text-white transition relative z-10 pointer-events-auto md:px-4 md:py-4" href="mailto:aquatechqat@gmail.com" id="socialEmail" rel="noopener noreferrer" title="Email">
 <svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
@@ -2603,7 +2647,18 @@ input, textarea, select, button {
       <div>
         <h3 class="text-sm font-semibold text-white" data-i18n="footer.contactH">تواصل</h3>
         <div class="mt-4 flex flex-col gap-2 text-sm text-[var(--muted2)]">
-          <a href="https://api.whatsapp.com/send/?phone=962780932199&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">WhatsApp</a>
+         <a 
+           href="https://api.whatsapp.com/send/?phone=962780932199&text&type=phone_number&app_absent=0"
+            target="_blank"
+          rel="noopener noreferrer"
+           class="hover:text-white transition"
+           onclick="gtag('event', 'whatsapp_click', {
+           event_category: 'lead',
+           event_label: 'footer_whatsapp'
+              });"
+>
+  WhatsApp
+          </a>
           <a href="mailto:aquatechqat@gmail.com" class="hover:text-white transition">aquatechqat@gmail.com</a>
           <a href="#contact" class="hover:text-white transition" data-i18n="footer.link5">ابدأ مشروعك</a>
         </div>
@@ -4354,11 +4409,21 @@ ${data.details || "-"}
 
 // init
 </script>
-<a id="floatingContactBtn" href="https://api.whatsapp.com/send/?phone=962780932199&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="fixed bottom-5 right-5 z-50 md:hidden inline-flex items-center gap-2 rounded-full px-4 py-3 bg-[var(--surface)]/95 border border-[rgba(96,165,250,.28)] text-white shadow-[0_14px_38px_rgba(0,0,0,.34)] backdrop-blur transition hover:-translate-y-0.5 hover:bg-[var(--surface)]">
+<a 
+  id="floatingContactBtn"
+  href="https://api.whatsapp.com/send/?phone=962780932199&text&type=phone_number&app_absent=0"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="fixed bottom-5 right-5 z-50 md:hidden inline-flex items-center gap-2 rounded-full px-4 py-3 bg-[var(--surface)]/95 border border-[rgba(96,165,250,.28)] text-white shadow-[0_14px_38px_rgba(0,0,0,.34)] backdrop-blur transition hover:-translate-y-0.5 hover:bg-[var(--surface)]"
+  onclick="gtag('event', 'whatsapp_click', {
+    event_category: 'lead',
+    event_label: 'floating_whatsapp'
+  });"
+>
   <svg viewBox="0 0 24 24" class="h-5 w-5 text-[var(--p1)]" fill="currentColor" aria-hidden="true">
     <path d="M20.52 3.48A11.94 11.94 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.33-1.67a11.86 11.86 0 0 0 5.73 1.46h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.45-8.41Zm-8.46 18.28h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.75.99 1-3.66-.24-.38a9.86 9.86 0 0 1-1.52-5.22c0-5.44 4.43-9.87 9.88-9.87 2.64 0 5.13 1.03 6.99 2.89a9.83 9.83 0 0 1 2.9 6.98c0 5.45-4.43 9.86-9.85 9.86Zm5.74-7.86c-.31-.15-1.85-.91-2.14-1.01-.29-.11-.5-.15-.72.15-.21.31-.82 1.01-1 1.22-.19.21-.37.23-.68.08-.31-.15-1.31-.48-2.49-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.47.13-.62.14-.14.31-.37.46-.55.15-.18.21-.31.31-.51.1-.21.05-.38-.03-.53-.08-.15-.72-1.74-.99-2.38-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.53.08-.81.38-.28.31-1.07 1.05-1.07 2.57s1.1 2.99 1.25 3.2c.15.21 2.17 3.3 5.25 4.63.73.31 1.3.49 1.74.62.73.23 1.39.2 1.92.12.58-.09 1.85-.76 2.11-1.49.26-.73.26-1.36.18-1.49-.08-.14-.29-.22-.6-.38Z"/>
   </svg>
-<span data-i18n="floating.contact">تواصل معنا</span>
+  <span data-i18n="floating.contact">تواصل معنا</span>
 </a>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
