@@ -1,0 +1,14 @@
+# Aqua.Tech — robots.txt
+# https://YOUR-DOMAIN.com/robots.txt
+
+# Allow all well-behaved crawlers
+User-agent: *
+Allow: /
+
+# Block crawlers from assets that don't need indexing
+Disallow: /dist/
+Disallow: /src/
+Disallow: /node_modules/
+
+# Sitemap location
+Sitemap: https://YOUR-DOMAIN.com/sitemap.xml

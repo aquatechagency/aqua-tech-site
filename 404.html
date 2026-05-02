@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>404 — الصفحة غير موجودة | Aqua.Tech</title>
+<meta name="robots" content="noindex, nofollow"/>
+<meta name="theme-color" content="#050B14"/>
+<link rel="icon" href="/assets/favicon/favicon.ico" sizes="any"/>
+<link rel="icon" href="/assets/favicon/icon.svg" type="image/svg+xml"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>
+
+<style>
+  :root {
+    --bg:      #050B14;
+    --surface: #0B1626;
+    --border:  #1B2A3A;
+    --text:    #E6F0FF;
+    --muted:   #A8B3C7;
+    --p1:      #22D3EE;
+    --p2:      #60A5FA;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    height: 100%;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "IBM Plex Sans Arabic", Inter, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Dot grid background */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(rgba(96,165,250,.10) 1px, transparent 1px);
+    background-size: 22px 22px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Glowing blob */
+  body::after {
+    content: "";
+    position: fixed;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 600px;
+    border-radius: 9999px;
+    background: radial-gradient(circle at 40% 40%, rgba(34,211,238,.22), transparent 55%),
+                radial-gradient(circle at 65% 55%, rgba(96,165,250,.18), transparent 55%);
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+
+  /* Logo */
+  .logo-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    margin-bottom: 3rem;
+  }
+  .logo-wrap img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    border-radius: 10px;
+    background: rgba(255,255,255,.05);
+    border: 1px solid var(--border);
+    padding: 2px;
+  }
+  .logo-wrap span {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -.01em;
+  }
+
+  /* 404 number */
+  .code {
+    font-size: clamp(5rem, 18vw, 9rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -.04em;
+    background: linear-gradient(135deg, var(--p1), var(--p2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    /* subtle animation */
+    animation: pulse 6s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: .8; }
+  }
+
+  .title {
+    font-size: clamp(1.25rem, 4vw, 1.75rem);
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: .75rem;
+  }
+
+  .desc {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 36ch;
+    margin: 0 auto 2.5rem;
+  }
+
+  /* Buttons */
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    justify-content: center;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .8rem 1.5rem;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, rgba(21,58,89,.96), rgba(31,91,133,.96));
+    color: #ECF7FF;
+    border: 1px solid rgba(125,187,228,.22);
+    box-shadow: 0 14px 34px rgba(5,11,20,.32);
+    font-size: .95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform .2s ease, box-shadow .2s ease;
+    font-family: inherit;
+  }
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 18px 40px rgba(5,11,20,.38);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .8rem 1.5rem;
+    border-radius: 1rem;
+    background: rgba(255,255,255,.04);
+    color: var(--text);
+    border: 1px solid var(--border);
+    font-size: .95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background .2s ease, border-color .2s ease, transform .2s ease;
+    font-family: inherit;
+  }
+  .btn-secondary:hover {
+    background: rgba(255,255,255,.07);
+    border-color: rgba(96,165,250,.25);
+    transform: translateY(-1px);
+  }
+
+  /* Footer note */
+  .foot {
+    margin-top: 4rem;
+    font-size: .8rem;
+    color: var(--muted);
+    opacity: .6;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .code { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <!-- Logo link back to home -->
+  <a class="logo-wrap" href="/">
+    <img src="/assets/logoo.webp" alt="Aqua.Tech logo" width="36" height="36"/>
+    <span>Aqua.Tech</span>
+  </a>
+
+  <div class="code" aria-hidden="true">404</div>
+
+  <h1 class="title" lang="ar">الصفحة غير موجودة</h1>
+  <p class="title" lang="en" style="font-size:1rem; font-weight:500; color:var(--muted); margin-top:-.25rem; margin-bottom:.75rem;">Page not found</p>
+
+  <p class="desc" lang="ar">
+    يبدو أن هذه الصفحة لا توجد أو تم نقلها.<br/>
+    جرّب العودة للرئيسية أو تواصل معنا مباشرة.
+  </p>
+
+  <div class="actions">
+    <a class="btn-primary" href="/">
+      <!-- Home icon -->
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7m-9 9V9m4 11V9"/>
+      </svg>
+      العودة للرئيسية
+    </a>
+    <a class="btn-secondary" href="/#contact">
+      <!-- Chat icon -->
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+      </svg>
+      تواصل معنا
+    </a>
+  </div>
+
+  <p class="foot">Aqua.Tech &copy; 2025</p>
+
+</main>
+
+</body>
+</html>
