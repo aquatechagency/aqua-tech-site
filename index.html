@@ -35,7 +35,7 @@
 <!-- 5. Primary meta -->
 <meta id="metaDesc" name="description" content="Aqua.Tech تبني مواقع احترافية وأنظمة مخصصة وأتمتة بالذكاء الاصطناعي وتدير حسابات السوشيال ميديا لمساعدة الشركات على النمو وتحويل الزوار والمتابعين إلى عملاء."/>
 <meta name="keywords" content="Aqua.Tech, web development Jordan, AI automation Jordan, social media management Jordan, digital marketing Amman, landing pages Amman, custom systems Jordan, website design Jordan"/>
-<link rel="canonical" href="https://aqua.tech/"/>
+<link rel="canonical" href="https://aquatechagency.com/"/>
 <meta name="robots" content="index,follow,max-image-preview:large"/>
 
 <!-- 6. Security / referrer -->
@@ -52,11 +52,11 @@
 
 <!-- 8. Open Graph -->
 <meta property="og:type" content="website"/>
-<meta property="og:url" content="https://aqua.tech/"/>
+<meta property="og:url" content="https://aquatechagency.com/"/>
 <meta property="og:site_name" content="Aqua.Tech"/>
 <meta property="og:title" content="Aqua.Tech | Growth • Software • AI"/>
 <meta property="og:description" content="مواقع احترافية، أنظمة مخصصة، أتمتة بالذكاء الاصطناعي، وإدارة حسابات السوشيال ميديا لمساعدة الشركات على النمو وتحويل المتابعين إلى عملاء."/>
-<meta property="og:image" content="https://aqua.tech/assets/logoo.webp"/>
+<meta property="og:image" content="https://aquatechagency.com/assets/logoo.webp"/>
 <meta property="og:image:width" content="1080"/>
 <meta property="og:image:height" content="1080"/>
 <meta property="og:image:alt" content="Aqua.Tech logo — water drop and circuit board mark"/>
@@ -67,7 +67,7 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Aqua.Tech | Growth • Software • AI"/>
 <meta name="twitter:description" content="Professional websites, custom systems, AI automation, and social media management to help businesses launch, grow, and convert better."/>
-<meta name="twitter:image" content="https://aqua.tech/assets/logoo.webp"/>
+<meta name="twitter:image" content="https://aquatechagency.com/assets/logoo.webp"/>
 <meta name="twitter:image:alt" content="Aqua.Tech logo"/>
 
 <!-- 10. Favicon -->
@@ -1092,9 +1092,9 @@ input, textarea, select, button {
     {
       "@type": ["Organization", "LocalBusiness"],
       "name": "Aqua.Tech",
-      "url": "https://aqua.tech/",
-      "logo": "https://aqua.tech/assets/logoo.webp",
-      "image": "https://aqua.tech/assets/logoo.webp",
+      "url": "https://aquatechagency.com/",
+      "logo": "https://aquatechagency.com/assets/logoo.webp",
+      "image": "https://aquatechagency.com/assets/logoo.webp",
       "description": "Aqua.Tech builds professional websites, custom systems, AI automation, and manages social media to help businesses in Jordan grow and convert visitors into clients.",
       "foundingDate": "2024",
       "email": "info.aquatech.jo@gmail.com",
@@ -1131,10 +1131,10 @@ input, textarea, select, button {
     {
       "@type": "WebSite",
       "name": "Aqua.Tech",
-      "url": "https://aqua.tech/",
+      "url": "https://aquatechagency.com/",
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://aqua.tech/?search={search_term_string}",
+        "target": "https://aquatechagency.com/?search={search_term_string}",
         "query-input": "required name=search_term_string"
       }
     },
@@ -1164,35 +1164,106 @@ input, textarea, select, button {
 </script>
 
 <!-- ===== Analytics consent banner ===== -->
-<div id="consent-banner" role="region" aria-label="إشعار الخصوصية — Privacy notice" aria-live="polite" hidden>
-  <p>
-    <span lang="ar">نستخدم Google Analytics لتحسين تجربتك. هل توافق؟ </span>
-    <span lang="en" style="opacity:.7;font-size:.8em;">We use Google Analytics to improve your experience.</span>
-  </p>
-  <button class="consent-btn-accept" id="consentAccept" type="button">قبول Accept</button>
-  <button class="consent-btn-decline" id="consentDecline" type="button">رفض Decline</button>
+<div id="consent-banner" role="region" aria-label="Privacy notice" aria-live="polite" hidden>
+  <p id="consent-text"></p>
+  <button class="consent-btn-accept" id="consentAccept" type="button"></button>
+  <button class="consent-btn-decline" id="consentDecline" type="button"></button>
 </div>
+
 <script>
   (function(){
     try {
-      var stored = localStorage.getItem('aqua_analytics_consent');
-      if (stored !== null) return; // already decided — don't show banner
-      var banner = document.getElementById('consent-banner');
-      if (!banner) return;
-      banner.removeAttribute('hidden');
-      // Slide in after a short delay so it doesn't compete with page load
-      setTimeout(function(){ banner.classList.add('is-visible'); }, 1800);
+      function getCurrentLang() {
+        var stored = localStorage.getItem("aqua_lang");
+        var htmlLang = document.documentElement.lang;
+        return (stored === "ar" || stored === "en") ? stored :
+               (htmlLang === "ar" || htmlLang === "en") ? htmlLang : "ar";
+      }
 
-      document.getElementById('consentAccept').addEventListener('click', function(){
-        banner.classList.remove('is-visible');
-        setTimeout(function(){ banner.setAttribute('hidden',''); }, 380);
-        if (typeof window.__aquaEnableAnalytics === 'function') window.__aquaEnableAnalytics();
+      function updateConsentText() {
+        var lang = getCurrentLang();
+
+        var text = {
+          ar: "نستخدم Google Analytics لتحسين تجربتك. هل توافق؟",
+          en: "We use Google Analytics to improve your experience. Do you agree?"
+        };
+
+        var accept = {
+          ar: "قبول",
+          en: "Accept"
+        };
+
+        var decline = {
+          ar: "رفض",
+          en: "Decline"
+        };
+
+        var banner = document.getElementById("consent-banner");
+        var textEl = document.getElementById("consent-text");
+        var acceptBtn = document.getElementById("consentAccept");
+        var declineBtn = document.getElementById("consentDecline");
+
+        if (banner) {
+          banner.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
+          banner.setAttribute("lang", lang);
+        }
+
+        if (textEl) textEl.innerText = text[lang];
+        if (acceptBtn) acceptBtn.innerText = accept[lang];
+        if (declineBtn) declineBtn.innerText = decline[lang];
+      }
+
+      var storedConsent = localStorage.getItem("aqua_analytics_consent");
+      if (storedConsent !== null) return;
+
+      var banner = document.getElementById("consent-banner");
+      if (!banner) return;
+
+      banner.removeAttribute("hidden");
+      updateConsentText();
+
+      setTimeout(function(){
+        banner.classList.add("is-visible");
+      }, 1800);
+
+      document.getElementById("consentAccept").addEventListener("click", function(){
+        banner.classList.remove("is-visible");
+        setTimeout(function(){ banner.setAttribute("hidden", ""); }, 380);
+        if (typeof window.__aquaEnableAnalytics === "function") window.__aquaEnableAnalytics();
       });
-      document.getElementById('consentDecline').addEventListener('click', function(){
-        banner.classList.remove('is-visible');
-        setTimeout(function(){ banner.setAttribute('hidden',''); }, 380);
-        if (typeof window.__aquaDeclineAnalytics === 'function') window.__aquaDeclineAnalytics();
+
+      document.getElementById("consentDecline").addEventListener("click", function(){
+        banner.classList.remove("is-visible");
+        setTimeout(function(){ banner.setAttribute("hidden", ""); }, 380);
+        if (typeof window.__aquaDeclineAnalytics === "function") window.__aquaDeclineAnalytics();
       });
+
+      // ✅ يتابع أي تغيير على lang أو dir ويحدث الرسالة فورًا
+      new MutationObserver(updateConsentText).observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["lang", "dir"]
+      });
+
+      // ✅ لما تضغط زر اللغة يحدث الرسالة بعد تغيير اللغة مباشرة
+      var langToggle = document.getElementById("langToggle");
+if (langToggle) {
+  langToggle.addEventListener("click", function () {
+    const currentLang = document.documentElement.lang === "ar" ? "ar" : "en";
+    const newLang = currentLang === "ar" ? "en" : "ar";
+
+    // تخزين اللغة
+    localStorage.setItem("aqua_lang", newLang);
+
+    // تغيير لغة الموقع كامل
+    applyI18n(newLang);
+
+    // تحديث رسالة الكوكيز فوراً
+    if (typeof updateConsentText === "function") {
+      updateConsentText();
+    }
+  });
+}
+
     } catch(e) {}
   })();
 </script>
@@ -1270,8 +1341,8 @@ input, textarea, select, button {
 <div class="flex items-center gap-2">
 <!-- Language toggle -->
 <button type="button" aria-label="Toggle language" class="inline-flex items-center gap-2 rounded-2xl px-3 py-2 bg-white/5 hover:bg-white/7 border border-[var(--border)] transition text-sm" id="langToggle">
-<span style="font-family:Inter,system-ui;">EN</span>
-<span class="text-xs text-[var(--muted)]">🌐</span>
+  <span style="font-family:Inter,system-ui;">EN</span>
+  <span class="text-xs text-[var(--muted)]">🌐</span>
 </button>
 <!-- WhatsApp -->
 <a 
@@ -1378,7 +1449,7 @@ input, textarea, select, button {
 </p>
 <h1 class="mt-5 text-[clamp(1.8rem,4.5vw,3.4rem)] font-semibold leading-[1.35] md:leading-[1.22] tracking-normal">
       <span class="block" data-i18n="hero.h1a">نطور مواقع وتطبيقات</span>
-  <span class="block text-transparent bg-clip-text bg-gradient-to-l from-[var(--p2)] to-[var(--p1)]" data-i18n="hero.h1b">تسهم في نمو أعمالك وزيادة مبيعاتك</span>
+  <span class="block text-transparent bg-clip-text bg-gradient-to-l from-[var(--p2)] to-[var(--p1)]" data-i18n="hero.h1b">تنمّي أعمالك وتزيد مبيعاتك</span>
 </h1>
 <p class="mt-5 max-w-2xl mx-auto md:mx-0 text-sm sm:text-base md:text-lg text-[var(--muted)] leading-7 sm:leading-8 break-words whitespace-normal" data-i18n="hero.desc">
                    Aqua.Tech نبني مواقع وأنظمة تركّز على جذب العملاء، استقبال الطلبات، والرد الأولي في مسار واضح وقابل للتنفيذ.
@@ -1405,7 +1476,7 @@ input, textarea, select, button {
 </div>
 </div>
 <div class="hero-actions">
-  <a href="#contact" class="hero-primary-btn font-semibold" data-i18n="hero.ctaPrimary">ابدأ نظامك الآن</a>
+  <a href="#contact" class="hero-primary-btn font-semibold" data-i18n="hero.ctaPrimary">ابدأالآن</a>
   <a href="#services" class="hero-secondary-btn font-medium" data-i18n="hero.ctaSecondary">استعرض الحلول</a>
 </div>
 </div>
@@ -1427,7 +1498,7 @@ input, textarea, select, button {
 </div>
 <div aria-hidden="true" class="hidden md:block pointer-events-none absolute top-16 -left-2 floatC">
   <div class="rounded-2xl px-4 py-3 bg-white/5 border border-[var(--border)] shadow-aqua">
-<div class="text-[11px] text-[var(--muted)]" data-i18n="hero.devMode">وضع التطوير</div>
+<div class="text-[11px] text-[var(--muted)]" data-i18n="hero.devMode">DEV MODE</div>
 <div class="mt-1 font-semibold text-white/90" style="font-family: Inter, system-ui;">&lt;/&gt; Aqua.Tech</div>
 </div>
 </div>
@@ -1695,8 +1766,8 @@ input, textarea, select, button {
 
   <!-- Design -->
   <div class="w-[calc(100%-2rem)] max-w-[22rem] sm:max-w-none mx-auto rounded-3xl p-6 md:p-8 bg-white/5 border border-[var(--border)] shadow-aqua" id="svc-design">
-    <div class="grid md:grid-cols-2 gap-8 items-center">
-      <div class="md:order-2">
+<div class="flex flex-col md:flex-row-reverse gap-8 items-center">
+        <div class="md:order-2">
         <div class="text-xs text-[var(--muted)]" data-i18n="details.design.kicker">تصميم وهوية</div>
         <h3 class="mt-2 text-xl md:text-2xl font-semibold" data-i18n="details.design.t">تصميم واجهات وتجربة مستخدم وهوية بصرية</h3>
         <p class="mt-3 text-sm text-[var(--muted2)] leading-relaxed" data-i18n="details.design.d">
@@ -2938,26 +3009,23 @@ input, textarea, select, button {
 
     bindServiceCtas();
 
-    // Smart form helper for Social Media Management
-    (function(){
-      const serviceSelect = document.getElementById("fService");
-      const detailsField = document.getElementById("fDetails");
-      if(!serviceSelect || !detailsField) return;
-      detailsField.setAttribute("data-default-placeholder", detailsField.placeholder || "");
+// Smart form helper for Social Media Management
+function updateDetailsPlaceholderByService(){
+  const serviceSelect = document.getElementById("fService");
+  const detailsField = document.getElementById("fDetails");
+  if(!serviceSelect || !detailsField) return;
 
-      function updateDetailsPlaceholder(){
-        if(serviceSelect.value === "social_media_management"){
-          detailsField.placeholder = currentLang === "ar"
-            ? "اكتب لنا عدد الحسابات، نوع النشاط، هل لديك محتوى جاهز، وكم منشور/ريلز تحتاج شهريًا."
-            : "Tell us how many accounts you have, your business type, if content is ready, and how many posts/reels you need monthly.";
-        } else {
-          detailsField.placeholder = detailsField.getAttribute("data-default-placeholder") || detailsField.placeholder;
-        }
-      }
+  if(serviceSelect.value === "social_media_management"){
+    detailsField.placeholder = currentLang === "ar"
+      ? "اكتب لنا عدد الحسابات، نوع النشاط، هل لديك محتوى جاهز، وكم منشور/ريلز تحتاج شهريًا."
+      : "Tell us how many accounts you have, your business type, if content is ready, and how many posts/reels you need monthly.";
+  } else {
+    const dict = I18N[currentLang] || I18N.ar;
+    detailsField.placeholder = dict["form.detailsPh"] || "";
+  }
+}
 
-      serviceSelect.addEventListener("change", updateDetailsPlaceholder);
-      updateDetailsPlaceholder();
-    })();
+document.getElementById("fService")?.addEventListener("change", updateDetailsPlaceholderByService);
 // ===== i18n =====
     const I18N = {
       ar: {
@@ -2985,15 +3053,15 @@ input, textarea, select, button {
 
         "hero.badge":"حلول رقمية ونمو فعلي — من الانطلاقة إلى التوسع",
         "skip.main":"تخطَّ إلى المحتوى الرئيسي",
-        "hero.devMode":"وضع التطوير","hero.terminalLabel":"terminal • deploy",
+        "hero.devMode":"DEV MODE","hero.terminalLabel":"terminal • deploy",
         "hero.terminalBody":"<span class=\"text-white/80\">$</span> npx create-aqua-app\n<span class=\"text-white/80\">$</span> build --optimize\n<span class=\"text-white/80\">$</span> deploy --env=prod\n<span class=\"text-[var(--p1)]\">✔</span>shipped in<span class=\"text-[var(--p2)]\">minutes</span> — performance ✅",
         "form.modalTitle":"تم إرسال طلبك بنجاح",
         "form.modalText":"سوف نتواصل معك في أقرب وقت",
 
         "hero.h1a":"نطور مواقع وتطبيقات",
-        "hero.h1b":"تسهم في نمو أعمالك وزيادة مبيعاتك",
+        "hero.h1b":"تنمّي أعمالك وتزيد مبيعاتك",
         "hero.desc":"Aqua.Tech نبني مواقع وأنظمة تركّز على جذب العملاء، استقبال الطلبات، والرد الأولي في مسار واضح وقابل للتنفيذ.",
-        "hero.ctaPrimary":"ابدأ نظامك الآن",
+        "hero.ctaPrimary":"ابدأ الآن",
         "hero.ctaSecondary":"استعرض الحلول",
         "hero.pill1":"⚡ إطلاق أسرع",
         "hero.pill2":"🤖 ردود ومتابعة ذكية",
@@ -3454,7 +3522,7 @@ input, textarea, select, button {
 
         "nav.testimonials":"المعايير",
 
-        "hero.ctaPrimary":"ابدأ نظامك الآن",
+        "hero.ctaPrimary":"ابدأ الآن",
 
         "hero.readyD":"احكيلنا عن مشروعك وسنرجع لك بخطة واضحة وخيارات مناسبة لمرحلتك.",
 
@@ -4041,10 +4109,16 @@ input, textarea, select, button {
       });
 
       updateLangToggleUI(lang);
-      const serviceSelectForLang = document.getElementById("fService");
-      if(serviceSelectForLang){
-        serviceSelectForLang.dispatchEvent(new Event("change", { bubbles: true }));
+
+      if (typeof updateConsentText === "function") {
+        updateConsentText();
       }
+
+       currentLang = lang;
+
+          if (typeof updateDetailsPlaceholderByService === "function") {
+           updateDetailsPlaceholderByService();
+          }
     }
 
 
@@ -4842,6 +4916,38 @@ function bindHeaderLinks() {
   </svg>
   <span class="wa-tip" aria-hidden="true">تواصل معنا على واتساب</span>
 </a>
+<script>
+const translations = {
+  ar: {
+    "form.detailsPh": "اكتب الهدف، المميزات، والموعد المتوقع…"
+  },
+  en: {
+    "form.detailsPh": "Describe your goal, features, and expected timeline…"
+  }
+};
 
+function applyLanguage(lang) {
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+  localStorage.setItem("aqua_lang", lang);
+
+  document.querySelectorAll("[data-ph-i18n]").forEach(function(el) {
+    var key = el.getAttribute("data-ph-i18n");
+    if (translations[lang] && translations[lang][key]) {
+      el.placeholder = translations[lang][key];
+    }
+  });
+
+  if (typeof updateConsentText === "function") {
+    updateConsentText();
+  }
+}
+
+// تشغيل أول مرة
+document.addEventListener("DOMContentLoaded", function() {
+  var savedLang = localStorage.getItem("aqua_lang") || "ar";
+  applyLanguage(savedLang);
+});
+</script>
 </body>
 </html>
