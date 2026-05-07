@@ -4959,38 +4959,5 @@ function bindHeaderLinks() {
   </svg>
   <span class="wa-tip" aria-hidden="true">تواصل معنا على واتساب</span>
 </a>
-<script>
-const translations = {
-  ar: {
-    "form.detailsPh": "اكتب الهدف، المميزات، والموعد المتوقع…"
-  },
-  en: {
-    "form.detailsPh": "Describe your goal, features, and expected timeline…"
-  }
-};
-
-function applyLanguage(lang) {
-  document.documentElement.lang = lang;
-  document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
-  localStorage.setItem("aqua_lang", lang);
-
-  document.querySelectorAll("[data-ph-i18n]").forEach(function(el) {
-    var key = el.getAttribute("data-ph-i18n");
-    if (translations[lang] && translations[lang][key]) {
-      el.placeholder = translations[lang][key];
-    }
-  });
-
-  if (typeof updateConsentText === "function") {
-    updateConsentText();
-  }
-}
-
-// تشغيل أول مرة
-document.addEventListener("DOMContentLoaded", function() {
-  var savedLang = localStorage.getItem("aqua_lang") || "ar";
-  applyLanguage(savedLang);
-});
-</script>
 </body>
 </html>
