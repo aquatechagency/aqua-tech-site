@@ -736,7 +736,6 @@ section{ content-visibility:auto; contain-intrinsic-size: auto 1px auto 700px; }
     padding-top:calc(84px + env(safe-area-inset-top));
   }
   html, body{ overflow-x:hidden; }
-  body{ padding-bottom:max(env(safe-area-inset-bottom), 0px); }
   #globalBg{
     opacity:.76;
   }
@@ -802,7 +801,7 @@ section{ content-visibility:auto; contain-intrinsic-size: auto 1px auto 700px; }
   #contact .grid > div > div,
   #contact form{ border-radius:1.5rem; }
   #services svg,
-  #process svg,{ max-width:100%; height:auto; }
+  #process svg{ max-width:100%; height:auto; }
   footer .max-w-6xl{ padding-top:1.5rem; padding-bottom:1.5rem; }
   body{ padding-bottom:84px; }
   .hero-actions{
@@ -1112,11 +1111,10 @@ section{ content-visibility:auto; contain-intrinsic-size: auto 1px auto 700px; }
   box-shadow:0 12px 28px rgba(5,11,20,.28);
   
 }
-h1, h2, h3, p, span, a, div, section {
+h1, h2, h3, p, span, a, button {
   -webkit-user-select: none;
   user-select: none;
   -webkit-touch-callout: none;
-  caret-color: transparent;
 }
 
 input, textarea, select, button {
@@ -1309,26 +1307,6 @@ document.getElementById("consentDecline").addEventListener("click", function(){
         attributeFilter: ["lang", "dir"]
       });
 
-      // ✅ لما تضغط زر اللغة يحدث الرسالة بعد تغيير اللغة مباشرة
-      var langToggle = document.getElementById("langToggle");
-if (langToggle) {
-  langToggle.addEventListener("click", function () {
-    const currentLang = document.documentElement.lang === "ar" ? "ar" : "en";
-    const newLang = currentLang === "ar" ? "en" : "ar";
-
-    // تخزين اللغة
-    localStorage.setItem("aqua_lang", newLang);
-
-    // تغيير لغة الموقع كامل
-    applyI18n(newLang);
-
-    // تحديث رسالة الكوكيز فوراً
-    if (typeof updateConsentText === "function") {
-      updateConsentText();
-    }
-  });
-}
-
     } catch(e) {}
   })();
 </script>
@@ -1416,8 +1394,8 @@ if (langToggle) {
   id="waLinkHeader"
   target="_blank"
   rel="noopener noreferrer"
-  onclick="gtag('event', 'whatsapp_click', {
-    event_category: 'lead',
+  onclick="if(typeof gtag==='function'){gtag('event', 'whatsapp_click', {
+      event_category: 'lead',
     event_label: 'header_whatsapp'
   });"
 >
@@ -1463,8 +1441,8 @@ if (langToggle) {
   href="https://wa.me/962780932199"
   target="_blank"
   rel="noopener noreferrer"
-  onclick="gtag('event', 'whatsapp_click', {
-    event_category: 'lead',
+  onclick="if(typeof gtag==='function'){gtag('event', 'whatsapp_click', {
+      event_category: 'lead',
     event_label: 'mobile_whatsapp'
   });"
 >
@@ -2297,7 +2275,7 @@ if (langToggle) {
         <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="website_lead_system" data-i18n="offers.cardCta">احصل على توصية مناسبة لك →</a>
       </div>
 
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua h-full flex flex-col"">
+      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua h-full flex flex-col">
         <div class="inline-flex items-center rounded-full px-3 py-1 text-xs bg-white/5 border border-[var(--border)] text-[var(--muted2)]" data-i18n="offers.card2.badge">طلب مرتفع</div>
         <h3 class="mt-4 text-xl font-semibold" data-i18n="offers.card2.t">باقة شات بوت ذكي الأساسية</h3>
         <p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="offers.card2.d">بوت ذكي للموقع أو واتساب يساعدك ترد أسرع وتجمع العملاء بشكل منظم.</p>
@@ -2308,7 +2286,7 @@ if (langToggle) {
         <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="client_management_system" data-i18n="offers.cardCta">احصل على توصية مناسبة لك →</a>
       </div>
 
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua h-full flex flex-col"">
+      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua h-full flex flex-col">
         <div class="inline-flex items-center rounded-full px-3 py-1 text-xs bg-white/5 border border-[var(--border)] text-[var(--muted2)]" data-i18n="offers.card3.badge">دخل متكرر</div>
         <h3 class="mt-4 text-xl font-semibold" data-i18n="offers.card3.t">باقة النمو</h3>
         <p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="offers.card3.d">باقة نمو شهرية تجمع بين المحتوى والتصميم والمتابعة لتحويل الحضور الرقمي إلى نتائج.</p>
@@ -2319,7 +2297,7 @@ if (langToggle) {
         <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="email_automation" data-i18n="offers.cardCta">احصل على توصية مناسبة لك →</a>
       </div>
 
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua h-full flex flex-col"">
+      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua h-full flex flex-col">
         <div class="inline-flex items-center rounded-full px-3 py-1 text-xs bg-white/5 border border-[var(--border)] text-[var(--muted2)]" data-i18n="offers.card4.badge">للمشاريع الأكبر</div>
         <h3 class="mt-4 text-xl font-semibold" data-i18n="offers.card4.t">مرحلة اكتشاف النظام المخصص</h3>
         <p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="offers.card4.d">جلسة تحليل ونطاق عمل أولي للمشاريع المخصصة قبل البدء في التنفيذ الكامل.</p>
@@ -2344,7 +2322,7 @@ if (langToggle) {
     </div>
 
     <div class="mt-8 grid sm:grid-cols-2 xl:grid-cols-4 gap-4">
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua h-full flex flex-col"">
+      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua h-full flex flex-col">
         <div class="text-xs text-[var(--muted)]" data-i18n="pricing.card1.kicker">أفضل بداية سريعة</div>
         <h3 class="mt-2 text-xl font-semibold" data-i18n="pricing.card1.t">صفحة هبوط سريعة</h3>
         <div class="mt-4 text-2xl font-semibold text-white" data-i18n="pricing.card1.price">يبدأ من 250 د.أ</div>
@@ -2352,7 +2330,7 @@ if (langToggle) {
         <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="website_lead_system" data-i18n="pricing.cardCta">خلينا نرشح لك الباقة الأنسب →</a>
       </div>
 
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua h-full flex flex-col"">
+      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua h-full flex flex-col">
         <div class="text-xs text-[var(--muted)]" data-i18n="pricing.card2.kicker">الأكثر طلبًا من الشركات الناشئة</div>
         <h3 class="mt-2 text-xl font-semibold" data-i18n="pricing.card2.t">باقة شات بوت ذكي الأساسية</h3>
         <div class="mt-4 text-2xl font-semibold text-white" data-i18n="pricing.card2.price">يبدأ من 400 د.أ</div>
@@ -2360,7 +2338,7 @@ if (langToggle) {
         <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="client_management_system" data-i18n="pricing.cardCta">خلينا نرشح لك الباقة الأنسب →</a>
       </div>
 
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua h-full flex flex-col"">
+      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua h-full flex flex-col">
         <div class="text-xs text-[var(--muted)]" data-i18n="pricing.card3.kicker">مناسب للنمو الجاد</div>
         <h3 class="mt-2 text-xl font-semibold" data-i18n="pricing.card3.t">موقع أو متجر احترافي</h3>
         <div class="mt-4 text-2xl font-semibold text-white" data-i18n="pricing.card3.price">يبدأ من 700 د.أ</div>
@@ -2368,7 +2346,7 @@ if (langToggle) {
         <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="ai_business_automation" data-i18n="pricing.cardCta">خلينا نرشح لك الباقة الأنسب →</a>
       </div>
 
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua h-full flex flex-col"">
+      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua h-full flex flex-col">
         <div class="text-xs text-[var(--muted)]" data-i18n="pricing.card4.kicker">أفضل خطوة قبل المشروع الكبير</div>
         <h3 class="mt-2 text-xl font-semibold" data-i18n="pricing.card4.t">مرحلة اكتشاف النظام المخصص</h3>
         <div class="mt-4 text-2xl font-semibold text-white" data-i18n="pricing.card4.price">يبدأ من 150 د.أ</div>
@@ -2624,8 +2602,8 @@ if (langToggle) {
   target="_blank"
   data-external="1"
   rel="noopener noreferrer"
-  onclick="gtag('event', 'whatsapp_click', {
-    event_category: 'lead',
+   onclick="if(typeof gtag==='function'){gtag('event', 'whatsapp_click', {
+      event_category: 'lead',
     event_label: 'contact_whatsapp'
   });"
 >
@@ -2651,8 +2629,8 @@ if (langToggle) {
   target="_blank"
   title="WhatsApp"
   data-external="1"
-  onclick="gtag('event', 'whatsapp_click', {
-    event_category: 'lead',
+   onclick="if(typeof gtag==='function'){gtag('event', 'whatsapp_click', {
+      event_category: 'lead',
     event_label: 'social_whatsapp'
   });"
 >
@@ -2845,8 +2823,8 @@ if (langToggle) {
             target="_blank"
           rel="noopener noreferrer"
            class="hover:text-white transition"
-           onclick="gtag('event', 'whatsapp_click', {
-           event_category: 'lead',
+            onclick="if(typeof gtag==='function'){gtag('event', 'whatsapp_click', {
+             event_category: 'lead',
            event_label: 'footer_whatsapp'
               });"
 >
@@ -3696,10 +3674,10 @@ document.getElementById("fService")?.addEventListener("change", updateDetailsPla
         "hero.terminalBody":"<span class=\"text-white/80\">$</span> npx create-aqua-app\n<span class=\"text-white/80\">$</span> build --optimize\n<span class=\"text-white/80\">$</span> deploy --env=prod\n<span class=\"text-[var(--p1)]\">✔</span> shipped in <span class=\"text-[var(--p2)]\">minutes</span> — performance ✅",
         "form.modalTitle":"Your request was sent successfully",
         "form.modalText":"We will contact you as soon as possible",
-        "hero.h1a":"We build websites and apps",
+        "hero.h1a":"We build websites & apps and systems",
         "hero.h1b":"That which grows and increases sales",
         "hero.desc":"Aqua.Tech builds websites and systems focused on lead capture, request intake, and first response in one clear, practical flow.",
-        "hero.ctaPrimary":"Start your project now",
+        "hero.ctaPrimary":"Start now",
         "hero.ctaSecondary":"View services",
         "hero.pill1":"⚡ Faster launch",
         "hero.pill2":"🤖 Smarter follow-up",
