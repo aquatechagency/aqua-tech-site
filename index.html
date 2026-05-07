@@ -146,7 +146,7 @@
       --ctaNote:#B8D5EA;
     }
 
-    html { scroll-behavior: auto; }
+    html { scroll-behavior: smooth; }
     body { font-family: "IBM Plex Sans Arabic", Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
 
     /* subtle grain */
@@ -487,8 +487,9 @@ body { padding-bottom: env(safe-area-inset-bottom); }
 header.sticky { padding-top: env(safe-area-inset-top); }
 
 /* anchor offset for sticky header (mobile + desktop) */
-    section[id], main[id] { scroll-margin-top: calc(90px + env(safe-area-inset-top)); }
-
+section[id], main[id] {
+  scroll-margin-top: calc(84px + env(safe-area-inset-top));
+}
 
     /* Pause heavy animations when tab is not visible (performance) */
     body.is-paused .bg-blobA,
@@ -4818,21 +4819,25 @@ if (result && result.success) {
     return window.innerWidth < 768;
   };
 
-  function scrollToHash(hash, updateUrl) {
-    if (!hash || hash === '#') return;
-    const target = document.querySelector(hash);
-    if (!target) return;
+function scrollToHash(hash, updateUrl) {
+  if (!hash || hash === '#') return;
 
-    const y = target.getBoundingClientRect().top + window.pageYOffset - getHeaderOffset();
+  const target = document.querySelector(hash);
+  if (!target) return;
+
+  const y = target.getBoundingClientRect().top + window.scrollY - getHeaderOffset();
+
+  requestAnimationFrame(function () {
     window.scrollTo({
       top: Math.max(0, y),
-      behavior: 'auto'
+      behavior: 'smooth'
     });
 
     if (updateUrl) {
       history.replaceState(null, '', hash);
     }
-  }
+  });
+}
 
 function bindHeaderLinks() {
   const links = document.querySelectorAll('header a[href^="#"]');
@@ -4846,9 +4851,13 @@ function bindHeaderLinks() {
       if (!target) return;
 
       e.preventDefault();
+
       closeMobileMenu();
-      scrollToHash(hash, true);
-    });
+
+      requestAnimationFrame(function () {
+        scrollToHash(hash, true);
+      });
+    }, { passive: false });
   });
 }
 
