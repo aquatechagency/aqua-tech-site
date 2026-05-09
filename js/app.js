@@ -3,7 +3,7 @@
     const CONTACT_EMAIL   = (window.AQUA_CONFIG || {}).CONTACT_EMAIL   || "info.aquatech.jo@gmail.com";
     const INSTAGRAM_URL = "https://www.instagram.com/aquatech.jo/";
     const FACEBOOK_URL = "https://web.facebook.com/profile.php?id=61564549784728";
-    const LINKEDIN_URL = "https://www.linkedin.com/company/aqua-teach/";
+    const LINKEDIN_URL = "https://www.linkedin.com/company/aqua-tech/";
     const GITHUB_URL = "https://github.com/aquatechjo";
 
     function updateDynamicContactLinks(){
