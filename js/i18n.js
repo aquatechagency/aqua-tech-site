@@ -373,11 +373,11 @@
 
         "footer.rights":"Aqua.Tech — جميع الحقوق محفوظة.",
         "footer.services":"الخدمات",
-"footer.contact":"التواصل",
-
-"footer.link1":"العروض",
-"footer.link2":"الخدمات",
-"footer.link4":"النتائج المتوقعة",
+        "footer.contact":"التواصل",
+ 
+         "footer.link1":"العروض",
+        "footer.link2":"الخدمات",
+        "footer.link4":"النتائج المتوقعة",
 
 "footer.whatsapp":"WhatsApp",
 "footer.email":"      Email",
