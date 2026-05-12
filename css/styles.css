@@ -3155,3 +3155,16 @@ section[id]::before{
     margin-inline-end: 0 !important;
   }
 }
+@media (max-width:767px){
+
+  #top .hero-copy h1{
+    display:block !important;
+    line-height:1.18 !important;
+  }
+
+  #top .hero-copy h1 .block{
+    display:block !important;
+    width:100% !important;
+  }
+
+}
