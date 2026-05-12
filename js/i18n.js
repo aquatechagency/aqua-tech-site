@@ -13,7 +13,7 @@
         "nav.about":"من نحن",
         "nav.systems":"الحلول",
 "systems.h":"حلول جاهزة قابلة للتخصيص",
-"systems.sub":"نماذج حلول يمكن تكييفها حسب نشاطك ومرحلة مشروعك، لتبدأ بشكل أسرع واحترافي أكثر.",
+"systems.sub":"نماذج حلول يمكن تكييفها حسب نشاطك ومرحلة مشروعك، لتبدأ بشكل أسرع واحترافي أكثر",
 "systems.cta":"اطلب النظام المناسب ",
 "systems.cardCta":"اطلب هذا النظام ",
 
@@ -54,21 +54,22 @@
         "hero.terminalBody":"<span class=\"text-white/80\">$</span> npx create-aqua-app\n<span class=\"text-white/80\">$</span> build --optimize\n<span class=\"text-white/80\">$</span> deploy --env=prod\n<span class=\"text-[var(--p1)]\">✔</span>shipped in<span class=\"text-[var(--p2)]\"> minutes</span> — performance ✅",
         "form.modalTitle":"تم إرسال طلبك بنجاح",
         "form.modalText":"سوف نتواصل معك في أقرب وقت",
+        "hero.h1a":"نبني مواقع ويب وتطبيقات وأنظمة",
+        "hero.h1b":"تساهم في نمو أعمالك",
+        "hero.h1c":"وزيادة مبيعاتك",
 
-        "hero.h1a":"نطور مواقع وتطبيقات",
-        "hero.h1b":"تنمّي أعمالك وتزيد مبيعاتك",
-        "hero.desc":"Aqua.Tech نبني مواقع وأنظمة تركّز على جذب العملاء، استقبال الطلبات، والرد الأولي في مسار واضح وقابل للتنفيذ.",
+        "hero.desc":"مواقع إلكترونية، وأنظمة أتمتة، وأنظمة قابلة للتطوير مصممة لمساعدة الشركات على النمو بشكل أكثر ذكاءً والعمل بشكل أفضل.",
         "hero.ctaPrimary":"ابدأ الآن",
         "hero.ctaSecondary":"استعرض الحلول",
         "hero.pill1":"⚡ إطلاق أسرع",
         "hero.pill2":"🤖 ردود ومتابعة ذكية",
         "hero.pill3":"📈 تحويل أعلى للطلبات",
-        "stats.fastT":"3–5 أيام","stats.fastD":"إطلاق صفحة هبوط",
+        "stats.fastT":"3–5 أيام","stats.fastD":"إطلاق صفحة تسويقية احترافية ",
         "stats.clearT":"24 ساعة","stats.clearD":"خطة واضحة بعد التواصل",
         "stats.qualityT":"2× أسرع","stats.qualityD":"ردود بالأتمتة الذكية",
         "socialproof.c1":"مشروع منجز",
-        "socialproof.c2":"متوسط تسليم صفحة هبوط",
-        "socialproof.c3":"تسليم كود + ملفات تصميم",
+        "socialproof.c2":"متوسط تسليم صفحة تسويقية احترافية ",
+        "socialproof.c3":"إطلاق جاهز مع دعم وتشغيل",
         "socialproof.n2":"3–5 أيام",
 
         "hero.cardLabel":"خدماتنا الأساسية",
@@ -86,12 +87,12 @@
 
 
         "offers.h":"عروض جاهزة للانطلاق",
-        "offers.sub":"إذا كنت تريد بداية سريعة أو عرضًا واضحًا، هذه الباقات هي أفضل نقطة دخول للعمل معنا.",
+        "offers.sub":"إذا كنت تريد بداية سريعة أو عرضًا واضحًا، هذه الباقات هي أفضل نقطة دخول للعمل معنا",
         "offers.cta":"احصل على توصية مناسبة لك ",
         "offers.cardCta":"احصل على توصية مناسبة لك ",
         "offers.card1.badge":"الأسرع إطلاقًا",
-        "offers.card1.t":"Landing Page Express",
-        "offers.card1.d":"صفحة هبوط احترافية تجهزك للإعلان وجمع العملاء بخطوات واضحة وسريعة.",
+        "offers.card1.t":"صفحات تسويقة احترافية",
+        "offers.card1.d":"صفحة تسويقية احترافية تجهزك للإعلان وجمع العملاء بخطوات واضحة وسريعة.",
         "offers.card1.p1":"مناسبة للعروض والخدمات والإعلانات",
         "offers.card1.p2":"ربط واتساب / نموذج / دعوة واضحة للإجراء",
         "offers.card2.badge":"طلب مرتفع",
@@ -121,20 +122,20 @@
         "services.more":" الخدمات",
 
         "details.h":"الخدمات",
-        "details.sub":"اختر خدمة واحدة أو باقة متكاملة — نغطي كامل رحلة مشروعك من الفكرة حتى الإطلاق.",
+        "details.sub":"اختر خدمة واحدة أو باقة متكاملة — نغطي كامل رحلة مشروعك من الفكرة حتى الإطلاق",
         "details.allCta":"اطلب استشارة مجانية",
         "details.cta":"خلينا نحدد لك الحل المناسب ",
 
         "details.landing.kicker":"حلول سريعة",
-        "details.landing.t":"Landing Page Express",
-        "details.landing.d":"صفحة هبوط احترافية وسريعة تساعدك على إطلاق حملاتك وجمع العملاء المحتملين بسرعة.",
+        "details.landing.t":"صفحات تسويقية احترافية",
+        "details.landing.d":"صفحة تسويقية احترافية وسريعة تساعدك على إطلاق حملاتك وجمع العملاء المحتملين بسرعة.",
         "details.landing.p1":"تصميم واضح موجه للتحويل ومبني لجمع العملاء المحتملين",
         "details.landing.p2":"متوافقة مع الجوال + أداء سريع + دعوة إجراء واضحة",
         "details.landing.p3":"ربط واتساب / النماذج / التحليلات",
 
         "details.web.kicker":"تطوير الويب",
         "details.web.t":"مواقع احترافية وسريعة",
-        "details.web.d":"صفحات هبوط، مواقع شركات، متاجر، ولوحات تحكم — مهيأة لمحركات البحث وبنهج mobile-first.",
+        "details.web.d":"صفحات تسويقية احترافية، مواقع شركات، متاجر، ولوحات تحكم — مهيأة لمحركات البحث وبنهج mobile-first.",
         "details.web.p1":"تصميم واجهات وتجربة مستخدم + بناء واجهات حديثة",
         "details.web.p2":"الواجهة الخلفية / نظام إدارة محتوى / لوحة تحكم عند الحاجة",
         "details.web.p3":"السرعة + تهيئة لمحركات البحث + تتبع التحليلات",
@@ -181,7 +182,7 @@
         "svc.appsT":"تطوير تطبيقات",
         "svc.appsD":"تطبيقات iOS/Android بأداء عالي وتجربة مستخدم ممتازة—من MVP لمنتج كامل.",
         "svc.webT":"تطوير مواقع",
-        "svc.webD":"مواقع سريعة وجميلة، صفحات هبوط، متاجر، ولوحات تحكم—جاهزة للسيو والتسويق.",
+        "svc.webD":"مواقع سريعة وجميلة، صفحات تسويقية احترافية، متاجر، ولوحات تحكم—جاهزة للسيو والتسويق.",
         "svc.customT":"برمجيات مخصصة",
         "svc.customD":"أنظمة داخلية، أتمتة، تكاملات… حلول على مقاس شغلك.",
         "svc.designT":"تصميم",
@@ -196,7 +197,7 @@
         "results.sub":"",
         "results.c1k":"Landing page + ads",
         "results.c1t":"زيادة وضوح التحويل وجمع الاستفسارات",
-        "results.c1d":"صفحة هبوط واضحة مع CTA مباشر وربط واتساب أو نموذج يمكن أن تساعدك على رفع عدد الاستفسارات وتقليل ضياع الزوار بين الزيارة والطلب.",
+        "results.c1d":"صفحة تسويقية احترافية واضحة مع CTA مباشر وربط واتساب أو نموذج يمكن أن تساعدك على رفع عدد الاستفسارات وتقليل ضياع الزوار بين الزيارة والطلب.",
         "results.c2k":"AI + automation",
         "results.c2t":"تقليل وقت الرد وتنظيم العملاء المحتملين",
         "results.c2d":"أتمتة أو شات بوت يساعدك على الرد خلال دقائق بدل ساعات، مع جمع البيانات وربطها بالأدوات التي تستخدمها حاليًا.",
@@ -204,7 +205,7 @@
         "results.c3t":"تشغيل أوضح ووقت أقل ضائع",
         "results.c3d":"نظام أو لوحة تحكم مخصصة تساعدك على تنظيم الطلبات والمتابعة والتقارير، وتقليل الاعتماد على التتبع اليدوي العشوائي.",
         "footer.tag":"Growth • Software • AI",
-        "footer.desc":"نبني صفحات هبوط ومواقع وأنظمة وأتمتة تساعد الشركات ورواد الأعمال على النمو بشكل أسرع وأكثر وضوحًا واحترافية.",
+        "footer.desc":"نبني صفحات تسويقية احترافية ومواقع وأنظمة وأتمتة تساعد الشركات ورواد الأعمال على النمو بشكل أسرع وأكثر وضوحًا واحترافية.",
         "footer.servicesH":"الخدمات",
         "footer.contactH":"التواصل",
         "footer.link1":"العروض",
@@ -216,7 +217,7 @@
         "footer.note":"جاهزون لمساعدتك على الإطلاق والنمو والأتمتة.",
 
 
-        "testimonials.sub":"كل مشروع ننفذه يعكس هذه المبادئ بشكل عملي — وضوح، جودة، ونتائج قابلة للقياس.",
+        "testimonials.sub":"كل مشروع ننفذه يعكس هذه المبادئ بشكل عملي — وضوح، جودة، ونتائج قابلة للقياس",
         "testimonials.q1":"المتطلبات والخطوات يجب أن تبقى واضحة، والعميل يعرف دائمًا أين وصل المشروع وما الخطوة التالية.",
         "testimonials.a1":"وضوح في التواصل والتنفيذ",
         "testimonials.q2":"نركز على حلول تدعم الهدف التجاري، وليس فقط شكل جميل بدون نتيجة يمكن قياسها.",
@@ -231,7 +232,7 @@
       "security.card4.kicker":"الثقة",
       "security.list.kicker":"ممارسات مضمّنة",
       "security.note.kicker":"ملاحظة مهنية",
-      "security.sub":"نبني المواقع والأنظمة وفق ممارسات حديثة تساعد على رفع الأمان، حماية البيانات، وتقوية موثوقية المشروع عند الإطلاق والتوسع.",
+      "security.sub":"نبني المواقع والأنظمة وفق ممارسات حديثة تساعد على رفع الأمان، حماية البيانات، وتقوية موثوقية المشروع عند الإطلاق ",
       "security.cta":"اطلب موقعًا أكثر أمانًا",
       "security.card1.kicker":"الاتصال",
       "security.card1.t":"اتصال آمن وموثوق",
@@ -269,7 +270,7 @@
 
         "trust.h":"لماذا تختار Aqua.Tech",
         "trust.sub":"",
-        "trust.c1k":"الخطوة الأولى",
+        "trust.c1k":"Strategy",
         "trust.c1t":"خطة واضحة خلال 24 ساعة",
         "trust.c1d":"نفهم هدفك بسرعة، ثم نحدد لك ما الذي يجب بناؤه أولًا، وما الذي يمكن تأجيله، وما أنسب نقطة بداية لميزانيتك ومرحلتك.",
         "trust.c2k":"Delivery",
@@ -278,7 +279,7 @@
         "trust.c3k":"Support",
         "trust.c3t":"دعم وتحسين بعد الإطلاق",
         "trust.c3d":"بعد الإطلاق نساعدك في التحسينات، التعديلات، ومعالجة الملاحظات حتى يبقى الحل فعالًا ويعطي نتيجة أفضل.",
-        "trust.c4k":"الوضوح",
+        "trust.c4k":"Clarity",
         "trust.c4t":"تواصل أوضح وقرار أسرع",
         "trust.c4d":"تحديثات واضحة أثناء التنفيذ، ومخرجات مرتبة، وتسليم منظم حسب الاتفاق حتى تعرف دائمًا أين وصل المشروع وما التالي.",
         "results.cta":"خلينا نحدد لك النتيجة المناسبة ",
@@ -302,12 +303,12 @@
  
 
         "faq.h":"أسئلة متكررة",
-        "faq.q1":"كم يستغرق تنفيذ صفحة هبوط أو موقع أو نظام مخصص؟",
-        "faq.a1":"يعتمد ذلك على نوع الخدمة ونطاقها. بعض الخدمات السريعة مثل صفحة الهبوط أو الشات بوت يمكن إطلاقها خلال وقت قصير، بينما تحتاج المشاريع الأكبر إلى نطاق أوضح وجدول زمني أدق.",
+        "faq.q1":"كم يستغرق تنفيذ صفحة تسويقية احترافية أو موقع أو نظام مخصص؟",
+        "faq.a1":"يعتمد ذلك على نوع الخدمة ونطاقها. بعض الخدمات السريعة مثل صفحة تسويقية احترافية أو الشات بوت يمكن إطلاقها خلال وقت قصير، بينما تحتاج المشاريع الأكبر إلى نطاق أوضح وجدول زمني أدق.",
         "faq.q2":"كيف يتم تحديد سعر الخدمة أو المشروع؟",
         "faq.a2":"يتم التسعير حسب نوع الخدمة، نطاق العمل، التكاملات المطلوبة، وسرعة التنفيذ. ستحصل على عرض واضح يشرح المراحل والمخرجات.",
         "faq.q3":"هل توفرون خدمات سريعة وأيضًا حلولًا مخصصة بالكامل؟",
-        "faq.a3":"نعم. نوفر خدمات سريعة للدخول إلى السوق مثل صفحات الهبوط والبوتات، ونبني أيضًا مواقع وأنظمة مخصصة بالكامل حسب احتياج المشروع.",
+        "faq.a3":"نعم. نوفر خدمات سريعة للدخول إلى السوق مثل صفحات تسويقية احترافية والبوتات، ونبني أيضًا مواقع وأنظمة مخصصة بالكامل حسب احتياج المشروع.",
         "faq.q4":"هل توفرون شات بوت وأتمتة للأعمال؟",
         "faq.a4":"نعم، نبني شات بوتات وأتمتة تساعد في الرد على العملاء، تنظيم الطلبات، وربط النماذج والأنظمة لتقليل العمل اليدوي.",
 
@@ -315,7 +316,7 @@
         
 
         "hero.readyD":"Tell us about your project and we will come back with a clear plan and the right starting options.",
-        "contact.sub":"شاركنا هدفك الحالي، وسنرجع لك بتوصية أولية، قناة التواصل الأنسب، وخطوة تالية واضحة تناسب مرحلة مشروعك بدون تعقيد.",
+        "contact.sub":"  شاركنا هدفك الحالي، وسنقترح عليك الحل الأنسب وخطوة واضحة للانطلاق",                                                                                    
         "contact.waAction":"ابدأ معنا عبر واتساب",
         "contact.emailAction":"راسلنا عبر البريد الإلكتروني",
         "form.sendQuote":"احصل على توصية أولية وخطوة تنفيذ واضحة",
@@ -360,18 +361,27 @@
         "form.opt3":"نظام إدارة العملاء",
         "form.opt4":"أتمتة واتساب",
         "form.opt5":"أتمتة البريد الإلكتروني",
-        "form.opt6":"تحسين صفحة الهبوط",
+        "form.opt6":"تحسين صفحة تسويقية احترافية",
         "form.optSocial":"إدارة حسابات السوشيال ميديا",
         "form.socialDetailsPh":"اكتب لنا عدد الحسابات، نوع النشاط، هل لديك محتوى جاهز، وكم منشور/ريلز تحتاج شهريًا.",
         "form.opt7":"نظام إدارة مكاتب المحاماة",
         "form.opt8":"منصة إدارة المشاريع الجامعية",
         "form.opt9":"ResumeIQ",
         "form.opt10":"Smart Attendance",
+        "form.opt11":"موقع شركة احترافي",
+"form.opt12":"نظام مخصص للشركات",
+"form.opt13":"تصميم وصناعة المحتوى",
+"form.opt14":"إدارة الحملات الإعلانية",
+"form.opt15":"SEO تحسين الظهور بمحركات البحث",
+"form.opt16":"لوحات تحكم وتقارير",
+"form.opt17":"AI Agent أو شات بوت",
+"form.opt18":"خدمة أو فكرة أخرى",
         "form.sendWA":"إرسال عبر واتساب",
         "form.sendEmail":"إرسال عبر الإيميل",
         "form.sendLead":"إرسال الطلب",
 
-        "footer.rights":"Aqua.Tech — جميع الحقوق محفوظة.",
+
+        "footer.rights":"Aqua.Tech — جميع الحقوق محفوظة",
         "footer.services":"الخدمات",
         "footer.contact":"التواصل",
  
@@ -385,7 +395,7 @@
         "floating.contact":"تواصل سريع",
 
 
-        "faq.sub":"إجابات على الأسئلة الشائعة قبل البدء بأي مشروع.",
+        "faq.sub":"إجابات على الأسئلة الشائعة قبل البدء بأي مشروع",
         "faq.q5":"هل توفرون الاستضافة والدومين ورفع الموقع؟",
         "faq.a5":"نعم عند الطلب، مع SSL ورفع الموقع وإعدادات تشغيل أساسية.",
         "faq.q6":"هل توجد صيانة بعد التسليم؟",
@@ -398,8 +408,8 @@
         "faq.a9":"نعم، يمكننا دعم المشروع بباقات نمو تشمل المحتوى، التصميم، الإعلانات، والتحسين المستمر حتى لا يتوقف دورنا عند التسليم فقط.",
         "faq.q10":"هل يمكن توقيع NDA وحماية البيانات؟",
         "faq.a10":"نعم، يمكن توقيع NDA ونتبع ممارسات أمان لحماية البيانات أثناء التطوير.",
-        "faq.q11":"هل أحتاج إلى موقع كامل أم صفحة هبوط فقط؟",
-        "faq.a11":"إذا كان هدفك جمع العملاء بسرعة لحملة أو خدمة محددة، فغالبًا تكفي صفحة الهبوط كبداية. أما إذا كنت تريد حضورًا أوسع وثقة أعلى ومحتوى أكثر، فالموقع الكامل يكون أنسب.",
+        "faq.q11":"هل أحتاج إلى موقع كامل أم صفحة تسويقية احترافية فقط؟",
+        "faq.a11":"إذا كان هدفك جمع العملاء بسرعة لحملة أو خدمة محددة، فغالبًا تكفي صفحة تسويقية احترافية كبداية. أما إذا كنت تريد حضورًا أوسع وثقة أعلى ومحتوى أكثر، فالموقع الكامل يكون أنسب.",
         "faq.q12":"كيف أعرف أي خدمة مناسبة لي؟",
         "faq.a12":"بمجرد أن تشاركنا هدفك الحالي، نحدد لك أسرع بداية مناسبة، وما الذي يجب بناؤه أولًا، وما الذي يمكن تأجيله بدون تكلفة غير ضرورية.",
 
@@ -410,13 +420,21 @@
 
         "nav.testimonials":"المعايير",
 
+        "about.tag1":"مواقع وأنظمة",
+"about.tag2":"أتمتة وذكاء اصطناعي",
+"about.tag3":"حلول للنمو والتشغيل",
+
+
+"hero.badge1":"دعم بعد الإطلاق",
+"hero.badge2":"تصميم متجاوب",
+"hero.badge3":"استضافة وربط دومين",
 
 
         "hero.readyD":"احكيلنا عن مشروعك وسنرجع لك بخطة واضحة وخيارات مناسبة لمرحلتك.",
 
         "results.sub":"",
 
-
+       "results.subText":"حلول رقمية مصممة لتحسين التشغيل، زيادة التحويل، وتنظيم التواصل مع العملاء",
 
 
 
@@ -473,6 +491,7 @@
         "systems.card3.p1":"Create your resume easily",
         "systems.card3.p2":"Organize content professionally",
         "systems.card4.kicker":"Attendance management",
+
 "systems.card4.t":"Smart Attendance",
 "systems.card4.d":"A smart attendance system powered by face recognition to register attendance automatically through a camera while reducing manual errors and improving daily tracking.",
 "systems.card4.p1":"Automatic attendance registration via camera",
@@ -538,9 +557,10 @@
         "hero.terminalBody":"<span class=\"text-white/80\">$</span> npx create-aqua-app\n<span class=\"text-white/80\">$</span> build --optimize\n<span class=\"text-white/80\">$</span> deploy --env=prod\n<span class=\"text-[var(--p1)]\">✔</span> shipped in<span class=\"text-[var(--p2)]\"> minutes</span> — performance ✅",
         "form.modalTitle":"Your request was sent successfully",
         "form.modalText":"We will contact you as soon as possible",
-        "hero.h1a":"We build websites & apps and systems",
-        "hero.h1b":"That which grows and increases sales",
-        "hero.desc":"Aqua.Tech builds websites and systems focused on lead capture, request intake, and first response in one clear, practical flow.",
+"hero.h1a":"We build websites apps and systems",
+"hero.h1b":"grow your business",
+"hero.h1c":"and increase sales",
+        "hero.desc":"Websites, automation, and scalable systems designed to help businesses grow smarter and operate better.",
         "hero.ctaPrimary":"Start now",
         "hero.ctaSecondary":"View services",
         "hero.pill1":"⚡ Faster launch",
@@ -551,7 +571,7 @@
         "stats.qualityT":"2× faster","stats.qualityD":"Replies via AI automation",
         "socialproof.c1":"Projects completed",
         "socialproof.c2":"Average landing page delivery",
-        "socialproof.c3":"Code + design files delivered",
+        "socialproof.c3":"Launch-ready with support and operation",
         "socialproof.n2":"3–5 days",
 
         "hero.cardLabel":"Core services",
@@ -564,6 +584,10 @@
         "mini.webs":"A professional site ready to grow",
         "mini.chatbot":"Faster replies, smarter flow",
         "mini.growth":"Turn traffic into clients",
+
+        "hero.badge1":"Post-launch support",
+"hero.badge2":"Responsive design",
+"hero.badge3":"Hosting & domain connection",
 
 
 
@@ -765,14 +789,26 @@
         "form.opt8":"University Project Hub",
         "form.opt9":"ResumeIQ",
         "form.opt10":"Smart Attendance",
+        "form.opt11":"Professional company website",
+"form.opt12":"Custom system for businesses",
+"form.opt13":"Content design and creation",
+"form.opt14":"Ad campaign management",
+"form.opt15":"SEO search engine optimization",
+"form.opt16":"Dashboards and reports",
+"form.opt17":"AI Agent or chatbot",
+"form.opt18":"Another service or idea",
         "form.sendWA":"Send via WhatsApp",
         "form.sendEmail":"Send via Email",
         "form.sendLead":"Submit request",
 
-
+       "results.subText":"Digital solutions designed to improve operations, increase conversions, and organize customer communication.",
 
         "footer.rights":"Aqua.Tech. All rights reserved.",
         "floating.contact":"Contact us",
+
+        "about.tag1":"Websites & systems",
+"about.tag2":"AI & automation",
+"about.tag3":"Growth & operations solutions",
 
 
         "faq.sub":"Answers to common questions before starting any project.",
