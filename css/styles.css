@@ -2653,15 +2653,193 @@ html {
 section[id] {
   scroll-margin-top: 120px;
 }
+/* Mobile clean layout for custom systems visual */
+@media (max-width: 767px){
 
+  #svc-custom .aq-service-visual{
+    position: relative !important;
+    width: 100% !important;
+    max-width: 300px !important;
+    height: 235px !important;
+    margin: 1.25rem auto 0 !important;
+    overflow: visible !important;
+  }
+
+  #svc-custom .aq-dashboard-screen{
+    position: absolute !important;
+    left: 50% !important;
+    top: 28px !important;
+    transform: translateX(-50%) !important;
+    width: 260px !important;
+    height: 165px !important;
+    border-radius: 26px !important;
+  }
+
+  #svc-custom .aq-system-node{
+    width: 52px !important;
+    height: 52px !important;
+    border-radius: 16px !important;
+    z-index: 5 !important;
+  }
+
+  #svc-custom .aq-system-node span{
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  /* ترتيب العناصر */
+@media (max-width: 767px){
+
+  #svc-custom .aq-dashboard-screen{
+    width: 235px !important;
+    height: 150px !important;
+    top: 34px !important;
+  }
+
+}
+
+  #svc-custom .node-users{
+    top: -6px !important;
+    right: 48px !important;
+  }
+
+  #svc-custom .node-pay{
+    top: 92px !important;
+    left: -10px !important;
+  }
+
+  #svc-custom .node-wa{
+    top: 92px !important;
+    right: -10px !important;
+  }
+
+  #svc-custom .node-wifi{
+    bottom: -10px !important;
+    left: 92px !important;
+  }
+
+  #svc-custom .node-chart{
+    bottom: -10px !important;
+    right: 92px !important;
+  }
+}
+
+/* Mobile menu positioning */
+@media (max-width: 767px){
+
+  #mobileMenu{
+    position: fixed;
+    top: 82px;
+    width: min(320px, 88vw);
+
+    padding: 14px;
+    border-radius: 28px;
+
+    background: rgba(10,14,24,.92);
+    backdrop-filter: blur(18px);
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition:
+      transform .32s ease,
+      opacity .22s ease;
+
+    z-index: 9999;
+  }
+
+  #mobileMenu.active{
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* عربي */
+  html[dir="rtl"] #mobileMenu{
+    right: 14px;
+    left: auto;
+    transform: translateX(115%);
+  }
+
+  html[dir="rtl"] #mobileMenu.active{
+    transform: translateX(0);
+  }
+
+  /* انجليزي */
+  html[dir="ltr"] #mobileMenu{
+    left: 14px;
+    right: auto;
+    transform: translateX(-115%);
+  }
+
+  html[dir="ltr"] #mobileMenu.active{
+    transform: translateX(0);
+  }
+
+  #mobileMenu .mobile-nav-link{
+    padding: .9rem 1rem;
+    border-radius: 16px;
+    display: block;
+  }
+
+  #mobileMenu .mobile-nav-link:hover{
+    background: rgba(255,255,255,.05);
+  }
+}
+@media (max-width: 767px){
+
+  #hero h1 span:first-child::after{
+    content: " أعمال";
+  }
+
+}
+@media (max-width: 767px){
+  #svc-custom .aq-system-node{
+    display: none !important;
+  }
+}
+@media (max-width: 767px){
+
+  #svc-custom .aq-service-visual{
+    max-width: 260px !important;
+    height: 190px !important;
+    margin: 1rem auto 0 !important;
+  }
+
+  #svc-custom .aq-dashboard-screen{
+    width: 220px !important;
+    height: 140px !important;
+    top: 24px !important;
+  }
+
+  #svc-custom .aq-screen-donut{
+    width: 58px !important;
+    height: 58px !important;
+
+    right: 18px !important;
+    top: 42px !important;
+  }
+
+}
 /* =========================================================
-   FINAL MOBILE FIXES — menu + custom systems visual
-   Replace old broken mobile menu/custom visual overrides
+   FINAL MOBILE POLISH — stable menu + centered custom visual + Arabic hero
    ========================================================= */
 
 @media (max-width: 767px){
 
-  /* Mobile menu: hidden by default, opened with .active from JS */
+  /* Header/menu layout */
+  header.sticky{
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 1000 !important;
+  }
+
+  main{
+    padding-top: calc(84px + env(safe-area-inset-top)) !important;
+  }
+
   #mobileMenu{
     position: fixed !important;
     top: calc(82px + env(safe-area-inset-top)) !important;
@@ -2696,6 +2874,7 @@ section[id] {
     right: 14px !important;
     left: auto !important;
     transform: translateX(115%) !important;
+    direction: rtl !important;
     text-align: right !important;
   }
 
@@ -2707,6 +2886,7 @@ section[id] {
     left: 14px !important;
     right: auto !important;
     transform: translateX(-115%) !important;
+    direction: ltr !important;
     text-align: left !important;
   }
 
@@ -2721,11 +2901,24 @@ section[id] {
   }
 
   #mobileMenu .mobile-nav-link{
+    width: 100% !important;
+    min-height: 46px !important;
     display: flex !important;
     align-items: center !important;
-    min-height: 46px !important;
     padding: .85rem 1rem !important;
     border-radius: 16px !important;
+  }
+
+  html[dir="rtl"] #mobileMenu .mobile-nav-link{
+    justify-content: flex-start !important;
+    direction: rtl !important;
+    text-align: right !important;
+  }
+
+  html[dir="ltr"] #mobileMenu .mobile-nav-link{
+    justify-content: flex-start !important;
+    direction: ltr !important;
+    text-align: left !important;
   }
 
   #mobileMenu .mobile-nav-link:hover,
@@ -2738,19 +2931,132 @@ section[id] {
     margin-top: .75rem !important;
   }
 
-  /* Custom systems visual: mobile-friendly, like the other clean drawings */
-  #svc-custom .aq-service-visual{
-    position: relative !important;
+  /* Arabic mobile hero balance */
+  html[dir="rtl"] .hero-copy{
+    text-align: center !important;
+  }
+
+  html[dir="rtl"] .hero-copy h1{
+    font-size: clamp(2.35rem, 10vw, 3.15rem) !important;
+    line-height: 1.18 !important;
+    letter-spacing: -0.035em !important;
+    text-align: center !important;
+    margin-top: 1.15rem !important;
+  }
+
+  html[dir="rtl"] .hero-copy h1 span{
+    display: block !important;
+    text-align: center !important;
+  }
+
+  html[dir="rtl"] .hero-copy [data-i18n="hero.desc"]{
+    text-align: center !important;
+    margin-inline: auto !important;
+  }
+
+  html[dir="rtl"] .hero-copy > p:first-child{
+    margin-inline: auto !important;
+    justify-content: center !important;
+  }
+
+  html[dir="rtl"] .hero-copy .mt-4.flex{
+    justify-content: center !important;
+  }
+
+  /* Services on mobile */
+  #services .aq-service-card{
+    width: calc(100% - 20px) !important;
+    padding: 1.25rem !important;
+    border-radius: 1.5rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.25rem !important;
+    min-height: auto !important;
+    overflow: hidden !important;
+  }
+
+  #services .aq-service-copy{
     width: 100% !important;
-    max-width: 255px !important;
-    height: 178px !important;
-    min-height: 178px !important;
-    margin: .75rem auto 0 !important;
-    overflow: visible !important;
-    transform: none !important;
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+
+  #services .aq-service-copy h3{
+    white-space: normal !important;
+    font-size: 1.42rem !important;
+    line-height: 1.45 !important;
+    text-align: center !important;
+  }
+
+  #services .aq-service-desc{
+    font-size: .95rem !important;
+    line-height: 1.9 !important;
+    text-align: center !important;
+    max-width: 100% !important;
+  }
+
+  #services .aq-service-pill{
+    min-width: 0 !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    margin: 0 auto 1rem !important;
+    padding: .45rem .8rem !important;
+    font-size: .78rem !important;
+    white-space: nowrap !important;
+    justify-content: center !important;
+  }
+
+  #services .aq-feature-list li{
+    grid-template-columns: 2.4rem 1fr !important;
+    gap: .7rem !important;
+    align-items: start !important;
+    text-align: right !important;
+  }
+
+  #services .aq-feature-list strong{
+    font-size: .95rem !important;
+    line-height: 1.7 !important;
+  }
+
+  #services .aq-service-divider{
+    width: 100% !important;
+    height: 1px !important;
+  }
+
+  #services .aq-service-visual{
+    width: 100% !important;
+    min-height: 205px !important;
+    height: 205px !important;
+    margin: .5rem auto 0 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    overflow: visible !important;
+    transform: none !important;
+    left: auto !important;
+    right: auto !important;
+  }
+
+  #services .aq-monitor,
+  #services .aq-browser,
+  #services .aq-chat-window,
+  #services .aq-growth-chart,
+  #services .aq-design-board,
+  #services .aq-phone-card{
+    transform: scale(.84) !important;
+    transform-origin: center !important;
+  }
+
+  /* Custom systems visual: centered and same style as other mobile drawings */
+  #svc-custom .aq-service-visual{
+    max-width: 315px !important;
+    height: 215px !important;
+    min-height: 215px !important;
+    margin: .85rem auto 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    transform: none !important;
+    position: relative !important;
   }
 
   #svc-custom .aq-system-node{
@@ -2760,24 +3066,28 @@ section[id] {
   #svc-custom .aq-dashboard-screen{
     position: relative !important;
     left: auto !important;
+    right: auto !important;
     top: auto !important;
+    bottom: auto !important;
     transform: none !important;
-    width: 230px !important;
-    height: 145px !important;
+    margin: 0 auto !important;
+
+    width: 280px !important;
+    height: 175px !important;
     padding: 1rem !important;
-    grid-template-columns: 52px 1fr 66px !important;
-    gap: .65rem !important;
+    grid-template-columns: 60px 1fr 74px !important;
+    gap: .7rem !important;
     border-width: 3px !important;
-    border-radius: 1.2rem !important;
+    border-radius: 1.25rem !important;
   }
 
   #svc-custom .aq-screen-sidebar{
-    gap: .65rem !important;
+    gap: .7rem !important;
     padding: .55rem !important;
   }
 
   #svc-custom .aq-screen-sidebar i{
-    height: 20px !important;
+    height: 21px !important;
   }
 
   #svc-custom .aq-screen-chart{
@@ -2786,64 +3096,42 @@ section[id] {
   }
 
   #svc-custom .aq-screen-donut{
-    width: 54px !important;
-    height: 54px !important;
+    width: 60px !important;
+    height: 60px !important;
     margin: auto !important;
     right: auto !important;
+    left: auto !important;
     top: auto !important;
+    bottom: auto !important;
   }
 
   #svc-custom .aq-screen-donut::after{
-    inset: 15px !important;
+    inset: 17px !important;
   }
 
   #svc-custom .aq-glow-floor{
     width: 70% !important;
     height: 34px !important;
-    bottom: 4px !important;
+    bottom: 6px !important;
     opacity: .45 !important;
   }
 }
-@media (max-width: 767px){
 
-  #svc-custom .aq-service-visual{
-    transform: scale(1.08);
-  }
-
+/* Unified final section dividers */
+section[id]{
+  position: relative !important;
 }
-@media (max-width: 767px){
 
-  html[dir="rtl"] #mobileMenu{
-    text-align: right !important;
-    direction: rtl !important;
-  }
-
-  html[dir="rtl"] #mobileMenu .mobile-nav-link{
-    justify-content: flex-start !important;
-    text-align: right !important;
-    direction: rtl !important;
-  }
-
-  html[dir="ltr"] #mobileMenu{
-    text-align: left !important;
-    direction: ltr !important;
-  }
-
-  html[dir="ltr"] #mobileMenu .mobile-nav-link{
-    justify-content: flex-start !important;
-    text-align: left !important;
-    direction: ltr !important;
-  }
-}
-@media (max-width: 767px){
-
-  #svc-custom .aq-service-visual{
-    transform: scale(1.22) translateX(-50%) !important;
-    transform-origin: center top;
-    margin-top: 1.8rem !important;
-
-    left: 50% !important;
-    position: relative !important;
-  }
-
+section[id]::before{
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.14) 20%, rgba(255,255,255,.22) 50%, rgba(255,255,255,.14) 80%, transparent 100%) !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
 }
