@@ -2804,3 +2804,10 @@ section[id] {
     opacity: .45 !important;
   }
 }
+@media (max-width: 767px){
+
+  #svc-custom .aq-service-visual{
+    transform: scale(1.08);
+  }
+
+}

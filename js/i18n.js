@@ -44,7 +44,7 @@
 "solutions.attendance.b2":"تقارير حضور وتنظيم أفضل",
 
         "nav.testimonials":"المعايير",
-        "hero.mobileWord":"أعمال",
+        "hero.mobileWord":"أعمال ذكية",
 
         
         "btn.whatsapp":"واتساب",
