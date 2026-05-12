@@ -3168,3 +3168,11 @@ section[id]::before{
   }
 
 }
+@media (max-width:767px){
+
+  #top .hero-copy h1{
+    font-size:2.7rem !important;
+    line-height:1.2 !important;
+  }
+
+}
