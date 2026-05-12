@@ -540,12 +540,12 @@ document.getElementById("consentDecline").addEventListener("click", function(){
     return header ? header.offsetHeight + 16 : 110;
   }
 
-  function closeMobileMenu() {
-    mobileMenu?.classList.remove("active");
-    menuIconOpen?.classList.remove("hidden");
-    menuIconClose?.classList.add("hidden");
-    menuToggle?.setAttribute("aria-expanded", "false");
-  }
+function closeMobileMenu() {
+  mobileMenu?.classList.remove("active");
+  menuIconOpen?.classList.remove("hidden");
+  menuIconClose?.classList.add("hidden");
+  menuToggle?.setAttribute("aria-expanded", "false");
+}
 
   function scrollToSection(target) {
     const offset = getHeaderOffset();
@@ -557,14 +557,16 @@ document.getElementById("consentDecline").addEventListener("click", function(){
     });
   }
 
-  function toggleMobileMenu() {
-    const isOpen = !mobileMenu.classList.contains("active");
+function toggleMobileMenu() {
+  const isOpen = mobileMenu.classList.contains("active");
 
-    mobileMenu.classList.toggle("active");
-    menuIconOpen.classList.toggle("hidden", !isOpen);
-    menuIconClose.classList.toggle("hidden", isOpen);
-    menuToggle.setAttribute("aria-expanded", String(!isOpen));
-  }
+  mobileMenu.classList.toggle("active", !isOpen);
+
+  menuIconOpen.classList.toggle("hidden", !isOpen);
+  menuIconClose.classList.toggle("hidden", isOpen);
+
+  menuToggle.setAttribute("aria-expanded", String(!isOpen));
+}
 
   menuToggle?.addEventListener("click", toggleMobileMenu);
 
@@ -635,7 +637,13 @@ document.getElementById("consentDecline").addEventListener("click", function(){
 <span data-i18n="hero.badge">حلول رقمية ونمو فعلي — من الانطلاقة إلى التوسع</span>
 </p>
 <h1 class="mt-5 text-[clamp(1.8rem,4.5vw,3.4rem)] font-semibold leading-[1.35] md:leading-[1.22] tracking-normal">
-      <span class="block" data-i18n="hero.h1a">نطور مواقع وتطبيقات</span>
+       <span class="block">
+  <span data-i18n="hero.h1a"></span>
+
+  <span class="md:hidden">
+    أعمال
+  </span>
+</span>نطور مواقع وتطبيقات</span>
   <span class="block text-transparent bg-clip-text bg-gradient-to-l from-[var(--p2)] to-[var(--p1)]" data-i18n="hero.h1b">تساهم في نمو اعمالك وزيادة مبيعاتك</span>
 </h1>
 <p class="mt-5 max-w-2xl mx-auto md:mx-0 text-sm sm:text-base md:text-lg text-[var(--muted)] leading-7 sm:leading-8 break-words whitespace-normal" data-i18n="hero.desc">

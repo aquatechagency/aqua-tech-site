@@ -2723,20 +2723,17 @@ section[id] {
 /* Mobile menu positioning */
 @media (max-width: 767px){
 
+@media (max-width: 767px){
   #mobileMenu{
-    position: fixed;
-    top: 84px;
-    width: min(320px, 88vw);
-    height: calc(100dvh - 100px);
-
-    transition:
-      transform .35s ease,
-      opacity .25s ease;
-
     opacity: 0;
     pointer-events: none;
-    z-index: 9999;
   }
+
+  #mobileMenu.active{
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
 
   /* Arabic -> right */
   html[dir="rtl"] #mobileMenu{
@@ -2770,4 +2767,9 @@ section[id] {
     content: " أعمال";
   }
 
+}
+@media (max-width: 767px){
+  #svc-custom .aq-system-node{
+    display: none !important;
+  }
 }
