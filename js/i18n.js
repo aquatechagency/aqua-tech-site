@@ -44,7 +44,7 @@
 "solutions.attendance.b2":"تقارير حضور وتنظيم أفضل",
 
         "nav.testimonials":"المعايير",
-        "hero.mobileWord":"أعمال ذكية",
+
 
         
         "btn.whatsapp":"واتساب",
@@ -57,10 +57,9 @@
         "hero.devMode":"DEV MODE","hero.terminalLabel":"terminal • deploy",
         "hero.terminalBody":"<span class=\"text-white/80\">$</span> npx create-aqua-app\n<span class=\"text-white/80\">$</span> build --optimize\n<span class=\"text-white/80\">$</span> deploy --env=prod\n<span class=\"text-[var(--p1)]\">✔</span>shipped in<span class=\"text-[var(--p2)]\"> minutes</span> — performance ✅",
         "form.modalTitle":"تم إرسال طلبك بنجاح",
-        "form.modalText":"سوف نتواصل معك في أقرب وقت",
-        "hero.h1a":"نبني مواقع ويب وتطبيقات وأنظمة",
-        "hero.h1b":"تساهم في نمو أعمالك",
-        "hero.h1c":"وزيادة مبيعاتك",
+        "hero.h1a":"نبني مواقع ويب وتطبيقات",
+        "hero.h1b":"وأنظمة أعمال ذكية",
+        "hero.h1c":"تساهم في نمو أعمالك",
 
         "hero.desc":"مواقع إلكترونية، وأنظمة أتمتة، وأنظمة قابلة للتطوير مصممة لمساعدة الشركات على النمو بشكل أكثر ذكاءً والعمل بشكل أفضل.",
         "hero.ctaPrimary":"ابدأ الآن",
