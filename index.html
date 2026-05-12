@@ -98,7 +98,7 @@
 
 <!-- 14. Preload critical assets -->
 <link rel="preload" as="image" href="assets/logoo.webp"/>
-<link rel="stylesheet" href="/dist/output.css">
+<link rel="stylesheet" href="./dist/output.css">
 <link rel="stylesheet" href="./css/styles.css">
 
 <!-- 15. Google Analytics — consent-gated -->
@@ -385,8 +385,8 @@ document.getElementById("consentDecline").addEventListener("click", function(){
 </a>
 <nav class="desktop-nav hidden md:flex items-center gap-1 text-sm text-[var(--muted2)]">
   <a class="nav-link" href="#about" data-i18n="nav.about">من نحن</a>
-  <a class="nav-link" href="#services" data-i18n="nav.services">الخدمات</a>
   <a class="nav-link" href="#trust" data-i18n="nav.trust">Why us</a>
+  <a class="nav-link" href="#services" data-i18n="nav.services">الخدمات</a>
   <a class="nav-link" href="#ready-systems" data-i18n="nav.systems">الحلول</a>
   <a class="nav-link" href="#results" data-i18n="nav.results">النتائج</a>
   <a class="nav-link" href="#testimonials" data-i18n="nav.testimonials">المعايير</a>
@@ -511,7 +511,7 @@ onclick="if(typeof gtag==='function'){
 </p>
 <h1 class="mt-5 text-[clamp(1.8rem,4.5vw,3.4rem)] font-semibold leading-[1.35] md:leading-[1.22] tracking-normal">
       <span class="block" data-i18n="hero.h1a">نطور مواقع وتطبيقات</span>
-  <span class="block text-transparent bg-clip-text bg-gradient-to-l from-[var(--p2)] to-[var(--p1)]" data-i18n="hero.h1b">تنمّي أعمالك وتزيد مبيعاتك</span>
+  <span class="block text-transparent bg-clip-text bg-gradient-to-l from-[var(--p2)] to-[var(--p1)]" data-i18n="hero.h1b">تساهم في نمو اعمالك وزيادة مبيعاتك</span>
 </h1>
 <p class="mt-5 max-w-2xl mx-auto md:mx-0 text-sm sm:text-base md:text-lg text-[var(--muted)] leading-7 sm:leading-8 break-words whitespace-normal" data-i18n="hero.desc">
                    Aqua.Tech نبني مواقع وأنظمة تركّز على جذب العملاء، استقبال الطلبات، والرد الأولي في مسار واضح وقابل للتنفيذ.
@@ -526,7 +526,7 @@ onclick="if(typeof gtag==='function'){
 <div class="hero-stats mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-[var(--muted)] justify-items-center">
 <div class="hero-stat-card mx-auto">
     <div class="text-white font-semibold text-lg" data-i18n="stats.fastT">3–5 أيام</div>
-<div class="mt-1" data-i18n="stats.fastD">إطلاق صفحة هبوط</div>
+<div class="mt-1" data-i18n="stats.fastD"> إطلاق صفحات تسويقية احترافية</div>
 </div>
 <div class="hero-stat-card mx-auto">
     <div class="text-white font-semibold text-lg" data-i18n="stats.clearT">24 ساعة</div>
@@ -541,6 +541,7 @@ onclick="if(typeof gtag==='function'){
   <a href="#contact" class="hero-primary-btn font-semibold" data-i18n="hero.ctaPrimary">ابدأالآن</a>
   <a href="#services" class="hero-secondary-btn font-medium" data-i18n="hero.ctaSecondary">استعرض الحلول</a>
 </div>
+
 </div>
 <!-- Right -->
 <div class="hero-panel-wrap relative w-full flex justify-center md:flex md:justify-start">
@@ -632,14 +633,49 @@ onclick="if(typeof gtag==='function'){
 </div>
 </section>
 
-
-
 <section class="border-t border-[var(--border)]/70" id="about" data-animate>
   <div class="max-w-6xl mx-auto px-4 py-14 md:py-16 lg:py-20">
+
     <div class="about-shell">
-      <h2 class="text-2xl md:text-3xl font-semibold" data-i18n="about.h">من نحن</h2>
-      <p class="mt-4 text-[var(--muted2)] leading-8 max-w-3xl" data-i18n="about.d">Aqua.Tech شريك رقمي يساعد الشركات ورواد الأعمال على بناء حضور قوي، تطوير مواقع وصفحات هبوط وأنظمة أكثر كفاءة، وتحويل الأفكار إلى حلول عملية قابلة للنمو. نركز على الدمج بين التنفيذ التقني، الأتمتة الذكية، والنتائج التجارية الواضحة.</p>
+
+      <h2 class="text-2xl md:text-3xl font-semibold" data-i18n="about.h">
+        من نحن
+      </h2>
+
+      <p class="mt-4 text-[var(--muted2)] leading-8 max-w-3xl" data-i18n="about.d">
+
+        Aqua.Tech شريك رقمي يساعد الشركات ورواد الأعمال على بناء حضور أقوى على الإنترنت، وتطوير مواقع وأنظمة عملية تدعم النمو.
+
+        <br><br>
+
+        نجمع بين التطوير، الأتمتة الذكية، وتجربة المستخدم لنقدّم حلولًا واضحة، سهلة التوسّع، وموجّهة لنتائج الأعمال.
+
+      </p>
+
+<div class="mt-8 flex flex-wrap gap-3 text-sm">
+
+  <div
+    class="rounded-2xl border border-[var(--border)] bg-white/[.03] px-4 py-2"
+    data-i18n="about.tag1">
+    مواقع وأنظمة
+  </div>
+
+  <div
+    class="rounded-2xl border border-[var(--border)] bg-white/[.03] px-4 py-2"
+    data-i18n="about.tag2">
+    أتمتة وذكاء اصطناعي
+  </div>
+
+  <div
+    class="rounded-2xl border border-[var(--border)] bg-white/[.03] px-4 py-2"
+    data-i18n="about.tag3">
+    حلول للنمو والتشغيل
+  </div>
+
+</div>
+
     </div>
+
   </div>
 </section>
 
@@ -678,220 +714,264 @@ onclick="if(typeof gtag==='function'){
 </section>
 
 
-<section class="border-t border-[var(--border)]/70" id="services" data-animate>
-<div class="max-w-6xl mx-auto px-4 py-14 md:py-16 lg:py-20">
-<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-<div>
-<h2 class="text-2xl md:text-3xl font-semibold" data-i18n="details.h"> الخدمات</h2>
-<p class="mt-2 text-[var(--muted)]" data-i18n="details.sub">اختر خدمة واحدة أو باقة متكاملة — نغطي كامل رحلة مشروعك من الفكرة حتى الإطلاق.</p>
-</div>
-
-</div>
-<div class="mt-10 space-y-10">
-
-  <!-- Landing Page Express -->
-  <div class="w-[calc(100%-2rem)] max-w-[22rem] sm:max-w-none mx-auto rounded-3xl p-6 md:p-8 bg-white/5 border border-[var(--border)] shadow-aqua" id="svc-landing">
-    <div class="grid md:grid-cols-2 gap-8 items-center">
+<section class="aq-services-section" id="services" data-animate>
+  <div class="aq-services-wrap">
+    <div class="aq-services-head">
       <div>
-        <div class="text-xs text-[var(--muted)]" data-i18n="details.landing.kicker">حلول سريعة</div>
-        <h3 class="mt-2 text-xl md:text-2xl font-semibold" data-i18n="details.landing.t">صفحة هبوط سريعة</h3>
-        <p class="mt-3 text-sm text-[var(--muted2)] leading-relaxed" data-i18n="details.landing.d">
-          صفحة هبوط احترافية وسريعة تساعدك تبدأ الإعلان وجمع العملاء خلال وقت قصير.
-        </p>
-        <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="details.landing.p1">تصميم واضح موجه لرفع التحويل وجمع العملاء المحتملين</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="details.landing.p2">متوافقة مع الجوال + سرعة عالية + دعوة واضحة للإجراء</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="details.landing.p3">ربط واتساب / نموذج / تتبع وتحليلات</span></li>
-        </ul>
-        <a class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="website_lead_system" data-i18n="details.cta" href="#contact">خلينا نحدد لك الحل المناسب </a>
-      </div>
-      <div class="flex justify-center md:justify-end">
-        <svg aria-hidden="true" class="w-full max-w-[360px] text-white/40" fill="none" viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg">
-          <rect x="60" y="60" width="300" height="190" rx="18" stroke="currentColor" stroke-width="6"/>
-          <path d="M60 96h300" stroke="currentColor" stroke-width="6" opacity=".75"/>
-          <rect x="92" y="126" width="160" height="20" rx="10" stroke="currentColor" stroke-width="5"/>
-          <rect x="92" y="162" width="210" height="14" rx="7" stroke="currentColor" stroke-width="5" opacity=".55"/>
-          <rect x="92" y="190" width="120" height="36" rx="12" stroke="currentColor" stroke-width="5"/>
-        </svg>
+        <span class="aq-section-kicker" data-i18n="details.h">الخدمات</span>
+        <h2 data-i18n="details.h">الخدمات</h2>
+        <p data-i18n="details.sub">اختر خدمة واحدة أو باقة متكاملة — نغطي كامل رحلة مشروعك من الفكرة حتى الإطلاق</p>
       </div>
     </div>
-  </div>
 
-  <!-- Websites -->
-  <div class="w-[calc(100%-2rem)] max-w-[22rem] sm:max-w-none mx-auto rounded-3xl p-6 md:p-8 bg-white/5 border border-[var(--border)] shadow-aqua" id="svc-web">
-    <div class="grid md:grid-cols-2 gap-8 items-center">
-      <div class="md:order-2">
-        <div class="text-xs text-[var(--muted)]" data-i18n="details.web.kicker">مواقع ومتاجر</div>
-        <h3 class="mt-2 text-xl md:text-2xl font-semibold" data-i18n="details.web.t">مواقع ومتاجر احترافية</h3>
-        <p class="mt-3 text-sm text-[var(--muted2)] leading-relaxed" data-i18n="details.web.d">
-          نبني مواقع شركات ومتاجر وصفحات خدمات تركّز على الثقة والسرعة وتجربة المستخدم.
-        </p>
-        <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="details.web.p1">تصميم واجهات وتجربة مستخدم + واجهات حديثة ومتجاوبة</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="details.web.p2">ربط CMS أو لوحة تحكم أو متجر حسب الحاجة</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="details.web.p3">تهيئة تقنية لمحركات البحث + سرعة + تحليلات</span></li>
-        </ul>
-        <a class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="website_lead_system" data-i18n="details.cta" href="#contact">خلينا نحدد لك الحل المناسب </a>
-      </div>
-      <div class="flex justify-center md:justify-start md:order-1">
-        <svg aria-hidden="true" class="w-full max-w-[360px] text-white/40" fill="none" viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg">
-          <rect x="60" y="60" width="300" height="200" rx="18" stroke="currentColor" stroke-width="6"/>
-          <path d="M60 92h300" stroke="currentColor" stroke-width="6"/>
-          <circle cx="86" cy="78" r="6" fill="currentColor" opacity=".7"/>
-          <circle cx="110" cy="78" r="6" fill="currentColor" opacity=".55"/>
-          <circle cx="134" cy="78" r="6" fill="currentColor" opacity=".4"/>
-          <rect x="92" y="122" width="120" height="18" rx="9" stroke="currentColor" stroke-width="5"/>
-          <rect x="92" y="156" width="190" height="14" rx="7" stroke="currentColor" stroke-width="5" opacity=".5"/>
-          <rect x="92" y="184" width="160" height="14" rx="7" stroke="currentColor" stroke-width="5" opacity=".35"/>
-        </svg>
-      </div>
+    <div class="aq-service-stack">
+
+      <!-- Landing Page Express -->
+      <article class="aq-service-card" id="svc-landing">
+        <div class="aq-service-copy">
+          <div class="aq-service-pill">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM4 9h16M8 13h8M8 16h5"/></svg>
+            <span data-i18n="details.landing.kicker">حلول سريعة</span>
+          </div>
+
+          <h3 data-i18n="details.landing.t">صفحات تسويقية احترافية</h3>
+          <p class="aq-service-desc" data-i18n="details.landing.d">صفحات تسويقية احترافية وسريعة تساعدك تبدأ الإعلان وجمع العملاء خلال وقت قصير.</p>
+
+          <ul class="aq-feature-list">
+            <li><span class="aq-feature-icon">⌁</span><div><strong data-i18n="details.landing.p1">تصميم واضح موجه لرفع التحويل وجمع العملاء المحتملين</strong></div></li>
+            <li><span class="aq-feature-icon">⚡</span><div><strong data-i18n="details.landing.p2">متوافقة مع الجوال + سرعة عالية + دعوة واضحة للإجراء</strong></div></li>
+            <li><span class="aq-feature-icon">↗</span><div><strong data-i18n="details.landing.p3">ربط واتساب / نموذج / تتبع وتحليلات</strong></div></li>
+          </ul>
+
+          <a class="aq-service-link js-service-cta" data-service="website_lead_system" data-i18n="details.cta" href="#contact">خلينا نحدد لك الحل المناسب</a>
+        </div>
+
+        <div class="aq-service-divider" aria-hidden="true"></div>
+
+        <div class="aq-service-visual aq-visual-landing" aria-hidden="true">
+          <div class="aq-orbit-card aq-orbit-top"><span></span></div>
+          <div class="aq-orbit-card aq-orbit-left"><span></span></div>
+          <div class="aq-monitor">
+            <div class="aq-monitor-top"></div>
+            <div class="aq-monitor-body">
+              <span class="aq-line w1"></span>
+              <span class="aq-line w2"></span>
+              <span class="aq-cta-box"></span>
+            </div>
+          </div>
+          <div class="aq-glow-floor"></div>
+        </div>
+      </article>
+
+      <!-- Websites -->
+      <article class="aq-service-card" id="svc-web">
+        <div class="aq-service-copy">
+          <div class="aq-service-pill">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM4 9h16M8 13h3M13 13h3M8 16h8"/></svg>
+            <span data-i18n="details.web.kicker">مواقع ومتاجر</span>
+          </div>
+
+          <h3 data-i18n="details.web.t">مواقع ومتاجر احترافية</h3>
+          <p class="aq-service-desc" data-i18n="details.web.d">نبني مواقع شركات ومتاجر وصفحات خدمات تركّز على الثقة والسرعة وتجربة المستخدم.</p>
+
+          <ul class="aq-feature-list">
+            <li><span class="aq-feature-icon">▣</span><div><strong data-i18n="details.web.p1">تصميم واجهات وتجربة مستخدم + واجهات حديثة ومتجاوبة</strong></div></li>
+            <li><span class="aq-feature-icon">◈</span><div><strong data-i18n="details.web.p2">ربط CMS أو لوحة تحكم أو متجر حسب الحاجة</strong></div></li>
+            <li><span class="aq-feature-icon">◎</span><div><strong data-i18n="details.web.p3">تهيئة تقنية لمحركات البحث + سرعة + تحليلات</strong></div></li>
+          </ul>
+
+          <a class="aq-service-link js-service-cta" data-service="website_lead_system" data-i18n="details.cta" href="#contact">خلينا نحدد لك الحل المناسب</a>
+        </div>
+
+        <div class="aq-service-divider" aria-hidden="true"></div>
+
+        <div class="aq-service-visual aq-visual-web" aria-hidden="true">
+          <div class="aq-browser">
+            <div class="aq-browser-bar"><i></i><i></i><i></i></div>
+            <div class="aq-browser-grid">
+              <span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="aq-floating-badge badge-a">SEO</div>
+          <div class="aq-floating-badge badge-b">CMS</div>
+          <div class="aq-glow-floor"></div>
+        </div>
+      </article>
+
+      <!-- AI Chatbots -->
+      <article class="aq-service-card" id="svc-chatbot">
+        <div class="aq-service-copy">
+          <div class="aq-service-pill">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14v9H9l-4 4V7zM9 11h6M9 14h4"/></svg>
+            <span data-i18n="details.chatbot.kicker">ذكاء اصطناعي وأتمتة</span>
+          </div>
+
+          <h3 data-i18n="details.chatbot.t">شات بوت وأتمتة بالذكاء الاصطناعي</h3>
+          <p class="aq-service-desc" data-i18n="details.chatbot.d">نساعدك تبني بوتات ومهام تلقائية لتسريع الردود، تنظيم العملاء، وتقليل العمل اليدوي.</p>
+
+          <ul class="aq-feature-list">
+            <li><span class="aq-feature-icon">🤖</span><div><strong data-i18n="details.chatbot.p1">بوت واتساب أو موقع للرد على الأسئلة والاستفسارات</strong></div></li>
+            <li><span class="aq-feature-icon">⟲</span><div><strong data-i18n="details.chatbot.p2">أتمتة استقبال العملاء المحتملين وربط النماذج والرسائل</strong></div></li>
+            <li><span class="aq-feature-icon">🔗</span><div><strong data-i18n="details.chatbot.p3">ربط مع نظام إدارة العملاء أو جداول Google أو أنظمة داخلية</strong></div></li>
+          </ul>
+
+          <a class="aq-service-link js-service-cta" data-service="ai_business_automation" data-i18n="details.cta" href="#contact">خلينا نحدد لك الحل المناسب</a>
+        </div>
+
+        <div class="aq-service-divider" aria-hidden="true"></div>
+
+        <div class="aq-service-visual aq-visual-ai" aria-hidden="true">
+          <div class="aq-chat-window">
+            <span></span><span></span><span></span>
+            <div class="aq-bot-dot"></div>
+          </div>
+          <div class="aq-node n1"></div><div class="aq-node n2"></div><div class="aq-node n3"></div>
+          <div class="aq-glow-floor"></div>
+        </div>
+      </article>
+
+      <!-- Custom systems -->
+      <article class="aq-service-card aq-service-featured" id="svc-custom">
+        <div class="aq-service-copy">
+          <div class="aq-service-pill">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4-8 4-8-4 8-4zM4 12l8 4 8-4M4 17l8 4 8-4"/></svg>
+            <span data-i18n="details.custom.kicker">برمجيات مخصصة</span>
+          </div>
+
+          <h3 data-i18n="details.custom.t">أنظمة ولوحات تحكم مصممة لك</h3>
+          <p class="aq-service-desc" data-i18n="details.custom.d">أنظمة داخلية، أتمتة، وتكاملات API لتوفير الوقت والتكلفة.</p>
+
+          <ul class="aq-feature-list">
+            <li><span class="aq-feature-icon">⌕</span><div><strong data-i18n="details.custom.p1">تحليل المتطلبات + تصميم قاعدة البيانات + الأدوار والصلاحيات</strong></div></li>
+            <li><span class="aq-feature-icon">●</span><div><strong data-i18n="details.custom.p2">تكاملات: الدفع / نظام إدارة العملاء / واتساب / والمزيد</strong></div></li>
+            <li><span class="aq-feature-icon">▥</span><div><strong data-i18n="details.custom.p3">تقارير + مراقبة + دعم وصيانة مستمرة</strong></div></li>
+            <li><span class="aq-feature-icon">⌁</span><div><strong data-i18n="details.custom.p4">حلول IoT وربط أجهزة وحساسات مع النظام ولوحات التحكم</strong></div></li>
+          </ul>
+
+          <a class="aq-service-link js-service-cta" data-service="custom_system" data-i18n="details.cta" href="#contact">خلينا نحدد لك الحل المناسب</a>
+        </div>
+
+        <div class="aq-service-divider" aria-hidden="true"></div>
+
+        <div class="aq-service-visual aq-visual-custom" aria-hidden="true">
+          <div class="aq-system-node node-db"><span></span></div>
+          <div class="aq-system-node node-users"><span></span></div>
+          <div class="aq-system-node node-pay"><span></span></div>
+          <div class="aq-system-node node-wa"><span></span></div>
+          <div class="aq-system-node node-wifi"><span></span></div>
+          <div class="aq-system-node node-chart"><span></span></div>
+          <div class="aq-dashboard-screen">
+            <div class="aq-screen-sidebar"><i></i><i></i><i></i></div>
+            <div class="aq-screen-chart"><b></b><b></b><b></b></div>
+            <div class="aq-screen-donut"></div>
+          </div>
+          <div class="aq-glow-floor"></div>
+        </div>
+      </article>
+
+      <!-- Growth -->
+      <article class="aq-service-card" id="svc-growth">
+        <div class="aq-service-copy">
+          <div class="aq-service-pill">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18l6-6 4 4 6-9M16 7h4v4"/></svg>
+            <span data-i18n="details.growth.kicker">نمو وتسويق</span>
+          </div>
+
+          <h3 data-i18n="details.growth.t">باقات نمو وتسويق رقمي</h3>
+          <p class="aq-service-desc" data-i18n="details.growth.d">ندعم نمو مشروعك بخطة محتوى وإعلانات وتحسين ظهور وتحويل الزوار إلى عملاء.</p>
+
+          <ul class="aq-feature-list">
+            <li><span class="aq-feature-icon">▤</span><div><strong data-i18n="details.growth.p1">إدارة منصات التواصل + محتوى + تصميم + جدولة</strong></div></li>
+            <li><span class="aq-feature-icon">↗</span><div><strong data-i18n="details.growth.p2">إعلانات ممولة وتحسين التحويل</strong></div></li>
+            <li><span class="aq-feature-icon">▥</span><div><strong data-i18n="details.growth.p3">تقارير شهرية وقياس أداء مستمر</strong></div></li>
+          </ul>
+
+          <a class="aq-service-link js-service-cta" data-service="growth_package" data-i18n="details.cta" href="#contact">خلينا نحدد لك الحل المناسب</a>
+        </div>
+
+        <div class="aq-service-divider" aria-hidden="true"></div>
+
+        <div class="aq-service-visual aq-visual-growth" aria-hidden="true">
+          <div class="aq-growth-chart"><i></i><i></i><i></i><i></i></div>
+          <div class="aq-floating-badge badge-a">ROI</div>
+          <div class="aq-floating-badge badge-b">ADS</div>
+          <div class="aq-glow-floor"></div>
+        </div>
+      </article>
+
+      <!-- Social Media Management -->
+      <article class="aq-service-card" id="svc-social">
+        <div class="aq-service-copy">
+          <div class="aq-service-pill">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 8h10M7 12h7M5 4h14v16H5z"/></svg>
+            <span data-i18n="details.social.kicker">إدارة حسابات السوشيال ميديا</span>
+          </div>
+
+          <h3 data-i18n="details.social.t">إدارة حسابات السوشيال ميديا باحتراف</h3>
+          <p class="aq-service-desc" data-i18n="details.social.d">نجهز لك خطة محتوى وتصاميم وجدولة ونساعدك تبني حضور ثابت يحول المتابعين إلى عملاء محتملين.</p>
+
+          <ul class="aq-feature-list">
+            <li><span class="aq-feature-icon">▦</span><div><strong data-i18n="details.social.p1">خطة محتوى شهرية + أفكار منشورات وريلز حسب نشاطك</strong></div></li>
+            <li><span class="aq-feature-icon">✦</span><div><strong data-i18n="details.social.p2">تصميم بوستات وستوريز وكتابة كابشن مناسب للبراند</strong></div></li>
+            <li><span class="aq-feature-icon">⏱</span><div><strong data-i18n="details.social.p3">جدولة ونشر + متابعة الرسائل والتفاعل حسب الباقة</strong></div></li>
+            <li><span class="aq-feature-icon">▥</span><div><strong data-i18n="details.social.p4">تقرير شهري واضح لتحسين الوصول والطلبات</strong></div></li>
+          </ul>
+
+          <a class="aq-service-link js-service-cta" data-service="social_media_management" data-i18n="details.social.cta" href="#contact">ابدأ إدارة حساباتك</a>
+        </div>
+
+        <div class="aq-service-divider" aria-hidden="true"></div>
+
+        <div class="aq-service-visual aq-visual-social" aria-hidden="true">
+          <div class="aq-phone-card">
+            <div class="aq-phone-avatar"></div>
+            <span></span><span></span><span></span>
+          </div>
+          <div class="aq-social-chip c1">IG</div>
+          <div class="aq-social-chip c2">FB</div>
+          <div class="aq-social-chip c3">IN</div>
+          <div class="aq-glow-floor"></div>
+        </div>
+      </article>
+
+      <!-- Design -->
+      <article class="aq-service-card" id="svc-design">
+        <div class="aq-service-copy">
+          <div class="aq-service-pill">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l4-1 10-10-3-3L5 16l-1 4zM13 6l3 3"/></svg>
+            <span data-i18n="details.design.kicker">تصميم وهوية</span>
+          </div>
+
+          <h3 data-i18n="details.design.t">تصميم واجهات وتجربة مستخدم وهوية بصرية</h3>
+          <p class="aq-service-desc" data-i18n="details.design.d">نصمم واجهات وتجارب وهوية بصرية تعطي مشروعك شكل احترافي وثقة أعلى.</p>
+
+          <ul class="aq-feature-list">
+            <li><span class="aq-feature-icon">▧</span><div><strong data-i18n="details.design.p1">مخططات أولية + مكتبة واجهات + نظام تصميم</strong></div></li>
+            <li><span class="aq-feature-icon">◉</span><div><strong data-i18n="details.design.p2">هوية بصرية: ألوان وخطوط واستخدامات الشعار</strong></div></li>
+            <li><span class="aq-feature-icon">✦</span><div><strong data-i18n="details.design.p3">تصميمات تسويقية ومواد داعمة للمبيعات</strong></div></li>
+          </ul>
+
+          <a class="aq-service-link js-service-cta" data-service="design_branding" data-i18n="details.cta" href="#contact">خلينا نحدد لك الحل المناسب</a>
+        </div>
+
+        <div class="aq-service-divider" aria-hidden="true"></div>
+
+        <div class="aq-service-visual aq-visual-design" aria-hidden="true">
+          <div class="aq-design-board">
+            <span class="top"></span>
+            <span class="box one"></span>
+            <span class="box two"></span>
+            <span class="box three"></span>
+          </div>
+          <div class="aq-palette"><i></i><i></i><i></i></div>
+          <div class="aq-cursor-shape"></div>
+          <div class="aq-glow-floor"></div>
+        </div>
+      </article>
+
     </div>
   </div>
-
-  <!-- AI Chatbots -->
-  <div class="w-[calc(100%-2rem)] max-w-[22rem] sm:max-w-none mx-auto rounded-3xl p-6 md:p-8 bg-white/5 border border-[var(--border)] shadow-aqua" id="svc-chatbot">
-    <div class="grid md:grid-cols-2 gap-8 items-center">
-      <div>
-        <div class="text-xs text-[var(--muted)]" data-i18n="details.chatbot.kicker">ذكاء اصطناعي وأتمتة</div>
-        <h3 class="mt-2 text-xl md:text-2xl font-semibold" data-i18n="details.chatbot.t">شات بوت وأتمتة بالذكاء الاصطناعي</h3>
-        <p class="mt-3 text-sm text-[var(--muted2)] leading-relaxed" data-i18n="details.chatbot.d">
-          نساعدك تبني بوتات ومهام تلقائية لتسريع الردود، تنظيم العملاء، وتقليل العمل اليدوي.
-        </p>
-        <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="details.chatbot.p1">بوت واتساب أو موقع للرد على الأسئلة والاستفسارات</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="details.chatbot.p2">أتمتة استقبال العملاء المحتملين وربط النماذج والرسائل</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="details.chatbot.p3">ربط مع نظام إدارة العملاء أو جداول Google أو أنظمة داخلية</span></li>
-        </ul>
-        <a class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="ai_business_automation" data-i18n="details.cta" href="#contact">خلينا نحدد لك الحل المناسب </a>
-      </div>
-      <div class="flex justify-center md:justify-end">
-        <svg aria-hidden="true" class="w-full max-w-[360px] text-white/40" fill="none" viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg">
-          <rect x="90" y="70" width="180" height="120" rx="24" stroke="currentColor" stroke-width="6"/>
-          <path d="M150 210l-8 28 34-20h64" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="150" cy="130" r="8" fill="currentColor" opacity=".7"/>
-          <circle cx="180" cy="130" r="8" fill="currentColor" opacity=".7"/>
-          <circle cx="210" cy="130" r="8" fill="currentColor" opacity=".7"/>
-          <path d="M285 95l30-14M292 150l34 0M286 204l28 14" stroke="currentColor" stroke-width="5" opacity=".45" stroke-linecap="round"/>
-        </svg>
-      </div>
-    </div>
-  </div>
-
-  <!-- Custom systems -->
-  <div class="w-[calc(100%-2rem)] max-w-[22rem] sm:max-w-none mx-auto rounded-3xl p-6 md:p-8 bg-white/5 border border-[var(--border)] shadow-aqua" id="svc-custom">
-    <div class="grid md:grid-cols-2 gap-8 items-center">
-      <div class="md:order-2">
-        <div class="text-xs text-[var(--muted)]" data-i18n="details.custom.kicker">أنظمة مخصصة</div>
-        <h3 class="mt-2 text-xl md:text-2xl font-semibold" data-i18n="details.custom.t">أنظمة مخصصة ولوحات تحكم</h3>
-        <p class="mt-3 text-sm text-[var(--muted2)] leading-relaxed" data-i18n="details.custom.d">
-          نبني أنظمة تشغيل داخلية ولوحات متابعة وأدوات مخصصة تناسب طريقة عمل شركتك.
-        </p>
-        <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="details.custom.p1">تحليل العمليات + تصميم قاعدة البيانات والصلاحيات</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="details.custom.p2">تكاملات برمجية ووسائل دفع ونظام إدارة العملاء وواتساب</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="details.custom.p3">تقارير + متابعة + دعم وتطوير مستمر</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="details.custom.p4">حلول IoT وربط أجهزة وحساسات مع النظام ولوحات التحكم</span></li>
-        </ul>
-        <a class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="client_management_system" data-i18n="details.cta" href="#contact">خلينا نحدد لك الحل المناسب </a>
-      </div>
-      <div class="flex justify-center md:justify-start md:order-1">
-        <svg aria-hidden="true" class="w-full max-w-[360px] text-white/40" fill="none" viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg">
-          <path d="M140 220c0 30 24 54 54 54s54-24 54-54-24-54-54-54-54 24-54 54Z" stroke="currentColor" stroke-width="6"/>
-          <path d="M194 148v-28M194 300v-28M120 220H92M296 220h-28" stroke="currentColor" stroke-width="6" stroke-linecap="round" opacity=".8"/>
-          <path d="M232 220a38 38 0 1 1-76 0 38 38 0 0 1 76 0Z" stroke="currentColor" stroke-width="6" opacity=".7"/>
-        </svg>
-      </div>
-    </div>
-  </div>
-
-  <!-- Growth -->
-  <div class="w-[calc(100%-2rem)] max-w-[22rem] sm:max-w-none mx-auto rounded-3xl p-6 md:p-8 bg-white/5 border border-[var(--border)] shadow-aqua" id="svc-growth">
-    <div class="grid md:grid-cols-2 gap-8 items-center">
-      <div>
-        <div class="text-xs text-[var(--muted)]" data-i18n="details.growth.kicker">نمو وتسويق</div>
-        <h3 class="mt-2 text-xl md:text-2xl font-semibold" data-i18n="details.growth.t">باقات نمو وتسويق رقمي</h3>
-        <p class="mt-3 text-sm text-[var(--muted2)] leading-relaxed" data-i18n="details.growth.d">
-          ندعم نمو مشروعك بخطة محتوى وإعلانات وتحسين ظهور وتحويل الزوار إلى عملاء.
-        </p>
-        <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="details.growth.p1">إدارة منصات التواصل + محتوى + تصميم + جدولة</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="details.growth.p2">إعلانات ممولة وتحسين التحويل</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="details.growth.p3">تقارير شهرية وقياس أداء مستمر</span></li>
-        </ul>
-        <a class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="growth_package" data-i18n="details.cta" href="#contact">خلينا نحدد لك الحل المناسب </a>
-      </div>
-      <div class="flex justify-center md:justify-end">
-        <svg aria-hidden="true" class="w-full max-w-[360px] text-white/40" fill="none" viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg">
-          <path d="M90 230l80-80 60 60 100-100" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="170" cy="150" r="10" fill="currentColor" opacity=".7"/>
-          <circle cx="230" cy="210" r="10" fill="currentColor" opacity=".7"/>
-          <circle cx="330" cy="110" r="10" fill="currentColor" opacity=".7"/>
-        </svg>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- Social Media Management -->
-  <div class="w-[calc(100%-2rem)] max-w-[22rem] sm:max-w-none mx-auto rounded-3xl p-6 md:p-8 bg-white/5 border border-[var(--border)] shadow-aqua" id="svc-social">
-    <div class="grid md:grid-cols-2 gap-8 items-center">
-      <div class="md:order-2">
-        <div class="text-xs text-[var(--muted)]" data-i18n="details.social.kicker">إدارة حسابات السوشيال ميديا</div>
-        <h3 class="mt-2 text-xl md:text-2xl font-semibold" data-i18n="details.social.t">إدارة حسابات السوشيال ميديا باحتراف</h3>
-        <p class="mt-3 text-sm text-[var(--muted2)] leading-relaxed" data-i18n="details.social.d">
-          نجهز لك خطة محتوى وتصاميم وجدولة ونساعدك تبني حضور ثابت يحول المتابعين إلى عملاء محتملين.
-        </p>
-        <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="details.social.p1">خطة محتوى شهرية + أفكار منشورات وريلز حسب نشاطك</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="details.social.p2">تصميم بوستات وستوريز وكتابة كابشن مناسب للبراند</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="details.social.p3">جدولة ونشر + متابعة الرسائل والتفاعل حسب الباقة</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="details.social.p4">تقرير شهري واضح لتحسين الوصول والطلبات</span></li>
-        </ul>
-        <a class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="social_media_management" data-i18n="details.social.cta" href="#contact">ابدأ إدارة حساباتك </a>
-      </div>
-      <div class="flex justify-center md:justify-start md:order-1">
-        <svg aria-hidden="true" class="w-full max-w-[360px] text-white/40" fill="none" viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg">
-          <rect x="95" y="55" width="230" height="210" rx="28" stroke="currentColor" stroke-width="6"/>
-          <circle cx="210" cy="140" r="42" stroke="currentColor" stroke-width="6"/>
-          <path d="M175 210h70M160 238h100" stroke="currentColor" stroke-width="6" stroke-linecap="round" opacity=".65"/>
-          <path d="M110 95h34M276 95h34M110 255h34M276 255h34" stroke="currentColor" stroke-width="5" stroke-linecap="round" opacity=".45"/>
-          <path d="M150 96c18-18 42-28 70-28 42 0 78 24 94 59" stroke="currentColor" stroke-width="5" stroke-linecap="round" opacity=".38"/>
-        </svg>
-      </div>
-    </div>
-  </div>
-
-  <!-- Design -->
-  <div class="w-[calc(100%-2rem)] max-w-[22rem] sm:max-w-none mx-auto rounded-3xl p-6 md:p-8 bg-white/5 border border-[var(--border)] shadow-aqua" id="svc-design">
-<div class="flex flex-col md:flex-row-reverse gap-8 items-center">
-        <div class="md:order-2">
-        <div class="text-xs text-[var(--muted)]" data-i18n="details.design.kicker">تصميم وهوية</div>
-        <h3 class="mt-2 text-xl md:text-2xl font-semibold" data-i18n="details.design.t">تصميم واجهات وتجربة مستخدم وهوية بصرية</h3>
-        <p class="mt-3 text-sm text-[var(--muted2)] leading-relaxed" data-i18n="details.design.d">
-          نصمم واجهات وتجارب وهوية بصرية تعطي مشروعك شكل احترافي وثقة أعلى.
-        </p>
-        <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="details.design.p1">مخططات أولية + مكتبة واجهات + نظام تصميم</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="details.design.p2">هوية بصرية: ألوان وخطوط واستخدامات الشعار</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="details.design.p3">تصميمات تسويقية ومواد داعمة للمبيعات</span></li>
-        </ul>
-        <a class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="landing_page_optimization" data-i18n="details.cta" href="#contact">خلينا نحدد لك الحل المناسب </a>
-      </div>
-      <div class="flex justify-center md:justify-start md:order-1">
-        <svg aria-hidden="true" class="w-full max-w-[360px] text-white/40" fill="none" viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg">
-          <path d="M90 230l80-80 60 60 100-100" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="170" cy="150" r="10" fill="currentColor" opacity=".7"/>
-          <circle cx="230" cy="210" r="10" fill="currentColor" opacity=".7"/>
-          <circle cx="330" cy="110" r="10" fill="currentColor" opacity=".7"/>
-        </svg>
-      </div>
-    </div>
-  </div>
-
-</div></div>
-</div>
 </section>
-
 
 
 <section class="border-t border-[var(--border)]/70" id="ready-systems" data-animate>
@@ -960,19 +1040,19 @@ onclick="if(typeof gtag==='function'){
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
       <div>
         <h2 class="text-2xl md:text-3xl font-semibold" data-i18n="results.h">نتائج يمكننا تحقيقها معك</h2>
-        <p class="mt-2 text-[var(--muted)] max-w-3xl" data-i18n="results.sub">
-          
-        </p>
+<p class="mt-3 text-[var(--muted)] max-w-2xl" data-i18n="results.subText">
+  حلول رقمية مصممة لتحسين التشغيل، زيادة التحويل، وتنظيم التواصل مع العملاء
+</p>
       </div>
       <a href="#contact" class="hero-secondary-btn font-medium" data-i18n="results.cta">خلينا نحدد لك النتيجة المناسبة </a>
     </div>
 
     <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
       <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-glow h-full flex flex-col">
-        <div class="text-xs text-[var(--muted)]" data-i18n="results.c1k">صفحة هبوط + إعلانات</div>
+        <div class="text-xs text-[var(--muted)]" data-i18n="results.c1k">صفحات تسويقية احترافية + إعلانات</div>
         <h3 class="mt-2 text-lg font-semibold" data-i18n="results.c1t">زيادة وضوح التحويل وجمع الاستفسارات</h3>
         <p class="mt-3 text-sm text-[var(--muted2)] leading-7" data-i18n="results.c1d">
-          صفحة هبوط واضحة مع CTA مباشر وربط واتساب أو نموذج يمكن أن تساعدك على رفع عدد الاستفسارات وتقليل ضياع الزوار بين الزيارة والطلب.
+          صفحات تسويقية احترافية واضحة مع CTA مباشر وربط واتساب أو نموذج يمكن أن تساعدك على رفع عدد الاستفسارات وتقليل ضياع الزوار بين الزيارة والطلب.
         </p>
       </div>
 
@@ -1003,7 +1083,7 @@ onclick="if(typeof gtag==='function'){
       <div>
         <h2 class="text-2xl md:text-3xl font-semibold" data-i18n="testimonials.h">مبادئ عمل نلتزم بها في كل مشروع</h2>
         <p class="mt-2 text-[var(--muted)] max-w-3xl" data-i18n="testimonials.sub">
-          كل مشروع ننفذه يعكس هذه المبادئ بشكل عملي — وضوح، جودة، ونتائج قابلة للقياس.
+          كل مشروع ننفذه يعكس هذه المبادئ بشكل عملي — وضوح، جودة، ونتائج قابلة للقياس
         </p>
       </div>
     </div>
@@ -1053,7 +1133,7 @@ onclick="if(typeof gtag==='function'){
         </div>
         <div>
           <div class="text-2xl font-semibold text-white">100%</div>
-          <div class="mt-1 text-sm text-[var(--muted)]" data-i18n="socialproof.c3">تسليم كود + ملفات تصميم</div>
+          <div class="mt-1 text-sm text-[var(--muted)]" data-i18n="socialproof.c3">إطلاق جاهز مع دعم وتشغيل</div>
         </div>
       </div>
     </div>
@@ -1065,7 +1145,7 @@ onclick="if(typeof gtag==='function'){
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
       <div>
         <h2 class="text-2xl md:text-3xl font-semibold" data-i18n="offers.h">عروض جاهزة للانطلاق</h2>
-        <p class="mt-2 text-[var(--muted)] max-w-3xl" data-i18n="offers.sub">إذا كنت تريد بداية سريعة أو عرضًا واضحًا، هذه الباقات هي أفضل نقطة دخول للعمل معنا.</p>
+        <p class="mt-2 text-[var(--muted)] max-w-3xl" data-i18n="offers.sub">إذا كنت تريد بداية سريعة أو عرضًا واضحًا، هذه الباقات هي أفضل نقطة دخول للعمل معنا</p>
       </div>
       <a href="#contact" class="hero-secondary-btn font-medium" data-i18n="offers.cta">احصل على توصية مناسبة </a>
     </div>
@@ -1073,8 +1153,8 @@ onclick="if(typeof gtag==='function'){
     <div class="mt-8 grid md:grid-cols-2 xl:grid-cols-4 gap-4">
       <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua h-full flex flex-col">
         <div class="inline-flex items-center rounded-full px-3 py-1 text-xs bg-white/5 border border-[var(--border)] text-[var(--muted2)]" data-i18n="offers.card1.badge">الأسرع إطلاقًا</div>
-        <h3 class="mt-4 text-xl font-semibold" data-i18n="offers.card1.t">صفحة هبوط سريعة</h3>
-        <p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="offers.card1.d">صفحة هبوط احترافية تجهزك للإعلان وجمع العملاء بخطوات واضحة وسريعة.</p>
+        <h3 class="mt-4 text-xl font-semibold" data-i18n="offers.card1.t">صفحات تسويقية احترافية</h3>
+        <p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="offers.card1.d">صفحات تسويقية احترافية تجهزك للإعلان وجمع العملاء بخطوات واضحة وسريعة.</p>
         <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
           <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card1.p1">مناسبة للعروض والخدمات والإعلانات</span></li>
           <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card1.p2">ربط واتساب / نموذج / CTA واضح</span></li>
@@ -1126,7 +1206,7 @@ onclick="if(typeof gtag==='function'){
 <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
 <div>
 <h2 class="text-2xl md:text-3xl font-semibold" data-i18n="security.h">الأمان والثقة</h2>
-<p class="mt-2 text-[var(--muted)] max-w-3xl" data-i18n="security.sub">نبني المواقع والأنظمة وفق ممارسات حديثة تساعد على رفع الأمان، حماية البيانات، وتقوية موثوقية المشروع عند الإطلاق والتوسع.</p>
+<p class="mt-2 text-[var(--muted)] max-w-3xl" data-i18n="security.sub">نبني المواقع والأنظمة وفق ممارسات حديثة تساعد على رفع الأمان، حماية البيانات، وتقوية موثوقية المشروع عند الإطلاق</p>
 </div>
 <a href="#contact" class="hero-secondary-btn font-medium" data-i18n="security.cta">اطلب موقعًا أكثر أمانًا</a>
 </div>
@@ -1190,10 +1270,10 @@ onclick="if(typeof gtag==='function'){
     <div class="mt-8 grid md:grid-cols-2 gap-4">
 <div class="faq-item rounded-3xl p-6 bg-white/5 border border-[var(--border)] hover:bg-white/7 transition">
   <button type="button" class="faq-q cursor-pointer font-medium" aria-expanded="false" aria-controls="faqA1">
-    <span data-i18n="faq.q1">كم يستغرق تنفيذ صفحة هبوط أو موقع أو نظام مخصص؟</span>
+    <span data-i18n="faq.q1">كم يستغرق تنفيذ صفحات تسويقية احترافية أو موقع أو نظام مخصص؟</span>
     <span class="faq-icon" aria-hidden="true">+</span>
   </button>
-  <div id="faqA1" class="faq-a mt-3 text-sm text-[var(--muted)]" data-i18n="faq.a1">يعتمد ذلك على نوع الخدمة ونطاقها. بعض الخدمات السريعة مثل صفحة الهبوط أو الشات بوت يمكن إطلاقها خلال وقت قصير، بينما تحتاج المشاريع الأكبر إلى نطاق أوضح وجدول زمني أدق.</div>
+  <div id="faqA1" class="faq-a mt-3 text-sm text-[var(--muted)]" data-i18n="faq.a1">يعتمد ذلك على نوع الخدمة ونطاقها. بعض الخدمات السريعة مثل صفحات تسويقية احترافية أو الشات بوت يمكن إطلاقها خلال وقت قصير، بينما تحتاج المشاريع الأكبر إلى نطاق أوضح وجدول زمني أدق.</div>
 </div>
 <div class="faq-item rounded-3xl p-6 bg-white/5 border border-[var(--border)] hover:bg-white/7 transition">
   <button type="button" class="faq-q cursor-pointer font-medium" aria-expanded="false" aria-controls="faqA2">
@@ -1207,7 +1287,7 @@ onclick="if(typeof gtag==='function'){
     <span data-i18n="faq.q3">هل توفرون خدمات سريعة وأيضًا حلولًا مخصصة بالكامل؟</span>
     <span class="faq-icon" aria-hidden="true">+</span>
   </button>
-  <div id="faqA3" class="faq-a mt-3 text-sm text-[var(--muted)]" data-i18n="faq.a3">نعم. نوفر خدمات سريعة للدخول إلى السوق مثل صفحات الهبوط والبوتات، ونبني أيضًا مواقع وأنظمة مخصصة بالكامل حسب احتياج المشروع.</div>
+  <div id="faqA3" class="faq-a mt-3 text-sm text-[var(--muted)]" data-i18n="faq.a3">نعم. نوفر خدمات سريعة للدخول إلى السوق مثل صفحات تسويقية احترافية والبوتات، ونبني أيضًا مواقع وأنظمة مخصصة بالكامل حسب احتياج المشروع.</div>
 </div>
 <div class="faq-item rounded-3xl p-6 bg-white/5 border border-[var(--border)] hover:bg-white/7 transition">
   <button type="button" class="faq-q cursor-pointer font-medium" aria-expanded="false" aria-controls="faqA4">
@@ -1260,10 +1340,10 @@ onclick="if(typeof gtag==='function'){
 </div>
 <div class="faq-item rounded-3xl p-6 bg-white/5 border border-[var(--border)] hover:bg-white/7 transition">
   <button type="button" class="faq-q cursor-pointer font-medium" aria-expanded="false" aria-controls="faqA11">
-    <span data-i18n="faq.q11">هل أحتاج إلى موقع كامل أم صفحة هبوط فقط؟</span>
+    <span data-i18n="faq.q11">هل أحتاج إلى موقع كامل أم صفحات تسويقية احترافية فقط؟</span>
     <span class="faq-icon" aria-hidden="true">+</span>
   </button>
-  <div id="faqA11" class="faq-a mt-3 text-sm text-[var(--muted)]" data-i18n="faq.a11">إذا كان هدفك جمع العملاء بسرعة لحملة أو خدمة محددة، فغالبًا تكفي صفحة الهبوط كبداية. أما إذا كنت تريد حضورًا أوسع وثقة أعلى ومحتوى أكثر، فالموقع الكامل يكون أنسب.</div>
+  <div id="faqA11" class="faq-a mt-3 text-sm text-[var(--muted)]" data-i18n="faq.a11">إذا كان هدفك جمع العملاء بسرعة لحملة أو خدمة محددة، فغالبًا تكفي صفحة تسويقية احترافية كبداية. أما إذا كنت تريد حضورًا أوسع وثقة أعلى ومحتوى أكثر، فالموقع الكامل يكون أنسب.</div>
 </div>
 <div class="faq-item rounded-3xl p-6 bg-white/5 border border-[var(--border)] hover:bg-white/7 transition">
   <button type="button" class="faq-q cursor-pointer font-medium" aria-expanded="false" aria-controls="faqA12">
@@ -1280,7 +1360,9 @@ onclick="if(typeof gtag==='function'){
 <div class="max-w-6xl mx-auto px-4 py-14 md:py-16 lg:py-20">
 <div class="mb-8 max-w-3xl">
 <h2 class="text-2xl md:text-3xl font-semibold" data-i18n="contact.h">اطلب النظام المناسب لمرحلتك</h2>
-<p class="mt-2 text-[var(--muted)]" data-i18n="contact.sub">شاركنا هدفك الحالي، وسنرجع لك بتوصية أولية، قناة التواصل الأنسب، وخطوة تالية واضحة تناسب مرحلة مشروعك بدون تعقيد.</p>
+<p class="mt-2 text-[var(--muted)]" data-i18n="contact.sub">
+  شاركنا هدفك الحالي، وسنقترح عليك الحل الأنسب وخطوة واضحة للانطلاق
+</p>
 </div>
 <div class="grid md:grid-cols-2 gap-8 items-start">
 <div class="order-2 md:order-1">
@@ -1415,17 +1497,26 @@ onclick="if(typeof gtag==='function'){
 <label class="mt-4 block text-sm">
 <span class="text-[var(--muted)]" data-i18n="form.service">الخدمة المطلوبة</span>
 <select class="mt-2 w-full rounded-2xl border border-[var(--border)] px-4 py-3 outline-none focus:border-[var(--p1)] focus:ring-2 focus:ring-[var(--p1)]/20 transition form-field" id="fService" name="service">
-<option value="website_lead_system" data-i18n="form.opt1">موقع ونظام استقبال عملاء</option>
-<option value="ai_business_automation" data-i18n="form.opt2">AI & Business Automation</option>
-<option value="client_management_system" data-i18n="form.opt3">Client Management System</option>
-<option value="whatsapp_automation" data-i18n="form.opt4">WhatsApp Automation</option>
-<option value="email_automation" data-i18n="form.opt5">Email Automation</option>
-<option value="landing_page_optimization" data-i18n="form.opt6">تحسين صفحة الهبوط</option>
-<option value="social_media_management" data-i18n="form.optSocial">إدارة حسابات السوشيال ميديا</option>
-<option value="lawyer_system" data-i18n="form.opt7">نظام إدارة مكاتب المحاماة</option>
-<option value="university_project_hub" data-i18n="form.opt8">منصة مشاريع الجامعة</option>
+
+ <option value="lead-system" data-i18n="form.opt1">موقع ونظام استقبال عملاء</option>
+<option value="ai-automation" data-i18n="form.opt2">أتمتة أعمال بالذكاء الاصطناعي</option>
+<option value="crm" data-i18n="form.opt3">نظام إدارة العملاء</option>
+<option value="whatsapp-automation" data-i18n="form.opt4">أتمتة واتساب</option>
+<option value="email-automation" data-i18n="form.opt5">أتمتة البريد الإلكتروني</option>
+<option value="landing-page" data-i18n="form.opt6">تحسين صفحة تسويقية احترافية</option>
+<option value="social-management" data-i18n="form.optSocial">إدارة حسابات السوشيال ميديا</option>
+<option value="lawyer-system" data-i18n="form.opt7">نظام إدارة مكاتب المحاماة</option>
+<option value="university-projects" data-i18n="form.opt8">منصة إدارة المشاريع الجامعية</option>
 <option value="resumeiq" data-i18n="form.opt9">ResumeIQ</option>
-<option value="smart_attendance" data-i18n="form.opt10">Smart Attendance</option>
+<option value="smart-attendance" data-i18n="form.opt10">Smart Attendance</option>
+<option value="company-website" data-i18n="form.opt11">موقع شركة احترافي</option>
+<option value="custom-system" data-i18n="form.opt12">نظام مخصص للشركات</option>
+<option value="content-design" data-i18n="form.opt13">تصميم وصناعة المحتوى</option>
+<option value="ads" data-i18n="form.opt14">إدارة الحملات الإعلانية</option>
+<option value="seo" data-i18n="form.opt15">SEO تحسين الظهور بمحركات البحث</option>
+<option value="dashboard" data-i18n="form.opt16">لوحات تحكم وتقارير</option>
+<option value="ai-agent" data-i18n="form.opt17">AI Agent أو شات بوت</option>
+<option value="other" data-i18n="form.opt18">خدمة أو فكرة أخرى</option>
 </select>
 </label>
 <div class="mt-4 grid sm:grid-cols-2 gap-4">
@@ -1497,7 +1588,7 @@ onclick="if(typeof gtag==='function'){
         </div>
 
         <p class="mt-4 text-sm text-[var(--muted2)] leading-7 max-w-xl" data-i18n="footer.desc">
-          نبني صفحات هبوط ومواقع وأنظمة وأتمتة تساعد الشركات ورواد الأعمال على النمو بشكل أسرع وبطريقة أوضح وأكثر احترافية.
+          نبني صفحات تسويقية احترافية ومواقع وأنظمة وأتمتة تساعد الشركات ورواد الأعمال على النمو بشكل أسرع وبطريقة أوضح وأكثر احترافية.
         </p>
       </div>
 
@@ -1545,7 +1636,7 @@ onclick="if(typeof gtag==='function'){
     </div>
 
     <div class="mt-8 pt-6 border-t border-[var(--border)]/70 flex flex-col md:flex-row gap-3 md:items-center md:justify-between text-xs text-[var(--muted)]">
-      <div data-i18n="footer.copy">© Aqua.Tech — جميع الحقوق محفوظة.</div>
+      <div data-i18n="footer.copy">© Aqua.Tech — جميع الحقوق محفوظة</div>
       <div data-i18n="footer.note">جاهزون لمساعدتك في الإطلاق السريع، بناء الأنظمة، وتحويل وجودك الرقمي إلى قناة نمو.</div>
     </div>
   </div>
