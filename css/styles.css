@@ -2621,3 +2621,28 @@ section[id]{
     margin: -20px auto -35px !important;
   }
 }
+@media (max-width: 767px){
+
+  #services .aq-service-visual{
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+
+    width:100% !important;
+    margin:0 auto !important;
+
+    transform:none !important;
+    left:auto !important;
+    right:auto !important;
+  }
+
+  #services .aq-service-visual svg,
+  #services .aq-service-visual img{
+    margin:0 auto !important;
+    display:block !important;
+
+    max-width:260px !important;
+    width:100% !important;
+  }
+
+}

@@ -127,7 +127,7 @@
         "details.h":"الخدمات",
         "details.sub":"اختر خدمة واحدة أو باقة متكاملة — نغطي كامل رحلة مشروعك من الفكرة حتى الإطلاق",
         "details.allCta":"اطلب استشارة مجانية",
-        "details.cta":"خلينا نحدد لك الحل المناسب ",
+        "details.cta":"نحدد لك الحل المناسب",
 
         "details.landing.kicker":"حلول سريعة",
         "details.landing.t":"صفحات تسويقية احترافية",
@@ -285,7 +285,7 @@
         "trust.c4k":"Clarity",
         "trust.c4t":"تواصل أوضح وقرار أسرع",
         "trust.c4d":"تحديثات واضحة أثناء التنفيذ، ومخرجات مرتبة، وتسليم منظم حسب الاتفاق حتى تعرف دائمًا أين وصل المشروع وما التالي.",
-        "results.cta":"خلينا نحدد لك النتيجة المناسبة ",
+        "results.cta":"نحدد لك الحل المناسب",
         "contact.trustT":"قبل إرسال الطلب:",
         "contact.trustD":"يكفينا وصف مختصر ووسيلة تواصل واحدة على الأقل لنرجع لك بتوصية أولية وخطوة تنفيذ واضحة بدون تعقيد.",
         "sticky.kicker":"بداية سريعة",
@@ -636,7 +636,7 @@
         "details.h":"Services",
         "details.sub":"Choose one service or a full package — we cover your entire project journey from idea to launch.",
         "details.allCta":"Request a free consultation",
-        "details.cta":"Let us recommend the right solution ",
+        "details.cta":"Find the right solution",
 
         "details.apps.kicker":"Mobile apps",
         "details.apps.t":"Mobile app development",
