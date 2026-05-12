@@ -459,7 +459,7 @@ document.getElementById("consentDecline").addEventListener("click", function(){
 <!-- Mobile menu panel -->
 <div
   id="mobileMenu"
-  class="md:hidden hidden border-t border-[var(--border)]/70 bg-[var(--bg)]/85 backdrop-blur"
+  class="md:hidden border border-[var(--border)]/70 bg-[var(--bg)]/92 backdrop-blur-2xl rounded-3xl"
 >
   <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-1 text-sm text-[var(--muted2)]">
 
@@ -541,7 +541,7 @@ document.getElementById("consentDecline").addEventListener("click", function(){
   }
 
   function closeMobileMenu() {
-    mobileMenu?.classList.add("hidden");
+    mobileMenu?.classList.remove("active");
     menuIconOpen?.classList.remove("hidden");
     menuIconClose?.classList.add("hidden");
     menuToggle?.setAttribute("aria-expanded", "false");
@@ -558,9 +558,9 @@ document.getElementById("consentDecline").addEventListener("click", function(){
   }
 
   function toggleMobileMenu() {
-    const isOpen = !mobileMenu.classList.contains("hidden");
+    const isOpen = !mobileMenu.classList.contains("active");
 
-    mobileMenu.classList.toggle("hidden");
+    mobileMenu.classList.toggle("active");
     menuIconOpen.classList.toggle("hidden", !isOpen);
     menuIconClose.classList.toggle("hidden", isOpen);
     menuToggle.setAttribute("aria-expanded", String(!isOpen));
