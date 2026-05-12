@@ -2926,37 +2926,6 @@ section[id] {
     margin-top: .75rem !important;
   }
 
-  /* Arabic mobile hero balance */
-  html[dir="rtl"] .hero-copy{
-    text-align: center !important;
-  }
-
-  html[dir="rtl"] .hero-copy h1{
-    font-size: clamp(2.35rem, 10vw, 3.15rem) !important;
-    line-height: 1.18 !important;
-    letter-spacing: -0.035em !important;
-    text-align: center !important;
-    margin-top: 1.15rem !important;
-  }
-
-  html[dir="rtl"] .hero-copy h1 span{
-    display: block !important;
-    text-align: center !important;
-  }
-
-  html[dir="rtl"] .hero-copy [data-i18n="hero.desc"]{
-    text-align: center !important;
-    margin-inline: auto !important;
-  }
-
-  html[dir="rtl"] .hero-copy > p:first-child{
-    margin-inline: auto !important;
-    justify-content: center !important;
-  }
-
-  html[dir="rtl"] .hero-copy .mt-4.flex{
-    justify-content: center !important;
-  }
 
   /* Services on mobile */
   #services .aq-service-card{
@@ -3157,22 +3126,23 @@ section[id]::before{
 }
 @media (max-width:767px){
 
-  #top .hero-copy h1{
-    display:block !important;
-    line-height:1.18 !important;
+  main#top .hero-copy,
+  main#top .hero-copy h1,
+  main#top .hero-copy h1 span{
+    text-align: right !important;
+    direction: rtl !important;
   }
 
-  #top .hero-copy h1 .block{
-    display:block !important;
-    width:100% !important;
+  main#top .hero-copy h1{
+    display: block !important;
+    font-size: 2.35rem !important;
+    line-height: 1.22 !important;
+    letter-spacing: -0.02em !important;
   }
 
-}
-@media (max-width:767px){
-
-  #top .hero-copy h1{
-    font-size:2.7rem !important;
-    line-height:1.2 !important;
+  main#top .hero-copy h1 span{
+    display: block !important;
+    width: 100% !important;
   }
 
 }
