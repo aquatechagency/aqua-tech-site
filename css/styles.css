@@ -2838,9 +2838,12 @@ section[id] {
 @media (max-width: 767px){
 
   #svc-custom .aq-service-visual{
-    transform: scale(1.16) !important;
+    transform: scale(1.22) translateX(-50%) !important;
     transform-origin: center top;
     margin-top: 1.8rem !important;
+
+    left: 50% !important;
+    position: relative !important;
   }
 
 }
