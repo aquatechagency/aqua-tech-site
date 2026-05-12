@@ -2172,3 +2172,254 @@ section::before{
 *{
   text-shadow:none !important;
 }
+/* Clean service pill layout */
+
+#services .aq-service-pill{
+  width: fit-content !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+
+  padding: 8px 16px !important;
+  border-radius: 999px !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 8px !important;
+
+  font-size: .82rem !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
+
+  margin-bottom: 18px !important;
+  margin-inline-start: auto !important;
+  margin-inline-end: 0 !important;
+}
+
+#services .aq-service-pill span,
+#services .aq-service-pill strong{
+  display: inline !important;
+  white-space: nowrap !important;
+}
+
+#services .aq-service-pill svg{
+  width: 16px !important;
+  height: 16px !important;
+  flex: 0 0 auto !important;
+}
+/* Ultra visible divider above services */
+
+#services{
+  position: relative;
+  margin-top: 4rem !important;
+  padding-top: 4rem !important;
+}
+
+#services::before{
+  content:"";
+  position:absolute;
+
+  top:0;
+  left:0;
+
+  width:100%;
+  height:2px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,.02) 0%,
+    rgba(255,255,255,.38) 15%,
+    rgba(255,255,255,.50) 50%,
+    rgba(255,255,255,.38) 85%,
+    rgba(255,255,255,.02) 100%
+  );
+
+  box-shadow:
+    0 0 18px rgba(255,255,255,.18),
+    0 0 40px rgba(56,189,248,.14);
+
+  opacity:1 !important;
+  z-index:20;
+  pointer-events:none;
+}
+/* Fix security card small labels */
+
+#security .aq-note-label{
+  position: static !important;
+
+  display: inline-block !important;
+
+  margin-bottom: 14px !important;
+
+  font-size: .82rem !important;
+  line-height: 1.2 !important;
+
+  opacity: .8;
+}
+/* Fix security note cards only */
+
+#security .grid > div{
+  overflow: visible !important;
+}
+
+#security .grid > div > div{
+  height: auto !important;
+}
+
+#security [class*="rounded"]{
+  overflow: visible !important;
+}
+
+#security p,
+#security li{
+  line-height: 1.8 !important;
+}
+/* Fix security practices card clipping */
+
+#security ul{
+  margin-bottom: 0 !important;
+}
+
+#security li{
+  font-size: .92rem !important;
+  line-height: 1.65 !important;
+  margin-bottom: .25rem !important;
+}
+
+#security .grid > div{
+  height:auto !important;
+  min-height:320px !important;
+}
+#security .grid{
+  align-items:stretch;
+}
+
+#security .grid > div{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  padding:2rem !important;
+}
+/* Security section sizing */
+
+#security .grid{
+  gap:1.25rem !important;
+}
+/* FIX SECURITY CARDS ALIGNMENT */
+
+#security .grid{
+  align-items: stretch !important;
+  gap: 1.5rem !important;
+  max-width: 1200px;
+  margin: auto;
+}
+
+#security .grid > div{
+  min-height: 280px !important;
+  height: 100% !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+
+  padding: 1.8rem !important;
+
+  overflow: hidden !important;
+}
+
+#security h3{
+  font-size: 1.15rem !important;
+  line-height: 1.4 !important;
+  margin-bottom: 1rem !important;
+}
+
+#security p,
+#security li{
+  font-size: .95rem !important;
+  line-height: 1.9 !important;
+}
+
+#security h3{
+  font-size:1.05rem !important;
+  line-height:1.45 !important;
+}
+
+#security p,
+#security li{
+  font-size:.92rem !important;
+  line-height:1.8 !important;
+}
+#security .grid{
+  max-width:1200px;
+  margin:auto;
+}
+/* FINAL security layout fix */
+
+#security .max-w-6xl > .grid{
+  align-items: stretch !important;
+  gap: 1.25rem !important;
+}
+
+#security .max-w-6xl > .grid > div{
+  height: auto !important;
+  min-height: 250px !important;
+  padding: 1.5rem !important;
+  overflow: hidden !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+
+#security .max-w-6xl > .grid > div h3{
+  font-size: 1.1rem !important;
+  line-height: 1.45 !important;
+  margin-bottom: .85rem !important;
+}
+
+#security .max-w-6xl > .grid > div p{
+  font-size: .92rem !important;
+  line-height: 1.85 !important;
+}
+
+#security .max-w-6xl > div:not(.grid){
+  margin-top: 1.5rem !important;
+}
+
+#security .max-w-6xl > .grid{
+  margin-top: 2.8rem !important;
+  align-items: stretch !important;
+  gap: 1.4rem !important;
+}
+/* Final unified section divider */
+
+section[id]{
+  position: relative !important;
+  border-top: 0 !important;
+}
+
+section[id]::before{
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 2px !important;
+
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,.22) 15%,
+    rgba(255,255,255,.42) 50%,
+    rgba(255,255,255,.22) 85%,
+    transparent 100%
+  ) !important;
+
+  box-shadow: 0 0 18px rgba(56,189,248,.12) !important;
+  opacity: 1 !important;
+  z-index: 30 !important;
+  pointer-events: none !important;
+}
+section[id]{
+  scroll-margin-top: 125px !important;
+}
