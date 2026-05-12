@@ -3101,33 +3101,27 @@ section[id]::before{
 }
 @media (max-width:767px){
 
+  .hero-copy{
+    text-align:right !important;
+  }
+
   .hero-copy h1{
     text-align:right !important;
     direction:rtl !important;
-    line-height:1.16 !important;
+
+    font-size:2.35rem !important;
+    line-height:1.15 !important;
+
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-end !important;
   }
 
-  [data-i18n="hero.h1a"],
-  [data-i18n="hero.h1b"],
-  [data-i18n="hero.h1c"]{
+  .hero-copy h1 span{
     display:block !important;
     width:100% !important;
-    text-align:right !important;
-    direction:rtl !important;
-    white-space:nowrap !important;
-    line-height:1.16 !important;
-  }
 
-  [data-i18n="hero.h1a"]{
-    font-size:2.55rem !important;
-  }
-
-  [data-i18n="hero.h1b"]{
-    font-size:2.05rem !important;
-  }
-
-  [data-i18n="hero.h1c"]{
-    font-size:2.45rem !important;
+    white-space:normal !important;
   }
 
 }
