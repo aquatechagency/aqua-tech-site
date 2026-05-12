@@ -2646,3 +2646,10 @@ section[id]{
   }
 
 }
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 95px;
+}
