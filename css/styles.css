@@ -2653,170 +2653,154 @@ html {
 section[id] {
   scroll-margin-top: 120px;
 }
-/* Mobile clean layout for custom systems visual */
+
+/* =========================================================
+   FINAL MOBILE FIXES — menu + custom systems visual
+   Replace old broken mobile menu/custom visual overrides
+   ========================================================= */
+
 @media (max-width: 767px){
 
-  #svc-custom .aq-service-visual{
-    position: relative !important;
-    width: 100% !important;
-    max-width: 300px !important;
-    height: 235px !important;
-    margin: 1.25rem auto 0 !important;
-    overflow: visible !important;
-  }
-
-  #svc-custom .aq-dashboard-screen{
-    position: absolute !important;
-    left: 50% !important;
-    top: 28px !important;
-    transform: translateX(-50%) !important;
-    width: 260px !important;
-    height: 165px !important;
-    border-radius: 26px !important;
-  }
-
-  #svc-custom .aq-system-node{
-    width: 52px !important;
-    height: 52px !important;
-    border-radius: 16px !important;
-    z-index: 5 !important;
-  }
-
-  #svc-custom .aq-system-node span{
-    width: 24px !important;
-    height: 24px !important;
-  }
-
-  /* ترتيب العناصر */
-@media (max-width: 767px){
-
-  #svc-custom .aq-dashboard-screen{
-    width: 235px !important;
-    height: 150px !important;
-    top: 34px !important;
-  }
-
-}
-
-  #svc-custom .node-users{
-    top: -6px !important;
-    right: 48px !important;
-  }
-
-  #svc-custom .node-pay{
-    top: 92px !important;
-    left: -10px !important;
-  }
-
-  #svc-custom .node-wa{
-    top: 92px !important;
-    right: -10px !important;
-  }
-
-  #svc-custom .node-wifi{
-    bottom: -10px !important;
-    left: 92px !important;
-  }
-
-  #svc-custom .node-chart{
-    bottom: -10px !important;
-    right: 92px !important;
-  }
-}
-
-/* Mobile menu positioning */
-@media (max-width: 767px){
-
+  /* Mobile menu: hidden by default, opened with .active from JS */
   #mobileMenu{
-    position: fixed;
-    top: 82px;
-    width: min(320px, 88vw);
+    position: fixed !important;
+    top: calc(82px + env(safe-area-inset-top)) !important;
+    width: min(320px, calc(100vw - 28px)) !important;
+    max-height: calc(100dvh - 110px) !important;
+    overflow-y: auto !important;
 
-    padding: 14px;
-    border-radius: 28px;
+    padding: 14px !important;
+    border-radius: 28px !important;
 
-    background: rgba(10,14,24,.92);
-    backdrop-filter: blur(18px);
+    background: rgba(5, 11, 20, .96) !important;
+    border: 1px solid rgba(96,165,250,.22) !important;
+    box-shadow: 0 22px 70px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.06) !important;
+    backdrop-filter: blur(18px) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
 
-    opacity: 0;
-    pointer-events: none;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
 
-    transition:
-      transform .32s ease,
-      opacity .22s ease;
-
-    z-index: 9999;
+    transition: transform .32s ease, opacity .22s ease, visibility .22s ease !important;
+    z-index: 9999 !important;
   }
 
   #mobileMenu.active{
-    opacity: 1;
-    pointer-events: auto;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
   }
 
-  /* عربي */
   html[dir="rtl"] #mobileMenu{
-    right: 14px;
-    left: auto;
-    transform: translateX(115%);
+    right: 14px !important;
+    left: auto !important;
+    transform: translateX(115%) !important;
+    text-align: right !important;
   }
 
   html[dir="rtl"] #mobileMenu.active{
-    transform: translateX(0);
+    transform: translateX(0) !important;
   }
 
-  /* انجليزي */
   html[dir="ltr"] #mobileMenu{
-    left: 14px;
-    right: auto;
-    transform: translateX(-115%);
+    left: 14px !important;
+    right: auto !important;
+    transform: translateX(-115%) !important;
+    text-align: left !important;
   }
 
   html[dir="ltr"] #mobileMenu.active{
-    transform: translateX(0);
+    transform: translateX(0) !important;
+  }
+
+  #mobileMenu > div{
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
   }
 
   #mobileMenu .mobile-nav-link{
-    padding: .9rem 1rem;
-    border-radius: 16px;
-    display: block;
+    display: flex !important;
+    align-items: center !important;
+    min-height: 46px !important;
+    padding: .85rem 1rem !important;
+    border-radius: 16px !important;
   }
 
-  #mobileMenu .mobile-nav-link:hover{
-    background: rgba(255,255,255,.05);
-  }
-}
-@media (max-width: 767px){
-
-  #hero h1 span:first-child::after{
-    content: " أعمال";
+  #mobileMenu .mobile-nav-link:hover,
+  #mobileMenu .mobile-nav-link.is-active{
+    background: rgba(255,255,255,.06) !important;
   }
 
-}
-@media (max-width: 767px){
+  #mobileMenu #waLinkMobile{
+    width: 100% !important;
+    margin-top: .75rem !important;
+  }
+
+  /* Custom systems visual: mobile-friendly, like the other clean drawings */
+  #svc-custom .aq-service-visual{
+    position: relative !important;
+    width: 100% !important;
+    max-width: 255px !important;
+    height: 178px !important;
+    min-height: 178px !important;
+    margin: .75rem auto 0 !important;
+    overflow: visible !important;
+    transform: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
   #svc-custom .aq-system-node{
     display: none !important;
   }
-}
-@media (max-width: 767px){
-
-  #svc-custom .aq-service-visual{
-    max-width: 260px !important;
-    height: 190px !important;
-    margin: 1rem auto 0 !important;
-  }
 
   #svc-custom .aq-dashboard-screen{
-    width: 220px !important;
-    height: 140px !important;
-    top: 24px !important;
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: 230px !important;
+    height: 145px !important;
+    padding: 1rem !important;
+    grid-template-columns: 52px 1fr 66px !important;
+    gap: .65rem !important;
+    border-width: 3px !important;
+    border-radius: 1.2rem !important;
+  }
+
+  #svc-custom .aq-screen-sidebar{
+    gap: .65rem !important;
+    padding: .55rem !important;
+  }
+
+  #svc-custom .aq-screen-sidebar i{
+    height: 20px !important;
+  }
+
+  #svc-custom .aq-screen-chart{
+    gap: .45rem !important;
+    padding: .65rem !important;
   }
 
   #svc-custom .aq-screen-donut{
-    width: 58px !important;
-    height: 58px !important;
-
-    right: 18px !important;
-    top: 42px !important;
+    width: 54px !important;
+    height: 54px !important;
+    margin: auto !important;
+    right: auto !important;
+    top: auto !important;
   }
 
+  #svc-custom .aq-screen-donut::after{
+    inset: 15px !important;
+  }
+
+  #svc-custom .aq-glow-floor{
+    width: 70% !important;
+    height: 34px !important;
+    bottom: 4px !important;
+    opacity: .45 !important;
+  }
 }

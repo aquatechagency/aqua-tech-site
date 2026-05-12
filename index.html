@@ -530,85 +530,109 @@ document.getElementById("consentDecline").addEventListener("click", function(){
 
 <!-- Mobile menu script -->
 <script>
-  const menuToggle = document.getElementById("menuToggle");
-  const mobileMenu = document.getElementById("mobileMenu");
-  const menuIconOpen = document.getElementById("menuIconOpen");
-  const menuIconClose = document.getElementById("menuIconClose");
+const menuToggle = document.getElementById("menuToggle");
+const mobileMenu = document.getElementById("mobileMenu");
+const menuIconOpen = document.getElementById("menuIconOpen");
+const menuIconClose = document.getElementById("menuIconClose");
 
-  function getCurrentLang() {
-    const stored = localStorage.getItem("aqua_lang");
-    const htmlLang = document.documentElement.lang;
+function getCurrentLang() {
+  const stored = localStorage.getItem("aqua_lang");
+  const htmlLang = document.documentElement.lang;
 
-    if (stored === "ar" || stored === "en") return stored;
-    if (htmlLang === "ar" || htmlLang === "en") return htmlLang;
+  if (stored === "ar" || stored === "en") return stored;
+  if (htmlLang === "ar" || htmlLang === "en") return htmlLang;
 
-    return "ar";
-  }
+  return "ar";
+}
 
-  function closeMobileMenu() {
-    mobileMenu?.classList.remove("active");
-    menuIconOpen?.classList.remove("hidden");
-    menuIconClose?.classList.add("hidden");
-    menuToggle?.setAttribute("aria-expanded", "false");
-  }
+function updateMobileMenuDirection() {
+  const lang = getCurrentLang();
+  const dir = lang === "en" ? "ltr" : "rtl";
 
-  function updateMobileMenuDirection() {
-    const lang = getCurrentLang();
-    const dir = lang === "en" ? "ltr" : "rtl";
+  document.documentElement.setAttribute("lang", lang);
+  document.documentElement.setAttribute("dir", dir);
+}
 
-    document.documentElement.setAttribute("lang", lang);
-    document.documentElement.setAttribute("dir", dir);
-  }
-
-  function openMobileMenu() {
-    updateMobileMenuDirection();
-
-    mobileMenu?.classList.add("active");
-    menuIconOpen?.classList.add("hidden");
-    menuIconClose?.classList.remove("hidden");
-    menuToggle?.setAttribute("aria-expanded", "true");
-  }
-
-  function toggleMobileMenu() {
-    if (!mobileMenu) return;
-
-    const isOpen = mobileMenu.classList.contains("active");
-    isOpen ? closeMobileMenu() : openMobileMenu();
-  }
-
-  function getHeaderOffset() {
-    const header = document.querySelector("header");
-    return header ? header.offsetHeight + 16 : 110;
-  }
-
-  function scrollToSection(target) {
-    const offset = getHeaderOffset();
-    const y = target.getBoundingClientRect().top + window.scrollY - offset;
-
-    window.scrollTo({
-      top: y,
-      behavior: "smooth",
-    });
-  }
-
-  menuToggle?.addEventListener("click", toggleMobileMenu);
-
-  document.querySelectorAll(".mobile-nav-link").forEach((link) => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-
-      const target = document.querySelector(this.getAttribute("href"));
-      closeMobileMenu();
-
-      if (!target) return;
-
-      setTimeout(() => {
-        scrollToSection(target);
-      }, 120);
-    });
-  });
-
+function openMobileMenu() {
   updateMobileMenuDirection();
+
+  mobileMenu.classList.add("active");
+
+  menuIconOpen.classList.add("hidden");
+  menuIconClose.classList.remove("hidden");
+
+  menuToggle.setAttribute("aria-expanded", "true");
+}
+
+function closeMobileMenu() {
+  mobileMenu.classList.remove("active");
+
+  menuIconOpen.classList.remove("hidden");
+  menuIconClose.classList.add("hidden");
+
+  menuToggle.setAttribute("aria-expanded", "false");
+}
+
+function toggleMobileMenu() {
+  const isOpen = mobileMenu.classList.contains("active");
+
+  if (isOpen) {
+    closeMobileMenu();
+  } else {
+    openMobileMenu();
+  }
+}
+
+function getHeaderOffset() {
+  const header = document.querySelector("header");
+  return header ? header.offsetHeight + 16 : 110;
+}
+
+function scrollToSection(target) {
+  const offset = getHeaderOffset();
+
+  const y =
+    target.getBoundingClientRect().top +
+    window.scrollY -
+    offset;
+
+  window.scrollTo({
+    top: y,
+    behavior: "smooth",
+  });
+}
+
+menuToggle.addEventListener("click", toggleMobileMenu);
+
+document.querySelectorAll(".mobile-nav-link").forEach((link) => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const target = document.querySelector(
+      this.getAttribute("href")
+    );
+
+    closeMobileMenu();
+
+    if (!target) return;
+
+    setTimeout(() => {
+      scrollToSection(target);
+    }, 120);
+  });
+});
+
+document.addEventListener("click", (e) => {
+  if (
+    mobileMenu.classList.contains("active") &&
+    !mobileMenu.contains(e.target) &&
+    !menuToggle.contains(e.target)
+  ) {
+    closeMobileMenu();
+  }
+});
+
+updateMobileMenuDirection();
 </script>
 
 <!-- Smooth scroll fix -->
