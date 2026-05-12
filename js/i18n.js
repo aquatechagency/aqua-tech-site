@@ -44,6 +44,7 @@
 "solutions.attendance.b2":"تقارير حضور وتنظيم أفضل",
 
         "nav.testimonials":"المعايير",
+        "hero.mobileWord":"أعمال",
 
         
         "btn.whatsapp":"واتساب",
@@ -514,6 +515,7 @@
         "nav.contact":"Contact",
         "nav.about":"About",
         "nav.testimonials":"Standards",
+        "hero.mobileWord":"Business",
 
         "nav.security":"Security",
 "security.h":"Security & Trust",
