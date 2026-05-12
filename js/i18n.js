@@ -6,7 +6,6 @@
         "brand.sub":"",
 
         "nav.services":"الخدمات",
-        "nav.projects":"المشاريع",
         "nav.faq":"الأسئلة",
         "nav.contact":"تواصل",
         "nav.why":"لماذا نحن",
