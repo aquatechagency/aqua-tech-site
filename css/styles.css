@@ -2797,3 +2797,26 @@ section[id] {
     display: none !important;
   }
 }
+@media (max-width: 767px){
+
+  #svc-custom .aq-service-visual{
+    max-width: 260px !important;
+    height: 190px !important;
+    margin: 1rem auto 0 !important;
+  }
+
+  #svc-custom .aq-dashboard-screen{
+    width: 220px !important;
+    height: 140px !important;
+    top: 24px !important;
+  }
+
+  #svc-custom .aq-screen-donut{
+    width: 58px !important;
+    height: 58px !important;
+
+    right: 18px !important;
+    top: 42px !important;
+  }
+
+}
