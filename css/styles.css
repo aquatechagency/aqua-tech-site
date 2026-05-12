@@ -3135,3 +3135,20 @@ section[id]::before{
   pointer-events: none !important;
   z-index: 2 !important;
 }
+@media (max-width:767px){
+
+  html[dir="rtl"] .hero-copy{
+    text-align:right !important;
+  }
+
+  html[dir="rtl"] .hero-copy h1{
+    text-align:right !important;
+    align-items:flex-start !important;
+  }
+
+  html[dir="rtl"] .hero-copy h1 span{
+    width:100%;
+    display:block;
+  }
+
+}
