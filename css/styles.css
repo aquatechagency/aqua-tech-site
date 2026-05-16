@@ -3183,4 +3183,26 @@ html[lang="en"] .hero-title{
   }
 
 }
+@media (max-width:768px){
+
+  .aq-service-card{
+    padding: 1.2rem !important;
+    border-radius: 24px !important;
+  }
+
+  .aq-service-visual{
+    min-height: 220px !important;
+    transform: scale(.92);
+  }
+
+  .aq-service-copy h3{
+    font-size: 1.25rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .aq-feature-list{
+    gap: .8rem !important;
+  }
+
+}
 
