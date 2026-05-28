@@ -10,16 +10,6 @@
 <!-- 2. Viewport -->
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 
-<meta property="og:title" content="Aqua.Tech | Growth • Software • AI">
-<meta property="og:description" content="Professional websites, AI automation, custom systems, and growth solutions for modern businesses.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.aquatechagency.com//">
-<meta property="og:image" content="https://www.aquatechagency.com//assets/preview.jpg">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Aqua.Tech">
-<meta name="twitter:description" content="Growth • Software • AI">
-<meta name="twitter:image" content="https://www.aquatechagency.com//assets/preview.jpg">
 
 <!-- 3. Language detection — must run before first paint -->
 <script>
@@ -528,122 +518,6 @@ document.getElementById("consentDecline").addEventListener("click", function(){
   </div>
 </div>
 
-<!-- Mobile menu script -->
-<script>
-const menuToggle = document.getElementById("menuToggle");
-const mobileMenu = document.getElementById("mobileMenu");
-const menuIconOpen = document.getElementById("menuIconOpen");
-const menuIconClose = document.getElementById("menuIconClose");
-
-function getCurrentLang() {
-  const stored = localStorage.getItem("aqua_lang");
-  const htmlLang = document.documentElement.lang;
-
-  if (stored === "ar" || stored === "en") return stored;
-  if (htmlLang === "ar" || htmlLang === "en") return htmlLang;
-
-  return "ar";
-}
-
-function updateMobileMenuDirection() {
-  const lang = getCurrentLang();
-  const dir = lang === "en" ? "ltr" : "rtl";
-
-  document.documentElement.setAttribute("dir", dir);
-}
-
-function openMobileMenu() {
-  updateMobileMenuDirection();
-
-  mobileMenu.classList.remove("hidden");
-
-  requestAnimationFrame(() => {
-    mobileMenu.classList.add("active");
-  });
-
-  menuIconOpen.classList.add("hidden");
-  menuIconClose.classList.remove("hidden");
-
-  menuToggle.setAttribute("aria-expanded", "true");
-}
-
-function closeMobileMenu() {
-  mobileMenu.classList.remove("active");
-
-  setTimeout(() => {
-    mobileMenu.classList.add("hidden");
-  }, 250);
-
-  menuIconOpen.classList.remove("hidden");
-  menuIconClose.classList.add("hidden");
-
-  menuToggle.setAttribute("aria-expanded", "false");
-}
-
-function toggleMobileMenu() {
-  const isOpen = mobileMenu.classList.contains("active");
-
-  if (isOpen) {
-    closeMobileMenu();
-  } else {
-    openMobileMenu();
-  }
-}
-
-menuToggle.addEventListener("click", toggleMobileMenu);
-
-document.querySelectorAll(".mobile-nav-link").forEach((link) => {
-  link.addEventListener("click", function (e) {
-    e.preventDefault();
-
-    const target = document.querySelector(
-      this.getAttribute("href")
-    );
-
-    closeMobileMenu();
-
-    if (!target) return;
-
-    setTimeout(() => {
-      const header = document.querySelector("header");
-      const offset = header ? header.offsetHeight + 16 : 110;
-
-      const y =
-        target.getBoundingClientRect().top +
-        window.scrollY -
-        offset;
-
-      window.scrollTo({
-        top: y,
-        behavior: "smooth",
-      });
-    }, 120);
-  });
-});
-
-document.addEventListener("click", (e) => {
-  if (
-    mobileMenu.classList.contains("active") &&
-    !mobileMenu.contains(e.target) &&
-    !menuToggle.contains(e.target)
-  ) {
-    closeMobileMenu();
-  }
-});
-
-updateMobileMenuDirection();
-</script>
-
-<!-- Smooth scroll fix -->
-<style>
-  html {
-    scroll-behavior: smooth;
-  }
-
-  section[id] {
-    scroll-margin-top: 95px;
-  }
-</style>
 </header>
 <!-- ===== HERO ===== -->
 <main class="relative overflow-x-hidden" id="top">
@@ -914,30 +788,68 @@ updateMobileMenuDirection();
           <h3 data-i18n="details.landing.t">صفحات تسويقية احترافية</h3>
           <p class="aq-service-desc" data-i18n="details.landing.d">صفحات تسويقية احترافية وسريعة تساعدك تبدأ الإعلان وجمع العملاء خلال وقت قصير.</p>
 
-          <ul class="aq-feature-list">
-            <li><span class="aq-feature-icon">⌁</span><div><strong data-i18n="details.landing.p1">تصميم واضح موجه لرفع التحويل وجمع العملاء المحتملين</strong></div></li>
-            <li><span class="aq-feature-icon">⚡</span><div><strong data-i18n="details.landing.p2">متوافقة مع الجوال + سرعة عالية + دعوة واضحة للإجراء</strong></div></li>
-            <li><span class="aq-feature-icon">↗</span><div><strong data-i18n="details.landing.p3">ربط واتساب / نموذج / تتبع وتحليلات</strong></div></li>
-          </ul>
+<ul class="aq-feature-list">
+  <li>
+    <span class="aq-feature-icon">◎</span>
+    <div>
+      <strong data-i18n="details.landing.p1">
+        تصميم واضح موجه لرفع التحويل وجمع العملاء المحتملين
+      </strong>
+    </div>
+  </li>
 
-          <a class="aq-service-link js-service-cta" data-service="website_lead_system" data-i18n="details.cta" href="#contact"> نحدد لك الحل المناسب</a>
-        </div>
+  <li>
+    <span class="aq-feature-icon">↯</span>
+    <div>
+      <strong data-i18n="details.landing.p2">
+        متوافقة مع الجوال + سرعة عالية + دعوة واضحة للإجراء
+      </strong>
+    </div>
+  </li>
+
+  <li>
+    <span class="aq-feature-icon">↗</span>
+    <div>
+      <strong data-i18n="details.landing.p3">
+        ربط واتساب / نموذج / تتبع وتحليلات
+      </strong>
+    </div>
+  </li>
+</ul>
+
+           <a class="aq-service-link js-service-cta" data-service="website_lead_system" data-i18n="details.landing.cta" href="#contact">اطلب صفحة تسويقية</a>
+
+            </div>
 
         <div class="aq-service-divider" aria-hidden="true"></div>
 
-        <div class="aq-service-visual aq-visual-landing" aria-hidden="true">
-          <div class="aq-orbit-card aq-orbit-top"><span></span></div>
-          <div class="aq-orbit-card aq-orbit-left"><span></span></div>
-          <div class="aq-monitor">
-            <div class="aq-monitor-top"></div>
-            <div class="aq-monitor-body">
-              <span class="aq-line w1"></span>
-              <span class="aq-line w2"></span>
-              <span class="aq-cta-box"></span>
-            </div>
-          </div>
-          <div class="aq-glow-floor"></div>
-        </div>
+<div class="aq-service-visual aq-premium-visual aq-visual-landing" aria-hidden="true">
+
+  <div class="premium-node node-seo">
+    <span>SEO</span>
+  </div>
+
+  <div class="premium-node node-cms">
+    <span>CMS</span>
+  </div>
+
+  <div class="premium-browser">
+    <div class="premium-browser-top">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="premium-browser-grid">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div class="premium-visual-glow"></div>
+</div>
       </article>
 
       <!-- Websites -->
@@ -952,27 +864,61 @@ updateMobileMenuDirection();
           <p class="aq-service-desc" data-i18n="details.web.d">نبني مواقع شركات ومتاجر وصفحات خدمات تركّز على الثقة والسرعة وتجربة المستخدم.</p>
 
           <ul class="aq-feature-list">
-            <li><span class="aq-feature-icon">▣</span><div><strong data-i18n="details.web.p1">تصميم واجهات وتجربة مستخدم + واجهات حديثة ومتجاوبة</strong></div></li>
-            <li><span class="aq-feature-icon">◈</span><div><strong data-i18n="details.web.p2">ربط CMS أو لوحة تحكم أو متجر حسب الحاجة</strong></div></li>
-            <li><span class="aq-feature-icon">◎</span><div><strong data-i18n="details.web.p3">تهيئة تقنية لمحركات البحث + سرعة + تحليلات</strong></div></li>
+            <li>
+  <span class="aq-feature-icon">⌁</span>
+  <div><strong data-i18n="details.web.p1">تصميم واجهات وتجربة مستخدم + واجهات حديثة ومتجاوبة</strong></div>
+</li>
+
+<li>
+  <span class="aq-feature-icon">▦</span>
+  <div><strong data-i18n="details.web.p2">ربط CMS أو لوحة تحكم أو متجر حسب الحاجة</strong></div>
+</li>
+
+<li>
+  <span class="aq-feature-icon">↗</span>
+  <div><strong data-i18n="details.web.p3">تهيئة تقنية لمحركات البحث + سرعة + تحليلات</strong></div>
+</li>
           </ul>
 
-          <a class="aq-service-link js-service-cta" data-service="website_lead_system" data-i18n="details.cta" href="#contact">نحدد لك الحل المناسب</a>
+         <a class="aq-service-link js-service-cta" data-service="website_lead_system" data-i18n="details.web.cta" href="#contact">اطلب موقعك الآن</a>
         </div>
 
         <div class="aq-service-divider" aria-hidden="true"></div>
 
-        <div class="aq-service-visual aq-visual-web" aria-hidden="true">
-          <div class="aq-browser">
-            <div class="aq-browser-bar"><i></i><i></i><i></i></div>
-            <div class="aq-browser-grid">
-              <span></span><span></span><span></span><span></span>
-            </div>
-          </div>
-          <div class="aq-floating-badge badge-a">SEO</div>
-          <div class="aq-floating-badge badge-b">CMS</div>
-          <div class="aq-glow-floor"></div>
-        </div>
+<div class="aq-service-visual aq-premium-visual aq-visual-web" aria-hidden="true">
+
+  <div class="premium-node web-node-seo">
+    <span>SEO</span>
+  </div>
+
+  <div class="premium-node web-node-cms">
+    <span>CMS</span>
+  </div>
+
+  <div class="premium-web-window">
+    <div class="premium-web-top">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="premium-web-layout">
+      <div class="web-hero-line"></div>
+
+      <div class="web-card web-card-lg"></div>
+      <div class="web-card"></div>
+      <div class="web-card"></div>
+
+      <div class="web-side-panel">
+        <i></i>
+        <i></i>
+        <i></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="premium-visual-glow"></div>
+</div>
       </article>
 
       <!-- AI Chatbots -->
@@ -992,7 +938,7 @@ updateMobileMenuDirection();
             <li><span class="aq-feature-icon">🔗</span><div><strong data-i18n="details.chatbot.p3">ربط مع نظام إدارة العملاء أو جداول Google أو أنظمة داخلية</strong></div></li>
           </ul>
 
-          <a class="aq-service-link js-service-cta" data-service="ai_business_automation" data-i18n="details.cta" href="#contact">نحدد لك الحل المناسب</a>
+          <a class="aq-service-link js-service-cta" data-service="ai_business_automation" data-i18n="details.chatbot.cta" href="#contact">جرّب الأتمتة الذكية</a>
         </div>
 
         <div class="aq-service-divider" aria-hidden="true"></div>
@@ -1025,7 +971,7 @@ updateMobileMenuDirection();
             <li><span class="aq-feature-icon">⌁</span><div><strong data-i18n="details.custom.p4">حلول IoT وربط أجهزة وحساسات مع النظام ولوحات التحكم</strong></div></li>
           </ul>
 
-          <a class="aq-service-link js-service-cta" data-service="custom_system" data-i18n="details.cta" href="#contact">نحدد لك الحل المناسب</a>
+          <a class="aq-service-link js-service-cta" data-service="custom_system" data-i18n="details.custom.cta" href="#contact">تحدث مع خبير</a>
         </div>
 
         <div class="aq-service-divider" aria-hidden="true"></div>
@@ -1063,7 +1009,7 @@ updateMobileMenuDirection();
             <li><span class="aq-feature-icon">▥</span><div><strong data-i18n="details.growth.p3">تقارير شهرية وقياس أداء مستمر</strong></div></li>
           </ul>
 
-          <a class="aq-service-link js-service-cta" data-service="growth_package" data-i18n="details.cta" href="#contact">نحدد لك الحل المناسب</a>
+            <a class="aq-service-link js-service-cta" data-service="growth_package" data-i18n="details.growth.cta" href="#contact">شاهد باقات النمو</a>
         </div>
 
         <div class="aq-service-divider" aria-hidden="true"></div>
@@ -1094,7 +1040,7 @@ updateMobileMenuDirection();
             <li><span class="aq-feature-icon">▥</span><div><strong data-i18n="details.social.p4">تقرير شهري واضح لتحسين الوصول والطلبات</strong></div></li>
           </ul>
 
-          <a class="aq-service-link js-service-cta" data-service="social_media_management" data-i18n="details.social.cta" href="#contact">ابدأ إدارة حساباتك</a>
+           <a class="aq-service-link js-service-cta" data-service="social_media_management" data-i18n="details.social.cta" href="#contact">ابدأ إدارة حساباتك</a>
         </div>
 
         <div class="aq-service-divider" aria-hidden="true"></div>
@@ -1128,7 +1074,7 @@ updateMobileMenuDirection();
             <li><span class="aq-feature-icon">✦</span><div><strong data-i18n="details.design.p3">تصميمات تسويقية ومواد داعمة للمبيعات</strong></div></li>
           </ul>
 
-          <a class="aq-service-link js-service-cta" data-service="design_branding" data-i18n="details.cta" href="#contact">نحدد لك الحل المناسب</a>
+           <a class="aq-service-link js-service-cta" data-service="design_branding" data-i18n="details.design.cta" href="#contact">شاهد الهوية المناسبة</a>
         </div>
 
         <div class="aq-service-divider" aria-hidden="true"></div>
@@ -1297,28 +1243,54 @@ updateMobileMenuDirection();
       </div>
     </div>
 
-    <!-- Social proof bar -->
+<!-- Social proof bar -->
 <div class="premium-stats">
+
   <div class="premium-stat">
     <div class="stat-icon">🚀</div>
-    <div class="stat-number">100%</div>
+
+    <div class="stat-number"
+         data-i18n="stats.launchN">
+         100%
+    </div>
+
     <div class="stat-line"></div>
-    <p>إطلاق جاهز مع دعم وتشغيل</p>
+
+    <p data-i18n="stats.launchT">
+      إطلاق جاهز مع دعم وتشغيل
+    </p>
   </div>
 
   <div class="premium-stat">
     <div class="stat-icon">🛡️</div>
-    <div class="stat-number">3-5 أيام</div>
+
+    <div class="stat-number"
+         data-i18n="stats.speedN">
+         3-5 أيام
+    </div>
+
     <div class="stat-line"></div>
-    <p>متوسط تسليم صفحة تسويقية احترافية</p>
+
+    <p data-i18n="stats.speedT">
+      متوسط تسليم صفحة تسويقية احترافية
+    </p>
   </div>
 
   <div class="premium-stat">
     <div class="stat-icon">⭐</div>
-    <div class="stat-number">100+</div>
+
+    <div class="stat-number"
+         data-i18n="stats.projectsN">
+         100+
+    </div>
+
     <div class="stat-line"></div>
-    <p>مشروع منجز</p>
+
+    <p data-i18n="stats.projectsT">
+      مشروع منجز
+    </p>
   </div>
+
 </div>
   </div>
 </section>
@@ -1330,7 +1302,7 @@ updateMobileMenuDirection();
         <h2 class="text-2xl md:text-3xl font-semibold" data-i18n="offers.h">عروض جاهزة للانطلاق</h2>
         <p class="mt-2 text-[var(--muted)] max-w-3xl" data-i18n="offers.sub">إذا كنت تريد بداية سريعة أو عرضًا واضحًا، هذه الباقات هي أفضل نقطة دخول للعمل معنا</p>
       </div>
-      <a href="#contact" class="hero-secondary-btn font-medium" data-i18n="offers.cta">احصل على توصية مناسبة </a>
+      <a href="#contact" class="hero-secondary-btn font-medium" data-i18n="offers.cta">احصل على توصية مناسبة</a>
     </div>
 
     <div class="mt-8 grid md:grid-cols-2 xl:grid-cols-4 gap-4">
@@ -1338,44 +1310,82 @@ updateMobileMenuDirection();
         <div class="inline-flex items-center rounded-full px-3 py-1 text-xs bg-white/5 border border-[var(--border)] text-[var(--muted2)]" data-i18n="offers.card1.badge">الأسرع إطلاقًا</div>
         <h3 class="mt-4 text-xl font-semibold" data-i18n="offers.card1.t">صفحات تسويقية احترافية</h3>
         <p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="offers.card1.d">صفحات تسويقية احترافية تجهزك للإعلان وجمع العملاء بخطوات واضحة وسريعة.</p>
+
         <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
           <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card1.p1">مناسبة للعروض والخدمات والإعلانات</span></li>
           <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card1.p2">ربط واتساب / نموذج / CTA واضح</span></li>
         </ul>
-        <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="website_lead_system" data-i18n="offers.cardCta">احصل على توصية مناسبة لك </a>
+
+        <div class="mt-4 flex flex-wrap gap-2 text-xs text-[var(--muted2)]">
+          <span class="aq-chip" data-i18n="offers.card1.chip1">يبدأ من 250$ تقريبًا</span>
+<span class="aq-chip" data-i18n="offers.card1.chip2">5–7 أيام</span>
+<span class="aq-chip" data-i18n="offers.card1.chip3">مناسب للإعلانات</span>
+        </div>
+
+        <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="website_lead_system" data-i18n="offers.cardCta">احصل على توصية مناسبة لك</a>
       </div>
 
       <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua h-full flex flex-col">
         <div class="inline-flex items-center rounded-full px-3 py-1 text-xs bg-white/5 border border-[var(--border)] text-[var(--muted2)]" data-i18n="offers.card2.badge">طلب مرتفع</div>
         <h3 class="mt-4 text-xl font-semibold" data-i18n="offers.card2.t">باقة شات بوت ذكي الأساسية</h3>
         <p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="offers.card2.d">بوت ذكي للموقع أو واتساب يساعدك ترد أسرع وتجمع العملاء بشكل منظم.</p>
+
         <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
           <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card2.p1">أسئلة متكررة + استقبال طلبات</span></li>
           <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card2.p2">ربط بسيط مع واتساب أو نموذج</span></li>
+          <li class="flex gap-2">
+            <span class="text-[var(--p1)]">•</span>
+            <span data-i18n="offers.card2.p3">
+                     ردود تلقائية وتنظيم أسرع للعملاء
+            </span>
+          </li>
         </ul>
-        <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="client_management_system" data-i18n="offers.cardCta">احصل على توصية مناسبة لك </a>
+
+        <div class="mt-4 flex flex-wrap gap-2 text-xs text-[var(--muted2)]">
+          <span class="aq-chip" data-i18n="offers.card2.chip1">يبدأ من 400$ تقريبًا</span>
+<span class="aq-chip" data-i18n="offers.card2.chip2">3–5 أيام</span>
+<span class="aq-chip" data-i18n="offers.card2.chip3">واتساب + موقع</span>
+        </div>
+
+        <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="client_management_system" data-i18n="offers.cardCta">احصل على توصية مناسبة لك</a>
       </div>
 
       <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua h-full flex flex-col">
         <div class="inline-flex items-center rounded-full px-3 py-1 text-xs bg-white/5 border border-[var(--border)] text-[var(--muted2)]" data-i18n="offers.card3.badge">دخل متكرر</div>
         <h3 class="mt-4 text-xl font-semibold" data-i18n="offers.card3.t">باقة النمو</h3>
         <p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="offers.card3.d">باقة نمو شهرية تجمع بين المحتوى والتصميم والمتابعة لتحويل الحضور الرقمي إلى نتائج.</p>
+
         <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
           <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card3.p1">خطة محتوى + تصميم + نشر</span></li>
           <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card3.p2">تقارير ومتابعة وتحسين مستمر</span></li>
         </ul>
-        <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="email_automation" data-i18n="offers.cardCta">احصل على توصية مناسبة لك </a>
+
+        <div class="mt-4 flex flex-wrap gap-2 text-xs text-[var(--muted2)]">
+          <span class="aq-chip" data-i18n="offers.card3.chip1">يبدأ من 300$ شهريًا</span>
+<span class="aq-chip" data-i18n="offers.card3.chip2">إدارة + محتوى</span>
+<span class="aq-chip" data-i18n="offers.card3.chip3">تقارير شهرية</span>
+        </div>
+
+        <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="email_automation" data-i18n="offers.cardCta">احصل على توصية مناسبة لك</a>
       </div>
 
       <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua h-full flex flex-col">
         <div class="inline-flex items-center rounded-full px-3 py-1 text-xs bg-white/5 border border-[var(--border)] text-[var(--muted2)]" data-i18n="offers.card4.badge">للمشاريع الأكبر</div>
         <h3 class="mt-4 text-xl font-semibold" data-i18n="offers.card4.t">مرحلة اكتشاف النظام المخصص</h3>
         <p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="offers.card4.d">جلسة تحليل ونطاق عمل أولي للمشاريع المخصصة قبل البدء في التنفيذ الكامل.</p>
+
         <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
           <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card4.p1">فهم العمليات والاحتياج الفعلي</span></li>
           <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card4.p2">مخرجات أوضح وسعر أدق لاحقًا</span></li>
         </ul>
-        <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="whatsapp_automation" data-i18n="offers.cardCta">احصل على توصية مناسبة لك </a>
+
+        <div class="mt-4 flex flex-wrap gap-2 text-xs text-[var(--muted2)]">
+          <span class="aq-chip" data-i18n="offers.card4.chip1">تسعير حسب النطاق</span>
+<span class="aq-chip" data-i18n="offers.card4.chip2">تحليل أولي</span>
+<span class="aq-chip" data-i18n="offers.card4.chip3">Scope واضح</span>
+        </div>
+
+        <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="whatsapp_automation" data-i18n="offers.cardCta">احصل على توصية مناسبة لك</a>
       </div>
     </div>
   </div>
@@ -1539,6 +1549,70 @@ updateMobileMenuDirection();
   </div>
 </section>
 
+<section class="border-t border-[var(--border)]/70" id="support" data-animate>
+  <div class="max-w-6xl mx-auto px-4 py-14 md:py-16 lg:py-20">
+
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+      <div>
+            <h2 class="mt-3 text-2xl md:text-3xl font-semibold"
+                   data-i18n="support.h">
+                    لا ينتهي دورنا عند التسليم
+                      </h2>
+          <p class="mt-3 text-[var(--muted)] max-w-3xl leading-8"
+                 data-i18n="support.d">
+          نساعدك بعد الإطلاق في المتابعة، التحسين، والدعم الفني حتى يبقى مشروعك مستقرًا ويحقق نتائج أفضل.
+        </p>
+      </div>
+
+<a href="#contact"
+   class="hero-secondary-btn font-medium"
+   data-i18n="support.cta">
+   اطلب خطة دعم مناسبة
+</a>
+    </div>
+
+    <div class="mt-8 grid md:grid-cols-2 xl:grid-cols-4 gap-4">
+
+      <div class="support-card">
+        <div class="support-icon">🛠️</div>
+        <h3 data-i18n="support.card1.t">دعم فني</h3>
+
+<p data-i18n="support.card1.d">
+معالجة المشاكل التقنية والمتابعة بعد الإطلاق.
+</p>
+      </div>
+
+      <div class="support-card">
+        <div class="support-icon">⚡</div>
+        <h3 data-i18n="support.card2.t">استجابة سريعة</h3>
+
+<p data-i18n="support.card2.d">
+رد ومتابعة خلال وقت واضح حسب نوع الطلب.
+</p>
+      </div>
+
+      <div class="support-card">
+        <div class="support-icon">📈</div>
+        <h3 data-i18n="support.card3.t">تحسينات مستمرة</h3>
+
+<p data-i18n="support.card3.d">
+تحسين الأداء وتجربة المستخدم حسب الحاجة.
+</p>
+      </div>
+
+      <div class="support-card">
+        <div class="support-icon">🛡️</div>
+        <h3 data-i18n="support.card4.t">نسخ احتياطي</h3>
+
+<p data-i18n="support.card4.d">
+تجهيزات أساسية للحفاظ على استقرار المشروع.
+</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <section class="border-t border-[var(--border)]/70" id="contact">
 <div class="max-w-6xl mx-auto px-4 py-14 md:py-16 lg:py-20">
 <div class="mb-8 max-w-3xl">
@@ -1636,11 +1710,36 @@ onclick="if(typeof gtag==='function'){
 </div>
 </div>
 <div class="rounded-3xl p-5 bg-white/5 border border-[var(--border)]">
-<div class="text-[var(--muted)] text-xs" data-i18n="contact.loc">الموقع</div>
-<div class="mt-1" data-i18n="contact.locV">عمّان، الأردن</div>
+
+
+  <div class="text-[var(--muted)] text-xs" data-i18n="contact.loc">
+    الموقع
+  </div>
+
+  <div class="mt-1" data-i18n="contact.locV">
+    عمّان، الأردن
+  </div>
+
+<div class="mt-6 pt-5 border-t border-white/10">
+      
+<div class="text-xs text-[var(--muted)]"
+     data-i18n="contact.hours">
+  ساعات التواصل
+</div>
+
+<div class="mt-1 text-sm text-white/90"
+     data-i18n="contact.hoursV">
+  يوميًا — 10 AM إلى 10PM
+</div>
+
+  </div>
+
+
 </div>
 </div>
 </div>
+
+
 <form class="order-1 md:order-2 rounded-3xl p-6 md:p-7 bg-white/5 border border-[var(--border)]" id="contactForm" novalidate>
 <div class="grid sm:grid-cols-2 gap-4">
 <label class="text-sm">
@@ -1656,18 +1755,18 @@ onclick="if(typeof gtag==='function'){
 <label class="text-sm">
 <span class="text-[var(--muted)]" data-i18n="form.countryCodeLabel">رمز الدولة</span>
 <select class="mt-2 w-full rounded-2xl border border-[var(--border)] px-4 py-3 outline-none focus:border-[var(--p1)] focus:ring-2 focus:ring-[var(--p1)]/20 transition form-field" id="fCountryCode" name="country_code">
-<option value="+962" selected>🇯🇴 +962</option>
-<option value="+966">🇸🇦 +966</option>
-<option value="+971">🇦🇪 +971</option>
-<option value="+20">🇪🇬 +20</option>
-<option value="+964">🇮🇶 +964</option>
-<option value="+965">🇰🇼 +965</option>
-<option value="+968">🇴🇲 +968</option>
-<option value="+974">🇶🇦 +974</option>
-<option value="+973">🇧🇭 +973</option>
-<option value="+961">🇱🇧 +961</option>
-<option value="+1">🇺🇸 +1</option>
-<option value="+44">🇬🇧 +44</option>
+<option value="+962" selected>Jordan (+962)</option>
+<option value="+966">Saudi Arabia (+966)</option>
+<option value="+971">UAE (+971)</option>
+<option value="+20">Egypt (+20)</option>
+<option value="+964">Iraq (+964)</option>
+<option value="+965">Kuwait (+965)</option>
+<option value="+968">Oman (+968)</option>
+<option value="+974">Qatar (+974)</option>
+<option value="+973">Bahrain (+973)</option>
+<option value="+961">Lebanon (+961)</option>
+<option value="+1">USA (+1)</option>
+<option value="+44">UK (+44)</option>
 </select>
 </label>
 <label class="text-sm sm:col-span-2">
@@ -1703,16 +1802,30 @@ onclick="if(typeof gtag==='function'){
 </select>
 </label>
 <div class="mt-4 grid sm:grid-cols-2 gap-4">
-  <label class="text-sm">
-    <span class="text-[var(--muted)]" data-i18n="form.budget">الميزانية التقريبية</span>
-    <select class="mt-2 w-full rounded-2xl border border-[var(--border)] px-4 py-3 outline-none focus:border-[var(--p1)] focus:ring-2 focus:ring-[var(--p1)]/20 transition form-field" id="fBudget" name="budget">
-      <option value="" data-i18n="form.budgetPlaceholder">اختر الميزانية</option>
-      <option data-i18n="form.budgetOpt1">أقل من 500 د.أ</option>
-      <option data-i18n="form.budgetOpt2">500 - 1500 د.أ</option>
-      <option data-i18n="form.budgetOpt3">1500 - 3000 د.أ</option>
-      <option data-i18n="form.budgetOpt4">3000+ د.أ</option>
-    </select>
-  </label>
+<label class="text-sm">
+
+  <span class="text-[var(--muted)]"
+        data-i18n="form.budget">
+        الميزانية التقريبية
+  </span>
+
+  <select
+    class="mt-2 w-full rounded-2xl border border-[var(--border)] px-4 py-3 outline-none focus:border-[var(--p1)] focus:ring-2 focus:ring-[var(--p1)]/20 transition form-field"
+    id="fBudget"
+    name="budget">
+
+    <option value="" disabled selected data-i18n="form.selectBudget">
+      اختر الميزانية
+    </option>
+
+         <option data-i18n="form.budgetOpt1">أقل من $700</option>
+         <option data-i18n="form.budgetOpt2">$700 - $1,500</option>
+         <option data-i18n="form.budgetOpt3">$1,500 - $4,000</option>
+        <option data-i18n="form.budgetOpt4">أكثر من $4,000</option>
+
+  </select>
+
+</label>
 
   <label class="text-sm">
     <span class="text-[var(--muted)]" data-i18n="form.timeline">موعد التنفيذ</span>
@@ -1735,7 +1848,7 @@ onclick="if(typeof gtag==='function'){
 </label>
 <!-- ✅ إرسال إلى Google Sheets فقط -->
 <button class="quote-submit mt-5 w-full rounded-[1.65rem] px-5 py-4 sm:py-4 transition font-medium" id="sendLead" type="submit">
-<span class="quote-title text-[1.06rem] sm:text-lg" data-i18n="form.sendQuote">احصل على توصية أولية وخطوة تنفيذ واضحة</span>
+<span class="quote-title text-[1.06rem] sm:text-lg" data-i18n="form.sendQuote">ابدأ مشروعك بخطة واضحة وتنفيذ احترافي</span>
 </button>
 <div class="mt-4 flex flex-wrap gap-2 text-xs text-[var(--muted2)]">
 <span class="inline-flex items-center gap-2 rounded-full px-3 py-2 bg-white/5 border border-[var(--border)]" data-i18n="form.security1">🔒 مدخلات مُتحقق منها</span>
@@ -1787,6 +1900,12 @@ onclick="if(typeof gtag==='function'){
       <div>
         <h3 class="text-sm font-semibold text-white" data-i18n="footer.contactH">تواصل</h3>
         <div class="mt-4 flex flex-col gap-2 text-sm text-[var(--muted2)]">
+                    <a 
+            href="mailto:info.aquatech.jo@gmail.com"
+            class="hover:text-white transition"
+            data-i18n="footer.email"
+          >Email</a>
+      
           <a 
             href="https://wa.me/962780932199"
             target="_blank"
@@ -1800,12 +1919,6 @@ onclick="if(typeof gtag==='function'){
               });
             }"
           >WhatsApp</a>
-
-          <a 
-            href="mailto:info.aquatech.jo@gmail.com"
-            class="hover:text-white transition"
-            data-i18n="footer.email"
-          >Email</a>
 
           <a 
             href="https://www.instagram.com/aquatech.jo/"
@@ -1836,300 +1949,6 @@ onclick="if(typeof gtag==='function'){
 </div>
 
 </main>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("contactForm");
-  const statusEl = document.getElementById("formStatus");
-  const fullPhoneInput = document.getElementById("fFullPhone");
-  const SCRIPT_URL        = (window.AQUA_CONFIG || {}).SHEETS_SCRIPT_URL  || "";
-  const SUBMIT_COOLDOWN_MS = (window.AQUA_CONFIG || {}).SUBMIT_COOLDOWN_MS || 30000;
-
-  if (!form) {
-    console.error("contactForm not found");
-    return;
-  }
-
-  function getDict(){
-    return window.I18N?.[document.documentElement.lang] || window.I18N?.ar || {};
-  }
-
-  function getMsg(key, fallback){
-    const dict = getDict();
-    if (dict && Object.prototype.hasOwnProperty.call(dict, key)) return dict[key];
-    if (dict.msg && Object.prototype.hasOwnProperty.call(dict.msg, key.replace(/^msg\./, ""))) return dict.msg[key.replace(/^msg\./, "")];
-    return fallback;
-  }
-
-  function sanitizeText(value){
-    return String(value || "")
-      .replace(/[<>]/g, "")
-      .replace(/[\u0000-\u001F\u007F]/g, " ")
-      .replace(/\s+/g, " ")
-      .trim();
-  }
-
-  function sanitizeEmail(value){
-    return sanitizeText(value).toLowerCase();
-  }
-
-  function sanitizePhone(value){
-    return String(value || "").replace(/[^0-9]/g, "").replace(/^0+/, "").slice(0, 15);
-  }
-
-  function setError(id, on){
-    const el = document.getElementById(id);
-    if(!el) return;
-    el.classList.toggle("ring-2", !!on);
-    el.classList.toggle("ring-red-500/40", !!on);
-    el.classList.toggle("border-red-500/40", !!on);
-    el.setAttribute("aria-invalid", on ? "true" : "false");
-  }
-
-  function clearErrors(){
-    ["fName","fEmail","fPhone","fDetails"].forEach(id => setError(id, false));
-  }
-
-  function getSafePayload(){
-    const countryCode = sanitizeText(document.getElementById("fCountryCode")?.value || "+962");
-    const phoneDigits = sanitizePhone(document.getElementById("fPhone")?.value || "");
-    const fullPhone = phoneDigits ? `${countryCode.replace(/[^0-9+]/g, "").replace("+", "")}${phoneDigits}` : "";
-    if (fullPhoneInput) fullPhoneInput.value = fullPhone;
-
-    return {
-      name: sanitizeText(document.getElementById("fName")?.value || ""),
-      email: sanitizeEmail(document.getElementById("fEmail")?.value || ""),
-      country_code: countryCode,
-      phone: phoneDigits,
-      full_phone: fullPhone,
-      service: sanitizeText(document.getElementById("fService")?.value || ""),
-      budget: sanitizeText(document.getElementById("fBudget")?.value || ""),
-      timeline: sanitizeText(document.getElementById("fTimeline")?.value || ""),
-      details: sanitizeText(document.getElementById("fDetails")?.value || ""),
-      website: sanitizeText(document.getElementById("fWebsite")?.value || ""),
-      page_url: window.location.href,
-      referrer: document.referrer || "",
-      source: "website",
-      reply_channel: sanitizeEmail(document.getElementById("fEmail")?.value || "") ? "email" : "whatsapp",
-      reply_template: "new_lead_auto_reply",
-      notes: "",
-      lang: document.documentElement.lang || "ar"
-    };
-  }
-
-  function validateSafePayload(payload){
-    clearErrors();
-    const emailOk = !payload.email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email);
-    const phoneOk = !payload.phone || /^[0-9]{7,15}$/.test(payload.phone);
-    const hasContact = !!payload.email || !!payload.full_phone;
-    const nameOk = payload.name.length >= 2 && payload.name.length <= 80;
-    const detailsOk = payload.details.length >= 10 && payload.details.length <= 2000;
-
-    if (!nameOk)    { setError("fName",    true); setStatus(getMsg("msg.statusInvalidName",    "يرجى كتابة اسم صحيح."));              scrollToFirstError(); return false; }
-    if (!emailOk)   { setError("fEmail",   true); setStatus(getMsg("msg.statusInvalidEmail",   "يرجى إدخال بريد إلكتروني صحيح."));    scrollToFirstError(); return false; }
-    if (!phoneOk)   { setError("fPhone",   true); setStatus(getMsg("msg.statusInvalidPhone",   "يرجى إدخال رقم واتساب صحيح."));       scrollToFirstError(); return false; }
-    if (!hasContact){ setError("fEmail",   true); setError("fPhone", true); setStatus(getMsg("msg.statusNeed", "Please provide one contact method.")); scrollToFirstError(); return false; }
-    if (!detailsOk) { setError("fDetails", true); setStatus(getMsg("msg.statusInvalidDetails", "يرجى كتابة تفاصيل أوضح عن المشروع.")); scrollToFirstError(); return false; }
-    if (payload.website) { setStatus(getMsg("msg.statusSpam", "تم تجاهل الطلب لأنه يبدو غير صالح.")); return false; }
-    return true;
-  }
-
-  function scrollToFirstError(){
-    setTimeout(function(){
-      var firstError = form.querySelector('[aria-invalid="true"]');
-      if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 60);
-  }
-
-  function getLastSubmitTs(){
-    try { return Number(localStorage.getItem("aqua_last_submit_ts") || 0); } catch(e) { return 0; }
-  }
-
-  function setLastSubmitTs(){
-    try { localStorage.setItem("aqua_last_submit_ts", String(Date.now())); } catch(e) {}
-  }
-
-  function setStatusSafe(text){
-    if (typeof setStatus === "function") setStatus(text);
-    else if (statusEl) statusEl.textContent = text;
-  }
-
-  window.setStatus = setStatusSafe;
-
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
-
-    const lastSubmitTs = getLastSubmitTs();
-    if (Date.now() - lastSubmitTs < SUBMIT_COOLDOWN_MS) {
-      setStatusSafe(getMsg("msg.statusTooFast", "يرجى الانتظار قليلًا قبل إرسال طلب جديد."));
-      return;
-    }
-
-    const payload = getSafePayload();
-    if (!validateSafePayload(payload)) return;
-
-    const sheetPayload = {
-      full_name: payload.name,
-      phone: payload.full_phone,
-      email: payload.email,
-      service_type: payload.service,
-      budget: payload.budget,
-      timeline: payload.timeline,
-      message: payload.details,
-      source: payload.source,
-      page_url: payload.page_url,
-      reply_channel: payload.reply_channel,
-      reply_template: payload.reply_template,
-      notes: payload.notes
-    };
-
-    setStatusSafe(getMsg("msg.statusSending", "Sending your request..."));
-    if (typeof setBusy === "function") setBusy(true);
-
-    try {
-      const response = await fetch(SCRIPT_URL, {
-        method: "POST",
-        mode: "cors",
-        cache: "no-store",
-        referrerPolicy: "strict-origin-when-cross-origin",
-        headers: {
-          "Content-Type": "text/plain;charset=utf-8"
-        },
-        body: JSON.stringify(sheetPayload)
-      });
-
-      const result = await response.json();
-
-if (result && result.success) {
-  if (typeof gtag === "function") {
-    gtag("event", "form_submit_success", {
-      event_category: "lead",
-      event_label: "contact_form",
-      service: payload.service || "unknown",
-      budget: payload.budget || "unknown",
-      timeline: payload.timeline || "unknown"
-    });
-  }
-
-  setStatusSafe("");
-  setLastSubmitTs();
-  form.reset();
-  if (fullPhoneInput) fullPhoneInput.value = "";
-  clearErrors();
-  if (typeof showSuccessModal === "function") showSuccessModal(getMsg("form.modalText", "سوف نتواصل معك في أقرب وقت"));
-} else {
-        setStatusSafe(getMsg("msg.statusFail", "تعذر إرسال الطلب. حاول مرة أخرى."));
-        console.error(result);
-      }
-    } catch (error) {
-      setStatusSafe(getMsg("msg.statusFail", "تعذر إرسال الطلب. حاول مرة أخرى."));
-      console.error(error);
-    } finally {
-      if (typeof setBusy === "function") setBusy(false);
-    }
-  });
-});
-</script>
-
-<script>
-(function () {
-  function getHeaderOffset() {
-    const header = document.querySelector('header.sticky');
-    if (!header) return 24;
-    return Math.ceil(header.getBoundingClientRect().height) + 12;
-  }
-
-  function closeMobileMenu() {
-    const mobileMenu = document.getElementById('mobileMenu');
-    const menuToggle = document.getElementById('menuToggle');
-    const openIcon = document.getElementById('menuIconOpen');
-    const closeIcon = document.getElementById('menuIconClose');
-
-    if (!mobileMenu) return;
-    mobileMenu.classList.add('hidden');
-
-    if (menuToggle) {
-      menuToggle.setAttribute('aria-expanded', 'false');
-    }
-    if (openIcon) openIcon.classList.remove('hidden');
-    if (closeIcon) closeIcon.classList.add('hidden');
-  }
-
-  var isMobileViewport = function () {
-    return window.innerWidth < 768;
-  };
-
-function scrollToHash(hash, updateUrl) {
-  if (!hash || hash === '#') return;
-
-  const target = document.querySelector(hash);
-  if (!target) return;
-
-  const y = target.getBoundingClientRect().top + window.scrollY - getHeaderOffset();
-
-  requestAnimationFrame(function () {
-    window.scrollTo({
-      top: Math.max(0, y),
-      behavior: 'auto'
-    });
-
-       if (updateUrl) {
-        history.replaceState(null, '', window.location.pathname + window.location.search);
-}
-  });
-}
-function isMobileViewport() {
-  return window.matchMedia("(max-width: 767px)").matches;
-}
-
-function bindHeaderLinks() {
-  const links = document.querySelectorAll('header a[href^="#"]');
-
-  links.forEach(function (link) {
-    link.addEventListener('click', function (e) {
-      const hash = link.getAttribute('href');
-      if (!hash || hash === '#') return;
-
-      const target = document.querySelector(hash);
-      if (!target) return;
-
-      e.preventDefault();
-
-      if (isMobileViewport()) {
-        scrollToHash(hash, true);
-        setTimeout(closeMobileMenu, 80);
-      } else {
-        closeMobileMenu();
-        scrollToHash(hash, true);
-      }
-    }, { passive: false });
-  });
-}
-
-
-  document.addEventListener('DOMContentLoaded', function () {
-    bindHeaderLinks();
-  });
-
-  window.addEventListener('hashchange', function () {
-    if (!window.location.hash) return;
-    if (isMobileViewport()) return;
-    scrollToHash(window.location.hash, false);
-  });
-
-  window.addEventListener('resize', function () {
-    if (isMobileViewport()) return;
-    if (!window.location.hash) return;
-    const target = document.querySelector(window.location.hash);
-    if (!target) return;
-    clearTimeout(window.__aquaNavResizeTimer);
-    window.__aquaNavResizeTimer = setTimeout(function () {
-      if (isMobileViewport()) return;
-      scrollToHash(window.location.hash, false);
-    }, 120);
-  });
-})();
-</script>
 
 <a
   id="wa-float"

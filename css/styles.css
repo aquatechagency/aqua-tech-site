@@ -1841,407 +1841,12 @@ html[dir="ltr"] .aq-service-link::before{
   .aq-service-desc{
     font-size:.94rem;
   }
-  .aq-service-visual{
-    transform:scale(.82);
-    min-height:220px;
-    margin-block:-18px;
-  }
   .aq-service-pill{
     font-size:.75rem;
     padding:.42rem .72rem;
   }
 }
-/* ===== Services card sizing ===== */
 
-#services .mt-10 > div{
-  width: min(100%, 860px) !important;
-  max-width: 860px !important;
-
-  min-height: 240px !important;
-
-  padding: 1.5rem !important;
-
-  border-radius: 1.6rem !important;
-
-  margin-inline: auto !important;
-}
-
-#services .mt-10 > div > .grid,
-#services .mt-10 > div > .aqua-card-grid{
-  gap: 1.2rem !important;
-}
-
-#services svg{
-  max-width: 210px !important;
-  width: 100% !important;
-}
-
-#services h3{
-  font-size: clamp(1.35rem, 1.8vw, 1.85rem) !important;
-  line-height: 1.25 !important;
-}
-
-/* darker background */
-body{
-  background:
-    radial-gradient(circle at top right, rgba(0,140,255,.10), transparent 26%),
-    radial-gradient(circle at top left, rgba(34,211,238,.05), transparent 22%),
-    linear-gradient(180deg, #02050b 0%, #020814 45%, #01040a 100%) !important;
-  color: #f4f8ff;
-}
-/* ===== Final services compact sizing ===== */
-
-.aq-services-wrap{
-  width: min(100% - 2rem, 1120px) !important;
-  padding: 3.5rem 0 !important;
-}
-
-.aq-services-head{
-  width: min(100%, 980px) !important;
-  margin-bottom: 1.75rem !important;
-}
-
-.aq-service-stack{
-  gap: 1.5rem !important;
-}
-
-.aq-service-card{
-  width: min(100%, 980px) !important;
-  min-height: 320px !important;
-  padding: 2rem 2.2rem !important;
-  gap: 2rem !important;
-  grid-template-columns: minmax(0, 1fr) 1px minmax(280px, .78fr) !important;
-  border-radius: 1.8rem !important;
-}
-
-.aq-service-copy h3{
-  font-size: clamp(1.45rem, 2vw, 2rem) !important;
-}
-
-.aq-service-desc{
-  font-size: .95rem !important;
-  line-height: 1.75 !important;
-}
-
-.aq-feature-list{
-  gap: .65rem !important;
-  margin-top: 1.1rem !important;
-}
-
-.aq-feature-list li{
-  grid-template-columns: 2.35rem 1fr !important;
-  gap: .75rem !important;
-}
-
-.aq-feature-icon{
-  width: 2.35rem !important;
-  height: 2.35rem !important;
-  border-radius: .75rem !important;
-}
-
-.aq-feature-list strong{
-  font-size: .9rem !important;
-}
-
-.aq-service-visual{
-  min-height: 230px !important;
-  transform: scale(.82);
-}
-
-.aq-monitor,
-.aq-browser,
-.aq-chat-window,
-.aq-dashboard-screen,
-.aq-growth-chart,
-.aq-design-board{
-  transform: scale(.9);
-}
-
-@media (max-width: 1023px){
-  .aq-service-card{
-    grid-template-columns: 1fr !important;
-    width: 100% !important;
-    padding: 1.5rem !important;
-  }
-
-  .aq-service-visual{
-    transform: scale(.9);
-    min-height: 220px !important;
-  }
-}
-/* Hide services section small badge */
-#services .aq-section-kicker{
-  display: none !important;
-}
-/* Services divider exactly like other sections */
-
-#services{
-  position: relative;
-  margin-top: 4rem !important;
-  padding-top: 4rem !important;
-}
-
-#services::before{
-  content:"";
-  position:absolute;
-
-  top:0;
-  left:0;
-
-  width:100%;
-  height:2px;
-
-  background: rgba(255,255,255,.75);
-
-  box-shadow:
-    0 0 22px rgba(255,255,255,.28),
-    0 0 40px rgba(255,255,255,.12);
-}
-#services .aq-services-head h2{
-  font-size: clamp(2.2rem, 4vw, 3.8rem) !important;
-}
-/* Services title match other sections */
-
-#services .aq-services-head h2{
-font-size: clamp(1.9rem, 2.8vw, 2.7rem) !important;
-  font-weight: 800 !important;
-  line-height: 1.08 !important;
-  letter-spacing: -.03em !important;
-  font-family: inherit !important;
-  color: #f7fbff !important;
-}
-#services .aq-section-kicker{
-  display: none !important;
-}
-
-#services .aq-services-head h2{
-  font-size: 1.875rem !important;
-  line-height: 2.25rem !important;
-  font-weight: 600 !important;
-  letter-spacing: 0 !important;
-  font-family: inherit !important;
-}
-
-@media (max-width: 768px){
-  #services .aq-services-head h2{
-    font-size: 1.5rem !important;
-    line-height: 2rem !important;
-  }
-}
-#services .aq-service-copy h3{
-  white-space: nowrap !important;
-  font-size: clamp(1.05rem, 1.5vw, 1.65rem) !important;
-}
-#services .aq-service-badge{
-  width: auto !important;
-  min-width: 190px !important;
-  padding: 10px 22px !important;
-  white-space: nowrap !important;
-
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 10px !important;
-}
-/* Fix service badge text wrapping */
-
-#services .aq-service-badge{
-  min-width: 240px !important;
-  width: auto !important;
-  padding: 12px 24px !important;
-
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 10px !important;
-}
-/* Fix services top pill */
-
-#services .aq-service-pill{
-  min-width: 240px !important;
-  width: auto !important;
-
-  padding: 12px 22px !important;
-
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 10px !important;
-
-  white-space: nowrap !important;
-
-  border-radius: 999px !important;
-}
-
-#services .aq-service-pill *{
-  white-space: nowrap !important;
-  display: inline !important;
-  line-height: 1.1 !important;
-}
-
-#services .aq-service-pill br{
-  display: none !important;
-}
-/* Unified section dividers */
-
-section{
-  position: relative;
-}
-
-section::before{
-  content: "";
-  position: absolute;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 1px;
-
-  background: rgba(255,255,255,.18);
-
-  box-shadow:
-    0 0 18px rgba(255,255,255,.10),
-    0 0 32px rgba(34,211,238,.06);
-
-  opacity: .9;
-  pointer-events: none;
-}
-/* ===== Unified website colors ===== */
-
-body{
-  background:
-    radial-gradient(circle at top right, rgba(56,189,248,.10), transparent 28%),
-    radial-gradient(circle at top left, rgba(96,165,250,.05), transparent 24%),
-    linear-gradient(180deg,#02050b 0%,#030712 45%,#02040a 100%) !important;
-
-  color: var(--text);
-}
-
-/* cards */
-.aq-service-card,
-.why-card,
-.about-shell,
-.trust-pill,
-.faq-item,
-#contact form{
-  background:
-    radial-gradient(circle at 78% 18%, rgba(56,189,248,.10), transparent 34%),
-    linear-gradient(135deg, #081625, #06111d) !important;
-
-  border: 1px solid rgba(96,165,250,.16) !important;
-
-  box-shadow:
-    0 20px 60px rgba(0,0,0,.34),
-    0 0 30px rgba(56,189,248,.05) !important;
-}
-
-/* titles */
-h1,h2,h3{
-  color:#f7fbff;
-}
-
-/* paragraphs */
-p{
-  color:var(--muted2);
-}
-
-/* links/buttons */
-a,
-.aq-service-link{
-  color:var(--primary);
-}
-
-/* pills */
-.aq-service-pill,
-.nav-link.is-active{
-  background: linear-gradient(135deg,#0d2740,#123556) !important;
-
-  border:1px solid rgba(96,165,250,.18) !important;
-
-  color:#eaf6ff !important;
-}
-
-/* section dividers */
-section::before{
-  background: rgba(255,255,255,.10) !important;
-  box-shadow:none !important;
-}
-
-/* remove extra cyan glow */
-*{
-  text-shadow:none !important;
-}
-/* Clean service pill layout */
-
-#services .aq-service-pill{
-  width: fit-content !important;
-  min-width: 0 !important;
-  max-width: 100% !important;
-
-  padding: 8px 16px !important;
-  border-radius: 999px !important;
-
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: flex-start !important;
-  gap: 8px !important;
-
-  font-size: .82rem !important;
-  line-height: 1.2 !important;
-  white-space: nowrap !important;
-
-  margin-bottom: 18px !important;
-  margin-inline-start: auto !important;
-  margin-inline-end: 0 !important;
-}
-
-#services .aq-service-pill span,
-#services .aq-service-pill strong{
-  display: inline !important;
-  white-space: nowrap !important;
-}
-
-#services .aq-service-pill svg{
-  width: 16px !important;
-  height: 16px !important;
-  flex: 0 0 auto !important;
-}
-/* Ultra visible divider above services */
-
-#services{
-  position: relative;
-  margin-top: 4rem !important;
-  padding-top: 4rem !important;
-}
-
-#services::before{
-  content:"";
-  position:absolute;
-
-  top:0;
-  left:0;
-
-  width:100%;
-  height:2px;
-
-  background: linear-gradient(
-    90deg,
-    rgba(255,255,255,.02) 0%,
-    rgba(255,255,255,.38) 15%,
-    rgba(255,255,255,.50) 50%,
-    rgba(255,255,255,.38) 85%,
-    rgba(255,255,255,.02) 100%
-  );
-
-  box-shadow:
-    0 0 18px rgba(255,255,255,.18),
-    0 0 40px rgba(56,189,248,.14);
-
-  opacity:1 !important;
-  z-index:20;
-  pointer-events:none;
-}
 /* Fix security card small labels */
 
 #security .aq-note-label{
@@ -2538,548 +2143,7 @@ section[id]{
     min-height: 155px;
   }
 }
-/* Mobile services cards fix */
 
-@media (max-width: 767px){
-
-  #services .aq-service-card{
-    width: calc(100% - 20px) !important;
-    padding: 1.25rem !important;
-    border-radius: 1.5rem !important;
-
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1.4rem !important;
-
-    min-height: auto !important;
-    overflow: hidden !important;
-  }
-
-  #services .aq-service-copy{
-    width: 100% !important;
-    max-width: 100% !important;
-    text-align: center !important;
-  }
-
-  #services .aq-service-pill{
-    margin: 0 auto 1rem !important;
-    font-size: .78rem !important;
-    padding: .45rem .8rem !important;
-  }
-
-  #services .aq-service-copy h3{
-    white-space: normal !important;
-    font-size: 1.45rem !important;
-    line-height: 1.45 !important;
-    text-align: center !important;
-  }
-
-  #services .aq-service-desc{
-    font-size: .95rem !important;
-    line-height: 1.9 !important;
-    text-align: center !important;
-    max-width: 100% !important;
-  }
-
-  #services .aq-feature-list{
-    gap: .9rem !important;
-    margin-top: 1.2rem !important;
-  }
-
-  #services .aq-feature-list li{
-    grid-template-columns: 2.4rem 1fr !important;
-    gap: .7rem !important;
-    align-items: start !important;
-    text-align: right !important;
-  }
-
-  #services .aq-feature-list strong{
-    font-size: .95rem !important;
-    line-height: 1.7 !important;
-  }
-
-  #services .aq-feature-icon{
-    width: 2.4rem !important;
-    height: 2.4rem !important;
-    flex-shrink: 0 !important;
-  }
-
-  #services .aq-service-link{
-    margin-top: 1.4rem !important;
-    justify-content: center !important;
-    font-size: 1rem !important;
-  }
-
-  #services .aq-service-divider{
-    width: 100% !important;
-    height: 1px !important;
-  }
-
-  #services .aq-service-visual{
-    min-height: 180px !important;
-    transform: scale(.72) !important;
-    margin: -20px auto -35px !important;
-  }
-}
-@media (max-width: 767px){
-
-  #services .aq-service-visual{
-    display:flex !important;
-    justify-content:center !important;
-    align-items:center !important;
-
-    width:100% !important;
-    margin:0 auto !important;
-
-    transform:none !important;
-    left:auto !important;
-    right:auto !important;
-  }
-
-  #services .aq-service-visual svg,
-  #services .aq-service-visual img{
-    margin:0 auto !important;
-    display:block !important;
-
-    max-width:260px !important;
-    width:100% !important;
-  }
-
-}
-html {
-  scroll-behavior: smooth;
-}
-
-section[id] {
-  scroll-margin-top: 120px;
-}
-/* Mobile clean layout for custom systems visual */
-@media (max-width: 767px){
-
-  #svc-custom .aq-service-visual{
-    position: relative !important;
-    width: 100% !important;
-    max-width: 300px !important;
-    height: 235px !important;
-    margin: 1.25rem auto 0 !important;
-    overflow: visible !important;
-  }
-
-  #svc-custom .aq-dashboard-screen{
-    position: absolute !important;
-    left: 50% !important;
-    top: 28px !important;
-    transform: translateX(-50%) !important;
-    width: 260px !important;
-    height: 165px !important;
-    border-radius: 26px !important;
-  }
-
-  #svc-custom .aq-system-node{
-    width: 52px !important;
-    height: 52px !important;
-    border-radius: 16px !important;
-    z-index: 5 !important;
-  }
-
-  #svc-custom .aq-system-node span{
-    width: 24px !important;
-    height: 24px !important;
-  }
-
-  /* ترتيب العناصر */
-@media (max-width: 767px){
-
-  #svc-custom .aq-dashboard-screen{
-    width: 235px !important;
-    height: 150px !important;
-    top: 34px !important;
-  }
-
-}
-
-  #svc-custom .node-users{
-    top: -6px !important;
-    right: 48px !important;
-  }
-
-  #svc-custom .node-pay{
-    top: 92px !important;
-    left: -10px !important;
-  }
-
-  #svc-custom .node-wa{
-    top: 92px !important;
-    right: -10px !important;
-  }
-
-  #svc-custom .node-wifi{
-    bottom: -10px !important;
-    left: 92px !important;
-  }
-
-  #svc-custom .node-chart{
-    bottom: -10px !important;
-    right: 92px !important;
-  }
-}
-
-/* Mobile menu positioning */
-@media (max-width: 767px){
-
-  #mobileMenu{
-    position: fixed;
-    top: 82px;
-    width: min(320px, 88vw);
-
-    padding: 14px;
-    border-radius: 28px;
-
-    background: rgba(10,14,24,.92);
-    backdrop-filter: blur(18px);
-
-    opacity: 0;
-    pointer-events: none;
-
-    transition:
-      transform .32s ease,
-      opacity .22s ease;
-
-    z-index: 9999;
-  }
-
-  #mobileMenu.active{
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  /* عربي */
-  html[dir="rtl"] #mobileMenu{
-    right: 14px;
-    left: auto;
-    transform: translateX(115%);
-  }
-
-  html[dir="rtl"] #mobileMenu.active{
-    transform: translateX(0);
-  }
-
-  /* انجليزي */
-  html[dir="ltr"] #mobileMenu{
-    left: 14px;
-    right: auto;
-    transform: translateX(-115%);
-  }
-
-  html[dir="ltr"] #mobileMenu.active{
-    transform: translateX(0);
-  }
-
-  #mobileMenu .mobile-nav-link{
-    padding: .9rem 1rem;
-    border-radius: 16px;
-    display: block;
-  }
-
-  #mobileMenu .mobile-nav-link:hover{
-    background: rgba(255,255,255,.05);
-  }
-}
-
-
-@media (max-width: 767px){
-  #svc-custom .aq-system-node{
-    display: none !important;
-  }
-}
-@media (max-width: 767px){
-
-  #svc-custom .aq-service-visual{
-    max-width: 260px !important;
-    height: 190px !important;
-    margin: 1rem auto 0 !important;
-  }
-
-  #svc-custom .aq-dashboard-screen{
-    width: 220px !important;
-    height: 140px !important;
-    top: 24px !important;
-  }
-
-  #svc-custom .aq-screen-donut{
-    width: 58px !important;
-    height: 58px !important;
-
-    right: 18px !important;
-    top: 42px !important;
-  }
-
-}
-/* =========================================================
-   FINAL MOBILE POLISH — stable menu + centered custom visual + Arabic hero
-   ========================================================= */
-
-@media (max-width: 767px){
-
-  /* Header/menu layout */
-  header.sticky{
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    z-index: 1000 !important;
-  }
-
-  main{
-    padding-top: calc(84px + env(safe-area-inset-top)) !important;
-  }
-
-  #mobileMenu{
-    position: fixed !important;
-    top: calc(82px + env(safe-area-inset-top)) !important;
-    width: min(320px, calc(100vw - 28px)) !important;
-    max-height: calc(100dvh - 110px) !important;
-    overflow-y: auto !important;
-
-    padding: 14px !important;
-    border-radius: 28px !important;
-
-    background: rgba(5, 11, 20, .96) !important;
-    border: 1px solid rgba(96,165,250,.22) !important;
-    box-shadow: 0 22px 70px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.06) !important;
-    backdrop-filter: blur(18px) !important;
-    -webkit-backdrop-filter: blur(18px) !important;
-
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-
-    transition: transform .32s ease, opacity .22s ease, visibility .22s ease !important;
-    z-index: 9999 !important;
-  }
-
-  #mobileMenu.active{
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
-  }
-
-  html[dir="rtl"] #mobileMenu{
-    right: 14px !important;
-    left: auto !important;
-    transform: translateX(115%) !important;
-    direction: rtl !important;
-    text-align: right !important;
-  }
-
-  html[dir="rtl"] #mobileMenu.active{
-    transform: translateX(0) !important;
-  }
-
-  html[dir="ltr"] #mobileMenu{
-    left: 14px !important;
-    right: auto !important;
-    transform: translateX(-115%) !important;
-    direction: ltr !important;
-    text-align: left !important;
-  }
-
-  html[dir="ltr"] #mobileMenu.active{
-    transform: translateX(0) !important;
-  }
-
-  #mobileMenu > div{
-    width: 100% !important;
-    max-width: none !important;
-    padding: 0 !important;
-  }
-
-  #mobileMenu .mobile-nav-link{
-    width: 100% !important;
-    min-height: 46px !important;
-    display: flex !important;
-    align-items: center !important;
-    padding: .85rem 1rem !important;
-    border-radius: 16px !important;
-  }
-
-  html[dir="rtl"] #mobileMenu .mobile-nav-link{
-    justify-content: flex-start !important;
-    direction: rtl !important;
-    text-align: right !important;
-  }
-
-  html[dir="ltr"] #mobileMenu .mobile-nav-link{
-    justify-content: flex-start !important;
-    direction: ltr !important;
-    text-align: left !important;
-  }
-
-  #mobileMenu .mobile-nav-link:hover,
-  #mobileMenu .mobile-nav-link.is-active{
-    background: rgba(255,255,255,.06) !important;
-  }
-
-  #mobileMenu #waLinkMobile{
-    width: 100% !important;
-    margin-top: .75rem !important;
-  }
-
-
-  /* Services on mobile */
-  #services .aq-service-card{
-    width: calc(100% - 20px) !important;
-    padding: 1.25rem !important;
-    border-radius: 1.5rem !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1.25rem !important;
-    min-height: auto !important;
-    overflow: hidden !important;
-  }
-
-  #services .aq-service-copy{
-    width: 100% !important;
-    max-width: 100% !important;
-    text-align: center !important;
-  }
-
-  #services .aq-service-copy h3{
-    white-space: normal !important;
-    font-size: 1.42rem !important;
-    line-height: 1.45 !important;
-    text-align: center !important;
-  }
-
-  #services .aq-service-desc{
-    font-size: .95rem !important;
-    line-height: 1.9 !important;
-    text-align: center !important;
-    max-width: 100% !important;
-  }
-
-  #services .aq-service-pill{
-    min-width: 0 !important;
-    width: fit-content !important;
-    max-width: 100% !important;
-    margin: 0 auto 1rem !important;
-    padding: .45rem .8rem !important;
-    font-size: .78rem !important;
-    white-space: nowrap !important;
-    justify-content: center !important;
-  }
-
-  #services .aq-feature-list li{
-    grid-template-columns: 2.4rem 1fr !important;
-    gap: .7rem !important;
-    align-items: start !important;
-    text-align: right !important;
-  }
-
-  #services .aq-feature-list strong{
-    font-size: .95rem !important;
-    line-height: 1.7 !important;
-  }
-
-  #services .aq-service-divider{
-    width: 100% !important;
-    height: 1px !important;
-  }
-
-  #services .aq-service-visual{
-    width: 100% !important;
-    min-height: 205px !important;
-    height: 205px !important;
-    margin: .5rem auto 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    overflow: visible !important;
-    transform: none !important;
-    left: auto !important;
-    right: auto !important;
-  }
-
-  #services .aq-monitor,
-  #services .aq-browser,
-  #services .aq-chat-window,
-  #services .aq-growth-chart,
-  #services .aq-design-board,
-  #services .aq-phone-card{
-    transform: scale(.84) !important;
-    transform-origin: center !important;
-  }
-
-  /* Custom systems visual: centered and same style as other mobile drawings */
-  #svc-custom .aq-service-visual{
-    max-width: 315px !important;
-    height: 215px !important;
-    min-height: 215px !important;
-    margin: .85rem auto 0 !important;
-    padding: 0 !important;
-    overflow: visible !important;
-    transform: none !important;
-    position: relative !important;
-  }
-
-  #svc-custom .aq-system-node{
-    display: none !important;
-  }
-
-  #svc-custom .aq-dashboard-screen{
-    position: relative !important;
-    left: auto !important;
-    right: auto !important;
-    top: auto !important;
-    bottom: auto !important;
-    transform: none !important;
-    margin: 0 auto !important;
-
-    width: 280px !important;
-    height: 175px !important;
-    padding: 1rem !important;
-    grid-template-columns: 60px 1fr 74px !important;
-    gap: .7rem !important;
-    border-width: 3px !important;
-    border-radius: 1.25rem !important;
-  }
-
-  #svc-custom .aq-screen-sidebar{
-    gap: .7rem !important;
-    padding: .55rem !important;
-  }
-
-  #svc-custom .aq-screen-sidebar i{
-    height: 21px !important;
-  }
-
-  #svc-custom .aq-screen-chart{
-    gap: .45rem !important;
-    padding: .65rem !important;
-  }
-
-  #svc-custom .aq-screen-donut{
-    width: 60px !important;
-    height: 60px !important;
-    margin: auto !important;
-    right: auto !important;
-    left: auto !important;
-    top: auto !important;
-    bottom: auto !important;
-  }
-
-  #svc-custom .aq-screen-donut::after{
-    inset: 17px !important;
-  }
-
-  #svc-custom .aq-glow-floor{
-    width: 70% !important;
-    height: 34px !important;
-    bottom: 6px !important;
-    opacity: .45 !important;
-  }
-}
 
 /* Unified final section dividers */
 section[id]{
@@ -3183,26 +2247,421 @@ html[lang="en"] .hero-title{
   }
 
 }
-@media (max-width:768px){
 
-  .aq-service-card{
-    padding: 1.2rem !important;
-    border-radius: 24px !important;
-  }
 
-  .aq-service-visual{
-    min-height: 220px !important;
-    transform: scale(.92);
-  }
 
-  .aq-service-copy h3{
-    font-size: 1.25rem !important;
-    line-height: 1.5 !important;
-  }
-
-  .aq-feature-list{
-    gap: .8rem !important;
-  }
-
+.aq-chip{
+  padding:.45rem .8rem;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.04);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+.support-card{
+  position:relative;
+  overflow:hidden;
+  min-height:190px;
+  padding:1.5rem;
+  border-radius:1.85rem;
+  background:
+    radial-gradient(circle at 78% 18%, rgba(56,189,248,.12), transparent 34%),
+    linear-gradient(135deg, rgba(8,30,50,.72), rgba(5,17,31,.92));
+  border:1px solid rgba(96,165,250,.18);
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.28),
+    inset 0 1px 0 rgba(255,255,255,.05);
 }
 
+.support-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg, transparent, rgba(34,211,238,.045), transparent);
+  pointer-events:none;
+}
+
+.support-icon{
+  width:46px;
+  height:46px;
+  border-radius:1rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:1rem;
+  background:rgba(56,189,248,.08);
+  border:1px solid rgba(56,189,248,.20);
+  box-shadow:0 0 22px rgba(56,189,248,.08);
+}
+
+.support-card h3{
+  font-size:1.1rem;
+  font-weight:700;
+  color:#f7fbff;
+}
+
+.support-card p{
+  margin-top:.65rem;
+  font-size:.92rem;
+  line-height:1.8;
+  color:var(--muted2);
+}
+html {
+    scroll-behavior: smooth;
+  }
+
+  section[id] {
+    scroll-margin-top: 95px;
+  }
+select.form-field{
+  appearance:auto;
+  cursor:pointer;
+}
+
+select.form-field option{
+  background:#0b1422;
+  color:#eaf4ff;
+  padding:12px;
+}
+
+select.form-field:focus{
+  background:
+    linear-gradient(135deg, rgba(34,211,238,.08), rgba(96,165,250,.06)),
+    rgba(7,18,33,.95);
+  box-shadow:
+    0 0 0 1px rgba(34,211,238,.35),
+    0 0 30px rgba(34,211,238,.12);
+}
+
+/* Budget select fix */
+#fBudget{
+  direction: rtl !important;
+  text-align: right !important;
+  text-align-last: right !important;
+  padding-right: 1rem !important;
+  padding-left: 1rem !important;
+}
+
+#fBudget option{
+  direction: rtl !important;
+  text-align: right !important;
+}
+/* Aqua.Tech Services - premium reference style */
+
+#services .aq-service-card{
+  min-height:400px !important;
+  padding:2.2rem 2.6rem !important;
+  border-radius:2rem !important;
+  grid-template-columns:minmax(0, 1fr) 1px 360px !important;
+  gap:2.4rem !important;
+
+  background:
+    radial-gradient(circle at 70% 18%, rgba(56,189,248,.11), transparent 34%),
+    linear-gradient(135deg, rgba(8,30,50,.92), rgba(3,10,22,.98)) !important;
+
+  border:1px solid rgba(56,189,248,.34) !important;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.40),
+    0 0 45px rgba(56,189,248,.10),
+    inset 0 1px 0 rgba(255,255,255,.06) !important;
+}
+
+#services .aq-service-visual{
+  height:270px !important;
+  min-height:270px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  overflow:visible !important;
+}
+
+#services .aq-monitor,
+#services .aq-browser,
+#services .aq-chat-window,
+#services .aq-dashboard-screen,
+#services .aq-growth-chart,
+#services .aq-design-board,
+#services .aq-phone-card{
+  transform:scale(.9) !important;
+  filter:drop-shadow(0 0 22px rgba(56,189,248,.18)) !important;
+}
+
+#services .aq-orbit-card,
+#services .aq-floating-badge,
+#services .aq-social-chip,
+#services .aq-system-node,
+#services .aq-node{
+  opacity:.55 !important;
+  transform:scale(.78) !important;
+}
+
+#services .aq-service-copy h3{
+  font-size:clamp(1.65rem, 2vw, 2.15rem) !important;
+  line-height:1.3 !important;
+}
+
+#services .aq-service-desc{
+  font-size:1rem !important;
+  line-height:1.85 !important;
+}
+
+#services .aq-feature-list{
+  gap:.85rem !important;
+}
+/* =========================================================
+   Premium service visual - Landing page card
+========================================================= */
+
+#services .aq-premium-visual{
+  position:relative !important;
+  width:100% !important;
+  height:280px !important;
+  min-height:280px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  overflow:visible !important;
+  isolation:isolate !important;
+}
+
+#services .premium-browser{
+  position:relative;
+  width:390px;
+  height:245px;
+  border-radius:1.5rem;
+  border:3px solid rgba(34,211,238,.72);
+  background:
+    radial-gradient(circle at 65% 18%, rgba(56,189,248,.14), transparent 42%),
+    linear-gradient(180deg, rgba(9,43,68,.78), rgba(4,16,30,.96));
+  box-shadow:
+    0 0 22px rgba(34,211,238,.16),
+    0 24px 70px rgba(0,0,0,.35),
+    inset 0 0 28px rgba(56,189,248,.08);
+  z-index:2;
+}
+
+#services .premium-browser-top{
+  height:54px;
+  border-bottom:4px solid rgba(34,211,238,.72);
+  display:flex;
+  align-items:center;
+  gap:.65rem;
+  padding-inline:1.5rem;
+}
+
+#services .premium-browser-top span{
+  width:13px;
+  height:13px;
+  border-radius:999px;
+  background:rgba(34,211,238,.82);
+  box-shadow:0 0 12px rgba(34,211,238,.35);
+}
+
+#services .premium-browser-grid{
+  height:calc(100% - 54px);
+  padding:1.4rem;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.15rem;
+}
+
+#services .premium-browser-grid span{
+  border-radius:1rem;
+  border:3px solid rgba(34,211,238,.68);
+  background:rgba(34,211,238,.045);
+  box-shadow:inset 0 0 18px rgba(56,189,248,.04);
+}
+
+#services .premium-node{
+  position:absolute;
+  width:78px;
+  height:58px;
+  border-radius:1rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(5,20,38,.78);
+  border:1px solid rgba(56,189,248,.26);
+  box-shadow:
+    0 0 24px rgba(34,211,238,.13),
+    inset 0 1px 0 rgba(255,255,255,.08);
+  color:rgba(230,240,255,.88);
+  font-family:Inter, system-ui, sans-serif;
+  font-size:.85rem;
+  font-weight:800;
+  letter-spacing:.04em;
+  z-index:3;
+}
+
+#services .node-seo{
+  top:12px;
+  right:10px;
+}
+
+#services .node-cms{
+  bottom:16px;
+  left:22px;
+}
+
+#services .premium-visual-glow{
+  position:absolute;
+  bottom:4px;
+  width:70%;
+  height:58px;
+  border-radius:999px;
+  background:radial-gradient(ellipse, rgba(34,211,238,.28), transparent 70%);
+  filter:blur(14px);
+  opacity:.38;
+  z-index:1;
+}
+#services .aq-premium-visual{
+  transform:translateY(-8px);
+}
+#services .aq-service-copy{
+  padding-inline-start:1rem;
+}
+#services .aq-service-card{
+  position:relative;
+}
+
+#services .aq-service-card::before{
+  content:"";
+  position:absolute;
+  top:12%;
+  bottom:12%;
+  left:50%;
+  width:1px;
+
+  background:linear-gradient(
+    180deg,
+    transparent,
+    rgba(56,189,248,.04)
+    transparent
+  );
+
+  transform:translateX(-50%);
+}
+#services .premium-browser{
+  transform:scale(.95);
+}
+#services .aq-service-copy{
+  max-width:560px;
+}
+#services .aq-premium-visual{
+  padding-left:2rem;
+}
+/* =========================================================
+   Premium service visual - Websites card
+========================================================= */
+
+#services .aq-visual-web{
+  padding-left:2rem;
+}
+
+#services .premium-web-window{
+  position:relative;
+  width:390px;
+  height:245px;
+  border-radius:1.5rem;
+  border:3px solid rgba(34,211,238,.72);
+  background:
+    radial-gradient(circle at 68% 18%, rgba(56,189,248,.13), transparent 42%),
+    linear-gradient(180deg, rgba(9,43,68,.72), rgba(4,16,30,.96));
+  box-shadow:
+    0 0 22px rgba(34,211,238,.16),
+    0 24px 70px rgba(0,0,0,.34),
+    inset 0 0 28px rgba(56,189,248,.07);
+  z-index:2;
+}
+
+#services .premium-web-top{
+  height:52px;
+  border-bottom:3px solid rgba(34,211,238,.68);
+  display:flex;
+  align-items:center;
+  gap:.65rem;
+  padding-inline:1.45rem;
+}
+
+#services .premium-web-top span{
+  width:12px;
+  height:12px;
+  border-radius:999px;
+  background:rgba(34,211,238,.78);
+  box-shadow:0 0 12px rgba(34,211,238,.28);
+}
+
+#services .premium-web-layout{
+  position:relative;
+  height:calc(100% - 52px);
+  padding:1.25rem;
+  display:grid;
+  grid-template-columns:1fr 1fr 78px;
+  grid-template-rows:34px 1fr 1fr;
+  gap:.85rem;
+}
+
+#services .web-hero-line{
+  grid-column:1 / 4;
+  border-radius:999px;
+  border:2px solid rgba(34,211,238,.50);
+  background:rgba(34,211,238,.06);
+}
+
+#services .web-card{
+  border-radius:.85rem;
+  border:2px solid rgba(34,211,238,.58);
+  background:rgba(34,211,238,.045);
+  box-shadow:inset 0 0 18px rgba(56,189,248,.04);
+}
+
+#services .web-card-lg{
+  grid-row:2 / 4;
+}
+
+#services .web-side-panel{
+  grid-column:3;
+  grid-row:2 / 4;
+  border-radius:.9rem;
+  border:1px solid rgba(34,211,238,.24);
+  background:rgba(34,211,238,.055);
+  display:grid;
+  align-content:center;
+  gap:.65rem;
+  padding:.7rem;
+}
+
+#services .web-side-panel i{
+  height:22px;
+  border-radius:.45rem;
+  background:linear-gradient(180deg, rgba(34,211,238,.72), rgba(96,165,250,.38));
+  box-shadow:0 0 14px rgba(34,211,238,.12);
+}
+
+#services .web-node-seo{
+  top:16px;
+  right:8px;
+}
+
+#services .web-node-cms{
+  bottom:16px;
+  left:18px;
+}
+#services .aq-feature-icon{
+  width:3rem !important;
+  height:3rem !important;
+  min-width:3rem !important;
+  border-radius:1rem !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  color:#22d3ee !important;
+  background:
+    radial-gradient(circle at 50% 25%, rgba(56,189,248,.20), transparent 65%),
+    linear-gradient(180deg, rgba(8,28,48,.92), rgba(5,16,30,.98)) !important;
+  border:1px solid rgba(56,189,248,.24) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 0 18px rgba(56,189,248,.10) !important;
+  font-size:1.15rem !important;
+}

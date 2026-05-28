@@ -14,22 +14,22 @@
         "nav.results":"النتائج",
         "nav.about":"من نحن",
         "nav.systems":"الحلول",
-"systems.h":"حلول جاهزة قابلة للتخصيص",
-"systems.sub":"نماذج حلول يمكن تكييفها حسب نشاطك ومرحلة مشروعك، لتبدأ بشكل أسرع واحترافي أكثر",
-"systems.cta":"اطلب النظام المناسب ",
-"systems.cardCta":"اطلب هذا النظام ",
+        "systems.h":"حلول جاهزة قابلة للتخصيص",
+        "systems.sub":"نماذج حلول يمكن تكييفها حسب نشاطك ومرحلة مشروعك، لتبدأ بشكل أسرع واحترافي أكثر",
+        "systems.cta":"اطلب النظام المناسب ",
+        "systems.cardCta":"اطلب هذا النظام ",
 
-"systems.card1.kicker":"العمليات القانونية",
-"systems.card1.t":"نظام إدارة مكاتب المحاماة",
-"systems.card1.d":"نظام يساعد مكاتب المحاماة على إدارة القضايا والعملاء والمواعيد والملفات القانونية بشكل أوضح وأسهل.",
-"systems.card1.p1":"إدارة القضايا والملفات",
-"systems.card1.p2":"متابعة العملاء والمواعيد",
+        "systems.card1.kicker":"العمليات القانونية",
+        "systems.card1.t":"نظام إدارة مكاتب المحاماة",
+        "systems.card1.d":"نظام يساعد مكاتب المحاماة على إدارة القضايا والعملاء والمواعيد والملفات القانونية بشكل أوضح وأسهل.",
+        "systems.card1.p1":"إدارة القضايا والملفات",
+        "systems.card1.p2":"متابعة العملاء والمواعيد",
 
-"systems.card2.kicker":"سير العمل التعليمي",
-"systems.card2.t":"منصة مشاريع الجامعة",
-"systems.card2.d":"منصة لتنظيم مشاريع الطلبة، رفع الملفات، متابعة الفرق، وتسهيل الإشراف الأكاديمي.",
-"systems.card2.p1":"تنظيم فرق ومشاريع الطلبة",
-"systems.card2.p2":"رفع الملفات ومتابعة التقييم",
+        "systems.card2.kicker":"سير العمل التعليمي",
+        "systems.card2.t":"منصة مشاريع الجامعة",
+        "systems.card2.d":"منصة لتنظيم مشاريع الطلبة، رفع الملفات، متابعة الفرق، وتسهيل الإشراف الأكاديمي.",
+        "systems.card2.p1":"تنظيم فرق ومشاريع الطلبة",
+        "systems.card2.p2":"رفع الملفات ومتابعة التقييم",
 
 "systems.card3.kicker":"أدوات مهنية",
 "systems.card3.t":"منشئ السيرة الذكية",
@@ -44,7 +44,12 @@
 "solutions.attendance.b2":"تقارير حضور وتنظيم أفضل",
 
         "nav.testimonials":"المعايير",
-
+        "details.landing.cta":"اطلب صفحة تسويقية",
+        "details.web.cta":"اطلب موقعك الآن",
+        "details.chatbot.cta":"جرّب الأتمتة الذكية",
+        "details.custom.cta":"تحدث مع خبير",
+        "details.growth.cta":"شاهد باقات النمو",
+        "details.design.cta":"شاهد الهوية المناسبة",
 
         
         "btn.whatsapp":"واتساب",
@@ -99,20 +104,34 @@
         "offers.card1.p1":"مناسبة للعروض والخدمات والإعلانات",
         "offers.card1.p2":"ربط واتساب / نموذج / دعوة واضحة للإجراء",
         "offers.card2.badge":"طلب مرتفع",
-        "offers.card2.t":"AI Chatbot Starter",
+"offers.card2.t":"الشات بوت الذكي",
         "offers.card2.d":"بوت ذكي للموقع أو واتساب يساعدك ترد أسرع وتجمع العملاء بشكل منظم.",
         "offers.card2.p1":"أسئلة متكررة + استقبال طلبات",
         "offers.card2.p2":"ربط بسيط مع واتساب أو نموذج",
         "offers.card3.badge":"دخل متكرر",
-        "offers.card3.t":"Growth Package",
+"offers.card3.t":"باقة النمو",
         "offers.card3.d":"باقة نمو شهرية تجمع بين المحتوى والتصميم والمتابعة لتحويل الحضور الرقمي إلى نتائج.",
         "offers.card3.p1":"خطة محتوى + تصميم + نشر",
         "offers.card3.p2":"تقارير ومتابعة وتحسين مستمر",
         "offers.card4.badge":"للمشاريع الأكبر",
-        "offers.card4.t":"Custom System Discovery",
-        "offers.card4.d":"جلسة تحليل ونطاق عمل أولي للمشاريع المخصصة قبل البدء في التنفيذ الكامل.",
+"offers.card4.t":"اكتشاف النظام المخصص",        "offers.card4.d":"جلسة تحليل ونطاق عمل أولي للمشاريع المخصصة قبل البدء في التنفيذ الكامل.",
         "offers.card4.p1":"فهم العمليات والاحتياج الفعلي",
         "offers.card4.p2":"مخرجات أوضح وسعر أدق لاحقًا",
+        "offers.card1.chip1":"يبدأ من 250$ تقريبًا",
+"offers.card1.chip2":"5–7 أيام",
+"offers.card1.chip3":"مناسب للإعلانات",
+
+"offers.card2.chip1":"يبدأ من 400$ تقريبًا",
+"offers.card2.chip2":"3–5 أيام",
+"offers.card2.chip3":"واتساب + موقع",
+
+"offers.card3.chip1":"يبدأ من 300$ شهريًا",
+"offers.card3.chip2":"إدارة + محتوى",
+"offers.card3.chip3":"تقارير شهرية",
+
+"offers.card4.chip1":"تسعير حسب النطاق",
+"offers.card4.chip2":"تحليل أولي",
+"offers.card4.chip3":"Scope واضح",
 
 
         "hero.readyT":"جاهز نبدأ؟",
@@ -128,6 +147,12 @@
         "details.sub":"اختر خدمة واحدة أو باقة متكاملة — نغطي كامل رحلة مشروعك من الفكرة حتى الإطلاق",
         "details.allCta":"اطلب استشارة مجانية",
         "details.cta":"نحدد لك الحل المناسب",
+        "details.landing.cta":"اطلب صفحة تسويقية",
+"details.web.cta":"اطلب موقعك الآن",
+"details.chatbot.cta":"جرّب الأتمتة الذكية",
+"details.custom.cta":"تحدث مع خبير",
+"details.growth.cta":"شاهد باقات النمو",
+"details.design.cta":"شاهد الهوية المناسبة",
 
         "details.landing.kicker":"حلول سريعة",
         "details.landing.t":"صفحات تسويقية احترافية",
@@ -198,17 +223,16 @@
         
         "results.h":"نتائج يمكننا تحقيقها معك",
         "results.sub":"",
-        "results.c1k":"Landing page + ads",
+"results.c1k":"صفحة تسويقية + إعلانات",
         "results.c1t":"زيادة وضوح التحويل وجمع الاستفسارات",
         "results.c1d":"صفحة تسويقية احترافية واضحة مع CTA مباشر وربط واتساب أو نموذج يمكن أن تساعدك على رفع عدد الاستفسارات وتقليل ضياع الزوار بين الزيارة والطلب.",
-        "results.c2k":"AI + automation",
+"results.c2k":"ذكاء اصطناعي + أتمتة",
         "results.c2t":"تقليل وقت الرد وتنظيم العملاء المحتملين",
         "results.c2d":"أتمتة أو شات بوت يساعدك على الرد خلال دقائق بدل ساعات، مع جمع البيانات وربطها بالأدوات التي تستخدمها حاليًا.",
-        "results.c3k":"Custom system",
-        "results.c3t":"تشغيل أوضح ووقت أقل ضائع",
+"results.c3k":"نظام مخصص",        "results.c3t":"تشغيل أوضح ووقت أقل ضائع",
         "results.c3d":"نظام أو لوحة تحكم مخصصة تساعدك على تنظيم الطلبات والمتابعة والتقارير، وتقليل الاعتماد على التتبع اليدوي العشوائي.",
         "footer.tag":"Growth • Software • AI",
-        "footer.desc":"نبني صفحات تسويقية احترافية ومواقع وأنظمة وأتمتة تساعد الشركات ورواد الأعمال على النمو بشكل أسرع وأكثر وضوحًا واحترافية.",
+        "footer.desc":"نبني صفحات تسويقية احترافية ومواقع وأنظمة وأتمتة تساعد الشركات ورواد الأعمال على النمو بشكل أسرع وأكثر وضوحًا واحترافية",
         "footer.servicesH":"الخدمات",
         "footer.contactH":"التواصل",
         "footer.link1":"العروض",
@@ -217,7 +241,7 @@
         "footer.link4":"النتائج المتوقعة",
         "footer.link5":"ابدأ مشروعك",
 
-        "footer.note":"جاهزون لمساعدتك على الإطلاق والنمو والأتمتة.",
+        "footer.note":"جاهزون لمساعدتك على الإطلاق والنمو والأتمتة",
 
         "testimonials.h":"مبادئ عمل نلتزم بها في كل مشروع",
         "testimonials.sub":"كل مشروع ننفذه يعكس هذه المبادئ بشكل عملي — وضوح، جودة، ونتائج قابلة للقياس",
@@ -331,7 +355,7 @@
                 "contact.emailAction":"راسلنا عبر البريد الإلكتروني",
         "contact.social":"حسابات التواصل",
         "contact.loc":"الموقع",
-        "contact.locV":"عمّان، الأردن",
+        "contact.locV":"عمّان ، الأردن",
 
         "form.name":"الاسم",
         "form.contact":"وسيلة التواصل",
@@ -343,11 +367,10 @@
         "form.contactHelp":"",
         "form.service":"الخدمة المطلوبة",
         "form.budget":"الميزانية التقريبية",
-        "form.budgetPlaceholder":"اختر الميزانية",
-        "form.budgetOpt1":"أقل من 500 د.أ",
-        "form.budgetOpt2":"500 - 1500 د.أ",
-        "form.budgetOpt3":"1500 - 3000 د.أ",
-        "form.budgetOpt4":"3000+ د.أ",
+ "form.budgetOpt1":"$700 أو أقل",
+"form.budgetOpt2":"$700 - $1,500",
+"form.budgetOpt3":"$1,500 - $4,000",
+"form.budgetOpt4":"$4,000+",
         "form.timeline":"موعد التنفيذ",
         "form.timelinePlaceholder":"اختر الموعد",
         "form.timelineOpt1":"بأسرع وقت",
@@ -356,7 +379,6 @@
         "form.timelineOpt4":"ما زلت أستكشف",
         "form.namePh":"اسمك",
         "form.detailsPh":"اكتب الهدف، المميزات، والموعد المتوقع…",
-        "form.sendQuote":"احصل على خطة أولية وعرض مبدئي",
         "form.replyNote":"نراجع الطلب ثم نرجع لك عادة خلال 24 ساعة بقناة الرد الأنسب وخطوة البداية المقترحة.",
         "form.details":"تفاصيل المشروع",
         "form.opt1":"موقع ونظام استقبال عملاء",
@@ -415,22 +437,39 @@
         "faq.a11":"إذا كان هدفك جمع العملاء بسرعة لحملة أو خدمة محددة، فغالبًا تكفي صفحة تسويقية احترافية كبداية. أما إذا كنت تريد حضورًا أوسع وثقة أعلى ومحتوى أكثر، فالموقع الكامل يكون أنسب.",
         "faq.q12":"كيف أعرف أي خدمة مناسبة لي؟",
         "faq.a12":"بمجرد أن تشاركنا هدفك الحالي، نحدد لك أسرع بداية مناسبة، وما الذي يجب بناؤه أولًا، وما الذي يمكن تأجيله بدون تكلفة غير ضرورية.",
-
+        "form.selectBudget":"اختر الميزانية",
         
         "form.modalOk":"حسنًا",
+        "support.kicker":"الدعم والمتابعة",
+"support.h":"لا ينتهي دورنا عند التسليم",
+"support.d":"نساعدك بعد الإطلاق في المتابعة، التحسين، والدعم الفني حتى يبقى مشروعك مستقرًا ويحقق نتائج أفضل",
+"support.cta":"اطلب خطة دعم مناسبة",
+
+"support.card1.t":"دعم فني",
+"support.card1.d":"معالجة المشاكل التقنية والمتابعة بعد الإطلاق.",
+
+"support.card2.t":"استجابة سريعة",
+"support.card2.d":"رد ومتابعة خلال وقت واضح حسب نوع الطلب.",
+
+"support.card3.t":"تحسينات مستمرة",
+"support.card3.d":"تحسين الأداء وتجربة المستخدم حسب الحاجة.",
+
+"support.card4.t":"نسخ احتياطي",
+"support.card4.d":"تجهيزات أساسية للحفاظ على استقرار المشروع.",
 
 
 
         "nav.testimonials":"المعايير",
+ 
+         "about.tag1":"مواقع وأنظمة",
+         "about.tag2":"أتمتة وذكاء اصطناعي",
+         "about.tag3":"حلول للنمو والتشغيل",
 
-        "about.tag1":"مواقع وأنظمة",
-"about.tag2":"أتمتة وذكاء اصطناعي",
-"about.tag3":"حلول للنمو والتشغيل",
 
-
-"hero.badge1":"دعم بعد الإطلاق",
-"hero.badge2":"تصميم متجاوب",
-"hero.badge3":"استضافة وربط دومين",
+        "hero.badge1":"دعم بعد الإطلاق",
+        "hero.badge2":"تصميم متجاوب",
+        "hero.badge3":"استضافة وربط دومين",
+        "systems.card4.p2":"تقارير وتنظيم أفضل للحضور",
 
 
         "hero.readyD":"احكيلنا عن مشروعك وسنرجع لك بخطة واضحة وخيارات مناسبة لمرحلتك.",
@@ -439,7 +478,16 @@
 
        "results.subText":"حلول رقمية مصممة لتحسين التشغيل، زيادة التحويل، وتنظيم التواصل مع العملاء",
 
+        "contact.hours":"ساعات التواصل",
+"contact.hoursV":"يوميًا — 10 AM إلى 10 PM",
+"stats.launchN":"100%",
+"stats.launchT":"إطلاق جاهز مع دعم وتشغيل",
 
+"stats.speedN":"3-5 أيام",
+"stats.speedT":"متوسط تسليم صفحة تسويقية احترافية",
+
+"stats.projectsN":"100+",
+"stats.projectsT":"مشروع منجز",
 
         "testimonials.q1":"المتطلبات والخطوات يجب أن تبقى واضحة، والعميل يعرف دائمًا أين وصل المشروع وما الخطوة التالية.",
 
@@ -452,6 +500,7 @@
         "testimonials.q3":"نبني مع قابلية التوسع حتى يبدأ المشروع بشكل صحيح اليوم ويبقى جاهزًا للنمو والتحسين لاحقًا.",
 
         "testimonials.a3":"تفكير طويل المدى",
+        "offers.card2.p3":"ردود تلقائية وتنظيم أسرع للعملاء",
 
         msg: {
           subject: "طلب جديد من موقع Aqua.Tech",
@@ -494,7 +543,7 @@
         "systems.card3.p1":"Create your resume easily",
         "systems.card3.p2":"Organize content professionally",
         "systems.card4.kicker":"Attendance management",
-
+        "offers.card2.p3":"Automated replies and faster customer organization",
 "systems.card4.t":"Smart Attendance",
 "systems.card4.d":"A smart attendance system powered by face recognition to register attendance automatically through a camera while reducing manual errors and improving daily tracking.",
 "systems.card4.p1":"Automatic attendance registration via camera",
@@ -504,6 +553,15 @@
         pageTitle: "Aqua.Tech | Growth • Software • AI",
         metaDesc: "Aqua.Tech builds professional websites, landing pages, custom systems, and AI automation to help businesses grow and convert better.",
         "brand.sub":" ",
+        "form.selectBudget":"Select budget",
+        "stats.launchN":"100%",
+"stats.launchT":"Launch-ready with support and setup",
+
+"stats.speedN":"3-5 Days",
+"stats.speedT":"Average delivery time for a professional landing page",
+
+"stats.projectsN":"100+",
+"stats.projectsT":"Completed Projects",
 
         "nav.services":"Services",
         "nav.why":"Why us",
@@ -515,7 +573,23 @@
         "nav.about":"About",
         "nav.testimonials":"Standards",
         "hero.mobileWord":"Business",
+        "contact.hours":"Working Hours",
+"contact.hoursV":"Daily — 10 AM to 10 PM",
+"offers.card1.chip1":"Starting from $250",
+"offers.card1.chip2":"5–7 days",
+"offers.card1.chip3":"Great for ads",
 
+"offers.card2.chip1":"Starting from $400",
+"offers.card2.chip2":"3–5 days",
+"offers.card2.chip3":"WhatsApp + Website",
+
+"offers.card3.chip1":"Starting from $300/mo",
+"offers.card3.chip2":"Management + Content",
+"offers.card3.chip3":"Monthly reports",
+
+"offers.card4.chip1":"Scope-based pricing",
+"offers.card4.chip2":"Initial analysis",
+"offers.card4.chip3":"Clear scope",
         "nav.security":"Security",
 "security.h":"Security & Trust",
 "security.sub":"We build websites and systems using modern practices that improve security, protect data, and strengthen reliability during launch and growth.",
@@ -555,6 +629,22 @@
         "btn.quote":"Get a Quote",
         "btn.call":"Book a Free Call",
         "btn.viewServices":"View Services",
+        "support.kicker":"Support & Follow-up",
+"support.h":"Our role doesn't end at delivery",
+"support.d":"We help you after launch with follow-up, improvements, and technical support to keep your project stable and growing.",
+"support.cta":"Request a support plan",
+
+"support.card1.t":"Technical Support",
+"support.card1.d":"Handling technical issues and post-launch follow-up.",
+
+"support.card2.t":"Fast Response",
+"support.card2.d":"Quick response and follow-up based on request type.",
+
+"support.card3.t":"Continuous Improvements",
+"support.card3.d":"Improving performance and user experience when needed.",
+
+"support.card4.t":"Backups",
+"support.card4.d":"Essential preparations to keep your project stable.",
 
         "hero.badge":"Digital solutions built for launch , long-term growth",
         "skip.main":"Skip to main content",
@@ -591,8 +681,14 @@
         "mini.growth":"Turn traffic into clients",
 
         "hero.badge1":"Post-launch support",
-"hero.badge2":"Responsive design",
-"hero.badge3":"Hosting & domain connection",
+        "hero.badge2":"Responsive design",
+        "hero.badge3":"Hosting & domain connection",
+        "details.landing.cta":"Request a landing page",
+        "details.web.cta":"Request your website",
+        "details.chatbot.cta":"Try AI automation",
+        "details.custom.cta":"Talk to an expert",
+        "details.growth.cta":"View growth packages",
+        "details.design.cta":"View branding options",
 
 
 
@@ -638,6 +734,12 @@
         "details.sub":"Choose one service or a full package — we cover your entire project journey from idea to launch.",
         "details.allCta":"Request a free consultation",
         "details.cta":"Find the right solution",
+        "details.landing.cta":"Request a landing page",
+"details.web.cta":"Request your website",
+"details.chatbot.cta":"Try AI automation",
+"details.custom.cta":"Talk to an expert",
+"details.growth.cta":"View growth packages",
+"details.design.cta":"View branding options",
 
         "details.apps.kicker":"Mobile apps",
         "details.apps.t":"Mobile app development",
@@ -712,7 +814,7 @@
         "trust.c4k":"Handover",
         "trust.c4t":"Clearer communication and faster decisions",
         "trust.c4d":"You get clear updates during execution, organized deliverables, and a structured handover so you always know where the project stands and what comes next.",
-        "results.cta":"define the right outcome for you ",
+        "results.cta":"Define the right outcome for you ",
         "contact.trustT":"Before you submit:",
         "contact.trustD":" a clear project note and one contact method are enough for us to suggest the right next step without unnecessary complexity.",
 
@@ -764,10 +866,10 @@
         "form.service":"Requested service",
         "form.budget":"Estimated budget",
         "form.budgetPlaceholder":"Select budget",
-        "form.budgetOpt1":"Under 500 JOD",
-        "form.budgetOpt2":"500 - 1500 JOD",
-        "form.budgetOpt3":"1500 - 3000 JOD",
-        "form.budgetOpt4":"3000+ JOD",
+"form.budgetOpt1":"$700 or less",
+"form.budgetOpt2":"$700 - $1,500",
+"form.budgetOpt3":"$1,500 - $4,000",
+"form.budgetOpt4":"$4,000+",
         "form.timeline":"Timeline",
         "form.timelinePlaceholder":"Select timeline",
         "form.timelineOpt1":"As soon as possible",
