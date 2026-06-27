@@ -1,1975 +1,872 @@
 <!DOCTYPE html>
-
-<html dir="rtl" lang="ar">
+<html class="dark" dir="rtl" lang="ar">
 <head>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Aqua.Tech | حلول رقمية ونمو فعلي</title>
+  <meta name="description" content="Aqua.Tech تبني مواقع احترافية وأنظمة مخصصة وأتمتة بالذكاء الاصطناعي وحلول نمو رقمية للشركات ورواد الأعمال." />
+  <meta name="keywords" content="Aqua.Tech, web development Jordan, AI automation Jordan, software systems, digital marketing, custom systems Jordan" />
+  <link rel="canonical" href="https://aquatechagency.com/" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#051424" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://www.googletagmanager.com https://script.google.com https://script.googleusercontent.com https://cdn.jsdelivr.net; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://www.google-analytics.com https:; base-uri 'self'; form-action 'self' https://script.google.com; upgrade-insecure-requests" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
 
-<!-- 1. Character encoding — must be first -->
-<meta charset="utf-8"/>
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://aquatechagency.com/" />
+  <meta property="og:site_name" content="Aqua.Tech" />
+  <meta property="og:title" content="Aqua.Tech | Growth • Software • AI" />
+  <meta property="og:description" content="مواقع احترافية، أنظمة مخصصة، أتمتة بالذكاء الاصطناعي، وحلول نمو رقمية للشركات." />
+  <meta property="og:image" content="https://aquatechagency.com/assets/logoo.webp" />
+  <meta property="og:locale" content="ar_JO" />
 
-<!-- 2. Viewport -->
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <link rel="icon" href="assets/favicon/favicon.ico" sizes="any" />
+  <link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="manifest.json" />
 
-
-<!-- 3. Language detection — must run before first paint -->
-<script>
-  (function(){
-    try{
-      // Priority: URL param ?lang=  >  localStorage  >  default Arabic
-      var param = new URLSearchParams(window.location.search).get('lang');
-      var stored = localStorage.getItem("aqua_lang");
-      var l = (param === "ar" || param === "en") ? param
-            : (stored === "ar" || stored === "en") ? stored
-            : "ar";
-      // Persist param choice so navigation keeps the language
-      if (param === "ar" || param === "en") {
-        try { localStorage.setItem("aqua_lang", l); } catch(e){}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'surface-container-lowest': '#010f1f',
+            'surface-container-low': '#0d1c2d',
+            'surface-container': '#122131',
+            'surface-container-high': '#1c2b3c',
+            'surface-container-highest': '#273647',
+            'background': '#051424',
+            'surface': '#051424',
+            'primary': '#89ceff',
+            'primary-container': '#00b4ff',
+            'primary-fixed': '#c9e6ff',
+            'on-primary': '#00344d',
+            'on-primary-fixed': '#001e2f',
+            'on-background': '#d4e4fa',
+            'on-surface': '#d4e4fa',
+            'on-surface-variant': '#bdc8d2',
+            'outline': '#87929c',
+            'outline-variant': '#3e4851',
+            'secondary': '#bec6e0',
+            'tertiary-fixed-dim': '#bcc7de'
+          },
+          borderRadius: {
+            DEFAULT: '0.125rem',
+            lg: '0.25rem',
+            xl: '0.5rem',
+            full: '0.75rem'
+          },
+          spacing: {
+            'stack-sm': '8px',
+            'stack-md': '24px',
+            'stack-lg': '48px',
+            'gutter': '24px',
+            'margin-mobile': '16px',
+            'section-padding': '120px',
+            'container-max': '1280px'
+          },
+          fontFamily: {
+            'headline-xl': ['Inter', 'system-ui', 'sans-serif'],
+            'headline-lg': ['Inter', 'system-ui', 'sans-serif'],
+            'headline-md': ['Inter', 'system-ui', 'sans-serif'],
+            'body-md': ['Inter', 'system-ui', 'sans-serif'],
+            'body-lg': ['Inter', 'system-ui', 'sans-serif'],
+            'label-sm': ['JetBrains Mono', 'monospace']
+          },
+          fontSize: {
+            'headline-xl': ['48px', { lineHeight: '1.2', letterSpacing: '-0.02em', fontWeight: '700' }],
+            'headline-lg': ['32px', { lineHeight: '1.3', letterSpacing: '-0.01em', fontWeight: '600' }],
+            'headline-md': ['24px', { lineHeight: '1.4', fontWeight: '600' }],
+            'headline-lg-mobile': ['28px', { lineHeight: '1.3', fontWeight: '600' }],
+            'body-md': ['16px', { lineHeight: '1.6', fontWeight: '400' }],
+            'body-lg': ['18px', { lineHeight: '1.6', fontWeight: '400' }],
+            'label-sm': ['12px', { lineHeight: '1.4', letterSpacing: '0.05em', fontWeight: '500' }]
+          }
+        }
       }
-      document.documentElement.lang = l;
-      document.documentElement.dir = (l === "ar") ? "rtl" : "ltr";
-    }catch(e){}
-  })();
-</script>
+    };
+  </script>
 
-<!-- 4. Page title — single tag only -->
-<title id="pageTitle">Aqua.Tech | Growth • Software • AI</title>
+  <style>
+    :root {
+      --aqua-bg: #051424;
+      --aqua-deep: #010f1f;
+      --aqua-card: rgba(15, 23, 42, 0.60);
+      --aqua-card-solid: #122131;
+      --aqua-line: rgba(137, 206, 255, 0.12);
+      --aqua-line-strong: rgba(137, 206, 255, 0.34);
+      --aqua-primary: #89ceff;
+      --aqua-action: #00b4ff;
+      --aqua-text: #d4e4fa;
+      --aqua-muted: #bdc8d2;
+    }
 
-<!-- 5. Primary meta -->
-<meta id="metaDesc" name="description" content="Aqua.Tech تبني مواقع احترافية وأنظمة مخصصة وأتمتة بالذكاء الاصطناعي وتدير حسابات السوشيال ميديا لمساعدة الشركات على النمو وتحويل الزوار والمتابعين إلى عملاء."/>
-<meta name="keywords" content="Aqua.Tech, web development Jordan, AI automation Jordan, social media management Jordan, digital marketing Amman, landing pages Amman, custom systems Jordan, website design Jordan"/>
-<link rel="canonical" href="https://aquatechagency.com/"/>
-<meta name="robots" content="index,follow,max-image-preview:large"/>
+    html { scroll-behavior: smooth; }
+    body {
+      background:
+        radial-gradient(circle at 50% 0%, rgba(0, 180, 255, .16), transparent 34%),
+        radial-gradient(circle at 12% 18%, rgba(137, 206, 255, .08), transparent 28%),
+        linear-gradient(180deg, #051424 0%, #03101f 52%, #010915 100%);
+      color: var(--aqua-text);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow-x: hidden;
+    }
 
-<!-- 6. Security / referrer -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob: 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://script.google.com https://script.googleusercontent.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://www.google-analytics.com https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://script.google.com; upgrade-insecure-requests"/>
-<meta name="referrer" content="strict-origin-when-cross-origin"/>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+    }
 
-<!-- 7. Mobile / PWA -->
-<meta name="color-scheme" content="dark light"/>
-<meta name="theme-color" content="#050B14"/>
-<meta name="format-detection" content="telephone=no"/>
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-<meta name="mobile-web-app-capable" content="yes"/>
+    .glass-card {
+      background: rgba(15, 23, 42, 0.60);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(137, 206, 255, 0.10);
+      box-shadow: 0 0 0 1px rgba(255,255,255,.015) inset, 0 22px 80px rgba(0,0,0,.24);
+      transition: border-color .3s ease, box-shadow .3s ease, transform .3s ease, background .3s ease;
+    }
 
-<!-- 8. Open Graph -->
-<meta property="og:type" content="website"/>
-<meta property="og:url" content="https://aquatechagency.com/"/>
-<meta property="og:site_name" content="Aqua.Tech"/>
-<meta property="og:title" content="Aqua.Tech | Growth • Software • AI"/>
-<meta property="og:description" content="مواقع احترافية، أنظمة مخصصة، أتمتة بالذكاء الاصطناعي، وإدارة حسابات السوشيال ميديا لمساعدة الشركات على النمو وتحويل المتابعين إلى عملاء."/>
-<meta property="og:image" content="https://aquatechagency.com/assets/logoo.webp"/>
-<meta property="og:image:width" content="1080"/>
-<meta property="og:image:height" content="1080"/>
-<meta property="og:image:alt" content="Aqua.Tech logo — water drop and circuit board mark"/>
-<meta property="og:locale" content="ar_JO"/>
-<meta property="og:locale:alternate" content="en_US"/>
+    .glass-card:hover {
+      border-color: rgba(137, 206, 255, 0.34);
+      box-shadow: 0 0 0 1px rgba(255,255,255,.02) inset, 0 22px 80px rgba(0,0,0,.28), 0 0 24px rgba(0,180,255,.13);
+    }
 
-<!-- 9. Twitter / X card -->
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Aqua.Tech | Growth • Software • AI"/>
-<meta name="twitter:description" content="Professional websites, custom systems, AI automation, and social media management to help businesses launch, grow, and convert better."/>
-<meta name="twitter:image" content="https://aquatechagency.com/assets/logoo.webp"/>
-<meta name="twitter:image:alt" content="Aqua.Tech logo"/>
+    .glow-text { text-shadow: 0 0 10px rgba(137, 206, 255, 0.50); }
 
-<!-- 10. Favicon -->
-<link rel="icon" href="assets/favicon/favicon.ico" sizes="any"/>
-<link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml"/>
-<link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png"/>
-<link rel="manifest" href="manifest.json"/>
+    .terminal-cursor::after { content: '_'; animation: blink 1s step-end infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
 
+    .aqua-liquid-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .aqua-liquid-bg::before,
+    .aqua-liquid-bg::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(46px);
+      opacity: .35;
+      animation: drift 12s ease-in-out infinite;
+    }
+    .aqua-liquid-bg::before {
+      width: 520px;
+      height: 520px;
+      top: 10%;
+      right: 8%;
+      background: radial-gradient(circle, rgba(0,180,255,.34), transparent 64%);
+    }
+    .aqua-liquid-bg::after {
+      width: 460px;
+      height: 460px;
+      bottom: 16%;
+      left: 8%;
+      background: radial-gradient(circle, rgba(137,206,255,.20), transparent 68%);
+      animation-delay: -5s;
+    }
+    @keyframes drift {
+      0%, 100% { transform: translate3d(0,0,0) scale(1); }
+      50% { transform: translate3d(18px,-14px,0) scale(1.04); }
+    }
 
+    .circuit-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: .28;
+      background-image:
+        linear-gradient(to right, rgba(137,206,255,.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(137,206,255,.045) 1px, transparent 1px),
+        radial-gradient(circle at 20% 30%, rgba(137,206,255,.18) 0 2px, transparent 3px),
+        radial-gradient(circle at 78% 26%, rgba(0,180,255,.18) 0 2px, transparent 3px),
+        radial-gradient(circle at 52% 78%, rgba(137,206,255,.12) 0 2px, transparent 3px);
+      background-size: 92px 92px, 92px 92px, 520px 520px, 620px 620px, 700px 700px;
+      mask-image: radial-gradient(circle at 50% 20%, rgba(0,0,0,.9), transparent 74%);
+      -webkit-mask-image: radial-gradient(circle at 50% 20%, rgba(0,0,0,.9), transparent 74%);
+    }
 
-<!-- 12. DNS prefetch -->
-<link rel="dns-prefetch" href="https://www.googletagmanager.com"/>
-<link rel="dns-prefetch" href="https://script.google.com"/>
+    .code-chip {
+      position: absolute;
+      font-family: "JetBrains Mono", monospace;
+      color: rgba(212, 228, 250, .20);
+      letter-spacing: .1em;
+      user-select: none;
+      text-shadow: 0 0 18px rgba(137,206,255,.12);
+    }
 
+    .section-kicker {
+      display: block;
+      margin-bottom: 1rem;
+      color: var(--aqua-primary);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      letter-spacing: .20em;
+      text-transform: uppercase;
+    }
 
+    .aqua-input {
+      width: 100%;
+      border-radius: .75rem;
+      border: 1px solid rgba(137,206,255,.14);
+      background: rgba(1, 15, 31, .62);
+      color: var(--aqua-text);
+      padding: .9rem 1rem;
+      outline: none;
+      transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .aqua-input::placeholder { color: rgba(189,200,210,.55); }
+    .aqua-input:focus {
+      border-color: rgba(137,206,255,.65);
+      box-shadow: inset 0 0 10px rgba(137,206,255,.14), 0 0 0 4px rgba(137,206,255,.06);
+      background: rgba(1, 15, 31, .86);
+    }
+    select.aqua-input option { background: #0d1c2d; color: #d4e4fa; }
 
-<!-- 14. Preload critical assets -->
-<link rel="preload" as="image" href="assets/logoo.webp"/>
-<link rel="stylesheet" href="./dist/output.css">
-<link rel="stylesheet" href="./css/styles.css">
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      left: 0;
+      bottom: -8px;
+      height: 2px;
+      background: var(--aqua-primary);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform .2s ease;
+      opacity: .9;
+    }
+    .nav-link:hover::after,
+    .nav-link.is-active::after { transform: scaleX(1); }
 
-<!-- 15. Google Analytics — consent-gated -->
-<script>
-  // Only load GA if the user has already accepted analytics
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    #mobileMenu { display: none; }
+    #mobileMenu.is-open { display: block; }
 
-  (function(){
-    try {
-      if (localStorage.getItem('aqua_analytics_consent') === 'true') {
+    #wa-float {
+      position: fixed;
+      left: 20px;
+      bottom: 22px;
+      z-index: 80;
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      color: #001e2f;
+      background: linear-gradient(135deg, #89ceff, #00b4ff);
+      box-shadow: 0 16px 42px rgba(0,0,0,.34), 0 0 20px rgba(0,180,255,.22);
+      border: 1px solid rgba(255,255,255,.20);
+      transition: transform .2s ease, filter .2s ease;
+    }
+    #wa-float:hover { transform: translateY(-2px) scale(1.05); filter: saturate(1.1); }
+
+    #consent-banner {
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      z-index: 100;
+      display: none;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      border-radius: 1rem;
+      background: rgba(1, 15, 31, .96);
+      border: 1px solid rgba(137,206,255,.18);
+      box-shadow: 0 24px 80px rgba(0,0,0,.45);
+    }
+    #consent-banner.is-visible { display: flex; }
+
+    .success-modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 120;
+      padding: 1rem;
+      background: rgba(1, 15, 31, .72);
+      backdrop-filter: blur(10px);
+    }
+    .success-modal.is-open { display: flex; }
+    .success-modal-card {
+      width: min(100%, 28rem);
+      text-align: center;
+      padding: 2rem;
+      border-radius: 1.25rem;
+      background: #122131;
+      border: 1px solid rgba(137,206,255,.18);
+      box-shadow: 0 24px 80px rgba(0,0,0,.45);
+    }
+    .success-modal-icon {
+      width: 64px;
+      height: 64px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 1rem;
+      border-radius: 999px;
+      background: rgba(137,206,255,.12);
+      border: 1px solid rgba(137,206,255,.28);
+      color: #89ceff;
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    @media (max-width: 767px) {
+      .aqua-liquid-bg::before,
+      .aqua-liquid-bg::after { opacity: .18; filter: blur(34px); }
+      .circuit-layer { opacity: .12; }
+      .code-chip { display: none; }
+      #consent-banner { flex-direction: column; align-items: stretch; text-align: center; }
+      #wa-float { width: 50px; height: 50px; left: 14px; bottom: 14px; }
+    }
+  </style>
+
+  <script>
+    window.AQUA_CONFIG = {
+      GA_ID: 'G-N7T2EVFD6J',
+      WHATSAPP_NUMBER: '962780932199',
+      CONTACT_EMAIL: 'info.aquatech.jo@gmail.com',
+      SHEETS_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbzFVFUE-fxAUfDlczteS4_Rx9VIIQKNJZJWRZCQGKaZ73ApwR8sncPDb2zp8EJvz5PV/exec',
+      SUBMIT_COOLDOWN_MS: 30000
+    };
+  </script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    (function(){
+      try {
+        if (localStorage.getItem('aqua_analytics_consent') === 'true' || localStorage.getItem('aqua_analytics_consent') === 'accepted') {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-N7T2EVFD6J';
+          document.head.appendChild(s);
+          gtag('config', 'G-N7T2EVFD6J', { anonymize_ip: true });
+        }
+      } catch(e) {}
+    })();
+    window.__aquaEnableAnalytics = function() {
+      try {
+        localStorage.setItem('aqua_analytics_consent', 'accepted');
         var s = document.createElement('script');
         s.async = true;
         s.src = 'https://www.googletagmanager.com/gtag/js?id=G-N7T2EVFD6J';
         document.head.appendChild(s);
         gtag('config', 'G-N7T2EVFD6J', { anonymize_ip: true });
-      }
-    } catch(e) {}
-  })();
-
-  // Called by the consent banner when user accepts
-  window.__aquaEnableAnalytics = function() {
-    try {
-      localStorage.setItem('aqua_analytics_consent', 'true');
-      var s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-N7T2EVFD6J';
-      document.head.appendChild(s);
-      gtag('config', 'G-N7T2EVFD6J', { anonymize_ip: true });
-    } catch(e) {}
-  };
-
-  // Called when user declines
-  window.__aquaDeclineAnalytics = function() {
-    try { localStorage.setItem('aqua_analytics_consent', 'false'); } catch(e) {}
-  };
-</script>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": ["Organization", "LocalBusiness"],
-      "name": "Aqua.Tech",
-      "url": "https://aquatechagency.com/",
-      "logo": "https://aquatechagency.com/assets/logoo.webp",
-      "image": "https://aquatechagency.com/assets/logoo.webp",
-      "description": "Aqua.Tech builds professional websites, custom systems, AI automation, and manages social media to help businesses in Jordan grow and convert visitors into clients.",
-      "foundingDate": "2024",
-      "email": "info.aquatech.jo@gmail.com",
-      "telephone": "+962780932199",
-      "areaServed": { "@type": "Country", "name": "Jordan" },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Amman",
-        "addressCountry": "JO"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "customer support",
-        "telephone": "+962780932199",
-        "availableLanguage": ["Arabic", "English"]
-      },
-      "sameAs": [
-        "https://www.instagram.com/aquatech.jo/",
-        "https://web.facebook.com/profile.php?id=61564549784728",
-        "https://www.linkedin.com/company/aqua-teach/",
-        "https://github.com/aquatechjo"
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Aqua.Tech Services",
-        "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Development", "description": "Professional landing pages and full websites" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Automation", "description": "Custom AI-powered workflows and chatbots" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Management", "description": "Content creation and account growth" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Software Systems", "description": "Bespoke business management systems" } }
-        ]
-      }
-    },
-    {
-      "@type": "WebSite",
-      "name": "Aqua.Tech",
-      "url": "https://aquatechagency.com/",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://aquatechagency.com/?search={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {"@type":"Question","name":"كم يستغرق تنفيذ Landing Page أو موقع أو نظام مخصص؟","acceptedAnswer":{"@type":"Answer","text":"يعتمد ذلك على نوع الخدمة ونطاقها. الخدمات السريعة مثل Landing Page أو الشات بوت يمكن إطلاقها خلال وقت قصير، بينما المشاريع الأكبر تحتاج نطاقًا وجدولًا أوضح."}},
-        {"@type":"Question","name":"كيف يتم تحديد سعر الخدمة أو المشروع؟","acceptedAnswer":{"@type":"Answer","text":"يتم التسعير حسب نوع الخدمة، نطاق العمل، التكاملات المطلوبة، وسرعة التنفيذ. يحصل العميل على عرض واضح يشرح المراحل والمخرجات."}},
-        {"@type":"Question","name":"هل توجد صيانة بعد التسليم؟","acceptedAnswer":{"@type":"Answer","text":"نعم، تتوفر باقات دعم وتحديثات أمنية وتحسينات أداء حسب الحاجة والاتفاق."}}
-      ]
-    }
-  ]
-}
-</script>
+      } catch(e) {}
+    };
+    window.__aquaDeclineAnalytics = function() {
+      try { localStorage.setItem('aqua_analytics_consent', 'declined'); } catch(e) {}
+    };
+  </script>
 </head>
-<body class="bg-[var(--bg)] text-[var(--text)] overflow-x-hidden selection:bg-white/20 selection:text-white">
+<body class="dark bg-background text-on-background selection:bg-primary/30">
+  <a href="#top" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-primary focus:text-on-primary focus:rounded-lg focus:font-semibold">تخطَّ إلى المحتوى الرئيسي</a>
 
-<!-- ===== Site-wide config (single source of truth) ===== -->
-<script>
-  window.AQUA_CONFIG = {
-    GA_ID:              'G-N7T2EVFD6J',
-    WHATSAPP_NUMBER:    '962780932199',
-    CONTACT_EMAIL:      'info.aquatech.jo@gmail.com',
-    SHEETS_SCRIPT_URL:  'https://script.google.com/macros/s/AKfycbzFVFUE-fxAUfDlczteS4_Rx9VIIQKNJZJWRZCQGKaZ73ApwR8sncPDb2zp8EJvz5PV/exec',
-    SUBMIT_COOLDOWN_MS: 30000
-  };
-</script>
-
-<!-- ===== Analytics consent banner ===== -->
-<div id="consent-banner" role="region" aria-label="Privacy notice" aria-live="polite" hidden>
-  <p id="consent-text"></p>
-
-  <div class="consent-actions">
-    <button class="consent-btn-accept" id="consentAccept" type="button"></button>
-    <button class="consent-btn-decline" id="consentDecline" type="button"></button>
+  <div id="consent-banner" role="region" aria-label="Privacy notice">
+    <p class="text-sm text-on-surface-variant">نستخدم Google Analytics لتحسين تجربتك. هل توافق؟</p>
+    <div class="flex gap-2">
+      <button id="consentAccept" type="button" class="rounded-lg bg-primary text-on-primary px-4 py-2 font-bold">قبول</button>
+      <button id="consentDecline" type="button" class="rounded-lg border border-primary/20 text-on-surface-variant px-4 py-2 hover:text-primary">رفض</button>
+    </div>
   </div>
-</div>
 
-<script>
-  (function(){
-    try {
-      function getCurrentLang() {
-        var stored = localStorage.getItem("aqua_lang");
-        var htmlLang = document.documentElement.lang;
-        return (stored === "ar" || stored === "en") ? stored :
-               (htmlLang === "ar" || htmlLang === "en") ? htmlLang : "ar";
+  <!-- Top Navigation Bar -->
+  <header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-md border-b border-primary/10 shadow-[0_0_20px_rgba(0,180,255,0.1)]">
+    <nav class="flex justify-between items-center h-20 px-margin-mobile md:px-20 max-w-container-max mx-auto">
+      <a href="#top" class="font-headline-md text-headline-md font-bold text-primary flex items-center gap-2 no-underline">
+        <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 border border-primary/20 overflow-hidden">
+          <img src="assets/logoo.webp" alt="Aqua.Tech logo" class="h-8 w-8 object-contain" loading="eager" />
+        </span>
+        <span>Aqua.Tech</span>
+      </a>
+      <div class="hidden lg:flex items-center gap-8 font-body-md text-body-md">
+        <a class="nav-link is-active text-primary font-bold pb-1" href="#top">الرئيسية</a>
+        <a class="nav-link text-on-surface-variant hover:text-primary transition-colors" href="#services">الخدمات</a>
+        <a class="nav-link text-on-surface-variant hover:text-primary transition-colors" href="#solutions">الحلول</a>
+        <a class="nav-link text-on-surface-variant hover:text-primary transition-colors" href="#results">النتائج</a>
+        <a class="nav-link text-on-surface-variant hover:text-primary transition-colors" href="#faq">الأسئلة</a>
+        <a class="nav-link text-on-surface-variant hover:text-primary transition-colors" href="#contact">تواصل</a>
+      </div>
+      <div class="flex items-center gap-2">
+        <a class="hidden sm:inline-flex items-center gap-2 border border-primary/20 text-primary px-4 py-2 rounded-lg hover:bg-primary/10 transition-all" href="https://wa.me/962780932199" target="_blank" rel="noopener noreferrer" onclick="if(typeof gtag==='function'){gtag('event','whatsapp_click',{event_category:'lead',event_label:'header_whatsapp'});}">
+          <span class="material-symbols-outlined text-[18px]">chat</span>
+          واتساب
+        </a>
+        <a class="hidden md:inline-flex bg-primary-container text-on-primary font-bold px-6 py-2 rounded-lg hover:scale-95 transition-transform no-underline" href="#contact">Start Project</a>
+        <button id="menuToggle" class="lg:hidden inline-flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 border border-primary/20 text-primary" type="button" aria-label="Open menu" aria-expanded="false">
+          <span id="menuIconOpen" class="material-symbols-outlined">menu</span>
+          <span id="menuIconClose" class="material-symbols-outlined hidden">close</span>
+        </button>
+      </div>
+    </nav>
+    <div id="mobileMenu" class="lg:hidden mx-4 mb-4 rounded-xl glass-card overflow-hidden">
+      <div class="p-3 flex flex-col gap-1 text-sm">
+        <a class="rounded-lg px-4 py-3 text-on-surface-variant hover:bg-primary/10 hover:text-primary" href="#top">الرئيسية</a>
+        <a class="rounded-lg px-4 py-3 text-on-surface-variant hover:bg-primary/10 hover:text-primary" href="#services">الخدمات</a>
+        <a class="rounded-lg px-4 py-3 text-on-surface-variant hover:bg-primary/10 hover:text-primary" href="#solutions">الحلول</a>
+        <a class="rounded-lg px-4 py-3 text-on-surface-variant hover:bg-primary/10 hover:text-primary" href="#results">النتائج</a>
+        <a class="rounded-lg px-4 py-3 text-on-surface-variant hover:bg-primary/10 hover:text-primary" href="#faq">الأسئلة</a>
+        <a class="rounded-lg px-4 py-3 text-on-surface-variant hover:bg-primary/10 hover:text-primary" href="#contact">تواصل</a>
+        <a class="mt-2 rounded-lg bg-primary text-on-primary px-4 py-3 text-center font-bold" href="https://wa.me/962780932199" target="_blank" rel="noopener noreferrer">واتساب</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-20" id="top">
+    <!-- Hero Section: Terminal Vibe -->
+    <section class="relative min-h-[921px] flex items-center justify-center py-section-padding px-margin-mobile overflow-hidden">
+      <div class="aqua-liquid-bg" aria-hidden="true"></div>
+      <div class="circuit-layer" aria-hidden="true"></div>
+      <span class="code-chip top-[22%] right-[12%] text-5xl">&lt;/&gt;</span>
+      <span class="code-chip top-[70%] left-[12%] text-sm">function()</span>
+      <span class="code-chip top-[32%] left-[18%] text-xs">0101 0010</span>
+      <span class="code-chip bottom-[18%] right-[20%] text-xs">API • SQL • AI</span>
+
+      <div class="max-w-4xl w-full text-center z-10">
+        <div class="inline-block glass-card p-4 mb-8 rounded-xl border-primary/20">
+          <div class="flex items-center gap-4 text-primary font-label-sm uppercase tracking-widest">
+            <span class="material-symbols-outlined text-[14px]">code</span>
+            <span>Programming • Launching • Expanding</span>
+          </div>
+        </div>
+        <h1 class="font-headline-xl text-headline-xl md:text-[64px] mb-6 leading-tight">
+          حلول رقمية ونمو فعلي <br />
+          <span class="text-primary glow-text">— من الانطلاقة إلى التوسع</span>
+        </h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
+          نبني مواقع وأنظمة تركّز على جذب العملاء، استقبال الطلبات، والرد الأولي في مسار واضح وقابل للتنفيذ.
+        </p>
+
+        <!-- Terminal Display Component -->
+        <div class="glass-card rounded-xl overflow-hidden text-left font-label-sm border-primary/30 max-w-2xl mx-auto shadow-2xl" style="direction:ltr">
+          <div class="bg-surface-container-highest px-4 py-2 flex items-center gap-2 border-b border-primary/10">
+            <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+            <span class="ml-4 text-xs text-outline opacity-50">terminal — aqua-tech</span>
+          </div>
+          <div class="p-6 font-mono text-sm leading-relaxed text-on-surface">
+            <div class="flex gap-2"><span class="text-primary">$</span><span>npx create-aqua-app</span></div>
+            <div class="text-secondary mt-1">... fetching architecture</div>
+            <div class="flex gap-2 mt-4"><span class="text-primary">$</span><span>build --optimize</span></div>
+            <div class="text-tertiary-fixed-dim mt-1">✔ shipped in <span class="text-primary">minutes</span> — performance ✅</div>
+            <div class="flex gap-2 mt-4"><span class="text-primary">$</span><span class="terminal-cursor">deploy --env=prod</span></div>
+          </div>
+        </div>
+
+        <div class="mt-12 flex flex-col md:flex-row items-center justify-center gap-6">
+          <a href="#contact" class="w-full md:w-auto bg-primary text-on-primary px-10 py-4 font-bold rounded-lg shadow-[0_0_20px_rgba(0,180,255,0.3)] hover:scale-105 transition-all no-underline">ابدأ مشروعك</a>
+          <a href="#solutions" class="w-full md:w-auto border border-primary text-primary px-10 py-4 font-bold rounded-lg hover:bg-primary/10 transition-all no-underline">استعرض الحلول</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Grid -->
+    <section class="max-w-container-max mx-auto px-margin-mobile md:px-20 py-20">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+        <div class="glass-card p-8 rounded-2xl flex flex-col items-center text-center">
+          <span class="font-headline-xl text-headline-xl text-primary mb-2">3–5 أيام</span>
+          <p class="font-body-md text-body-md text-on-surface-variant">إطلاق صفحات تسويقية احترافية</p>
+        </div>
+        <div class="glass-card p-8 rounded-2xl flex flex-col items-center text-center">
+          <span class="font-headline-xl text-headline-xl text-primary mb-2">24 ساعة</span>
+          <p class="font-body-md text-body-md text-on-surface-variant">خطة واضحة بعد التواصل</p>
+        </div>
+        <div class="glass-card p-8 rounded-2xl flex flex-col items-center text-center border-primary/40">
+          <span class="font-headline-xl text-headline-xl text-primary mb-2">100+</span>
+          <p class="font-body-md text-body-md text-on-surface-variant">مشروع منجز بنجاح</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About / Trust -->
+    <section class="py-section-padding bg-surface-container-lowest/60" id="about">
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-stretch">
+          <div class="lg:col-span-5 glass-card p-10 rounded-2xl">
+            <span class="section-kicker">About Aqua.Tech</span>
+            <h2 class="font-headline-lg text-headline-lg md:text-headline-xl mb-6">هندسة رقمية دقيقة، وليست مجرد واجهة جميلة</h2>
+            <p class="font-body-lg text-on-surface-variant leading-relaxed">Aqua.Tech شريك رقمي يساعد الشركات ورواد الأعمال على بناء حضور أقوى على الإنترنت، وتطوير مواقع وأنظمة عملية تدعم النمو والتشغيل اليومي.</p>
+          </div>
+          <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-gutter">
+            <div class="glass-card p-8 rounded-2xl">
+              <span class="material-symbols-outlined text-primary mb-6 text-[32px]">route</span>
+              <h3 class="font-headline-md text-headline-md mb-3">خطة واضحة خلال 24 ساعة</h3>
+              <p class="text-on-surface-variant">نفهم هدفك بسرعة ونحدد ما الذي يجب بناؤه أولًا وما يمكن تأجيله.</p>
+            </div>
+            <div class="glass-card p-8 rounded-2xl">
+              <span class="material-symbols-outlined text-primary mb-6 text-[32px]">deployed_code</span>
+              <h3 class="font-headline-md text-headline-md mb-3">حل يتوسع لاحقًا</h3>
+              <p class="text-on-surface-variant">نبني نسخة مفيدة الآن وتبقى جاهزة للتطوير بدون إعادة بناء من الصفر.</p>
+            </div>
+            <div class="glass-card p-8 rounded-2xl">
+              <span class="material-symbols-outlined text-primary mb-6 text-[32px]">support_agent</span>
+              <h3 class="font-headline-md text-headline-md mb-3">دعم بعد الإطلاق</h3>
+              <p class="text-on-surface-variant">تحسينات وتعديلات ومعالجة ملاحظات حتى يبقى الحل فعالًا.</p>
+            </div>
+            <div class="glass-card p-8 rounded-2xl">
+              <span class="material-symbols-outlined text-primary mb-6 text-[32px]">monitoring</span>
+              <h3 class="font-headline-md text-headline-md mb-3">قرار مبني على نتيجة</h3>
+              <p class="text-on-surface-variant">نركز على التحويل، سرعة الرد، وتنظيم العملاء بدل الزينة فقط.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section: Bento Grid Layout -->
+    <section class="py-section-padding bg-surface-container-low/30" id="services">
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+          <div>
+            <span class="section-kicker">What we build</span>
+            <h2 class="font-headline-lg text-headline-lg md:text-headline-xl">الخدمات التي نقدمها للنمو</h2>
+          </div>
+          <p class="font-body-md text-body-md text-on-surface-variant max-w-md">نغطي كامل رحلة مشروعك من الفكرة حتى الإطلاق والنمو المستمر.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+          <article class="md:col-span-8 glass-card p-10 rounded-2xl relative overflow-hidden group">
+            <div class="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-primary/10 to-transparent"></div>
+            <div class="relative z-10 flex flex-col h-full justify-between">
+              <div>
+                <div class="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-6 text-primary"><span class="material-symbols-outlined">ads_click</span></div>
+                <h3 class="font-headline-md text-headline-md mb-4">صفحات تسويقية احترافية</h3>
+                <p class="font-body-md text-on-surface-variant mb-6 max-w-sm">صفحات تسويقية احترافية وسريعة تساعدك تبدأ الإعلان وجمع العملاء خلال وقت قصير.</p>
+                <ul class="space-y-3 font-body-md text-on-surface-variant">
+                  <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> تصميم موجه لرفع التحويل</li>
+                  <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> متوافقة مع الجوال + سرعة عالية</li>
+                  <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> ربط واتساب / نموذج / تتبع</li>
+                </ul>
+              </div>
+              <a class="mt-8 font-label-sm text-primary flex items-center gap-2 group-hover:translate-x-[-8px] transition-transform js-service-cta" data-service="landing-page" href="#contact">اطلب صفحتك الآن <span class="material-symbols-outlined">west</span></a>
+            </div>
+          </article>
+
+          <article class="md:col-span-4 glass-card p-10 rounded-2xl group">
+            <div class="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-6 text-primary"><span class="material-symbols-outlined">language</span></div>
+            <h3 class="font-headline-md text-headline-md mb-4">مواقع ومتاجر</h3>
+            <p class="font-body-md text-on-surface-variant mb-6">نبني مواقع شركات ومتاجر وصفحات خدمات تركّز على الثقة والسرعة.</p>
+            <div class="flex flex-wrap gap-2 mb-8">
+              <span class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm">SEO</span>
+              <span class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm">CMS</span>
+              <span class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm">React</span>
+            </div>
+            <a class="font-label-sm text-primary flex items-center gap-2 js-service-cta" data-service="company-website" href="#contact">استكشف المزيد <span class="material-symbols-outlined">west</span></a>
+          </article>
+
+          <article class="md:col-span-4 glass-card p-10 rounded-2xl group">
+            <div class="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-6 text-primary"><span class="material-symbols-outlined">smart_toy</span></div>
+            <h3 class="font-headline-md text-headline-md mb-4">الذكاء الاصطناعي</h3>
+            <p class="font-body-md text-on-surface-variant mb-6">نساعدك تبني بوتات ومهام تلقائية لتسريع الردود وتقليل العمل اليدوي.</p>
+            <a class="font-label-sm text-primary flex items-center gap-2 js-service-cta" data-service="ai-agent" href="#contact">جرب الأتمتة <span class="material-symbols-outlined">west</span></a>
+          </article>
+
+          <article class="md:col-span-8 glass-card p-10 rounded-2xl relative overflow-hidden group">
+            <div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_70%_30%,rgba(0,180,255,.45),transparent_36%)]"></div>
+            <div class="relative z-10">
+              <div class="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-6 text-primary"><span class="material-symbols-outlined">terminal</span></div>
+              <h3 class="font-headline-md text-headline-md mb-4">أنظمة ولوحات تحكم مخصصة</h3>
+              <p class="font-body-md text-on-surface-variant mb-6 max-w-lg">أنظمة داخلية، أتمتة، وتكاملات API لتوفير الوقت والتكلفة لمشروعك.</p>
+              <a href="#contact" data-service="custom-system" class="js-service-cta inline-flex bg-primary text-on-primary px-8 py-3 rounded-lg font-bold hover:shadow-lg transition-all no-underline">تحدث مع خبير</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ready Solutions: Card Section -->
+    <section class="py-section-padding" id="solutions">
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
+        <div class="text-center mb-16">
+          <span class="section-kicker">Deployment ready</span>
+          <h2 class="font-headline-lg text-headline-lg md:text-headline-xl">حلول جاهزة للانطلاق</h2>
+          <p class="mt-4 text-on-surface-variant max-w-2xl mx-auto">أنظمة ومنصات جاهزة يمكن تخصيصها بحسب نوع النشاط والمرحلة الحالية لمشروعك.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+          <article class="glass-card rounded-2xl overflow-hidden group hover:-translate-y-2">
+            <div class="h-48 overflow-hidden"><img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Law firm management system dashboard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzmcbCXaOUGT7Za4ybK62e3IaFLEtoXyb2qs5ItMo0AzFo5NRD-zjbyomyhgdIMZsmPTVi13sUgwyOe8H4iOkbODNqrsd17Ji57eLR6TVOAuS8K8jS3QGWuNoc8LFovdICwzzpi3NCvNJt9meaR49Ae_dh8hxihRWTdD480VLn6lIX826hgtAlCmClFe0PJGQT7x5prOuXyyEplfI7XgnHh5z6EG1fe0n5vCyuB6Jb_5UA76vRucs6RpC8yqzEiMFJBn0gxPClOg" /></div>
+            <div class="p-6"><h4 class="font-headline-md text-headline-md mb-2">إدارة مكاتب المحاماة</h4><p class="font-body-md text-on-surface-variant mb-4 text-sm">نظام لإدارة القضايا والعملاء والمواعيد والملفات القانونية بشكل أوضح.</p><ul class="space-y-2 mb-6"><li class="text-xs text-outline flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span> إدارة الملفات</li><li class="text-xs text-outline flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span> متابعة المواعيد</li></ul><a href="#contact" data-service="lawyer-system" class="js-service-cta block w-full border border-primary/30 text-primary py-2 rounded-lg text-sm text-center hover:bg-primary hover:text-on-primary transition-all no-underline">اطلب النظام</a></div>
+          </article>
+          <article class="glass-card rounded-2xl overflow-hidden group hover:-translate-y-2">
+            <div class="h-48 overflow-hidden"><img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="AI resume builder interface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWwLCMVoHTjTeAN62SN9fOAjzpoX5rBIKwftuljcPp_G851rlNYSv6IS-kBdvIOW24dBBdhaspLmgtNGNXbIN5KEc9u0zxS1NFE7h7GOXRTu3mIpPPRz6ihia80D5w0TT_8PypvvFdBfvqJE6yb_q7h9OlboI1vVgmigmbke4F8qhQCRGBGc7Os03MciztSztJNYRDTIBs3iVAQaxf_CBmaVrfinrqDrElq8OE_GeRK95FKMg_-Qu5E--GZiUkSXnGfknb3XdbpQ" /></div>
+            <div class="p-6"><h4 class="font-headline-md text-headline-md mb-2">ResumeIQ</h4><p class="font-body-md text-on-surface-variant mb-4 text-sm">أداة تساعد المستخدم على إنشاء سيرة ذاتية بشكل أوضح وأسرع وتجربة أسهل.</p><ul class="space-y-2 mb-6"><li class="text-xs text-outline flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span> بناء ذكي للسيرة</li><li class="text-xs text-outline flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span> قوالب احترافية</li></ul><a href="#contact" data-service="resumeiq" class="js-service-cta block w-full border border-primary/30 text-primary py-2 rounded-lg text-sm text-center hover:bg-primary hover:text-on-primary transition-all no-underline">اطلب النظام</a></div>
+          </article>
+          <article class="glass-card rounded-2xl overflow-hidden group hover:-translate-y-2 border-primary/30">
+            <div class="h-48 overflow-hidden relative"><img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Smart attendance biometric dashboard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrtBWzO6_jIlQ9UUDL29W1wLUCs9jeFdBzZG36GhfLhkiYTOcwm6gruGcMCcxLGEEUMoNc-9UyY8FunS6EwPVqzYqm01HplPRF2TzG-fhqNmaRChQdk9SlEaHDDWPfnbunmgliOemFQyKditpDPSn1sKhvcbFRNs-FOysP7IsFFqH_VGGwkp89YXpIEtylgTUWi3Mh9cwH2u50oWFRkhZAOGtIM_5Ovet2WHmkDsWC1nUeM6dWwAevKD2ZRCRUt5ivg2eLYJsj_w" /><div class="absolute top-2 right-2 bg-primary px-2 py-1 rounded text-[10px] font-bold text-on-primary">HOT</div></div>
+            <div class="p-6"><h4 class="font-headline-md text-headline-md mb-2">Smart Attendance</h4><p class="font-body-md text-on-surface-variant mb-4 text-sm">نظام حضور ذكي يعتمد على التعرف على الوجوه لتسجيل الحضور تلقائيًا.</p><ul class="space-y-2 mb-6"><li class="text-xs text-outline flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span> التعرف على الوجوه</li><li class="text-xs text-outline flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span> تقارير فورية</li></ul><a href="#contact" data-service="smart-attendance" class="js-service-cta block w-full bg-primary text-on-primary py-2 rounded-lg text-sm font-bold text-center shadow-lg shadow-primary/20 transition-all no-underline">اطلب النظام</a></div>
+          </article>
+          <article class="glass-card rounded-2xl overflow-hidden group hover:-translate-y-2">
+            <div class="h-48 overflow-hidden"><img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="University project management dashboard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjBLxv-_OGI1kPvK9I6tO0calB0AW6_kA0tOaHYZVnQOgtN8xmcHaQ3Q0n_dbgYUxNQf6Blpk6GTztnUo3_CcwMAHK7ixiqQqYkCK2C_I1N806-nvPns34hg5HdqPF6IiQLQJn7f2t8bASc8xPvqPuxPS47BMPWa_bE4cwjBmwRL97-4KE3uz5V7CXu4_0dgXx2paiub1jjs8sqCblz6FxeEYFufjr7KKSx5vCg3GTg95kK6JKr5zLZKYf2Imk__zGvx75N_sR2w" /></div>
+            <div class="p-6"><h4 class="font-headline-md text-headline-md mb-2">منصة مشاريع الجامعة</h4><p class="font-body-md text-on-surface-variant mb-4 text-sm">منصة لتنظيم مشاريع الطلبة ورفع الملفات ومتابعة الفرق والإشراف الأكاديمي.</p><ul class="space-y-2 mb-6"><li class="text-xs text-outline flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span> تنظيم الفرق</li><li class="text-xs text-outline flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span> متابعة التقييم</li></ul><a href="#contact" data-service="university-projects" class="js-service-cta block w-full border border-primary/30 text-primary py-2 rounded-lg text-sm text-center hover:bg-primary hover:text-on-primary transition-all no-underline">اطلب النظام</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results / Trust Section -->
+    <section class="py-section-padding bg-surface-container-lowest" id="results">
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center">
+          <div>
+            <span class="section-kicker">Proven results</span>
+            <h2 class="font-headline-lg text-headline-lg md:text-headline-xl mb-8">نتائج يمكننا تحقيقها معك</h2>
+            <div class="space-y-8">
+              <div class="flex gap-6 group"><div class="w-12 h-12 shrink-0 rounded-full bg-primary/10 flex items-center justify-center text-primary border border-primary/20 group-hover:scale-110 transition-transform"><span class="material-symbols-outlined">trending_up</span></div><div><h4 class="font-headline-md text-headline-md mb-2">زيادة وضوح التحويل</h4><p class="font-body-md text-on-surface-variant">صفحات تسويقية احترافية واضحة مع CTA مباشر لرفع عدد الاستفسارات وتقليل ضياع الزوار.</p></div></div>
+              <div class="flex gap-6 group"><div class="w-12 h-12 shrink-0 rounded-full bg-primary/10 flex items-center justify-center text-primary border border-primary/20 group-hover:scale-110 transition-transform"><span class="material-symbols-outlined">bolt</span></div><div><h4 class="font-headline-md text-headline-md mb-2">تقليل وقت الرد</h4><p class="font-body-md text-on-surface-variant">أتمتة أو شات بوت يساعدك على الرد خلال دقائق بدل ساعات، مع جمع البيانات بشكل منظم.</p></div></div>
+              <div class="flex gap-6 group"><div class="w-12 h-12 shrink-0 rounded-full bg-primary/10 flex items-center justify-center text-primary border border-primary/20 group-hover:scale-110 transition-transform"><span class="material-symbols-outlined">dashboard</span></div><div><h4 class="font-headline-md text-headline-md mb-2">تشغيل أوضح ووقت أقل</h4><p class="font-body-md text-on-surface-variant">نظام أو لوحة تحكم مخصصة تساعدك على تنظيم الطلبات والمتابعة والتقارير الدقيقة.</p></div></div>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="absolute -inset-4 bg-primary/20 blur-3xl rounded-full"></div>
+            <div class="glass-card rounded-3xl p-8 relative z-10 overflow-hidden min-h-[420px]">
+              <div class="grid grid-cols-2 gap-4 h-full">
+                <div class="glass-card rounded-xl p-5"><span class="material-symbols-outlined text-primary mb-6">query_stats</span><div class="text-4xl font-bold text-primary mb-2">+42%</div><p class="text-sm text-on-surface-variant">تحسن في استقبال الطلبات</p></div>
+                <div class="glass-card rounded-xl p-5 mt-10"><span class="material-symbols-outlined text-primary mb-6">timer</span><div class="text-4xl font-bold text-primary mb-2">-60%</div><p class="text-sm text-on-surface-variant">تقليل وقت الرد الأولي</p></div>
+                <div class="col-span-2 glass-card rounded-xl p-5"><div class="flex items-center justify-between mb-5"><span class="font-label-sm text-primary">Operational clarity</span><span class="material-symbols-outlined text-primary">analytics</span></div><div class="h-3 rounded-full bg-surface-container-high overflow-hidden mb-3"><div class="h-full w-[82%] bg-primary rounded-full"></div></div><div class="h-3 rounded-full bg-surface-container-high overflow-hidden mb-3"><div class="h-full w-[64%] bg-primary/70 rounded-full"></div></div><div class="h-3 rounded-full bg-surface-container-high overflow-hidden"><div class="h-full w-[92%] bg-primary/50 rounded-full"></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security / principles -->
+    <section class="py-section-padding" id="security">
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
+        <div class="text-center mb-16">
+          <span class="section-kicker">Trust by design</span>
+          <h2 class="font-headline-lg text-headline-lg md:text-headline-xl">الأمان والثقة</h2>
+          <p class="mt-4 text-on-surface-variant max-w-2xl mx-auto">نبني المواقع والأنظمة وفق ممارسات حديثة تساعد على رفع الأمان، حماية البيانات، وتقوية موثوقية المشروع.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+          <div class="glass-card p-8 rounded-2xl"><span class="material-symbols-outlined text-primary text-[32px] mb-6">encrypted</span><h3 class="font-headline-md text-headline-md mb-3">اتصال آمن</h3><p class="text-on-surface-variant">HTTPS وتهيئة آمنة للروابط والنماذج.</p></div>
+          <div class="glass-card p-8 rounded-2xl"><span class="material-symbols-outlined text-primary text-[32px] mb-6">shield</span><h3 class="font-headline-md text-headline-md mb-3">حماية التطبيق</h3><p class="text-on-surface-variant">تحقق من المدخلات وتقليل مخاطر السبام.</p></div>
+          <div class="glass-card p-8 rounded-2xl"><span class="material-symbols-outlined text-primary text-[32px] mb-6">cloud_done</span><h3 class="font-headline-md text-headline-md mb-3">نشر موثوق</h3><p class="text-on-surface-variant">جاهزية لإضافة Cloudflare وSecurity Headers.</p></div>
+          <div class="glass-card p-8 rounded-2xl"><span class="material-symbols-outlined text-primary text-[32px] mb-6">verified_user</span><h3 class="font-headline-md text-headline-md mb-3">ثقة أعلى</h3><p class="text-on-surface-variant">تجربة احترافية تعزز ثقة العميل عند التواصل.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-section-padding bg-surface-container-low/30" id="faq">
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+          <div><span class="section-kicker">FAQ</span><h2 class="font-headline-lg text-headline-lg md:text-headline-xl">أسئلة متكررة</h2></div>
+          <p class="text-on-surface-variant max-w-md">إجابات مختصرة تساعدك تعرف كيف نبدأ وننفذ ونسلم.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+          <div class="faq-item glass-card p-6 rounded-2xl"><button class="faq-q w-full flex justify-between gap-4 text-start font-bold" type="button"><span>كم يستغرق تنفيذ موقع أو نظام؟</span><span class="material-symbols-outlined text-primary">add</span></button><div class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed">يعتمد على النطاق. الصفحات التسويقية قد تبدأ من 3–5 أيام، بينما الأنظمة المخصصة تحتاج تحليل وجدول أوضح.</div></div>
+          <div class="faq-item glass-card p-6 rounded-2xl"><button class="faq-q w-full flex justify-between gap-4 text-start font-bold" type="button"><span>كيف يتم تحديد السعر؟</span><span class="material-symbols-outlined text-primary">add</span></button><div class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed">حسب نوع الخدمة، نطاق العمل، التكاملات المطلوبة، وسرعة التنفيذ.</div></div>
+          <div class="faq-item glass-card p-6 rounded-2xl"><button class="faq-q w-full flex justify-between gap-4 text-start font-bold" type="button"><span>هل توجد صيانة بعد التسليم؟</span><span class="material-symbols-outlined text-primary">add</span></button><div class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed">نعم، تتوفر باقات دعم وتحسينات وتحديثات حسب الحاجة.</div></div>
+          <div class="faq-item glass-card p-6 rounded-2xl"><button class="faq-q w-full flex justify-between gap-4 text-start font-bold" type="button"><span>هل أحتاج موقع كامل أم صفحة تسويقية؟</span><span class="material-symbols-outlined text-primary">add</span></button><div class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed">إذا هدفك حملة أو خدمة محددة، فغالبًا صفحة تسويقية تكفي كبداية. للمحتوى الأكبر والثقة الأوسع، الموقع الكامل أنسب.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-section-padding relative" id="contact">
+      <div class="aqua-liquid-bg" aria-hidden="true"></div>
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
+        <div class="text-center mb-16">
+          <span class="section-kicker">Start Project</span>
+          <h2 class="font-headline-xl text-headline-xl mb-6">ابدأ رحلتك الرقمية الآن</h2>
+          <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">احكيلنا عن هدفك الحالي، وسنقترح عليك خطوة البداية، القناة الأنسب للتواصل، وما الذي يجب بناؤه أولًا.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+          <aside class="lg:col-span-4 flex flex-col gap-stack-md">
+            <div class="glass-card p-stack-md rounded-xl">
+              <h3 class="font-headline-md text-headline-md text-primary mb-stack-sm">تواصل مباشر</h3>
+              <p class="text-on-surface-variant mb-stack-md">ساعات التواصل: يوميًا من 10 AM إلى 10PM</p>
+              <div class="flex flex-col gap-4">
+                <a class="flex items-center gap-4 p-4 rounded-lg bg-surface-container-high hover:bg-primary/10 transition-all border border-outline-variant/20 no-underline" href="https://wa.me/962780932199" target="_blank" rel="noopener noreferrer" onclick="if(typeof gtag==='function'){gtag('event','whatsapp_click',{event_category:'lead',event_label:'contact_whatsapp'});}"><span class="material-symbols-outlined text-primary">chat</span><div><span class="block font-bold">واتساب</span><span class="text-xs text-on-surface-variant">+962 78 093 2199</span></div></a>
+                <a class="flex items-center gap-4 p-4 rounded-lg bg-surface-container-high hover:bg-primary/10 transition-all border border-outline-variant/20 no-underline" href="mailto:info.aquatech.jo@gmail.com"><span class="material-symbols-outlined text-primary">mail</span><div><span class="block font-bold">البريد الإلكتروني</span><span class="text-xs text-on-surface-variant">info.aquatech.jo@gmail.com</span></div></a>
+              </div>
+              <div class="mt-stack-md pt-stack-md border-t border-outline-variant/20">
+                <h4 class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-4">موقعنا</h4>
+                <div class="flex items-center gap-2 text-on-surface"><span class="material-symbols-outlined">location_on</span><span>عمّان، الأردن</span></div>
+              </div>
+            </div>
+            <div class="glass-card p-stack-md rounded-xl border-l-4 border-l-primary">
+              <h3 class="font-headline-md text-headline-md text-primary mb-4">ماذا يحدث بعد ذلك؟</h3>
+              <ul class="space-y-4">
+                <li class="flex gap-4"><span class="font-label-sm text-primary">01</span><div><p class="font-bold">تحليل البيانات</p><p class="text-sm text-on-surface-variant">نراجع طلبك ونفهم المتطلبات التقنية والأهداف التجارية.</p></div></li>
+                <li class="flex gap-4"><span class="font-label-sm text-primary">02</span><div><p class="font-bold">جلسة استشارية</p><p class="text-sm text-on-surface-variant">نتواصل معك خلال 24 ساعة لتحديد نقطة البداية.</p></div></li>
+                <li class="flex gap-4"><span class="font-label-sm text-primary">03</span><div><p class="font-bold">عرض واضح</p><p class="text-sm text-on-surface-variant">نقدم خطة عمل مع التكلفة والجدول الزمني.</p></div></li>
+              </ul>
+            </div>
+          </aside>
+
+          <div class="lg:col-span-8">
+            <form class="glass-card p-stack-lg rounded-xl flex flex-col gap-stack-md relative overflow-hidden" id="contactForm" novalidate>
+              <div class="absolute top-0 left-0 p-8 opacity-10"><span class="material-symbols-outlined text-[120px]" style="font-variation-settings:'FILL' 1;">rocket_launch</span></div>
+              <div class="relative z-10">
+                <h3 class="font-headline-lg text-headline-lg mb-2">تفاصيل المشروع</h3>
+                <p class="text-on-surface-variant mb-8">املأ البيانات التالية وسنرسل لك الخطوة المناسبة.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+                  <label class="block"><span class="block font-label-sm text-primary uppercase mb-2">الاسم</span><input id="fName" name="name" type="text" class="aqua-input form-field" required minlength="2" maxlength="80" autocomplete="name" placeholder="اسمك" /></label>
+                  <label class="block"><span class="block font-label-sm text-primary uppercase mb-2">البريد الإلكتروني</span><input id="fEmail" name="email" type="email" class="aqua-input form-field" autocomplete="email" maxlength="120" placeholder="example@mail.com" /></label>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mt-gutter">
+                  <label class="block"><span class="block font-label-sm text-primary uppercase mb-2">رمز الدولة</span><select id="fCountryCode" name="country_code" class="aqua-input form-field"><option value="+962" selected>Jordan (+962)</option><option value="+966">Saudi Arabia (+966)</option><option value="+971">UAE (+971)</option><option value="+20">Egypt (+20)</option><option value="+964">Iraq (+964)</option><option value="+965">Kuwait (+965)</option><option value="+968">Oman (+968)</option><option value="+974">Qatar (+974)</option><option value="+973">Bahrain (+973)</option><option value="+961">Lebanon (+961)</option><option value="+1">USA (+1)</option><option value="+44">UK (+44)</option></select></label>
+                  <label class="block md:col-span-2"><span class="block font-label-sm text-primary uppercase mb-2">رقم الواتساب</span><input id="fPhone" name="phone" type="tel" class="aqua-input form-field" autocomplete="tel" inputmode="numeric" maxlength="15" placeholder="7XXXXXXXX" /></label>
+                </div>
+                <input id="fFullPhone" name="full_phone" type="hidden" />
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter mt-gutter">
+                  <label class="block"><span class="block font-label-sm text-primary uppercase mb-2">الخدمة المطلوبة</span><select id="fService" name="service" class="aqua-input form-field"><option value="lead-system">موقع ونظام استقبال عملاء</option><option value="ai-automation">أتمتة أعمال بالذكاء الاصطناعي</option><option value="crm">نظام إدارة العملاء</option><option value="whatsapp-automation">أتمتة واتساب</option><option value="email-automation">أتمتة البريد الإلكتروني</option><option value="landing-page">صفحة تسويقية احترافية</option><option value="social-management">إدارة حسابات السوشيال ميديا</option><option value="lawyer-system">نظام إدارة مكاتب المحاماة</option><option value="university-projects">منصة إدارة المشاريع الجامعية</option><option value="resumeiq">ResumeIQ</option><option value="smart-attendance">Smart Attendance</option><option value="company-website">موقع شركة احترافي</option><option value="custom-system">نظام مخصص للشركات</option><option value="content-design">تصميم وصناعة المحتوى</option><option value="ads">إدارة الحملات الإعلانية</option><option value="seo">SEO تحسين الظهور</option><option value="dashboard">لوحات تحكم وتقارير</option><option value="ai-agent">AI Agent أو شات بوت</option><option value="other">خدمة أو فكرة أخرى</option></select></label>
+                  <label class="block"><span class="block font-label-sm text-primary uppercase mb-2">الميزانية التقريبية</span><select id="fBudget" name="budget" class="aqua-input form-field"><option value="" selected disabled>اختر الميزانية</option><option>أقل من $700</option><option>$700 - $1,500</option><option>$1,500 - $4,000</option><option>أكثر من $4,000</option></select></label>
+                </div>
+
+                <label class="block mt-gutter"><span class="block font-label-sm text-primary uppercase mb-2">موعد التنفيذ</span><select id="fTimeline" name="timeline" class="aqua-input form-field"><option value="">اختر الموعد</option><option>بأسرع وقت</option><option>خلال أسبوعين</option><option>خلال شهر</option><option>ما زلت أستكشف</option></select></label>
+
+                <label class="block mt-gutter"><span class="block font-label-sm text-primary uppercase mb-2">تفاصيل المشروع</span><textarea id="fDetails" name="details" rows="5" class="aqua-input form-field" minlength="10" maxlength="2000" placeholder="اكتب الهدف، المميزات، والموعد المتوقع…"></textarea></label>
+                <label class="hidden"><span>Website</span><input id="fWebsite" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" /></label>
+
+                <button id="sendLead" type="submit" class="quote-submit mt-gutter w-full bg-primary text-on-primary px-8 py-4 rounded-lg font-bold hover:scale-[.99] transition-all shadow-[0_0_20px_rgba(0,180,255,.25)]"><span class="quote-title">ابدأ مشروعك بخطة واضحة وتنفيذ احترافي</span></button>
+                <div class="mt-4 flex flex-wrap gap-2 text-xs text-on-surface-variant"><span class="inline-flex items-center gap-2 rounded-full px-3 py-2 bg-primary/5 border border-primary/10">🔒 مدخلات مُتحقق منها</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-2 bg-primary/5 border border-primary/10">🛡️ حماية من السبام</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-2 bg-primary/5 border border-primary/10">⚙️ تهيئة آمنة عند النشر</span></div>
+                <p id="formStatus" class="mt-3 text-xs text-on-surface-variant"></p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-surface-container-lowest border-t border-outline-variant/20 py-20 px-margin-mobile md:px-20">
+    <div class="max-w-container-max mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-start gap-16 mb-20">
+        <div class="max-w-sm">
+          <div class="font-headline-md text-headline-md font-bold text-primary mb-6 flex items-center gap-2"><img src="assets/logoo.webp" alt="Aqua.Tech" class="h-9 w-9 object-contain" />Aqua.Tech</div>
+          <p class="font-body-md text-on-surface-variant leading-relaxed">نبني صفحات تسويقية احترافية ومواقع وأنظمة وأتمتة تساعد الشركات ورواد الأعمال على النمو بشكل أسرع وبطريقة أوضح وأكثر احترافية.</p>
+          <div class="flex gap-4 mt-8">
+            <a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="https://www.instagram.com/aquatech.jo/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><span class="material-symbols-outlined text-sm">alternate_email</span></a>
+            <a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="https://github.com/aquatechjo" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><span class="material-symbols-outlined text-sm">terminal</span></a>
+            <a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="mailto:info.aquatech.jo@gmail.com" aria-label="Email"><span class="material-symbols-outlined text-sm">mail</span></a>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-x-20 gap-y-10">
+          <div><h5 class="font-bold text-on-surface mb-6">الخدمات</h5><ul class="space-y-4 text-on-surface-variant font-body-md"><li><a class="hover:text-primary transition-colors" href="#services">الخدمات</a></li><li><a class="hover:text-primary transition-colors" href="#solutions">الحلول الجاهزة</a></li><li><a class="hover:text-primary transition-colors" href="#security">الأمان</a></li></ul></div>
+          <div><h5 class="font-bold text-on-surface mb-6">الروابط</h5><ul class="space-y-4 text-on-surface-variant font-body-md"><li><a class="hover:text-primary transition-colors" href="#results">النتائج</a></li><li><a class="hover:text-primary transition-colors" href="#about">عن الشركة</a></li><li><a class="hover:text-primary transition-colors" href="#contact">تواصل معنا</a></li></ul></div>
+          <div class="col-span-2 md:col-span-1"><h5 class="font-bold text-on-surface mb-6">الموقع</h5><p class="text-on-surface-variant font-body-md">عمّان، الأردن<br />يوميًا — 10 AM إلى 10 PM</p></div>
+        </div>
+      </div>
+      <div class="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-outline-variant/10 text-on-surface-variant font-label-sm">
+        <p>© Aqua.Tech — جميع الحقوق محفوظة.</p>
+        <div class="flex gap-8 mt-6 md:mt-0"><a class="hover:text-primary transition-colors" href="#contact">ابدأ مشروعك</a><a class="hover:text-primary transition-colors" href="https://wa.me/962780932199" target="_blank" rel="noopener noreferrer">WhatsApp</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <a id="wa-float" href="https://wa.me/962780932199?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20Aqua.Tech%2C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%D9%83%D9%85" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" onclick="if(typeof gtag==='function'){gtag('event','whatsapp_click',{event_category:'engagement',event_label:'floating_button'});}">
+    <span class="material-symbols-outlined">chat</span>
+  </a>
+
+  <div id="successModal" class="success-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="success-modal-card">
+      <div class="success-modal-icon">✓</div>
+      <h3 class="text-xl font-bold text-on-surface">تم إرسال طلبك بنجاح</h3>
+      <p id="successModalText" class="mt-3 text-on-surface-variant">سوف نتواصل معك في أقرب وقت</p>
+      <button type="button" id="successModalClose" class="mt-6 rounded-lg bg-primary text-on-primary px-6 py-3 font-bold">حسنًا</button>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const iconOpen = document.getElementById('menuIconOpen');
+      const iconClose = document.getElementById('menuIconClose');
+      function closeMenu(){
+        mobileMenu && mobileMenu.classList.remove('is-open');
+        menuToggle && menuToggle.setAttribute('aria-expanded','false');
+        iconOpen && iconOpen.classList.remove('hidden');
+        iconClose && iconClose.classList.add('hidden');
+      }
+      if(menuToggle && mobileMenu){
+        menuToggle.addEventListener('click', function(){
+          const isOpen = mobileMenu.classList.toggle('is-open');
+          menuToggle.setAttribute('aria-expanded', String(isOpen));
+          iconOpen.classList.toggle('hidden', isOpen);
+          iconClose.classList.toggle('hidden', !isOpen);
+        });
+        mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
       }
 
-      function updateConsentText() {
-        var lang = getCurrentLang();
-
-        var text = {
-          ar: "نستخدم Google Analytics لتحسين تجربتك. هل توافق؟",
-          en: "We use Google Analytics to improve your experience. Do you agree?"
-        };
-
-        var accept = {
-          ar: "قبول",
-          en: "Accept"
-        };
-
-        var decline = {
-          ar: "رفض",
-          en: "Decline"
-        };
-
-        var banner = document.getElementById("consent-banner");
-        var textEl = document.getElementById("consent-text");
-        var acceptBtn = document.getElementById("consentAccept");
-        var declineBtn = document.getElementById("consentDecline");
-
-        if (banner) {
-          banner.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
-          banner.setAttribute("lang", lang);
-        }
-
-        if (textEl) textEl.innerText = text[lang];
-        if (acceptBtn) acceptBtn.innerText = accept[lang];
-        if (declineBtn) declineBtn.innerText = decline[lang];
-      }
-
-      var storedConsent = localStorage.getItem("aqua_analytics_consent");
-      if (storedConsent !== null) return;
-
-      var banner = document.getElementById("consent-banner");
-      if (!banner) return;
-
-      banner.removeAttribute("hidden");
-      updateConsentText();
-
-      setTimeout(function(){
-        banner.classList.add("is-visible");
-      }, 1800);
-
-document.getElementById("consentAccept").addEventListener("click", function(){
-
-  localStorage.setItem("aqua_analytics_consent", "accepted");
-
-  banner.classList.remove("is-visible");
-
-  setTimeout(function(){
-    banner.style.display = "none";
-    banner.setAttribute("hidden", "");
-  }, 380);
-
-  if (typeof window.__aquaEnableAnalytics === "function") {
-    window.__aquaEnableAnalytics();
-  }
-});
-
-document.getElementById("consentDecline").addEventListener("click", function(){
-
-  localStorage.setItem("aqua_analytics_consent", "declined");
-
-  banner.classList.remove("is-visible");
-
-  setTimeout(function(){
-    banner.style.display = "none";
-    banner.setAttribute("hidden", "");
-  }, 380);
-
-  if (typeof window.__aquaDeclineAnalytics === "function") {
-    window.__aquaDeclineAnalytics();
-  }
-});
-
-      // ✅ يتابع أي تغيير على lang أو dir ويحدث الرسالة فورًا
-      new MutationObserver(updateConsentText).observe(document.documentElement, {
-        attributes: true,
-        attributeFilter: ["lang", "dir"]
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e){
+          const target = document.querySelector(this.getAttribute('href'));
+          if(target){
+            e.preventDefault();
+            target.scrollIntoView({ behavior:'smooth' });
+          }
+        });
       });
 
-    } catch(e) {}
-  })();
-</script>
-
-<!-- Skip to main content (accessibility) -->
-<a href="#top" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[var(--p1)] focus:text-[var(--bg)] focus:rounded-lg focus:font-semibold focus:text-sm" data-i18n="skip.main">تخطَّ إلى المحتوى الرئيسي</a>
-
-<!-- ===== Global Background Animation ===== -->
-<div id="globalBg" aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-  <div class="absolute inset-0 dotgrid opacity-[.22]"></div>
-  <div class="tech-circuit"></div>
-
-  <div class="tech-code opacity-[.9]">
-    <span style="left:8%;  top:16%; font-size:18px; animation-duration:26s; animation-delay:-4s;">&lt;/&gt;</span>
-    <span style="left:74%; top:18%; font-size:14px; animation-duration:32s; animation-delay:-11s;">{ }</span>
-    <span style="left:18%; top:60%; font-size:12px; animation-duration:28s; animation-delay:-8s;">0101 0010</span>
-    <span style="left:56%; top:68%; font-size:12px; animation-duration:34s; animation-delay:-17s;">const</span>
-    <span style="left:36%; top:30%; font-size:13px; animation-duration:30s; animation-delay:-5s;">API</span>
-    <span style="left:62%; top:44%; font-size:12px; animation-duration:36s; animation-delay:-20s;">function()</span>
-    <span style="left:82%; top:76%; font-size:13px; animation-duration:29s; animation-delay:-9s;">SQL</span>
-    <span style="left:10%; top:78%; font-size:13px; animation-duration:33s; animation-delay:-15s;">UI/UX</span>
-    <span style="left:44%; top:12%; font-size:12px; animation-duration:31s; animation-delay:-7s;">DEV</span>
-    <span style="left:46%; top:48%; font-size:16px; animation-duration:40s; animation-delay:-22s;">&lt;/&gt;</span>
-  </div>
-
-
-  <div class="absolute -top-48 left-1/2 h-[680px] w-[1200px] rounded-full blur-3xl opacity-25 bg-blob bg-blobA"
-       style="transform: translate3d(-50%,0,0); animation: blobDriftA 10s ease-in-out infinite;"></div>
-
-  <div class="absolute top-[18%] -left-40 h-[420px] w-[420px] rounded-full blur-3xl opacity-20 bg-blob2 bg-blobB"
-       style="animation: blobDriftB 12s ease-in-out infinite;"></div>
-
-  <div class="absolute -bottom-56 -right-56 h-[620px] w-[620px] rounded-full blur-3xl opacity-[.18] bg-blob3 bg-blobC"
-       style="animation: blobDriftC 14s ease-in-out infinite;"></div>
-
-<div class="bubbles opacity-[.45]">
-      <span style="left:7%;  width:10px; height:10px; animation-duration:18s; animation-delay:-4s;"></span>
-    <span style="left:15%; width:14px; height:14px; animation-duration:22s; animation-delay:-10s;"></span>
-    <span style="left:26%; width:8px;  height:8px;  animation-duration:16s; animation-delay:-6s;"></span>
-    <span style="left:36%; width:18px; height:18px; animation-duration:24s; animation-delay:-12s;"></span>
-    <span style="left:48%; width:12px; height:12px; animation-duration:20s; animation-delay:-8s;"></span>
-    <span style="left:58%; width:9px;  height:9px;  animation-duration:17s; animation-delay:-2s;"></span>
-    <span style="left:68%; width:16px; height:16px; animation-duration:23s; animation-delay:-9s;"></span>
-    <span style="left:78%; width:11px; height:11px; animation-duration:19s; animation-delay:-5s;"></span>
-    <span style="left:88%; width:20px; height:20px; animation-duration:26s; animation-delay:-14s;"></span>
-    <span style="left:94%; width:7px;  height:7px;  animation-duration:15s; animation-delay:-3s;"></span>
-  </div>
-</div>
-
-<!-- ===== NAV ===== -->
-<header class="sticky top-0 z-50 backdrop-blur bg-[var(--bg)]/70 border-b border-[var(--border)]/70">
-<div class="header-row max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-  <!-- Brand -->
-<a class="brand-lock flex items-center gap-3 font-semibold tracking-tight min-w-0" href="#top">
-  <span class="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-white/5 border border-[var(--border)] overflow-hidden">
-<img alt="Aqua.Tech logo" class="h-9 w-9 object-contain" src="assets/logoo.webp" loading="eager" width="36" height="36" decoding="async"/>
-</span>
-<span class="leading-tight min-w-0">
-<span class="block truncate">Aqua.Tech</span>
-<span class="block text-xs font-normal text-[var(--muted)]" data-i18n="brand.sub"> </span>
-</span>
-</a>
-<nav class="desktop-nav hidden md:flex items-center gap-1 text-sm text-[var(--muted2)]">
-  <a class="nav-link" href="#about" data-i18n="nav.about">من نحن</a>
-  <a href="#trust" class="nav-link" data-i18n="nav.why">لماذا نحن</a>  <a class="nav-link" href="#services" data-i18n="nav.services">الخدمات</a>
-  <a class="nav-link" href="#ready-systems" data-i18n="nav.systems">الحلول</a>
-  <a class="nav-link" href="#results" data-i18n="nav.results">النتائج</a>
-  <a class="nav-link" href="#testimonials" data-i18n="nav.testimonials">المعايير</a>
-  <a class="nav-link" href="#security" data-i18n="nav.security">الأمان</a>
-  <a class="nav-link" href="#faq" data-i18n="nav.faq">الأسئلة</a>
-  <a class="nav-link" href="#contact" data-i18n="nav.contact">تواصل</a>
-</nav>
-<div class="flex items-center gap-2">
-<!-- Language toggle -->
-<button type="button" aria-label="Toggle language" class="inline-flex items-center gap-2 rounded-2xl px-3 py-2 bg-white/5 hover:bg-white/7 border border-[var(--border)] transition text-sm" id="langToggle">
-  <span style="font-family:Inter,system-ui;">EN</span>
-  <span class="text-xs text-[var(--muted)]">🌐</span>
-</button>
-<!-- WhatsApp -->
-<a 
-  class="inline-flex items-center gap-2 rounded-2xl px-3 py-2 bg-white/5 hover:bg-white/7 border border-[var(--border)] transition"
-  href="https://wa.me/962780932199"
-  id="waLinkHeader"
-  aria-label="WhatsApp Contact"
-  title="WhatsApp Contact"
-  target="_blank"
-  rel="noopener noreferrer"
-   onclick="if(typeof gtag==='function'){
-   gtag('event','whatsapp_click',{
-    event_category:'lead',
-    event_label:'header_whatsapp'
-  });
-}"
->
-  <svg viewBox="0 0 24 24" class="h-4 w-4 text-[var(--p1)]" fill="currentColor" aria-hidden="true">
-    <path d="M20.52 3.48A11.94 11.94 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.33-1.67a11.86 11.86 0 0 0 5.73 1.46h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.45-8.41Zm-8.46 18.28h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.75.99 1-3.66-.24-.38a9.86 9.86 0 0 1-1.52-5.22c0-5.44 4.43-9.87 9.88-9.87 2.64 0 5.13 1.03 6.99 2.89a9.83 9.83 0 0 1 2.9 6.98c0 5.45-4.43 9.86-9.85 9.86Zm5.74-7.86c-.31-.15-1.85-.91-2.14-1.01-.29-.11-.5-.15-.72.15-.21.31-.82 1.01-1 1.22-.19.21-.37.23-.68.08-.31-.15-1.31-.48-2.49-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.47.13-.62.14-.14.31-.37.46-.55.15-.18.21-.31.31-.51.1-.21.05-.38-.03-.53-.08-.15-.72-1.74-.99-2.38-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.53.08-.81.38-.28.31-1.07 1.05-1.07 2.57s1.1 2.99 1.25 3.2c.15.21 2.17 3.3 5.25 4.63.73.31 1.3.49 1.74.62.73.23 1.39.2 1.92.12.58-.09 1.85-.76 2.11-1.49.26-.73.26-1.36.18-1.49-.08-.14-.29-.22-.6-.38Z"/>
-  </svg>
-  <span class="hidden sm:inline text-sm" data-i18n="btn.whatsapp">واتساب</span>
-</a>
-
-<!-- Mobile menu button -->
-<button
-  id="menuToggle"
-  type="button"
-  aria-label="Open menu"
-  aria-expanded="false"
-  class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-2xl bg-white/5 hover:bg-white/7 border border-[var(--border)] transition"
->
-  <svg
-    id="menuIconOpen"
-    aria-hidden="true"
-    viewBox="0 0 24 24"
-    class="h-5 w-5"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-  >
-    <path d="M4 7h16M4 12h16M4 17h16"></path>
-  </svg>
-
-  <svg
-    id="menuIconClose"
-    aria-hidden="true"
-    viewBox="0 0 24 24"
-    class="h-5 w-5 hidden"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-  >
-    <path d="M6 6l12 12M18 6l-12 12"></path>
-  </svg>
-</button>
-
-<!-- Mobile menu panel -->
-<div
-  id="mobileMenu"
-  class="md:hidden hidden border border-[var(--border)]/70 bg-[var(--bg)]/92 backdrop-blur-2xl rounded-3xl"
->
-  <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-1 text-sm text-[var(--muted2)]">
-
-    <a class="mobile-nav-link" href="#about" data-i18n="nav.about">
-      من نحن
-    </a>
-        <a class="mobile-nav-link" href="#trust" data-i18n="nav.why">
-      لماذا نحن
-    </a>
-
-    <a class="mobile-nav-link" href="#services" data-i18n="nav.services">
-      الخدمات
-    </a>
-
-
-    <a class="mobile-nav-link" href="#ready-systems" data-i18n="nav.systems">
-      الحلول
-    </a>
-
-    <a class="mobile-nav-link" href="#results" data-i18n="nav.results">
-      النتائج
-    </a>
-
-    <a class="mobile-nav-link" href="#testimonials" data-i18n="nav.testimonials">
-      المعايير
-    </a>
-
-    <a class="mobile-nav-link" href="#security" data-i18n="nav.security">
-      الأمان
-    </a>
-
-    <a class="mobile-nav-link" href="#faq" data-i18n="nav.faq">
-      الأسئلة
-    </a>
-
-    <a class="mobile-nav-link" href="#contact" data-i18n="nav.contact">
-      تواصل
-    </a>
-
-    <!-- WhatsApp button -->
-    <a
-      id="waLinkMobile"
-      class="mt-3 inline-flex items-center justify-center gap-2 rounded-2xl px-4 py-3 bg-white/5 hover:bg-white/7 border border-[var(--border)] transition"
-      href="https://wa.me/962780932199"
-      target="_blank"
-      rel="noopener noreferrer"
-      onclick="if(typeof gtag==='function'){
-        gtag('event','whatsapp_click',{
-          event_category:'lead',
-          event_label:'header_whatsapp'
+      document.querySelectorAll('.faq-q').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = btn.closest('.faq-item');
+          const answer = item.querySelector('.faq-a');
+          const icon = btn.querySelector('.material-symbols-outlined');
+          answer.classList.toggle('hidden');
+          if(icon) icon.textContent = answer.classList.contains('hidden') ? 'add' : 'remove';
         });
-      }"
-    >
-      <svg
-        viewBox="0 0 24 24"
-        class="h-4 w-4 text-[var(--p1)]"
-        fill="currentColor"
-        aria-hidden="true"
-      >
-        <path d="M20.52 3.48A11.94 11.94 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.33-1.67a11.86 11.86 0 0 0 5.73 1.46h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.45-8.41Zm-8.46 18.28h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.75.99 1-3.66-.24-.38a9.86 9.86 0 0 1-1.52-5.22c0-5.44 4.43-9.87 9.88-9.87 2.64 0 5.13 1.03 6.99 2.89a9.83 9.83 0 0 1 2.9 6.98c0 5.45-4.43 9.86-9.85 9.86Zm5.74-7.86c-.31-.15-1.85-.91-2.14-1.01-.29-.11-.5-.15-.72.15-.21.31-.82 1.01-1 1.22-.19.21-.37.23-.68.08-.31-.15-1.31-.48-2.49-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.47.13-.62.14-.14.31-.37.46-.55.15-.18.21-.31.31-.51.1-.21.05-.38-.03-.53-.08-.15-.72-1.74-.99-2.38-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.53.08-.81.38-.28.31-1.07 1.05-1.07 2.57s1.1 2.99 1.25 3.2c.15.21 2.17 3.3 5.25 4.63.73.31 1.3.49 1.74.62.73.23 1.39.2 1.92.12.58-.09 1.85-.76 2.11-1.49.26-.73.26-1.36.18-1.49-.08-.14-.29-.22-.6-.38Z"/>
-      </svg>
-
-      <span data-i18n="btn.whatsapp">واتساب</span>
-    </a>
-
-  </div>
-</div>
-
-</header>
-<!-- ===== HERO ===== -->
-<main class="relative overflow-x-hidden" id="top">
-<div class="pointer-events-none absolute inset-0 dotgrid opacity-[.35]"></div>
-<div class="absolute -top-24 left-1/2 -translate-x-1/2 h-[560px] w-[1020px] rounded-full blur-3xl opacity-30" style="background:
-          radial-gradient(circle at 20% 20%, rgba(34,211,238,.55), transparent 55%),
-          radial-gradient(circle at 70% 30%, rgba(96,165,250,.45), transparent 55%),
-          radial-gradient(circle at 45% 80%, rgba(56,189,248,.40), transparent 55%);">
-</div>
-<!-- Tech overlay -->
-<div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden opacity-[.28]">
-<svg class="absolute -top-10 right-0 w-[820px] h-[520px]" fill="none" viewBox="0 0 820 520">
-<defs>
-<linearGradient gradientUnits="userSpaceOnUse" id="g1" x1="60" x2="760" y1="40" y2="480">
-<stop stop-color="rgba(34,211,238,.9)"></stop>
-<stop offset="1" stop-color="rgba(96,165,250,.85)"></stop>
-</linearGradient>
-</defs>
-<path d="M70 110H260C286 110 298 124 298 150V190C298 216 312 230 338 230H520" opacity=".65" stroke="url(#g1)" stroke-width="1.2"></path>
-<path d="M120 310H330C356 310 370 296 370 270V240C370 214 384 200 410 200H620" opacity=".55" stroke="url(#g1)" stroke-width="1.2"></path>
-<path d="M160 420H340C366 420 382 406 382 380V340C382 314 396 300 422 300H720" opacity=".45" stroke="url(#g1)" stroke-width="1.2"></path>
-<g opacity=".45">
-<text fill="rgba(230,240,255,.9)" font-family="Inter, system-ui" font-size="56" x="520" y="120">&lt;/&gt;</text>
-<text fill="rgba(168,179,199,.9)" font-family="Inter, system-ui" font-size="10" x="570" y="165">Programming • Launching • Expanding</text>
-</g>
-</svg>
-</div>
-<section class="relative grain">
-<div class="max-w-6xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8 pt-10 sm:pt-12 md:pt-16 lg:pt-20 pb-8 sm:pb-10 md:pb-14 lg:pb-16">
-<div class="hero-layout grid md:grid-cols-2 gap-6 md:gap-10 items-center">
-  <!-- Left -->
-<div class="hero-copy">
-  <p class="inline-flex w-fit max-w-full flex-wrap items-center gap-2 text-xs md:text-sm leading-6 text-[var(--muted2)] bg-white/5 border border-[var(--border)] rounded-full px-3 py-2">
-<span class="h-2 w-2 rounded-full bg-emerald-400"></span>
-<span data-i18n="hero.badge">حلول رقمية ونمو فعلي — من الانطلاقة إلى التوسع</span>
-</p>
-<h1 class="hero-title mt-5 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.08]">
-  <span class="block" data-i18n="hero.h1a"></span>
-
-  <span
-    class="block text-transparent bg-clip-text bg-gradient-to-l from-[var(--p2)] to-[var(--p1)]"
-    data-i18n="hero.h1b">
-  </span>
-
-  <span class="block" data-i18n="hero.h1c"></span>
-</h1>
-<p class="mt-5 max-w-2xl mx-auto md:mx-0 text-sm sm:text-base md:text-lg text-[var(--muted)] leading-7 sm:leading-8 break-words whitespace-normal" data-i18n="hero.desc">
-                   Aqua.Tech نبني مواقع وأنظمة تركّز على جذب العملاء، استقبال الطلبات، والرد الأولي في مسار واضح وقابل للتنفيذ.
-            </p>
-
-<div class="mt-4 flex flex-wrap items-center gap-3 text-xs text-[var(--muted2)]">
-  <span class="inline-flex items-center gap-2 rounded-full px-3 py-2 bg-white/5 border border-[var(--border)]" data-i18n="hero.pill1">⚡ إطلاق أسرع</span>
-  <span class="inline-flex items-center gap-2 rounded-full px-3 py-2 bg-white/5 border border-[var(--border)]" data-i18n="hero.pill2">🤖 ردود ومتابعة ذكية</span>
-  <span class="inline-flex items-center gap-2 rounded-full px-3 py-2 bg-white/5 border border-[var(--border)]" data-i18n="hero.pill3">📈 تحويل أعلى للطلبات</span>
-</div>
-
-<div class="hero-stats mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-[var(--muted)] justify-items-center">
-<div class="hero-stat-card mx-auto">
-    <div class="text-white font-semibold text-lg" data-i18n="stats.fastT">3–5 أيام</div>
-<div class="mt-1" data-i18n="stats.fastD"> إطلاق صفحات تسويقية احترافية</div>
-</div>
-<div class="hero-stat-card mx-auto">
-    <div class="text-white font-semibold text-lg" data-i18n="stats.clearT">24 ساعة</div>
-<div class="mt-1" data-i18n="stats.clearD">خطة واضحة بعد التواصل</div>
-</div>
-<div class="hero-stat-card mx-auto">
-    <div class="text-white font-semibold text-lg" data-i18n="stats.qualityT">سريع</div>
-<div class="mt-1" data-i18n="stats.qualityD">ردود بالأتمتة الذكية</div>
-</div>
-</div>
-<div class="hero-actions">
-  <a href="#contact" class="hero-primary-btn font-semibold" data-i18n="hero.ctaPrimary">ابدأ مشروعك</a>
-  <a href="#services" class="hero-secondary-btn font-medium" data-i18n="hero.ctaSecondary">استعرض الحلول</a>
-</div>
-
-</div>
-<!-- Right -->
-<div class="hero-panel-wrap relative w-full flex justify-center md:flex md:justify-start">
-    <div aria-hidden="true" class="hidden md:block pointer-events-none absolute -top-10 -right-6 floatB">
-  <div class="h-24 w-24 rounded-[28px] border border-[var(--border)]" style="background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), transparent 45%),
-                          radial-gradient(circle at 60% 60%, rgba(34,211,238,.35), transparent 55%),
-                          linear-gradient(135deg, rgba(34,211,238,.18), rgba(96,165,250,.10));
-                          box-shadow: 0 25px 70px rgba(0,0,0,.55);">
-</div>
-</div>
-<div aria-hidden="true" class="hidden md:block pointer-events-none absolute -bottom-10 -left-6 floatA">
-  <div class="h-28 w-28 rounded-full border border-[var(--border)]" style="background: radial-gradient(circle at 28% 28%, rgba(255,255,255,.25), transparent 40%),
-                          radial-gradient(circle at 65% 65%, rgba(96,165,250,.30), transparent 55%),
-                          linear-gradient(135deg, rgba(56,189,248,.14), rgba(34,211,238,.10));
-                          filter: drop-shadow(0 24px 70px rgba(0,0,0,.6));">
-</div>
-</div>
-<div aria-hidden="true" class="hidden md:block pointer-events-none absolute top-16 -left-2 floatC">
-  <div class="rounded-2xl px-4 py-3 bg-white/5 border border-[var(--border)] shadow-aqua">
-<div class="text-[11px] text-[var(--muted)]" data-i18n="hero.devMode">DEV MODE</div>
-<div class="mt-1 font-semibold text-white/90" style="font-family: Inter, system-ui;">&lt;/&gt; Aqua.Tech</div>
-</div>
-</div>
-<div class="hero-panel w-[calc(100%-2rem)] max-w-[22rem] sm:w-full sm:max-w-[26rem] md:max-w-none me-auto ms-0 rounded-3xl p-5 sm:p-6 md:p-7 bg-white/5 border border-[var(--border)] shadow-[0_18px_60px_rgba(0,0,0,.55)] relative overflow-hidden">
-    <div class="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-48 w-96 blur-3xl opacity-40" style="background: radial-gradient(circle, rgba(96,165,250,.50), transparent 60%);"></div>
-<div class="hero-card-head flex items-center justify-between">
-  <div class="hero-panel-copy">
-    <div class="text-sm text-[var(--muted)]" data-i18n="hero.cardLabel">ما الذي نبنيه لك</div>
-    <div class="mt-1 text-lg font-semibold" data-i18n="hero.cardTitle">نظام متكامل للنمو واستقبال العملاء</div>
-  </div>
-
-  <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-white/5 border border-[var(--border)] overflow-hidden">
-    <img alt="Aqua.Tech logo" class="h-10 w-10 object-contain" src="assets/logoo.webp" loading="eager" width="40" height="40" decoding="async"/>
-  </span>
-</div>
-<div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-  <div class="hero-mini-card rounded-2xl p-4 bg-[var(--surface)]/70 border border-[var(--border)]">
-<div class="font-medium" data-i18n="mini.launchT">الإطلاق</div>
-<div class="mt-1 text-[var(--muted)] text-xs" data-i18n="mini.landing">صفحات تحوّل الزيارات إلى طلبات</div>
-</div>
-<div class="hero-mini-card rounded-2xl p-4 bg-[var(--surface)]/70 border border-[var(--border)]">
-<div class="font-medium" data-i18n="mini.webT">الويب</div>
-<div class="mt-1 text-[var(--muted)] text-xs" data-i18n="mini.webs">موقع منظم وجاهز للتوسع</div>
-</div>
-<div class="hero-mini-card rounded-2xl p-4 bg-[var(--surface)]/70 border border-[var(--border)]">
-<div class="font-medium" data-i18n="mini.aiT">AI</div>
-<div class="mt-1 text-[var(--muted)] text-xs" data-i18n="mini.chatbot">ردود تلقائية ومسارات أوضح</div>
-</div>
-<div class="hero-mini-card rounded-2xl p-4 bg-[var(--surface)]/70 border border-[var(--border)]">
-<div class="font-medium" data-i18n="mini.growthT">النمو</div>
-<div class="mt-1 text-[var(--muted)] text-xs" data-i18n="mini.growth">متابعة أفضل وفرص أكثر</div>
-</div>
-</div>
-<!-- Terminal -->
-<div class="hero-terminal mt-6 rounded-2xl overflow-hidden border border-[var(--border)] bg-[#071221] shadow-aqua">
-<div class="px-4 py-2 flex items-center justify-between border-b border-[var(--border)] bg-white/5">
-<div class="flex items-center gap-2" style="direction:ltr">
-<span class="h-2.5 w-2.5 rounded-full bg-red-400/80"></span>
-<span class="h-2.5 w-2.5 rounded-full bg-amber-300/80"></span>
-<span class="h-2.5 w-2.5 rounded-full bg-emerald-300/80"></span>
-</div>
-<div class="text-xs text-[var(--muted)]" style="font-family: Inter, system-ui;" data-i18n="hero.terminalLabel">terminal • deploy </div>
-</div>
-<pre class="px-4 py-3 text-[12px] leading-5 text-[var(--muted2)] overflow-x-auto" style="direction:ltr; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;" data-i18n-html="hero.terminalBody">
-<span class="text-white/80">$</span> npx create-aqua-app
-<span class="text-white/80">$</span> build --optimize
-<span class="text-white/80">$</span> deploy --env=prod
-<span class="text-[var(--p1)]">✔</span> تم الإطلاق خلال <span class="text-[var(--p2)]">دقائق</span> — الأداء ✅</pre>
-</div>
-<div class="hero-ready mt-6 rounded-2xl p-4 bg-gradient-to-br from-[var(--p1)]/10 to-[var(--p2)]/10 border border-[var(--border)]">
-<a href="#contact" class="text-sm font-medium inline-flex items-center gap-2 hover:text-white transition" data-i18n="hero.readyT">جاهز تبني نظامك؟</a>
-<div class="mt-1 text-xs text-[var(--muted)]" data-i18n="hero.readyD">احكيلنا عن هدفك الحالي، وسنقترح عليك خطوة البداية، القناة الأنسب للتواصل، وما الذي يجب بناؤه أولًا.</div>
-
-</div>
-</div>
-</div>
-</div>
-<div aria-hidden="true" class="mt-8 opacity-50">
-<svg class="w-full h-10" viewBox="0 0 1200 120">
-<defs>
-<linearGradient id="wave" x1="0" x2="1" y1="0" y2="0">
-<stop stop-color="rgba(34,211,238,.55)"></stop>
-<stop offset="1" stop-color="rgba(96,165,250,.55)"></stop>
-</linearGradient>
-</defs>
-<path d="M0,60 C150,20 300,100 450,60 C600,20 750,100 900,60 C1050,20 1150,90 1200,60" fill="none" stroke="url(#wave)" stroke-width="2"></path>
-</svg>
-</div>
-</div>
-</section>
-
-<section class="border-t border-[var(--border)]/70" id="about" data-animate>
-  <div class="max-w-6xl mx-auto px-4 py-14 md:py-16 lg:py-20">
-
-    <div class="about-shell">
-
-      <h2 class="text-2xl md:text-3xl font-semibold" data-i18n="about.h">
-        من نحن
-      </h2>
-
-      <p class="mt-4 text-[var(--muted2)] leading-8 max-w-3xl" data-i18n="about.d">
-
-        Aqua.Tech شريك رقمي يساعد الشركات ورواد الأعمال على بناء حضور أقوى على الإنترنت، وتطوير مواقع وأنظمة عملية تدعم النمو.
-
-        <br><br>
-
-        نجمع بين التطوير، الأتمتة الذكية، وتجربة المستخدم لنقدّم حلولًا واضحة، سهلة التوسّع، وموجّهة لنتائج الأعمال.
-
-      </p>
-
-<div class="mt-8 flex flex-wrap gap-3 text-sm">
-
-  <div
-    class="rounded-2xl border border-[var(--border)] bg-white/[.03] px-4 py-2"
-    data-i18n="about.tag1">
-    مواقع وأنظمة
-  </div>
-
-  <div
-    class="rounded-2xl border border-[var(--border)] bg-white/[.03] px-4 py-2"
-    data-i18n="about.tag2">
-    أتمتة وذكاء اصطناعي
-  </div>
-
-  <div
-    class="rounded-2xl border border-[var(--border)] bg-white/[.03] px-4 py-2"
-    data-i18n="about.tag3">
-    حلول للنمو والتشغيل
-  </div>
-
-</div>
-
-    </div>
-
-  </div>
-</section>
-
-<section class="border-t border-[var(--border)]/70" id="trust" data-animate>
-  <div class="max-w-6xl mx-auto px-4 py-10 md:py-12">
-    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-      <div>
-        <h2 class="text-2xl md:text-3xl font-semibold" data-i18n="trust.h">لماذا تختار Aqua.Tech</h2>
-        <p class="mt-2 text-[var(--muted)] max-w-3xl" data-i18n="trust.sub"></p>
-      </div>
-    </div>
-
-    <div class="trust-strip mt-8">
-      <div class="trust-pill">
-        <div class="text-xs text-[var(--muted)]" data-i18n="trust.c1k">First step</div>
-        <h3 class="mt-2 font-semibold" data-i18n="trust.c1t">خطة واضحة خلال 24 ساعة</h3>
-        <p class="mt-2 text-sm text-[var(--muted2)] leading-7" data-i18n="trust.c1d">نفهم هدفك بسرعة، ثم نحدد لك ما الذي يجب بناؤه أولًا، وما الذي يمكن تأجيله، وما أنسب نقطة بداية لميزانيتك ومرحلتك.</p>
-      </div>
-      <div class="trust-pill">
-        <div class="text-xs text-[var(--muted)]" data-i18n="trust.c2k">Delivery</div>
-        <h3 class="mt-2 font-semibold" data-i18n="trust.c2t">حل يُشغّل اليوم ويتوسع لاحقًا</h3>
-        <p class="mt-2 text-sm text-[var(--muted2)] leading-7" data-i18n="trust.c2d">نبني بشكل عملي من البداية، بحيث تحصل على نسخة مفيدة الآن، وتبقى جاهزة للتطوير لاحقًا بدون إعادة بناء من الصفر.</p>
-      </div>
-      <div class="trust-pill">
-        <div class="text-xs text-[var(--muted)]" data-i18n="trust.c3k">Support</div>
-        <h3 class="mt-2 font-semibold" data-i18n="trust.c3t">دعم وتحسين بعد الإطلاق</h3>
-        <p class="mt-2 text-sm text-[var(--muted2)] leading-7" data-i18n="trust.c3d">بعد الإطلاق نساعدك في التحسينات، التعديلات، ومعالجة الملاحظات حتى يبقى الحل فعالًا ويعطي نتيجة أفضل.</p>
-      </div>
-      <div class="trust-pill">
-        <div class="text-xs text-[var(--muted)]" data-i18n="trust.c4k">Clarity</div>
-        <h3 class="mt-2 font-semibold" data-i18n="trust.c4t">تواصل أوضح وقرار أسرع</h3>
-        <p class="mt-2 text-sm text-[var(--muted2)] leading-7" data-i18n="trust.c4d">تحديثات واضحة أثناء التنفيذ، ومخرجات مرتبة، وتسليم منظم حسب الاتفاق حتى تعرف دائمًا أين وصل المشروع وما التالي.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="aq-services-section" id="services" data-animate>
-  <div class="aq-services-wrap">
-    <div class="aq-services-head">
-      <div>
-        <span class="aq-section-kicker" data-i18n="details.h">الخدمات</span>
-        <h2 data-i18n="details.h">الخدمات</h2>
-        <p data-i18n="details.sub">اختر خدمة واحدة أو باقة متكاملة — نغطي كامل رحلة مشروعك من الفكرة حتى الإطلاق</p>
-      </div>
-    </div>
-
-    <div class="aq-service-stack">
-
-      <!-- Landing Page Express -->
-      <article class="aq-service-card" id="svc-landing">
-        <div class="aq-service-copy">
-          <div class="aq-service-pill">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM4 9h16M8 13h8M8 16h5"/></svg>
-            <span data-i18n="details.landing.kicker">حلول سريعة</span>
-          </div>
-
-          <h3 data-i18n="details.landing.t">صفحات تسويقية احترافية</h3>
-          <p class="aq-service-desc" data-i18n="details.landing.d">صفحات تسويقية احترافية وسريعة تساعدك تبدأ الإعلان وجمع العملاء خلال وقت قصير.</p>
-
-<ul class="aq-feature-list">
-  <li>
-    <span class="aq-feature-icon">◎</span>
-    <div>
-      <strong data-i18n="details.landing.p1">
-        تصميم واضح موجه لرفع التحويل وجمع العملاء المحتملين
-      </strong>
-    </div>
-  </li>
-
-  <li>
-    <span class="aq-feature-icon">↯</span>
-    <div>
-      <strong data-i18n="details.landing.p2">
-        متوافقة مع الجوال + سرعة عالية + دعوة واضحة للإجراء
-      </strong>
-    </div>
-  </li>
-
-  <li>
-    <span class="aq-feature-icon">↗</span>
-    <div>
-      <strong data-i18n="details.landing.p3">
-        ربط واتساب / نموذج / تتبع وتحليلات
-      </strong>
-    </div>
-  </li>
-</ul>
-
-           <a class="aq-service-link js-service-cta" data-service="website_lead_system" data-i18n="details.landing.cta" href="#contact">اطلب صفحة تسويقية</a>
-
-            </div>
-
-        <div class="aq-service-divider" aria-hidden="true"></div>
-
-<div class="aq-service-visual aq-premium-visual aq-visual-landing" aria-hidden="true">
-
-  <div class="premium-node node-seo">
-    <span>SEO</span>
-  </div>
-
-  <div class="premium-node node-cms">
-    <span>CMS</span>
-  </div>
-
-  <div class="premium-browser">
-    <div class="premium-browser-top">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
-    <div class="premium-browser-grid">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </div>
-
-  <div class="premium-visual-glow"></div>
-</div>
-      </article>
-
-      <!-- Websites -->
-      <article class="aq-service-card" id="svc-web">
-        <div class="aq-service-copy">
-          <div class="aq-service-pill">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM4 9h16M8 13h3M13 13h3M8 16h8"/></svg>
-            <span data-i18n="details.web.kicker">مواقع ومتاجر</span>
-          </div>
-
-          <h3 data-i18n="details.web.t">مواقع ومتاجر احترافية</h3>
-          <p class="aq-service-desc" data-i18n="details.web.d">نبني مواقع شركات ومتاجر وصفحات خدمات تركّز على الثقة والسرعة وتجربة المستخدم.</p>
-
-          <ul class="aq-feature-list">
-            <li>
-  <span class="aq-feature-icon">⌁</span>
-  <div><strong data-i18n="details.web.p1">تصميم واجهات وتجربة مستخدم + واجهات حديثة ومتجاوبة</strong></div>
-</li>
-
-<li>
-  <span class="aq-feature-icon">▦</span>
-  <div><strong data-i18n="details.web.p2">ربط CMS أو لوحة تحكم أو متجر حسب الحاجة</strong></div>
-</li>
-
-<li>
-  <span class="aq-feature-icon">↗</span>
-  <div><strong data-i18n="details.web.p3">تهيئة تقنية لمحركات البحث + سرعة + تحليلات</strong></div>
-</li>
-          </ul>
-
-         <a class="aq-service-link js-service-cta" data-service="website_lead_system" data-i18n="details.web.cta" href="#contact">اطلب موقعك الآن</a>
-        </div>
-
-        <div class="aq-service-divider" aria-hidden="true"></div>
-
-<div class="aq-service-visual aq-premium-visual aq-visual-web" aria-hidden="true">
-
-  <div class="premium-node web-node-seo">
-    <span>SEO</span>
-  </div>
-
-  <div class="premium-node web-node-cms">
-    <span>CMS</span>
-  </div>
-
-  <div class="premium-web-window">
-    <div class="premium-web-top">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
-    <div class="premium-web-layout">
-      <div class="web-hero-line"></div>
-
-      <div class="web-card web-card-lg"></div>
-      <div class="web-card"></div>
-      <div class="web-card"></div>
-
-      <div class="web-side-panel">
-        <i></i>
-        <i></i>
-        <i></i>
-      </div>
-    </div>
-  </div>
-
-  <div class="premium-visual-glow"></div>
-</div>
-      </article>
-
-      <!-- AI Chatbots -->
-      <article class="aq-service-card" id="svc-chatbot">
-        <div class="aq-service-copy">
-          <div class="aq-service-pill">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14v9H9l-4 4V7zM9 11h6M9 14h4"/></svg>
-            <span data-i18n="details.chatbot.kicker">ذكاء اصطناعي وأتمتة</span>
-          </div>
-
-          <h3 data-i18n="details.chatbot.t">شات بوت وأتمتة بالذكاء الاصطناعي</h3>
-          <p class="aq-service-desc" data-i18n="details.chatbot.d">نساعدك تبني بوتات ومهام تلقائية لتسريع الردود، تنظيم العملاء، وتقليل العمل اليدوي.</p>
-
-          <ul class="aq-feature-list">
-            <li><span class="aq-feature-icon">🤖</span><div><strong data-i18n="details.chatbot.p1">بوت واتساب أو موقع للرد على الأسئلة والاستفسارات</strong></div></li>
-            <li><span class="aq-feature-icon">⟲</span><div><strong data-i18n="details.chatbot.p2">أتمتة استقبال العملاء المحتملين وربط النماذج والرسائل</strong></div></li>
-            <li><span class="aq-feature-icon">🔗</span><div><strong data-i18n="details.chatbot.p3">ربط مع نظام إدارة العملاء أو جداول Google أو أنظمة داخلية</strong></div></li>
-          </ul>
-
-          <a class="aq-service-link js-service-cta" data-service="ai_business_automation" data-i18n="details.chatbot.cta" href="#contact">جرّب الأتمتة الذكية</a>
-        </div>
-
-        <div class="aq-service-divider" aria-hidden="true"></div>
-
-        <div class="aq-service-visual aq-visual-ai" aria-hidden="true">
-          <div class="aq-chat-window">
-            <span></span><span></span><span></span>
-            <div class="aq-bot-dot"></div>
-          </div>
-          <div class="aq-node n1"></div><div class="aq-node n2"></div><div class="aq-node n3"></div>
-          <div class="aq-glow-floor"></div>
-        </div>
-      </article>
-
-      <!-- Custom systems -->
-      <article class="aq-service-card aq-service-featured" id="svc-custom">
-        <div class="aq-service-copy">
-          <div class="aq-service-pill">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4-8 4-8-4 8-4zM4 12l8 4 8-4M4 17l8 4 8-4"/></svg>
-            <span data-i18n="details.custom.kicker">برمجيات مخصصة</span>
-          </div>
-
-          <h3 data-i18n="details.custom.t">أنظمة ولوحات تحكم مصممة لك</h3>
-          <p class="aq-service-desc" data-i18n="details.custom.d">أنظمة داخلية، أتمتة، وتكاملات API لتوفير الوقت والتكلفة.</p>
-
-          <ul class="aq-feature-list">
-            <li><span class="aq-feature-icon">⌕</span><div><strong data-i18n="details.custom.p1">تحليل المتطلبات + تصميم قاعدة البيانات + الأدوار والصلاحيات</strong></div></li>
-            <li><span class="aq-feature-icon">●</span><div><strong data-i18n="details.custom.p2">تكاملات: الدفع / نظام إدارة العملاء / واتساب / والمزيد</strong></div></li>
-            <li><span class="aq-feature-icon">▥</span><div><strong data-i18n="details.custom.p3">تقارير + مراقبة + دعم وصيانة مستمرة</strong></div></li>
-            <li><span class="aq-feature-icon">⌁</span><div><strong data-i18n="details.custom.p4">حلول IoT وربط أجهزة وحساسات مع النظام ولوحات التحكم</strong></div></li>
-          </ul>
-
-          <a class="aq-service-link js-service-cta" data-service="custom_system" data-i18n="details.custom.cta" href="#contact">تحدث مع خبير</a>
-        </div>
-
-        <div class="aq-service-divider" aria-hidden="true"></div>
-
-        <div class="aq-service-visual aq-visual-custom" aria-hidden="true">
-          <div class="aq-system-node node-db"><span></span></div>
-          <div class="aq-system-node node-users"><span></span></div>
-          <div class="aq-system-node node-pay"><span></span></div>
-          <div class="aq-system-node node-wa"><span></span></div>
-          <div class="aq-system-node node-wifi"><span></span></div>
-          <div class="aq-system-node node-chart"><span></span></div>
-          <div class="aq-dashboard-screen">
-            <div class="aq-screen-sidebar"><i></i><i></i><i></i></div>
-            <div class="aq-screen-chart"><b></b><b></b><b></b></div>
-            <div class="aq-screen-donut"></div>
-          </div>
-          <div class="aq-glow-floor"></div>
-        </div>
-      </article>
-
-      <!-- Growth -->
-      <article class="aq-service-card" id="svc-growth">
-        <div class="aq-service-copy">
-          <div class="aq-service-pill">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18l6-6 4 4 6-9M16 7h4v4"/></svg>
-            <span data-i18n="details.growth.kicker">نمو وتسويق</span>
-          </div>
-
-          <h3 data-i18n="details.growth.t">باقات نمو وتسويق رقمي</h3>
-          <p class="aq-service-desc" data-i18n="details.growth.d">ندعم نمو مشروعك بخطة محتوى وإعلانات وتحسين ظهور وتحويل الزوار إلى عملاء.</p>
-
-          <ul class="aq-feature-list">
-            <li><span class="aq-feature-icon">▤</span><div><strong data-i18n="details.growth.p1">إدارة منصات التواصل + محتوى + تصميم + جدولة</strong></div></li>
-            <li><span class="aq-feature-icon">↗</span><div><strong data-i18n="details.growth.p2">إعلانات ممولة وتحسين التحويل</strong></div></li>
-            <li><span class="aq-feature-icon">▥</span><div><strong data-i18n="details.growth.p3">تقارير شهرية وقياس أداء مستمر</strong></div></li>
-          </ul>
-
-            <a class="aq-service-link js-service-cta" data-service="growth_package" data-i18n="details.growth.cta" href="#contact">شاهد باقات النمو</a>
-        </div>
-
-        <div class="aq-service-divider" aria-hidden="true"></div>
-
-        <div class="aq-service-visual aq-visual-growth" aria-hidden="true">
-          <div class="aq-growth-chart"><i></i><i></i><i></i><i></i></div>
-          <div class="aq-floating-badge badge-a">ROI</div>
-          <div class="aq-floating-badge badge-b">ADS</div>
-          <div class="aq-glow-floor"></div>
-        </div>
-      </article>
-
-      <!-- Social Media Management -->
-      <article class="aq-service-card" id="svc-social">
-        <div class="aq-service-copy">
-          <div class="aq-service-pill">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 8h10M7 12h7M5 4h14v16H5z"/></svg>
-            <span data-i18n="details.social.kicker">إدارة حسابات السوشيال ميديا</span>
-          </div>
-
-          <h3 data-i18n="details.social.t">إدارة حسابات السوشيال ميديا باحتراف</h3>
-          <p class="aq-service-desc" data-i18n="details.social.d">نجهز لك خطة محتوى وتصاميم وجدولة ونساعدك تبني حضور ثابت يحول المتابعين إلى عملاء محتملين.</p>
-
-          <ul class="aq-feature-list">
-            <li><span class="aq-feature-icon">▦</span><div><strong data-i18n="details.social.p1">خطة محتوى شهرية + أفكار منشورات وريلز حسب نشاطك</strong></div></li>
-            <li><span class="aq-feature-icon">✦</span><div><strong data-i18n="details.social.p2">تصميم بوستات وستوريز وكتابة كابشن مناسب للبراند</strong></div></li>
-            <li><span class="aq-feature-icon">⏱</span><div><strong data-i18n="details.social.p3">جدولة ونشر + متابعة الرسائل والتفاعل حسب الباقة</strong></div></li>
-            <li><span class="aq-feature-icon">▥</span><div><strong data-i18n="details.social.p4">تقرير شهري واضح لتحسين الوصول والطلبات</strong></div></li>
-          </ul>
-
-           <a class="aq-service-link js-service-cta" data-service="social_media_management" data-i18n="details.social.cta" href="#contact">ابدأ إدارة حساباتك</a>
-        </div>
-
-        <div class="aq-service-divider" aria-hidden="true"></div>
-
-        <div class="aq-service-visual aq-visual-social" aria-hidden="true">
-          <div class="aq-phone-card">
-            <div class="aq-phone-avatar"></div>
-            <span></span><span></span><span></span>
-          </div>
-          <div class="aq-social-chip c1">IG</div>
-          <div class="aq-social-chip c2">FB</div>
-          <div class="aq-social-chip c3">IN</div>
-          <div class="aq-glow-floor"></div>
-        </div>
-      </article>
-
-      <!-- Design -->
-      <article class="aq-service-card" id="svc-design">
-        <div class="aq-service-copy">
-          <div class="aq-service-pill">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l4-1 10-10-3-3L5 16l-1 4zM13 6l3 3"/></svg>
-            <span data-i18n="details.design.kicker">تصميم وهوية</span>
-          </div>
-
-          <h3 data-i18n="details.design.t">تصميم واجهات وتجربة مستخدم وهوية بصرية</h3>
-          <p class="aq-service-desc" data-i18n="details.design.d">نصمم واجهات وتجارب وهوية بصرية تعطي مشروعك شكل احترافي وثقة أعلى.</p>
-
-          <ul class="aq-feature-list">
-            <li><span class="aq-feature-icon">▧</span><div><strong data-i18n="details.design.p1">مخططات أولية + مكتبة واجهات + نظام تصميم</strong></div></li>
-            <li><span class="aq-feature-icon">◉</span><div><strong data-i18n="details.design.p2">هوية بصرية: ألوان وخطوط واستخدامات الشعار</strong></div></li>
-            <li><span class="aq-feature-icon">✦</span><div><strong data-i18n="details.design.p3">تصميمات تسويقية ومواد داعمة للمبيعات</strong></div></li>
-          </ul>
-
-           <a class="aq-service-link js-service-cta" data-service="design_branding" data-i18n="details.design.cta" href="#contact">شاهد الهوية المناسبة</a>
-        </div>
-
-        <div class="aq-service-divider" aria-hidden="true"></div>
-
-        <div class="aq-service-visual aq-visual-design" aria-hidden="true">
-          <div class="aq-design-board">
-            <span class="top"></span>
-            <span class="box one"></span>
-            <span class="box two"></span>
-            <span class="box three"></span>
-          </div>
-          <div class="aq-palette"><i></i><i></i><i></i></div>
-          <div class="aq-cursor-shape"></div>
-          <div class="aq-glow-floor"></div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-
-<section class="border-t border-[var(--border)]/70" id="ready-systems" data-animate>
-  <div class="max-w-6xl mx-auto px-4 py-14 md:py-16 lg:py-20">
-    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-      <div>
-        <h2 class="text-2xl md:text-3xl font-semibold" data-i18n="systems.h">حلول جاهزة</h2>
-        <p class="mt-2 text-[var(--muted)] max-w-3xl" data-i18n="systems.sub">أنظمة ومنصات جاهزة يمكن تخصيصها بحسب نوع النشاط والمرحلة الحالية لمشروعك.</p>
-      </div>
-      <a href="#contact" class="hero-secondary-btn font-medium" data-i18n="systems.cta">اطلب النظام المناسب لك </a>
-    </div>
-
-    <div class="mt-8 grid sm:grid-cols-2 xl:grid-cols-4 gap-4">
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-glow h-full flex flex-col">
-        <div class="text-xs text-[var(--muted)]" data-i18n="systems.card1.kicker">العمليات القانونية</div>
-        <h3 class="mt-2 text-lg font-semibold" data-i18n="systems.card1.t">نظام إدارة مكاتب المحاماة</h3>
-        <p class="mt-3 text-sm text-[var(--muted2)] leading-7" data-i18n="systems.card1.d">نظام لإدارة القضايا والعملاء والمواعيد والملفات القانونية بشكل أوضح وأسهل.</p>
-        <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="systems.card1.p1">إدارة القضايا والملفات</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="systems.card1.p2">متابعة العملاء والمواعيد</span></li>
-        </ul>
-        <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="lawyer_system" data-i18n="systems.cardCta">اطلب هذا النظام </a>
-      </div>
-
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-glow h-full flex flex-col">
-        <div class="text-xs text-[var(--muted)]" data-i18n="systems.card2.kicker">سير العمل التعليمي</div>
-        <h3 class="mt-2 text-lg font-semibold" data-i18n="systems.card2.t">منصة مشاريع الجامعة</h3>
-        <p class="mt-3 text-sm text-[var(--muted2)] leading-7" data-i18n="systems.card2.d">منصة لتنظيم مشاريع الطلبة ورفع الملفات ومتابعة الفرق والإشراف الأكاديمي.</p>
-        <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="systems.card2.p1">تنظيم فرق ومشاريع الطلبة</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="systems.card2.p2">رفع الملفات ومتابعة التقييم</span></li>
-        </ul>
-        <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="university_project_hub" data-i18n="systems.cardCta">اطلب هذا النظام </a>
-      </div>
-
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-glow h-full flex flex-col">
-        <div class="text-xs text-[var(--muted)]" data-i18n="systems.card3.kicker">أدوات مهنية</div>
-        <h3 class="mt-2 text-lg font-semibold" data-i18n="systems.card3.t">ResumeIQ</h3>
-        <p class="mt-3 text-sm text-[var(--muted2)] leading-7" data-i18n="systems.card3.d">أداة تساعد المستخدم على إنشاء سيرة ذاتية بشكل أوضح وأسرع وتجربة أسهل.</p>
-        <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="systems.card3.p1">بناء السيرة الذاتية بسهولة</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="systems.card3.p2">تنظيم المحتوى بشكل احترافي</span></li>
-        </ul>
-        <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="resumeiq" data-i18n="systems.cardCta">اطلب هذا النظام </a>
-      </div>
-
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-glow h-full flex flex-col">
-        <div class="text-xs text-[var(--muted)]" data-i18n="systems.card4.kicker">إدارة الحضور</div>
-        <h3 class="mt-2 text-lg font-semibold" data-i18n="systems.card4.t">Smart Attendance</h3>
-        <p class="mt-3 text-sm text-[var(--muted2)] leading-7" data-i18n="systems.card4.d">نظام حضور ذكي يعتمد على التعرف على الوجوه لتسجيل الحضور تلقائيًا عبر الكاميرا، مع تقليل التلاعب والأخطاء اليدوية وتسهيل المتابعة اليومية.</p>
-        <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="systems.card4.p1">تسجيل حضور تلقائي عبر الكاميرا</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="systems.card4.p2">تقارير وتنظيم أفضل للحضور</span></li>
-        </ul>
-        <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="smart_attendance" data-i18n="systems.cardCta">اطلب هذا النظام </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-<section class="border-t border-[var(--border)]/70" id="results" data-animate>
-  <div class="max-w-6xl mx-auto px-4 py-14 md:py-16 lg:py-20">
-    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-      <div>
-        <h2 class="text-2xl md:text-3xl font-semibold" data-i18n="results.h">نتائج يمكننا تحقيقها معك</h2>
-<p class="mt-3 text-[var(--muted)] max-w-2xl" data-i18n="results.subText">
-  حلول رقمية مصممة لتحسين التشغيل، زيادة التحويل، وتنظيم التواصل مع العملاء
-</p>
-      </div>
-      <a href="#contact" class="hero-secondary-btn font-medium" data-i18n="results.cta">نحدد لك الحل المناسب</a>
-    </div>
-
-    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-glow h-full flex flex-col">
-        <div class="text-xs text-[var(--muted)]" data-i18n="results.c1k">صفحات تسويقية احترافية + إعلانات</div>
-        <h3 class="mt-2 text-lg font-semibold" data-i18n="results.c1t">زيادة وضوح التحويل وجمع الاستفسارات</h3>
-        <p class="mt-3 text-sm text-[var(--muted2)] leading-7" data-i18n="results.c1d">
-          صفحات تسويقية احترافية واضحة مع CTA مباشر وربط واتساب أو نموذج يمكن أن تساعدك على رفع عدد الاستفسارات وتقليل ضياع الزوار بين الزيارة والطلب.
-        </p>
-      </div>
-
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-glow h-full flex flex-col">
-        <div class="text-xs text-[var(--muted)]" data-i18n="results.c2k">ذكاء اصطناعي + أتمتة</div>
-        <h3 class="mt-2 text-lg font-semibold" data-i18n="results.c2t">تقليل وقت الرد وتنظيم العملاء المحتملين</h3>
-        <p class="mt-3 text-sm text-[var(--muted2)] leading-7" data-i18n="results.c2d">
-          أتمتة أو شات بوت يساعدك على الرد خلال دقائق بدل ساعات، مع جمع البيانات وربطها بالأدوات التي تستخدمها حاليًا.
-        </p>
-      </div>
-
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-glow h-full flex flex-col">
-        <div class="text-xs text-[var(--muted)]" data-i18n="results.c3k">نظام مخصص</div>
-        <h3 class="mt-2 text-lg font-semibold" data-i18n="results.c3t">تشغيل أوضح ووقت أقل ضائع</h3>
-        <p class="mt-3 text-sm text-[var(--muted2)] leading-7" data-i18n="results.c3d">
-          نظام أو لوحة تحكم مخصصة تساعدك على تنظيم الطلبات والمتابعة والتقارير، وتقليل الاعتماد على التتبع اليدوي العشوائي.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-<section class="border-t border-[var(--border)]/70" id="testimonials" data-animate>
-  <div class="max-w-6xl mx-auto px-4 py-14 md:py-16 lg:py-20">
-    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-      <div>
-        <h2 class="text-2xl md:text-3xl font-semibold" data-i18n="testimonials.h">مبادئ عمل نلتزم بها في كل مشروع</h2>
-        <p class="mt-2 text-[var(--muted)] max-w-3xl" data-i18n="testimonials.sub">
-          كل مشروع ننفذه يعكس هذه المبادئ بشكل عملي — وضوح، جودة، ونتائج قابلة للقياس
-        </p>
-      </div>
-    </div>
-
-    <div class="mt-8 grid md:grid-cols-3 gap-4">
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-glow h-full flex flex-col">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="h-10 w-10 rounded-full flex items-center justify-center text-base font-semibold" style="background: linear-gradient(135deg, rgba(34,211,238,.25), rgba(96,165,250,.25)); color: var(--p1);">✓</div>
-          <div class="text-xs font-medium text-[var(--p1)] uppercase tracking-wider" data-i18n="testimonials.a1">وضوح في التواصل</div>
-        </div>
-        <p class="text-sm leading-8 text-[var(--muted2)]" data-i18n="testimonials.q1">
-          المتطلبات والخطوات تكون واضحة من البداية، والعميل يعرف دائمًا أين وصل المشروع وما الخطوة التالية — لا مفاجآت.
-        </p>
-      </div>
-
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-glow h-full flex flex-col">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="h-10 w-10 rounded-full flex items-center justify-center text-base font-semibold" style="background: linear-gradient(135deg, rgba(34,211,238,.25), rgba(96,165,250,.25)); color: var(--p1);">✓</div>
-          <div class="text-xs font-medium text-[var(--p1)] uppercase tracking-wider" data-i18n="testimonials.a2">تركيز على النتيجة</div>
-        </div>
-        <p class="text-sm leading-8 text-[var(--muted2)]" data-i18n="testimonials.q2">
-          نركز على حلول تخدم الهدف التجاري فعلًا — زيادة الاستفسارات، تقليل وقت الرد، وتحسين التحويل — وليس مجرد واجهة جميلة.
-        </p>
-      </div>
-
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-glow h-full flex flex-col">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="h-10 w-10 rounded-full flex items-center justify-center text-base font-semibold" style="background: linear-gradient(135deg, rgba(34,211,238,.25), rgba(96,165,250,.25)); color: var(--p1);">✓</div>
-          <div class="text-xs font-medium text-[var(--p1)] uppercase tracking-wider" data-i18n="testimonials.a3">تفكير طويل المدى</div>
-        </div>
-        <p class="text-sm leading-8 text-[var(--muted2)]" data-i18n="testimonials.q3">
-          نبني بشكل قابل للتطوير حتى يبدأ المشروع صح اليوم ويظل جاهزًا للنمو والتحسين لاحقًا بدون إعادة بناء من الصفر.
-        </p>
-      </div>
-    </div>
-
-<!-- Social proof bar -->
-<div class="premium-stats">
-
-  <div class="premium-stat">
-    <div class="stat-icon">🚀</div>
-
-    <div class="stat-number"
-         data-i18n="stats.launchN">
-         100%
-    </div>
-
-    <div class="stat-line"></div>
-
-    <p data-i18n="stats.launchT">
-      إطلاق جاهز مع دعم وتشغيل
-    </p>
-  </div>
-
-  <div class="premium-stat">
-    <div class="stat-icon">🛡️</div>
-
-    <div class="stat-number"
-         data-i18n="stats.speedN">
-         3-5 أيام
-    </div>
-
-    <div class="stat-line"></div>
-
-    <p data-i18n="stats.speedT">
-      متوسط تسليم صفحة تسويقية احترافية
-    </p>
-  </div>
-
-  <div class="premium-stat">
-    <div class="stat-icon">⭐</div>
-
-    <div class="stat-number"
-         data-i18n="stats.projectsN">
-         100+
-    </div>
-
-    <div class="stat-line"></div>
-
-    <p data-i18n="stats.projectsT">
-      مشروع منجز
-    </p>
-  </div>
-
-</div>
-  </div>
-</section>
-
-<section class="border-t border-[var(--border)]/70" id="offers" data-animate>
-  <div class="max-w-6xl mx-auto px-4 py-14 md:py-16 lg:py-20">
-    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-      <div>
-        <h2 class="text-2xl md:text-3xl font-semibold" data-i18n="offers.h">عروض جاهزة للانطلاق</h2>
-        <p class="mt-2 text-[var(--muted)] max-w-3xl" data-i18n="offers.sub">إذا كنت تريد بداية سريعة أو عرضًا واضحًا، هذه الباقات هي أفضل نقطة دخول للعمل معنا</p>
-      </div>
-      <a href="#contact" class="hero-secondary-btn font-medium" data-i18n="offers.cta">احصل على توصية مناسبة</a>
-    </div>
-
-    <div class="mt-8 grid md:grid-cols-2 xl:grid-cols-4 gap-4">
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua h-full flex flex-col">
-        <div class="inline-flex items-center rounded-full px-3 py-1 text-xs bg-white/5 border border-[var(--border)] text-[var(--muted2)]" data-i18n="offers.card1.badge">الأسرع إطلاقًا</div>
-        <h3 class="mt-4 text-xl font-semibold" data-i18n="offers.card1.t">صفحات تسويقية احترافية</h3>
-        <p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="offers.card1.d">صفحات تسويقية احترافية تجهزك للإعلان وجمع العملاء بخطوات واضحة وسريعة.</p>
-
-        <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card1.p1">مناسبة للعروض والخدمات والإعلانات</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card1.p2">ربط واتساب / نموذج / CTA واضح</span></li>
-        </ul>
-
-        <div class="mt-4 flex flex-wrap gap-2 text-xs text-[var(--muted2)]">
-          <span class="aq-chip" data-i18n="offers.card1.chip1">يبدأ من 250$ تقريبًا</span>
-<span class="aq-chip" data-i18n="offers.card1.chip2">5–7 أيام</span>
-<span class="aq-chip" data-i18n="offers.card1.chip3">مناسب للإعلانات</span>
-        </div>
-
-        <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="website_lead_system" data-i18n="offers.cardCta">احصل على توصية مناسبة لك</a>
-      </div>
-
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua h-full flex flex-col">
-        <div class="inline-flex items-center rounded-full px-3 py-1 text-xs bg-white/5 border border-[var(--border)] text-[var(--muted2)]" data-i18n="offers.card2.badge">طلب مرتفع</div>
-        <h3 class="mt-4 text-xl font-semibold" data-i18n="offers.card2.t">باقة شات بوت ذكي الأساسية</h3>
-        <p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="offers.card2.d">بوت ذكي للموقع أو واتساب يساعدك ترد أسرع وتجمع العملاء بشكل منظم.</p>
-
-        <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card2.p1">أسئلة متكررة + استقبال طلبات</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card2.p2">ربط بسيط مع واتساب أو نموذج</span></li>
-          <li class="flex gap-2">
-            <span class="text-[var(--p1)]">•</span>
-            <span data-i18n="offers.card2.p3">
-                     ردود تلقائية وتنظيم أسرع للعملاء
-            </span>
-          </li>
-        </ul>
-
-        <div class="mt-4 flex flex-wrap gap-2 text-xs text-[var(--muted2)]">
-          <span class="aq-chip" data-i18n="offers.card2.chip1">يبدأ من 400$ تقريبًا</span>
-<span class="aq-chip" data-i18n="offers.card2.chip2">3–5 أيام</span>
-<span class="aq-chip" data-i18n="offers.card2.chip3">واتساب + موقع</span>
-        </div>
-
-        <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="client_management_system" data-i18n="offers.cardCta">احصل على توصية مناسبة لك</a>
-      </div>
-
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua h-full flex flex-col">
-        <div class="inline-flex items-center rounded-full px-3 py-1 text-xs bg-white/5 border border-[var(--border)] text-[var(--muted2)]" data-i18n="offers.card3.badge">دخل متكرر</div>
-        <h3 class="mt-4 text-xl font-semibold" data-i18n="offers.card3.t">باقة النمو</h3>
-        <p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="offers.card3.d">باقة نمو شهرية تجمع بين المحتوى والتصميم والمتابعة لتحويل الحضور الرقمي إلى نتائج.</p>
-
-        <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card3.p1">خطة محتوى + تصميم + نشر</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card3.p2">تقارير ومتابعة وتحسين مستمر</span></li>
-        </ul>
-
-        <div class="mt-4 flex flex-wrap gap-2 text-xs text-[var(--muted2)]">
-          <span class="aq-chip" data-i18n="offers.card3.chip1">يبدأ من 300$ شهريًا</span>
-<span class="aq-chip" data-i18n="offers.card3.chip2">إدارة + محتوى</span>
-<span class="aq-chip" data-i18n="offers.card3.chip3">تقارير شهرية</span>
-        </div>
-
-        <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="email_automation" data-i18n="offers.cardCta">احصل على توصية مناسبة لك</a>
-      </div>
-
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua h-full flex flex-col">
-        <div class="inline-flex items-center rounded-full px-3 py-1 text-xs bg-white/5 border border-[var(--border)] text-[var(--muted2)]" data-i18n="offers.card4.badge">للمشاريع الأكبر</div>
-        <h3 class="mt-4 text-xl font-semibold" data-i18n="offers.card4.t">مرحلة اكتشاف النظام المخصص</h3>
-        <p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="offers.card4.d">جلسة تحليل ونطاق عمل أولي للمشاريع المخصصة قبل البدء في التنفيذ الكامل.</p>
-
-        <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card4.p1">فهم العمليات والاحتياج الفعلي</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card4.p2">مخرجات أوضح وسعر أدق لاحقًا</span></li>
-        </ul>
-
-        <div class="mt-4 flex flex-wrap gap-2 text-xs text-[var(--muted2)]">
-          <span class="aq-chip" data-i18n="offers.card4.chip1">تسعير حسب النطاق</span>
-<span class="aq-chip" data-i18n="offers.card4.chip2">تحليل أولي</span>
-<span class="aq-chip" data-i18n="offers.card4.chip3">Scope واضح</span>
-        </div>
-
-        <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="whatsapp_automation" data-i18n="offers.cardCta">احصل على توصية مناسبة لك</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-<section class="border-t border-[var(--border)]/70" id="security" data-animate>
-<div class="max-w-6xl mx-auto px-4 py-14 md:py-16 lg:py-20">
-<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-<div>
-<h2 class="text-2xl md:text-3xl font-semibold" data-i18n="security.h">الأمان والثقة</h2>
-<p class="mt-2 text-[var(--muted)] max-w-3xl" data-i18n="security.sub">نبني المواقع والأنظمة وفق ممارسات حديثة تساعد على رفع الأمان، حماية البيانات، وتقوية موثوقية المشروع عند الإطلاق</p>
-</div>
-<a href="#contact" class="hero-secondary-btn font-medium" data-i18n="security.cta">اطلب موقعًا أكثر أمانًا</a>
-</div>
-
-<div class="mt-8 grid md:grid-cols-2 xl:grid-cols-4 gap-4">
-<div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua">
-<div class="text-xs text-[var(--muted)]" data-i18n="security.card1.kicker">Connection</div>
-<h3 class="mt-2 text-lg font-semibold" data-i18n="security.card1.t">اتصال آمن وموثوق</h3>
-<p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="security.card1.d">تفعيل HTTPS وسياسات التصفح الأساسية لحماية نقل البيانات وتعزيز الثقة أثناء التصفح أو إرسال النماذج.</p>
-</div>
-
-<div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua">
-<div class="text-xs text-[var(--muted)]" data-i18n="security.card2.kicker">Application</div>
-<h3 class="mt-2 text-lg font-semibold" data-i18n="security.card2.t">حماية على مستوى التطبيق</h3>
-<p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="security.card2.d">نطبق التحقق من المدخلات، تنقية النصوص، حماية النماذج، وتقليل المخاطر الشائعة مثل الرسائل المزعجة أو الإدخال غير الآمن.</p>
-</div>
-
-<div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua">
-<div class="text-xs text-[var(--muted)]" data-i18n="security.card3.kicker">Deployment</div>
-<h3 class="mt-2 text-lg font-semibold" data-i18n="security.card3.t">تهيئة آمنة أثناء النشر</h3>
-<p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="security.card3.d">نهيئ المتصفح والروابط الخارجية والطلبات بشكل أكثر أمانًا، مع جاهزية لإضافة Cloudflare وSecurity Headers من جهة الاستضافة.</p>
-</div>
-
-<div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua">
-<div class="text-xs text-[var(--muted)]" data-i18n="security.card4.kicker">Trust</div>
-<h3 class="mt-2 text-lg font-semibold" data-i18n="security.card4.t">ثقة أعلى للمشروع والعملاء</h3>
-<p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="security.card4.d">الموقع الآمن لا يحمي المشروع فقط، بل يرفع الانطباع المهني ويزيد ثقة العميل عند التواصل أو مشاركة بياناته.</p>
-</div>
-</div>
-
-<div class="mt-8 rounded-3xl p-6 md:p-8 bg-gradient-to-r from-[var(--p1)]/5 to-[var(--p2)]/5 border border-[var(--border)]">
-<div class="grid md:grid-cols-2 gap-8 items-start">
-<div>
-<div class="text-xs text-[var(--muted)]" data-i18n="security.list.kicker">Included practices</div>
-<h3 class="mt-2 text-xl font-semibold" data-i18n="security.list.h">ما الذي نأخذه بعين الاعتبار</h3>
-<ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
-<li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="security.list.i1">SSL / HTTPS وتشفير الاتصال</span></li>
-<li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="security.list.i2">Security Headers وسياسات المتصفح الأساسية</span></li>
-<li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="security.list.i3">التحقق من المدخلات وتنقية بيانات النماذج</span></li>
-<li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="security.list.i4">حماية من السبام ومحاولات الإرسال المتكرر</span></li>
-<li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="security.list.i5">جاهزية لدمج Cloudflare وحماية الاستضافة</span></li>
-</ul>
-</div>
-
-<div class="rounded-3xl p-5 bg-white/5 border border-[var(--border)]">
-<div class="text-xs text-[var(--muted)]" data-i18n="security.note.kicker">Professional note</div>
-<h3 class="mt-2 text-lg font-semibold" data-i18n="security.note.h">مهم</h3>
-<p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="security.note.d">لا يوجد موقع غير قابل للاختراق 100٪، لكن يمكن بناء موقع بمستوى حماية أعلى يقلل المخاطر ويجعل الهجوم أصعب وأكثر كلفة.</p>
-<p class="mt-3 text-xs text-[var(--muted)]" data-i18n="security.note.extra">للحماية الأقوى على الإنتاج ننصح بتفعيل Cloudflare وHSTS وWAF من جهة الاستضافة أو CDN.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<section class="border-t border-[var(--border)]/70" id="faq" data-animate>
-  <div class="max-w-6xl mx-auto px-4 py-14 md:py-16 lg:py-20">
-    <h2 class="text-2xl md:text-3xl font-semibold" data-i18n="faq.h">أسئلة متكررة</h2>
-    <p class="mt-2 text-[var(--muted)]" data-i18n="faq.sub"></p>
-
-    <div class="mt-8 grid md:grid-cols-2 gap-4">
-<div class="faq-item rounded-3xl p-6 bg-white/5 border border-[var(--border)] hover:bg-white/7 transition">
-  <button type="button" class="faq-q cursor-pointer font-medium" aria-expanded="false" aria-controls="faqA1">
-    <span data-i18n="faq.q1">كم يستغرق تنفيذ صفحات تسويقية احترافية أو موقع أو نظام مخصص؟</span>
-    <span class="faq-icon" aria-hidden="true">+</span>
-  </button>
-  <div id="faqA1" class="faq-a mt-3 text-sm text-[var(--muted)]" data-i18n="faq.a1">يعتمد ذلك على نوع الخدمة ونطاقها. بعض الخدمات السريعة مثل صفحات تسويقية احترافية أو الشات بوت يمكن إطلاقها خلال وقت قصير، بينما تحتاج المشاريع الأكبر إلى نطاق أوضح وجدول زمني أدق.</div>
-</div>
-<div class="faq-item rounded-3xl p-6 bg-white/5 border border-[var(--border)] hover:bg-white/7 transition">
-  <button type="button" class="faq-q cursor-pointer font-medium" aria-expanded="false" aria-controls="faqA2">
-    <span data-i18n="faq.q2">كيف يتم تحديد سعر الخدمة أو المشروع؟</span>
-    <span class="faq-icon" aria-hidden="true">+</span>
-  </button>
-  <div id="faqA2" class="faq-a mt-3 text-sm text-[var(--muted)]" data-i18n="faq.a2">يتم التسعير حسب نوع الخدمة، نطاق العمل، التكاملات المطلوبة، وسرعة التنفيذ. ستحصل على عرض واضح يشرح المراحل والمخرجات.</div>
-</div>
-<div class="faq-item rounded-3xl p-6 bg-white/5 border border-[var(--border)] hover:bg-white/7 transition">
-  <button type="button" class="faq-q cursor-pointer font-medium" aria-expanded="false" aria-controls="faqA3">
-    <span data-i18n="faq.q3">هل توفرون خدمات سريعة وأيضًا حلولًا مخصصة بالكامل؟</span>
-    <span class="faq-icon" aria-hidden="true">+</span>
-  </button>
-  <div id="faqA3" class="faq-a mt-3 text-sm text-[var(--muted)]" data-i18n="faq.a3">نعم. نوفر خدمات سريعة للدخول إلى السوق مثل صفحات تسويقية احترافية والبوتات، ونبني أيضًا مواقع وأنظمة مخصصة بالكامل حسب احتياج المشروع.</div>
-</div>
-<div class="faq-item rounded-3xl p-6 bg-white/5 border border-[var(--border)] hover:bg-white/7 transition">
-  <button type="button" class="faq-q cursor-pointer font-medium" aria-expanded="false" aria-controls="faqA4">
-    <span data-i18n="faq.q4">هل يمكنكم بناء شات بوت أو أتمتة للعملاء والعمليات؟</span>
-    <span class="faq-icon" aria-hidden="true">+</span>
-  </button>
-  <div id="faqA4" class="faq-a mt-3 text-sm text-[var(--muted)]" data-i18n="faq.a4">نعم، نبني شات بوتات وأتمتة تساعد في الرد على العملاء، تنظيم الطلبات، وربط النماذج والأنظمة لتقليل العمل اليدوي.</div>
-</div>
-<div class="faq-item rounded-3xl p-6 bg-white/5 border border-[var(--border)] hover:bg-white/7 transition">
-  <button type="button" class="faq-q cursor-pointer font-medium" aria-expanded="false" aria-controls="faqA5">
-    <span data-i18n="faq.q5">هل توفرون الاستضافة والدومين ورفع الموقع؟</span>
-    <span class="faq-icon" aria-hidden="true">+</span>
-  </button>
-  <div id="faqA5" class="faq-a mt-3 text-sm text-[var(--muted)]" data-i18n="faq.a5">نعم عند الطلب، مع SSL ورفع الموقع وإعدادات تشغيل أساسية.</div>
-</div>
-<div class="faq-item rounded-3xl p-6 bg-white/5 border border-[var(--border)] hover:bg-white/7 transition">
-  <button type="button" class="faq-q cursor-pointer font-medium" aria-expanded="false" aria-controls="faqA6">
-    <span data-i18n="faq.q6">هل توجد صيانة بعد التسليم؟</span>
-    <span class="faq-icon" aria-hidden="true">+</span>
-  </button>
-  <div id="faqA6" class="faq-a mt-3 text-sm text-[var(--muted)]" data-i18n="faq.a6">نعم، باقات دعم وتحديثات أمنية وتحسينات أداء حسب الحاجة.</div>
-</div>
-<div class="faq-item rounded-3xl p-6 bg-white/5 border border-[var(--border)] hover:bg-white/7 transition">
-  <button type="button" class="faq-q cursor-pointer font-medium" aria-expanded="false" aria-controls="faqA7">
-    <span data-i18n="faq.q7">هل يشمل التسليم شرح تشغيل وإدارة الموقع؟</span>
-    <span class="faq-icon" aria-hidden="true">+</span>
-  </button>
-  <div id="faqA7" class="faq-a mt-3 text-sm text-[var(--muted)]" data-i18n="faq.a7">نعم، نسلّم الموقع جاهزًا للنشر والاستخدام، مع شرح واضح لطريقة الإدارة والتحديثات الأساسية، بدون تسليم ملفات الكود إلا إذا تم الاتفاق على ذلك مسبقًا.</div>
-</div>
-<div class="faq-item rounded-3xl p-6 bg-white/5 border border-[var(--border)] hover:bg-white/7 transition">
-  <button type="button" class="faq-q cursor-pointer font-medium" aria-expanded="false" aria-controls="faqA8">
-    <span data-i18n="faq.q8">كيف تكون المتابعة أثناء التنفيذ؟</span>
-    <span class="faq-icon" aria-hidden="true">+</span>
-  </button>
-  <div id="faqA8" class="faq-a mt-3 text-sm text-[var(--muted)]" data-i18n="faq.a8">نتفق على قناة تواصل وتحديثات حسب المراحل مع توثيق أي تغيير.</div>
-</div>
-<div class="faq-item rounded-3xl p-6 bg-white/5 border border-[var(--border)] hover:bg-white/7 transition">
-  <button type="button" class="faq-q cursor-pointer font-medium" aria-expanded="false" aria-controls="faqA9">
-    <span data-i18n="faq.q9">هل تقدمون باقات نمو وتسويق مع التنفيذ التقني؟</span>
-    <span class="faq-icon" aria-hidden="true">+</span>
-  </button>
-  <div id="faqA9" class="faq-a mt-3 text-sm text-[var(--muted)]" data-i18n="faq.a9">نعم، يمكننا دعم المشروع بباقات نمو تشمل المحتوى، التصميم، الإعلانات، والتحسين المستمر حتى لا يتوقف دورنا عند التسليم فقط.</div>
-</div>
-<div class="faq-item rounded-3xl p-6 bg-white/5 border border-[var(--border)] hover:bg-white/7 transition">
-  <button type="button" class="faq-q cursor-pointer font-medium" aria-expanded="false" aria-controls="faqA10">
-    <span data-i18n="faq.q10">هل يمكن توقيع NDA وحماية البيانات؟</span>
-    <span class="faq-icon" aria-hidden="true">+</span>
-  </button>
-  <div id="faqA10" class="faq-a mt-3 text-sm text-[var(--muted)]" data-i18n="faq.a10">نعم، يمكن توقيع NDA ونتبع ممارسات أمان لحماية البيانات أثناء التطوير.</div>
-</div>
-<div class="faq-item rounded-3xl p-6 bg-white/5 border border-[var(--border)] hover:bg-white/7 transition">
-  <button type="button" class="faq-q cursor-pointer font-medium" aria-expanded="false" aria-controls="faqA11">
-    <span data-i18n="faq.q11">هل أحتاج إلى موقع كامل أم صفحات تسويقية احترافية فقط؟</span>
-    <span class="faq-icon" aria-hidden="true">+</span>
-  </button>
-  <div id="faqA11" class="faq-a mt-3 text-sm text-[var(--muted)]" data-i18n="faq.a11">إذا كان هدفك جمع العملاء بسرعة لحملة أو خدمة محددة، فغالبًا تكفي صفحة تسويقية احترافية كبداية. أما إذا كنت تريد حضورًا أوسع وثقة أعلى ومحتوى أكثر، فالموقع الكامل يكون أنسب.</div>
-</div>
-<div class="faq-item rounded-3xl p-6 bg-white/5 border border-[var(--border)] hover:bg-white/7 transition">
-  <button type="button" class="faq-q cursor-pointer font-medium" aria-expanded="false" aria-controls="faqA12">
-    <span data-i18n="faq.q12">كيف أعرف أي خدمة مناسبة لي؟</span>
-    <span class="faq-icon" aria-hidden="true">+</span>
-  </button>
-  <div id="faqA12" class="faq-a mt-3 text-sm text-[var(--muted)]" data-i18n="faq.a12">بمجرد أن تشاركنا هدفك الحالي، نحدد لك أسرع بداية مناسبة، وما الذي يجب بناؤه أولًا، وما الذي يمكن تأجيله بدون تكلفة غير ضرورية.</div>
-</div>
-    </div></div>
-  </div>
-</section>
-
-<section class="border-t border-[var(--border)]/70" id="support" data-animate>
-  <div class="max-w-6xl mx-auto px-4 py-14 md:py-16 lg:py-20">
-
-    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-      <div>
-            <h2 class="mt-3 text-2xl md:text-3xl font-semibold"
-                   data-i18n="support.h">
-                    لا ينتهي دورنا عند التسليم
-                      </h2>
-          <p class="mt-3 text-[var(--muted)] max-w-3xl leading-8"
-                 data-i18n="support.d">
-          نساعدك بعد الإطلاق في المتابعة، التحسين، والدعم الفني حتى يبقى مشروعك مستقرًا ويحقق نتائج أفضل.
-        </p>
-      </div>
-
-<a href="#contact"
-   class="hero-secondary-btn font-medium"
-   data-i18n="support.cta">
-   اطلب خطة دعم مناسبة
-</a>
-    </div>
-
-    <div class="mt-8 grid md:grid-cols-2 xl:grid-cols-4 gap-4">
-
-      <div class="support-card">
-        <div class="support-icon">🛠️</div>
-        <h3 data-i18n="support.card1.t">دعم فني</h3>
-
-<p data-i18n="support.card1.d">
-معالجة المشاكل التقنية والمتابعة بعد الإطلاق.
-</p>
-      </div>
-
-      <div class="support-card">
-        <div class="support-icon">⚡</div>
-        <h3 data-i18n="support.card2.t">استجابة سريعة</h3>
-
-<p data-i18n="support.card2.d">
-رد ومتابعة خلال وقت واضح حسب نوع الطلب.
-</p>
-      </div>
-
-      <div class="support-card">
-        <div class="support-icon">📈</div>
-        <h3 data-i18n="support.card3.t">تحسينات مستمرة</h3>
-
-<p data-i18n="support.card3.d">
-تحسين الأداء وتجربة المستخدم حسب الحاجة.
-</p>
-      </div>
-
-      <div class="support-card">
-        <div class="support-icon">🛡️</div>
-        <h3 data-i18n="support.card4.t">نسخ احتياطي</h3>
-
-<p data-i18n="support.card4.d">
-تجهيزات أساسية للحفاظ على استقرار المشروع.
-</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section class="border-t border-[var(--border)]/70" id="contact">
-<div class="max-w-6xl mx-auto px-4 py-14 md:py-16 lg:py-20">
-<div class="mb-8 max-w-3xl">
-<h2 class="text-2xl md:text-3xl font-semibold" data-i18n="contact.h">اطلب النظام المناسب لمرحلتك</h2>
-<p class="mt-2 text-[var(--muted)]" data-i18n="contact.sub">
-  شاركنا هدفك الحالي، وسنقترح عليك الحل الأنسب وخطوة واضحة للانطلاق
-</p>
-</div>
-<div class="grid md:grid-cols-2 gap-8 items-start">
-<div class="order-2 md:order-1">
-<div class="space-y-3 text-sm text-[var(--muted2)]">
-<div class="rounded-3xl p-5 bg-white/5 border border-[var(--border)]">
-<div class="text-[var(--muted)] text-xs" data-i18n="contact.wa">واتساب</div>
-<a 
-  class="mt-1 inline-flex underline underline-offset-4 hover:text-white transition relative z-10 pointer-events-auto"
-  href="https://wa.me/962780932199"
-  id="waLinkContact"
-  target="_blank"
-  data-external="1"
-  rel="noopener noreferrer"
-onclick="if(typeof gtag==='function'){
-  gtag('event','whatsapp_click',{
-    event_category:'lead',
-    event_label:'header_whatsapp'
-  });
-}"
->
-  <span data-i18n="contact.waAction">ابدأ معنا عبر واتساب</span>
-</a>
-</div>
-<div class="rounded-3xl p-5 bg-white/5 border border-[var(--border)]">
-<div class="text-[var(--muted)] text-xs" data-i18n="contact.email">إيميل</div>
-<a class="mt-1 inline-flex underline underline-offset-4 hover:text-white transition relative z-10 pointer-events-auto" href="mailto:info.aquatech.jo@gmail.com" id="emailLink" data-external="1">
-<span data-i18n="contact.emailAction">راسلنا عبر البريد الإلكتروني</span>
-</a>
-</div>
-<div class="rounded-3xl p-5 bg-white/5 border border-[var(--border)]">
-<div class="text-[var(--muted)] text-xs" data-i18n="contact.social">حسابات التواصل</div>
-<div class="mt-3 flex flex-wrap gap-2 md:grid md:grid-cols-2 md:gap-3">
-<!-- WhatsApp -->
-<a 
-  aria-label="WhatsApp"
-  class="inline-flex items-center justify-center md:justify-start gap-0 md:gap-3 h-10 w-10 sm:h-11 sm:w-11 md:h-auto md:min-h-[84px] md:w-full rounded-2xl md:rounded-3xl bg-[var(--surface)]/70 border border-[var(--border)] hover:bg-[var(--surface)]/90 hover:text-white transition relative z-10 pointer-events-auto md:px-4 md:py-4"
-  href="https://wa.me/962780932199"
-  id="socialWA"
-  rel="noopener noreferrer"
-  target="_blank"
-  title="WhatsApp"
-  data-external="1"
-onclick="if(typeof gtag==='function'){
-  gtag('event','whatsapp_click',{
-    event_category:'lead',
-    event_label:'header_whatsapp'
-  });
-}"
->
-  <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M20.52 3.48A11.94 11.94 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.33-1.67a11.86 11.86 0 0 0 5.73 1.46h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.45-8.41Zm-8.46 18.28h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.75.99 1-3.66-.24-.38a9.86 9.86 0 0 1-1.52-5.22c0-5.44 4.43-9.87 9.88-9.87 2.64 0 5.13 1.03 6.99 2.89a9.83 9.83 0 0 1 2.9 6.98c0 5.45-4.43 9.86-9.85 9.86Zm5.74-7.86c-.31-.15-1.85-.91-2.14-1.01-.29-.11-.5-.15-.72.15-.21.31-.82 1.01-1 1.22-.19.21-.37.23-.68.08-.31-.15-1.31-.48-2.49-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.47.13-.62.14-.14.31-.37.46-.55.15-.18.21-.31.31-.51.1-.21.05-.38-.03-.53-.08-.15-.72-1.74-.99-2.38-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.53.08-.81.38-.28.31-1.07 1.05-1.07 2.57s1.1 2.99 1.25 3.2c.15.21 2.17 3.3 5.25 4.63.73.31 1.3.49 1.74.62.73.23 1.39.2 1.92.12.58-.09 1.85-.76 2.11-1.49.26-.73.26-1.36.18-1.49-.08-.14-.29-.22-.6-.38Z"></path>
-  </svg>
-  <span class="hidden md:inline text-sm font-medium">WhatsApp</span>
-</a>
-<!-- Email -->
-<a aria-label="Email" class="inline-flex items-center justify-center md:justify-start gap-0 md:gap-3 h-10 w-10 sm:h-11 sm:w-11 md:h-auto md:min-h-[84px] md:w-full rounded-2xl md:rounded-3xl bg-[var(--surface)]/70 border border-[var(--border)] hover:bg-[var(--surface)]/90 hover:text-white transition relative z-10 pointer-events-auto md:px-4 md:py-4" href="mailto:info.aquatech.jo@gmail.com" id="socialEmail" rel="noopener noreferrer" title="Email">
-<svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-<path d="M4 6h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z"></path>
-<path d="m22 8-10 7L2 8"></path>
-</svg>
-<span class="hidden md:inline text-sm font-medium">Email</span></a>
-<!-- Instagram -->
-<a aria-label="Instagram" class="inline-flex items-center justify-center md:justify-start gap-0 md:gap-3 h-10 w-10 sm:h-11 sm:w-11 md:h-auto md:min-h-[84px] md:w-full rounded-2xl md:rounded-3xl bg-[var(--surface)]/70 border border-[var(--border)] hover:bg-[var(--surface)]/90 hover:text-white transition relative z-10 pointer-events-auto md:px-4 md:py-4" href="https://www.instagram.com/aquatech.jo/" id="socialIG" rel="noopener noreferrer" target="_blank" title="Instagram" data-external="1">
-<svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-<rect height="18" rx="5" width="18" x="3" y="3"></rect>
-<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z"></path>
-<path d="M17.5 6.5h.01"></path>
-</svg>
-<span class="hidden md:inline text-sm font-medium">Instagram</span></a>
-<!-- Facebook -->
-<a aria-label="Facebook" class="inline-flex items-center justify-center md:justify-start gap-0 md:gap-3 h-10 w-10 sm:h-11 sm:w-11 md:h-auto md:min-h-[84px] md:w-full rounded-2xl md:rounded-3xl bg-[var(--surface)]/70 border border-[var(--border)] hover:bg-[var(--surface)]/90 hover:text-white transition relative z-10 pointer-events-auto md:px-4 md:py-4" href="https://web.facebook.com/profile.php?id=61564549784728" id="socialFB" rel="noopener noreferrer" target="_blank" title="Facebook" data-external="1">
-<svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-<path d="M22 12a10 10 0 1 0-11.56 9.87v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.62.77-1.62 1.56V12h2.76l-.44 2.88h-2.32v6.99A10 10 0 0 0 22 12z"></path>
-</svg>
-<span class="hidden md:inline text-sm font-medium">Facebook</span></a>
-<!-- LinkedIn -->
-<a aria-label="LinkedIn" class="inline-flex items-center justify-center md:justify-start gap-0 md:gap-3 h-10 w-10 sm:h-11 sm:w-11 md:h-auto md:min-h-[84px] md:w-full rounded-2xl md:rounded-3xl bg-[var(--surface)]/70 border border-[var(--border)] hover:bg-[var(--surface)]/90 hover:text-white transition relative z-10 pointer-events-auto md:px-4 md:py-4" href="https://www.linkedin.com/in/aqua-tech/" id="socialLI" rel="noopener noreferrer" target="_blank" title="LinkedIn" data-external="1">
-<svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-<path d="M20.45 20.45h-3.55v-5.6c0-1.34-.03-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96v5.7H9.32V9h3.4v1.56h.05c.47-.9 1.63-1.86 3.36-1.86 3.59 0 4.25 2.36 4.25 5.43v6.32ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM3.56 20.45h3.55V9H3.56v11.45Z"></path>
-</svg>
-<span class="hidden md:inline text-sm font-medium">LinkedIn</span></a>
-<!-- GitHub -->
-<a aria-label="GitHub" class="inline-flex items-center justify-center md:justify-start gap-0 md:gap-3 h-10 w-10 sm:h-11 sm:w-11 md:h-auto md:min-h-[84px] md:w-full rounded-2xl md:rounded-3xl bg-[var(--surface)]/70 border border-[var(--border)] hover:bg-[var(--surface)]/90 hover:text-white transition relative z-10 pointer-events-auto md:px-4 md:py-4" href="https://github.com/aquatechjo" id="socialGH" rel="noopener noreferrer" target="_blank" title="GitHub" data-external="1">
-<svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-<path d="M12 .5A11.5 11.5 0 0 0 8.36 23c.58.1.79-.25.79-.55v-2.1c-3.22.7-3.9-1.37-3.9-1.37-.53-1.33-1.29-1.68-1.29-1.68-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.57-.3-5.27-1.28-5.27-5.7 0-1.26.45-2.28 1.19-3.09-.12-.3-.52-1.52.11-3.17 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.5 3.17-1.18 3.17-1.18.64 1.65.24 2.87.12 3.17.74.81 1.18 1.83 1.18 3.09 0 4.43-2.71 5.4-5.29 5.69.41.36.78 1.06.78 2.14v3.18c0 .3.2.66.8.55A11.5 11.5 0 0 0 12 .5Z"></path>
-</svg>
-<span class="hidden md:inline text-sm font-medium">GitHub</span></a>
-</div>
-</div>
-<div class="rounded-3xl p-5 bg-white/5 border border-[var(--border)]">
-
-
-  <div class="text-[var(--muted)] text-xs" data-i18n="contact.loc">
-    الموقع
-  </div>
-
-  <div class="mt-1" data-i18n="contact.locV">
-    عمّان، الأردن
-  </div>
-
-<div class="mt-6 pt-5 border-t border-white/10">
-      
-<div class="text-xs text-[var(--muted)]"
-     data-i18n="contact.hours">
-  ساعات التواصل
-</div>
-
-<div class="mt-1 text-sm text-white/90"
-     data-i18n="contact.hoursV">
-  يوميًا — 10 AM إلى 10PM
-</div>
-
-  </div>
-
-
-</div>
-</div>
-</div>
-
-
-<form class="order-1 md:order-2 rounded-3xl p-6 md:p-7 bg-white/5 border border-[var(--border)]" id="contactForm" novalidate>
-<div class="grid sm:grid-cols-2 gap-4">
-<label class="text-sm">
-<span class="text-[var(--muted)]" data-i18n="form.name">الاسم</span>
-<input class="mt-2 w-full rounded-2xl border border-[var(--border)] px-4 py-3 outline-none focus:border-[var(--p1)] focus:ring-2 focus:ring-[var(--p1)]/20 transition form-field" id="fName" name="name" type="text" autocomplete="name" required minlength="2" maxlength="80" spellcheck="false" placeholder="اسمك" data-ph-i18n="form.namePh"/>
-</label>
-<label class="text-sm">
-<span class="text-[var(--muted)]" data-i18n="form.emailLabel">البريد الإلكتروني</span>
-<input class="mt-2 w-full rounded-2xl border border-[var(--border)] px-4 py-3 outline-none focus:border-[var(--p1)] focus:ring-2 focus:ring-[var(--p1)]/20 transition form-field" id="fEmail" name="email" type="email" autocomplete="email" inputmode="email" maxlength="120" placeholder="example@mail.com" data-ph-i18n="form.emailPh"/>
-</label>
-</div>
-<div class="mt-4 grid sm:grid-cols-3 gap-4">
-<label class="text-sm">
-<span class="text-[var(--muted)]" data-i18n="form.countryCodeLabel">رمز الدولة</span>
-<select class="mt-2 w-full rounded-2xl border border-[var(--border)] px-4 py-3 outline-none focus:border-[var(--p1)] focus:ring-2 focus:ring-[var(--p1)]/20 transition form-field" id="fCountryCode" name="country_code">
-<option value="+962" selected>Jordan (+962)</option>
-<option value="+966">Saudi Arabia (+966)</option>
-<option value="+971">UAE (+971)</option>
-<option value="+20">Egypt (+20)</option>
-<option value="+964">Iraq (+964)</option>
-<option value="+965">Kuwait (+965)</option>
-<option value="+968">Oman (+968)</option>
-<option value="+974">Qatar (+974)</option>
-<option value="+973">Bahrain (+973)</option>
-<option value="+961">Lebanon (+961)</option>
-<option value="+1">USA (+1)</option>
-<option value="+44">UK (+44)</option>
-</select>
-</label>
-<label class="text-sm sm:col-span-2">
-<span class="text-[var(--muted)]" data-i18n="form.phoneLabel">رقم الواتساب</span>
-<input class="mt-2 w-full rounded-2xl border border-[var(--border)] px-4 py-3 outline-none focus:border-[var(--p1)] focus:ring-2 focus:ring-[var(--p1)]/20 transition form-field" id="fPhone" name="phone" type="tel" autocomplete="tel" inputmode="numeric" maxlength="15" pattern="[0-9\s()+-]{7,15}" placeholder="7XXXXXXXX" data-ph-i18n="form.phonePh"/>
-</label>
-</div>
-<input id="fFullPhone" name="full_phone" type="hidden" />
-<p class="mt-3 text-xs text-[var(--muted)]" data-i18n="form.contactHelp"></p>
-<label class="mt-4 block text-sm">
-<span class="text-[var(--muted)]" data-i18n="form.service">الخدمة المطلوبة</span>
-<select class="mt-2 w-full rounded-2xl border border-[var(--border)] px-4 py-3 outline-none focus:border-[var(--p1)] focus:ring-2 focus:ring-[var(--p1)]/20 transition form-field" id="fService" name="service">
-
- <option value="lead-system" data-i18n="form.opt1">موقع ونظام استقبال عملاء</option>
-<option value="ai-automation" data-i18n="form.opt2">أتمتة أعمال بالذكاء الاصطناعي</option>
-<option value="crm" data-i18n="form.opt3">نظام إدارة العملاء</option>
-<option value="whatsapp-automation" data-i18n="form.opt4">أتمتة واتساب</option>
-<option value="email-automation" data-i18n="form.opt5">أتمتة البريد الإلكتروني</option>
-<option value="landing-page" data-i18n="form.opt6">تحسين صفحة تسويقية احترافية</option>
-<option value="social-management" data-i18n="form.optSocial">إدارة حسابات السوشيال ميديا</option>
-<option value="lawyer-system" data-i18n="form.opt7">نظام إدارة مكاتب المحاماة</option>
-<option value="university-projects" data-i18n="form.opt8">منصة إدارة المشاريع الجامعية</option>
-<option value="resumeiq" data-i18n="form.opt9">ResumeIQ</option>
-<option value="smart-attendance" data-i18n="form.opt10">Smart Attendance</option>
-<option value="company-website" data-i18n="form.opt11">موقع شركة احترافي</option>
-<option value="custom-system" data-i18n="form.opt12">نظام مخصص للشركات</option>
-<option value="content-design" data-i18n="form.opt13">تصميم وصناعة المحتوى</option>
-<option value="ads" data-i18n="form.opt14">إدارة الحملات الإعلانية</option>
-<option value="seo" data-i18n="form.opt15">SEO تحسين الظهور بمحركات البحث</option>
-<option value="dashboard" data-i18n="form.opt16">لوحات تحكم وتقارير</option>
-<option value="ai-agent" data-i18n="form.opt17">AI Agent أو شات بوت</option>
-<option value="other" data-i18n="form.opt18">خدمة أو فكرة أخرى</option>
-</select>
-</label>
-<div class="mt-4 grid sm:grid-cols-2 gap-4">
-<label class="text-sm">
-
-  <span class="text-[var(--muted)]"
-        data-i18n="form.budget">
-        الميزانية التقريبية
-  </span>
-
-  <select
-    class="mt-2 w-full rounded-2xl border border-[var(--border)] px-4 py-3 outline-none focus:border-[var(--p1)] focus:ring-2 focus:ring-[var(--p1)]/20 transition form-field"
-    id="fBudget"
-    name="budget">
-
-    <option value="" disabled selected data-i18n="form.selectBudget">
-      اختر الميزانية
-    </option>
-
-         <option data-i18n="form.budgetOpt1">أقل من $700</option>
-         <option data-i18n="form.budgetOpt2">$700 - $1,500</option>
-         <option data-i18n="form.budgetOpt3">$1,500 - $4,000</option>
-        <option data-i18n="form.budgetOpt4">أكثر من $4,000</option>
-
-  </select>
-
-</label>
-
-  <label class="text-sm">
-    <span class="text-[var(--muted)]" data-i18n="form.timeline">موعد التنفيذ</span>
-    <select class="mt-2 w-full rounded-2xl border border-[var(--border)] px-4 py-3 outline-none focus:border-[var(--p1)] focus:ring-2 focus:ring-[var(--p1)]/20 transition form-field" id="fTimeline" name="timeline">
-      <option value="" data-i18n="form.timelinePlaceholder">اختر الموعد</option>
-      <option data-i18n="form.timelineOpt1">بأسرع وقت</option>
-      <option data-i18n="form.timelineOpt2">خلال أسبوعين</option>
-      <option data-i18n="form.timelineOpt3">خلال شهر</option>
-      <option data-i18n="form.timelineOpt4">ما زلت أستكشف</option>
-    </select>
-  </label>
-</div>
-<label class="mt-4 block text-sm">
-<span class="text-[var(--muted)]" data-i18n="form.details">تفاصيل المشروع</span>
-<textarea class="mt-2 w-full rounded-2xl border border-[var(--border)] px-4 py-3 outline-none focus:border-[var(--p1)] focus:ring-2 focus:ring-[var(--p1)]/20 transition form-field" id="fDetails" name="details" autocomplete="off" minlength="10" maxlength="2000" placeholder="اكتب الهدف، المميزات، والموعد المتوقع…" data-ph-i18n="form.detailsPh" rows="5"></textarea>
-</label>
-<label class="hidden">
-  <span>الموقع</span>
-  <input id="fWebsite" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" />
-</label>
-<!-- ✅ إرسال إلى Google Sheets فقط -->
-<button class="quote-submit mt-5 w-full rounded-[1.65rem] px-5 py-4 sm:py-4 transition font-medium" id="sendLead" type="submit">
-<span class="quote-title text-[1.06rem] sm:text-lg" data-i18n="form.sendQuote">ابدأ مشروعك بخطة واضحة وتنفيذ احترافي</span>
-</button>
-<div class="mt-4 flex flex-wrap gap-2 text-xs text-[var(--muted2)]">
-<span class="inline-flex items-center gap-2 rounded-full px-3 py-2 bg-white/5 border border-[var(--border)]" data-i18n="form.security1">🔒 مدخلات مُتحقق منها</span>
-<span class="inline-flex items-center gap-2 rounded-full px-3 py-2 bg-white/5 border border-[var(--border)]" data-i18n="form.security2">🛡️ حماية من السبام</span>
-<span class="inline-flex items-center gap-2 rounded-full px-3 py-2 bg-white/5 border border-[var(--border)]" data-i18n="form.security3">⚙️ تهيئة آمنة عند النشر</span>
-</div>
-<p class="mt-3 text-xs text-[var(--muted)]" id="formStatus"></p>
-<div id="successModal" class="success-modal" aria-hidden="true" role="dialog" aria-modal="true">
-  <div class="success-modal-card">
-    <div class="success-modal-icon">✓</div>
-    <h3 class="success-modal-title" data-i18n="form.modalTitle">تم إرسال طلبك بنجاح</h3>
-    <p id="successModalText" class="success-modal-text" data-i18n="form.modalText">سوف نتواصل معك في أقرب وقت</p>
-    <button type="button" id="successModalClose" class="success-modal-btn" data-i18n="form.modalOk">حسنًا</button>
-  </div>
-</div>
-</form>
-</div>
-</div>
-</section>
-<!-- ===== FOOTER ===== -->
-<footer class="border-t border-[var(--border)]/70">
-  <div class="max-w-6xl mx-auto px-4 py-10">
-    <div class="grid md:grid-cols-4 gap-8">
-      <div class="md:col-span-2">
-        <div class="flex items-center gap-3">
-          <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-white/5 border border-[var(--border)] overflow-hidden">
-            <img alt="Aqua.Tech logo" class="h-10 w-10 object-contain" src="assets/logoo.webp" loading="lazy" width="40" height="40" decoding="async"/>
-          </span>
-          <div>
-            <div class="font-semibold">Aqua.Tech</div>
-            <div class="text-xs text-[var(--muted)]" data-i18n="footer.tag">النمو • البرمجيات • الذكاء الاصطناعي</div>
-          </div>
-        </div>
-
-        <p class="mt-4 text-sm text-[var(--muted2)] leading-7 max-w-xl" data-i18n="footer.desc">
-          نبني صفحات تسويقية احترافية ومواقع وأنظمة وأتمتة تساعد الشركات ورواد الأعمال على النمو بشكل أسرع وبطريقة أوضح وأكثر احترافية.
-        </p>
-      </div>
-
-      <div>
-        <h3 class="text-sm font-semibold text-white" data-i18n="footer.servicesH">الخدمات</h3>
-        <div class="mt-4 flex flex-col gap-2 text-sm text-[var(--muted2)]">
-          <a href="#offers" class="hover:text-white transition" data-i18n="footer.link1">العروض الجاهزة</a>
-          <a href="#services" class="hover:text-white transition" data-i18n="footer.link2">الخدمات</a>
-          <a href="#results" class="hover:text-white transition" data-i18n="footer.link4">النتائج المتوقعة</a>
-        </div>
-      </div>
-
-      <div>
-        <h3 class="text-sm font-semibold text-white" data-i18n="footer.contactH">تواصل</h3>
-        <div class="mt-4 flex flex-col gap-2 text-sm text-[var(--muted2)]">
-                    <a 
-            href="mailto:info.aquatech.jo@gmail.com"
-            class="hover:text-white transition"
-            data-i18n="footer.email"
-          >Email</a>
-      
-          <a 
-            href="https://wa.me/962780932199"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="hover:text-white transition"
-            data-i18n="footer.whatsapp"
-            onclick="if(typeof gtag==='function'){
-              gtag('event','whatsapp_click',{
-                event_category:'lead',
-                event_label:'footer_whatsapp'
-              });
-            }"
-          >WhatsApp</a>
-
-          <a 
-            href="https://www.instagram.com/aquatech.jo/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="hover:text-white transition"
-            data-i18n="footer.instagram"
-          >Instagram</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="mt-8 pt-6 border-t border-[var(--border)]/70 flex flex-col md:flex-row gap-3 md:items-center md:justify-between text-xs text-[var(--muted)]">
-      <div data-i18n="footer.copy">© Aqua.Tech — جميع الحقوق محفوظة</div>
-      <div data-i18n="footer.note">جاهزون لمساعدتك في الإطلاق السريع، بناء الأنظمة، وتحويل وجودك الرقمي إلى قناة نمو.</div>
-    </div>
-  </div>
-</footer>
-
-<div class="sticky-mobile-cta" aria-label="Quick contact">
-  <div class="sticky-mobile-cta-inner">
-    <div class="sticky-mobile-cta-copy">
-      <div class="text-[11px] uppercase tracking-[.18em] text-[var(--muted)]" data-i18n="sticky.kicker">Quick start</div>
-      <div class="text-sm text-white font-semibold" data-i18n="sticky.title">ابدأ معنا بخطوة واضحة</div>
-    </div>
-    <a href="#contact" class="sticky-mobile-cta-btn" data-i18n="sticky.cta">اطلب عرضًا مبدئيًا</a>
-  </div>
-</div>
-
-</main>
-
-<a
-  id="wa-float"
-  href="https://wa.me/962780932199?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20Aqua.Tech%2C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%D9%83%D9%85"
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="تواصل معنا على واتساب — Chat with us on WhatsApp"
-  onclick="if(typeof gtag==='function'){gtag('event','whatsapp_click',{event_category:'engagement',event_label:'floating_button'});}"
->
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-  </svg>
-  <span class="wa-tip" aria-hidden="true">تواصل معنا على واتساب</span>
-</a>
-<script defer src="./js/i18n.js"></script>
-<script defer src="./js/mobile-menu.js"></script>
-<script defer src="./js/faq.js"></script>
-<script defer src="./js/form.js"></script>
-<script defer src="./js/animations.js"></script>
-<script defer src="./js/utils.js"></script>
-<script defer src="./js/app.js"></script>
-<script src="js/navigation.js"></script>
+      });
+
+      const serviceMap = {
+        'landing-page':'landing-page',
+        'company-website':'company-website',
+        'ai-agent':'ai-agent',
+        'custom-system':'custom-system',
+        'lawyer-system':'lawyer-system',
+        'resumeiq':'resumeiq',
+        'smart-attendance':'smart-attendance',
+        'university-projects':'university-projects'
+      };
+      document.querySelectorAll('.js-service-cta').forEach(link => {
+        link.addEventListener('click', () => {
+          const value = serviceMap[link.dataset.service];
+          const select = document.getElementById('fService');
+          if(value && select) select.value = value;
+        });
+      });
+
+      const consent = localStorage.getItem('aqua_analytics_consent');
+      const banner = document.getElementById('consent-banner');
+      if(banner && consent === null){ setTimeout(() => banner.classList.add('is-visible'), 900); }
+      document.getElementById('consentAccept')?.addEventListener('click', () => {
+        banner?.classList.remove('is-visible');
+        window.__aquaEnableAnalytics?.();
+      });
+      document.getElementById('consentDecline')?.addEventListener('click', () => {
+        banner?.classList.remove('is-visible');
+        window.__aquaDeclineAnalytics?.();
+      });
+
+      document.getElementById('successModalClose')?.addEventListener('click', () => {
+        document.getElementById('successModal')?.classList.remove('is-open');
+      });
+    })();
+  </script>
+
+  <script defer src="./js/form.js"></script>
 </body>
 </html>
