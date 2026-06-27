@@ -1,7 +1,8 @@
 {
   "scripts": {
-    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
-    "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+    "build": "node ./scripts/build-html.js && tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "dev": "node ./scripts/build-html.js && tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "html": "node ./scripts/build-html.js"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.11",
