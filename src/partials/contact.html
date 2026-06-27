@@ -1,0 +1,70 @@
+<section class="py-section-padding relative" id="contact">
+      <div class="aqua-liquid-bg" aria-hidden="true"></div>
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
+        <div class="text-center mb-16">
+          <span class="section-kicker">Start Project</span>
+          <h2 class="font-headline-xl text-headline-xl mb-6">ابدأ رحلتك الرقمية الآن</h2>
+          <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">احكيلنا عن هدفك الحالي، وسنقترح عليك خطوة البداية، القناة الأنسب للتواصل، وما الذي يجب بناؤه أولًا.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+          <aside class="lg:col-span-4 flex flex-col gap-stack-md">
+            <div class="glass-card p-stack-md rounded-xl">
+              <h3 class="font-headline-md text-headline-md text-primary mb-stack-sm">تواصل مباشر</h3>
+              <p class="text-on-surface-variant mb-stack-md">ساعات التواصل: يوميًا من 10 AM إلى 10PM</p>
+              <div class="flex flex-col gap-4">
+                <a class="flex items-center gap-4 p-4 rounded-lg bg-surface-container-high hover:bg-primary/10 transition-all border border-outline-variant/20 no-underline" href="https://wa.me/962780932199" target="_blank" rel="noopener noreferrer" onclick="if(typeof gtag==='function'){gtag('event','whatsapp_click',{event_category:'lead',event_label:'contact_whatsapp'});}"><span class="material-symbols-outlined text-primary">chat</span><div><span class="block font-bold">واتساب</span><span class="text-xs text-on-surface-variant">+962 78 093 2199</span></div></a>
+                <a class="flex items-center gap-4 p-4 rounded-lg bg-surface-container-high hover:bg-primary/10 transition-all border border-outline-variant/20 no-underline" href="mailto:info.aquatech.jo@gmail.com"><span class="material-symbols-outlined text-primary">mail</span><div><span class="block font-bold">البريد الإلكتروني</span><span class="text-xs text-on-surface-variant">info.aquatech.jo@gmail.com</span></div></a>
+              </div>
+              <div class="mt-stack-md pt-stack-md border-t border-outline-variant/20">
+                <h4 class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-4">موقعنا</h4>
+                <div class="flex items-center gap-2 text-on-surface"><span class="material-symbols-outlined">location_on</span><span>عمّان، الأردن</span></div>
+              </div>
+            </div>
+            <div class="glass-card p-stack-md rounded-xl border-l-4 border-l-primary">
+              <h3 class="font-headline-md text-headline-md text-primary mb-4">ماذا يحدث بعد ذلك؟</h3>
+              <ul class="space-y-4">
+                <li class="flex gap-4"><span class="font-label-sm text-primary">01</span><div><p class="font-bold">تحليل البيانات</p><p class="text-sm text-on-surface-variant">نراجع طلبك ونفهم المتطلبات التقنية والأهداف التجارية.</p></div></li>
+                <li class="flex gap-4"><span class="font-label-sm text-primary">02</span><div><p class="font-bold">جلسة استشارية</p><p class="text-sm text-on-surface-variant">نتواصل معك خلال 24 ساعة لتحديد نقطة البداية.</p></div></li>
+                <li class="flex gap-4"><span class="font-label-sm text-primary">03</span><div><p class="font-bold">عرض واضح</p><p class="text-sm text-on-surface-variant">نقدم خطة عمل مع التكلفة والجدول الزمني.</p></div></li>
+              </ul>
+            </div>
+          </aside>
+
+          <div class="lg:col-span-8">
+            <form class="glass-card p-stack-lg rounded-xl flex flex-col gap-stack-md relative overflow-hidden" id="contactForm" novalidate>
+              <div class="absolute top-0 left-0 p-8 opacity-10"><span class="material-symbols-outlined text-[120px]" style="font-variation-settings:'FILL' 1;">rocket_launch</span></div>
+              <div class="relative z-10">
+                <h3 class="font-headline-lg text-headline-lg mb-2">تفاصيل المشروع</h3>
+                <p class="text-on-surface-variant mb-8">املأ البيانات التالية وسنرسل لك الخطوة المناسبة.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+                  <label class="block"><span class="block font-label-sm text-primary uppercase mb-2">الاسم</span><input id="fName" name="name" type="text" class="aqua-input form-field" required minlength="2" maxlength="80" autocomplete="name" placeholder="اسمك" /></label>
+                  <label class="block"><span class="block font-label-sm text-primary uppercase mb-2">البريد الإلكتروني</span><input id="fEmail" name="email" type="email" class="aqua-input form-field" autocomplete="email" maxlength="120" placeholder="example@mail.com" /></label>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mt-gutter">
+                  <label class="block"><span class="block font-label-sm text-primary uppercase mb-2">رمز الدولة</span><select id="fCountryCode" name="country_code" class="aqua-input form-field"><option value="+962" selected>Jordan (+962)</option><option value="+966">Saudi Arabia (+966)</option><option value="+971">UAE (+971)</option><option value="+20">Egypt (+20)</option><option value="+964">Iraq (+964)</option><option value="+965">Kuwait (+965)</option><option value="+968">Oman (+968)</option><option value="+974">Qatar (+974)</option><option value="+973">Bahrain (+973)</option><option value="+961">Lebanon (+961)</option><option value="+1">USA (+1)</option><option value="+44">UK (+44)</option></select></label>
+                  <label class="block md:col-span-2"><span class="block font-label-sm text-primary uppercase mb-2">رقم الواتساب</span><input id="fPhone" name="phone" type="tel" class="aqua-input form-field" autocomplete="tel" inputmode="numeric" maxlength="15" placeholder="7XXXXXXXX" /></label>
+                </div>
+                <input id="fFullPhone" name="full_phone" type="hidden" />
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter mt-gutter">
+                  <label class="block"><span class="block font-label-sm text-primary uppercase mb-2">الخدمة المطلوبة</span><select id="fService" name="service" class="aqua-input form-field"><option value="lead-system">موقع ونظام استقبال عملاء</option><option value="ai-automation">أتمتة أعمال بالذكاء الاصطناعي</option><option value="crm">نظام إدارة العملاء</option><option value="whatsapp-automation">أتمتة واتساب</option><option value="email-automation">أتمتة البريد الإلكتروني</option><option value="landing-page">صفحة تسويقية احترافية</option><option value="social-management">إدارة حسابات السوشيال ميديا</option><option value="lawyer-system">نظام إدارة مكاتب المحاماة</option><option value="university-projects">منصة إدارة المشاريع الجامعية</option><option value="resumeiq">ResumeIQ</option><option value="smart-attendance">Smart Attendance</option><option value="company-website">موقع شركة احترافي</option><option value="custom-system">نظام مخصص للشركات</option><option value="content-design">تصميم وصناعة المحتوى</option><option value="ads">إدارة الحملات الإعلانية</option><option value="seo">SEO تحسين الظهور</option><option value="dashboard">لوحات تحكم وتقارير</option><option value="ai-agent">AI Agent أو شات بوت</option><option value="other">خدمة أو فكرة أخرى</option></select></label>
+                  <label class="block"><span class="block font-label-sm text-primary uppercase mb-2">الميزانية التقريبية</span><select id="fBudget" name="budget" class="aqua-input form-field"><option value="" selected disabled>اختر الميزانية</option><option>أقل من $700</option><option>$700 - $1,500</option><option>$1,500 - $4,000</option><option>أكثر من $4,000</option></select></label>
+                </div>
+
+                <label class="block mt-gutter"><span class="block font-label-sm text-primary uppercase mb-2">موعد التنفيذ</span><select id="fTimeline" name="timeline" class="aqua-input form-field"><option value="">اختر الموعد</option><option>بأسرع وقت</option><option>خلال أسبوعين</option><option>خلال شهر</option><option>ما زلت أستكشف</option></select></label>
+
+                <label class="block mt-gutter"><span class="block font-label-sm text-primary uppercase mb-2">تفاصيل المشروع</span><textarea id="fDetails" name="details" rows="5" class="aqua-input form-field" minlength="10" maxlength="2000" placeholder="اكتب الهدف، المميزات، والموعد المتوقع…"></textarea></label>
+                <label class="hidden"><span>Website</span><input id="fWebsite" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" /></label>
+
+                <button id="sendLead" type="submit" class="quote-submit mt-gutter w-full bg-primary text-on-primary px-8 py-4 rounded-lg font-bold hover:scale-[.99] transition-all shadow-[0_0_20px_rgba(0,180,255,.25)]"><span class="quote-title">ابدأ مشروعك بخطة واضحة وتنفيذ احترافي</span></button>
+                <div class="mt-4 flex flex-wrap gap-2 text-xs text-on-surface-variant"><span class="inline-flex items-center gap-2 rounded-full px-3 py-2 bg-primary/5 border border-primary/10">🔒 مدخلات مُتحقق منها</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-2 bg-primary/5 border border-primary/10">🛡️ حماية من السبام</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-2 bg-primary/5 border border-primary/10">⚙️ تهيئة آمنة عند النشر</span></div>
+                <p id="formStatus" class="mt-3 text-xs text-on-surface-variant"></p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
