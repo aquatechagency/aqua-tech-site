@@ -368,162 +368,126 @@ document.getElementById("consentDecline").addEventListener("click", function(){
 
 <!-- ===== NAV ===== -->
 <header class="sticky top-0 z-50 backdrop-blur bg-[var(--bg)]/70 border-b border-[var(--border)]/70">
-<div class="header-row max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-  <!-- Brand -->
-<a class="brand-lock flex items-center gap-3 font-semibold tracking-tight min-w-0" href="#top">
-  <span class="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-white/5 border border-[var(--border)] overflow-hidden">
-<img alt="Aqua.Tech logo" class="h-9 w-9 object-contain" src="assets/logoo.webp" loading="eager" width="36" height="36" decoding="async"/>
-</span>
-<span class="leading-tight min-w-0">
-<span class="block truncate">Aqua.Tech</span>
-<span class="block text-xs font-normal text-[var(--muted)]" data-i18n="brand.sub"> </span>
-</span>
-</a>
-<nav class="desktop-nav hidden md:flex items-center gap-1 text-sm text-[var(--muted2)]">
-  <a class="nav-link" href="#about" data-i18n="nav.about">من نحن</a>
-  <a href="#trust" class="nav-link" data-i18n="nav.why">لماذا نحن</a>  <a class="nav-link" href="#services" data-i18n="nav.services">الخدمات</a>
-  <a class="nav-link" href="#ready-systems" data-i18n="nav.systems">الحلول</a>
-  <a class="nav-link" href="#results" data-i18n="nav.results">النتائج</a>
-  <a class="nav-link" href="#testimonials" data-i18n="nav.testimonials">المعايير</a>
-  <a class="nav-link" href="#security" data-i18n="nav.security">الأمان</a>
-  <a class="nav-link" href="#faq" data-i18n="nav.faq">الأسئلة</a>
-  <a class="nav-link" href="#contact" data-i18n="nav.contact">تواصل</a>
-</nav>
-<div class="flex items-center gap-2">
-<!-- Language toggle -->
-<button type="button" aria-label="Toggle language" class="inline-flex items-center gap-2 rounded-2xl px-3 py-2 bg-white/5 hover:bg-white/7 border border-[var(--border)] transition text-sm" id="langToggle">
-  <span style="font-family:Inter,system-ui;">EN</span>
-  <span class="text-xs text-[var(--muted)]">🌐</span>
-</button>
-<!-- WhatsApp -->
-<a 
-  class="inline-flex items-center gap-2 rounded-2xl px-3 py-2 bg-white/5 hover:bg-white/7 border border-[var(--border)] transition"
-  href="https://wa.me/962780932199"
-  id="waLinkHeader"
-  aria-label="WhatsApp Contact"
-  title="WhatsApp Contact"
-  target="_blank"
-  rel="noopener noreferrer"
-   onclick="if(typeof gtag==='function'){
-   gtag('event','whatsapp_click',{
-    event_category:'lead',
-    event_label:'header_whatsapp'
-  });
-}"
->
-  <svg viewBox="0 0 24 24" class="h-4 w-4 text-[var(--p1)]" fill="currentColor" aria-hidden="true">
-    <path d="M20.52 3.48A11.94 11.94 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.33-1.67a11.86 11.86 0 0 0 5.73 1.46h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.45-8.41Zm-8.46 18.28h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.75.99 1-3.66-.24-.38a9.86 9.86 0 0 1-1.52-5.22c0-5.44 4.43-9.87 9.88-9.87 2.64 0 5.13 1.03 6.99 2.89a9.83 9.83 0 0 1 2.9 6.98c0 5.45-4.43 9.86-9.85 9.86Zm5.74-7.86c-.31-.15-1.85-.91-2.14-1.01-.29-.11-.5-.15-.72.15-.21.31-.82 1.01-1 1.22-.19.21-.37.23-.68.08-.31-.15-1.31-.48-2.49-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.47.13-.62.14-.14.31-.37.46-.55.15-.18.21-.31.31-.51.1-.21.05-.38-.03-.53-.08-.15-.72-1.74-.99-2.38-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.53.08-.81.38-.28.31-1.07 1.05-1.07 2.57s1.1 2.99 1.25 3.2c.15.21 2.17 3.3 5.25 4.63.73.31 1.3.49 1.74.62.73.23 1.39.2 1.92.12.58-.09 1.85-.76 2.11-1.49.26-.73.26-1.36.18-1.49-.08-.14-.29-.22-.6-.38Z"/>
-  </svg>
-  <span class="hidden sm:inline text-sm" data-i18n="btn.whatsapp">واتساب</span>
-</a>
-
-<!-- Mobile menu button -->
-<button
-  id="menuToggle"
-  type="button"
-  aria-label="Open menu"
-  aria-expanded="false"
-  class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-2xl bg-white/5 hover:bg-white/7 border border-[var(--border)] transition"
->
-  <svg
-    id="menuIconOpen"
-    aria-hidden="true"
-    viewBox="0 0 24 24"
-    class="h-5 w-5"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-  >
-    <path d="M4 7h16M4 12h16M4 17h16"></path>
-  </svg>
-
-  <svg
-    id="menuIconClose"
-    aria-hidden="true"
-    viewBox="0 0 24 24"
-    class="h-5 w-5 hidden"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-  >
-    <path d="M6 6l12 12M18 6l-12 12"></path>
-  </svg>
-</button>
-
-<!-- Mobile menu panel -->
-<div
-  id="mobileMenu"
-  class="md:hidden hidden border border-[var(--border)]/70 bg-[var(--bg)]/92 backdrop-blur-2xl rounded-3xl"
->
-  <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-1 text-sm text-[var(--muted2)]">
-
-    <a class="mobile-nav-link" href="#about" data-i18n="nav.about">
-      من نحن
-    </a>
-        <a class="mobile-nav-link" href="#trust" data-i18n="nav.why">
-      لماذا نحن
+  <div class="header-row max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+    <!-- Brand -->
+    <a class="brand-lock flex items-center gap-3 font-semibold tracking-tight min-w-0" href="#top">
+      <span class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl bg-white/5 border border-[var(--border)] overflow-hidden">
+        <img alt="Aqua.Tech logo" class="h-9 w-9 object-contain" src="assets/logoo.webp" loading="eager" width="36" height="36" decoding="async"/>
+      </span>
+      <span class="leading-tight min-w-0">
+        <span class="block truncate">Aqua.Tech</span>
+        <span class="block text-xs font-normal text-[var(--muted)]" data-i18n="brand.sub"> </span>
+      </span>
     </a>
 
-    <a class="mobile-nav-link" href="#services" data-i18n="nav.services">
-      الخدمات
-    </a>
+    <!-- Desktop nav -->
+    <nav class="desktop-nav hidden md:flex items-center gap-1 text-sm text-[var(--muted2)]">
+      <a class="nav-link" href="#about" data-i18n="nav.about">من نحن</a>
+      <a class="nav-link" href="#trust" data-i18n="nav.why">لماذا نحن</a>
+      <a class="nav-link" href="#services" data-i18n="nav.services">الخدمات</a>
+      <a class="nav-link" href="#ready-systems" data-i18n="nav.systems">الحلول</a>
+      <a class="nav-link" href="#results" data-i18n="nav.results">النتائج</a>
+      <a class="nav-link" href="#testimonials" data-i18n="nav.testimonials">المعايير</a>
+      <a class="nav-link" href="#security" data-i18n="nav.security">الأمان</a>
+      <a class="nav-link" href="#faq" data-i18n="nav.faq">الأسئلة</a>
+      <a class="nav-link" href="#contact" data-i18n="nav.contact">تواصل</a>
+    </nav>
 
-
-    <a class="mobile-nav-link" href="#ready-systems" data-i18n="nav.systems">
-      الحلول
-    </a>
-
-    <a class="mobile-nav-link" href="#results" data-i18n="nav.results">
-      النتائج
-    </a>
-
-    <a class="mobile-nav-link" href="#testimonials" data-i18n="nav.testimonials">
-      المعايير
-    </a>
-
-    <a class="mobile-nav-link" href="#security" data-i18n="nav.security">
-      الأمان
-    </a>
-
-    <a class="mobile-nav-link" href="#faq" data-i18n="nav.faq">
-      الأسئلة
-    </a>
-
-    <a class="mobile-nav-link" href="#contact" data-i18n="nav.contact">
-      تواصل
-    </a>
-
-    <!-- WhatsApp button -->
-    <a
-      id="waLinkMobile"
-      class="mt-3 inline-flex items-center justify-center gap-2 rounded-2xl px-4 py-3 bg-white/5 hover:bg-white/7 border border-[var(--border)] transition"
-      href="https://wa.me/962780932199"
-      target="_blank"
-      rel="noopener noreferrer"
-      onclick="if(typeof gtag==='function'){
-        gtag('event','whatsapp_click',{
-          event_category:'lead',
-          event_label:'header_whatsapp'
-        });
-      }"
-    >
-      <svg
-        viewBox="0 0 24 24"
-        class="h-4 w-4 text-[var(--p1)]"
-        fill="currentColor"
-        aria-hidden="true"
+    <!-- Header actions -->
+    <div class="flex shrink-0 items-center gap-2">
+      <button
+        type="button"
+        aria-label="Toggle language"
+        class="inline-flex items-center gap-2 rounded-2xl px-3 py-2 bg-white/5 hover:bg-white/7 border border-[var(--border)] transition text-sm"
+        id="langToggle"
       >
-        <path d="M20.52 3.48A11.94 11.94 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.33-1.67a11.86 11.86 0 0 0 5.73 1.46h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.45-8.41Zm-8.46 18.28h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.75.99 1-3.66-.24-.38a9.86 9.86 0 0 1-1.52-5.22c0-5.44 4.43-9.87 9.88-9.87 2.64 0 5.13 1.03 6.99 2.89a9.83 9.83 0 0 1 2.9 6.98c0 5.45-4.43 9.86-9.85 9.86Zm5.74-7.86c-.31-.15-1.85-.91-2.14-1.01-.29-.11-.5-.15-.72.15-.21.31-.82 1.01-1 1.22-.19.21-.37.23-.68.08-.31-.15-1.31-.48-2.49-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.47.13-.62.14-.14.31-.37.46-.55.15-.18.21-.31.31-.51.1-.21.05-.38-.03-.53-.08-.15-.72-1.74-.99-2.38-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.53.08-.81.38-.28.31-1.07 1.05-1.07 2.57s1.1 2.99 1.25 3.2c.15.21 2.17 3.3 5.25 4.63.73.31 1.3.49 1.74.62.73.23 1.39.2 1.92.12.58-.09 1.85-.76 2.11-1.49.26-.73.26-1.36.18-1.49-.08-.14-.29-.22-.6-.38Z"/>
-      </svg>
+        <span style="font-family:Inter,system-ui;">EN</span>
+        <span class="text-xs text-[var(--muted)]">🌐</span>
+      </button>
 
-      <span data-i18n="btn.whatsapp">واتساب</span>
-    </a>
+      <a
+        class="inline-flex items-center gap-2 rounded-2xl px-3 py-2 bg-white/5 hover:bg-white/7 border border-[var(--border)] transition"
+        href="https://wa.me/962780932199"
+        id="waLinkHeader"
+        aria-label="WhatsApp Contact"
+        title="WhatsApp Contact"
+        target="_blank"
+        rel="noopener noreferrer"
+        onclick="if(typeof gtag==='function'){gtag('event','whatsapp_click',{event_category:'lead',event_label:'header_whatsapp'});}"
+      >
+        <svg viewBox="0 0 24 24" class="h-4 w-4 text-[var(--p1)]" fill="currentColor" aria-hidden="true">
+          <path d="M20.52 3.48A11.94 11.94 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.33-1.67a11.86 11.86 0 0 0 5.73 1.46h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.45-8.41Zm-8.46 18.28h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.75.99 1-3.66-.24-.38a9.86 9.86 0 0 1-1.52-5.22c0-5.44 4.43-9.87 9.88-9.87 2.64 0 5.13 1.03 6.99 2.89a9.83 9.83 0 0 1 2.9 6.98c0 5.45-4.43 9.86-9.85 9.86Zm5.74-7.86c-.31-.15-1.85-.91-2.14-1.01-.29-.11-.5-.15-.72.15-.21.31-.82 1.01-1 1.22-.19.21-.37.23-.68.08-.31-.15-1.31-.48-2.49-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.47.13-.62.14-.14.31-.37.46-.55.15-.18.21-.31.31-.51.1-.21.05-.38-.03-.53-.08-.15-.72-1.74-.99-2.38-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.53.08-.81.38-.28.31-1.07 1.05-1.07 2.57s1.1 2.99 1.25 3.2c.15.21 2.17 3.3 5.25 4.63.73.31 1.3.49 1.74.62.73.23 1.39.2 1.92.12.58-.09 1.85-.76 2.11-1.49.26-.73.26-1.36.18-1.49-.08-.14-.29-.22-.6-.38Z"/>
+        </svg>
+        <span class="hidden sm:inline text-sm" data-i18n="btn.whatsapp">واتساب</span>
+      </a>
 
+      <button
+        id="menuToggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-2xl bg-white/5 hover:bg-white/7 border border-[var(--border)] transition"
+      >
+        <svg
+          id="menuIconOpen"
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          class="h-5 w-5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        >
+          <path d="M4 7h16M4 12h16M4 17h16"></path>
+        </svg>
+
+        <svg
+          id="menuIconClose"
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          class="h-5 w-5 hidden"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        >
+          <path d="M6 6l12 12M18 6l-12 12"></path>
+        </svg>
+      </button>
+    </div>
   </div>
-</div>
 
+  <!-- Mobile menu panel -->
+  <div
+    id="mobileMenu"
+    class="md:hidden hidden mx-4 mb-3 border border-[var(--border)]/70 bg-[var(--bg)]/95 backdrop-blur-2xl rounded-3xl shadow-[0_18px_60px_rgba(0,0,0,.45)]"
+  >
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-1 text-sm text-[var(--muted2)]">
+      <a class="mobile-nav-link" href="#about" data-i18n="nav.about">من نحن</a>
+      <a class="mobile-nav-link" href="#trust" data-i18n="nav.why">لماذا نحن</a>
+      <a class="mobile-nav-link" href="#services" data-i18n="nav.services">الخدمات</a>
+      <a class="mobile-nav-link" href="#ready-systems" data-i18n="nav.systems">الحلول</a>
+      <a class="mobile-nav-link" href="#results" data-i18n="nav.results">النتائج</a>
+      <a class="mobile-nav-link" href="#testimonials" data-i18n="nav.testimonials">المعايير</a>
+      <a class="mobile-nav-link" href="#security" data-i18n="nav.security">الأمان</a>
+      <a class="mobile-nav-link" href="#faq" data-i18n="nav.faq">الأسئلة</a>
+      <a class="mobile-nav-link" href="#contact" data-i18n="nav.contact">تواصل</a>
+
+      <a
+        id="waLinkMobile"
+        class="mt-3 inline-flex items-center justify-center gap-2 rounded-2xl px-4 py-3 bg-white/5 hover:bg-white/7 border border-[var(--border)] transition"
+        href="https://wa.me/962780932199"
+        target="_blank"
+        rel="noopener noreferrer"
+        onclick="if(typeof gtag==='function'){gtag('event','whatsapp_click',{event_category:'lead',event_label:'mobile_menu_whatsapp'});}"
+      >
+        <svg viewBox="0 0 24 24" class="h-4 w-4 text-[var(--p1)]" fill="currentColor" aria-hidden="true">
+          <path d="M20.52 3.48A11.94 11.94 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.33-1.67a11.86 11.86 0 0 0 5.73 1.46h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.45-8.41Zm-8.46 18.28h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.75.99 1-3.66-.24-.38a9.86 9.86 0 0 1-1.52-5.22c0-5.44 4.43-9.87 9.88-9.87 2.64 0 5.13 1.03 6.99 2.89a9.83 9.83 0 0 1 2.9 6.98c0 5.45-4.43 9.86-9.85 9.86Zm5.74-7.86c-.31-.15-1.85-.91-2.14-1.01-.29-.11-.5-.15-.72.15-.21.31-.82 1.01-1 1.22-.19.21-.37.23-.68.08-.31-.15-1.31-.48-2.49-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.47.13-.62.14-.14.31-.37.46-.55.15-.18.21-.31.31-.51.1-.21.05-.38-.03-.53-.08-.15-.72-1.74-.99-2.38-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.53.08-.81.38-.28.31-1.07 1.05-1.07 2.57s1.1 2.99 1.25 3.2c.15.21 2.17 3.3 5.25 4.63.73.31 1.3.49 1.74.62.73.23 1.39.2 1.92.12.58-.09 1.85-.76 2.11-1.49.26-.73.26-1.36.18-1.49-.08-.14-.29-.22-.6-.38Z"/>
+        </svg>
+        <span data-i18n="btn.whatsapp">واتساب</span>
+      </a>
+    </div>
+  </div>
 </header>
 <!-- ===== HERO ===== -->
 <main class="relative overflow-x-hidden" id="top">
@@ -1558,7 +1522,7 @@ document.getElementById("consentDecline").addEventListener("click", function(){
   </button>
   <div id="faqA12" class="faq-a mt-3 text-sm text-[var(--muted)]" data-i18n="faq.a12">بمجرد أن تشاركنا هدفك الحالي، نحدد لك أسرع بداية مناسبة، وما الذي يجب بناؤه أولًا، وما الذي يمكن تأجيله بدون تكلفة غير ضرورية.</div>
 </div>
-    </div></div>
+    </div>
   </div>
 </section>
 
