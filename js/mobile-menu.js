@@ -1,40 +1,48 @@
-    // ===== Mobile menu (phones/tablets) =====
-    const menuBtn = document.getElementById("menuToggle");
-    const mobileMenu = document.getElementById("mobileMenu");
-    const iconOpen = document.getElementById("menuIconOpen");
-    const iconClose = document.getElementById("menuIconClose");
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.getElementById("menuToggle");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const menuIconOpen = document.getElementById("menuIconOpen");
+  const menuIconClose = document.getElementById("menuIconClose");
 
-    function setMenu(open){
-      if(!mobileMenu || !menuBtn) return;
-      mobileMenu.classList.toggle("hidden", !open);
-      menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
-      // toggle icons
-      if(iconOpen) iconOpen.classList.toggle("hidden", open);
-      if(iconClose) iconClose.classList.toggle("hidden", !open);
+  if (!menuToggle || !mobileMenu) return;
+
+  const openMenu = () => {
+    mobileMenu.classList.remove("hidden");
+    menuToggle.setAttribute("aria-expanded", "true");
+    document.body.classList.add("menu-open");
+
+    if (menuIconOpen) menuIconOpen.classList.add("hidden");
+    if (menuIconClose) menuIconClose.classList.remove("hidden");
+  };
+
+  const closeMenu = () => {
+    mobileMenu.classList.add("hidden");
+    menuToggle.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("menu-open");
+
+    if (menuIconOpen) menuIconOpen.classList.remove("hidden");
+    if (menuIconClose) menuIconClose.classList.add("hidden");
+  };
+
+  const toggleMenu = () => {
+    if (mobileMenu.classList.contains("hidden")) {
+      openMenu();
+    } else {
+      closeMenu();
     }
+  };
 
-    if(menuBtn){
-      menuBtn.addEventListener("click", ()=>{
-        const open = mobileMenu ? mobileMenu.classList.contains("hidden") : false;
-        setMenu(open);
-      });
-    }
+  menuToggle.addEventListener("click", toggleMenu);
 
-    // Close when clicking a link
-    if(mobileMenu){
-      mobileMenu.querySelectorAll("a").forEach(a=>{
-        a.addEventListener("click", ()=> setMenu(false));
-      });
-    }
+  mobileMenu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
 
-    // Close when clicking outside
-    document.addEventListener("click", (e)=>{
-      if(!mobileMenu || mobileMenu.classList.contains("hidden")) return;
-      if(menuBtn && (menuBtn.contains(e.target) || mobileMenu.contains(e.target))) return;
-      setMenu(false);
-    });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMenu();
+  });
 
-    // Close on Escape
-    document.addEventListener("keydown", (e)=>{
-      if(e.key === "Escape") setMenu(false);
-    });
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 768) closeMenu();
+  });
+});

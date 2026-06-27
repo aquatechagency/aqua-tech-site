@@ -41,7 +41,7 @@
 <meta name="robots" content="index,follow,max-image-preview:large"/>
 
 <!-- 6. Security / referrer -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob: 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://script.google.com https://script.googleusercontent.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://www.google-analytics.com https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://script.google.com; upgrade-insecure-requests"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob: 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://script.google.com https://script.googleusercontent.com https://cdn.jsdelivr.net; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://www.google-analytics.com https:; base-uri 'self'; form-action 'self' https://script.google.com; upgrade-insecure-requests"/>
 <meta name="referrer" content="strict-origin-when-cross-origin"/>
 
 <!-- 7. Mobile / PWA -->
@@ -89,8 +89,14 @@
 <!-- 14. Preload critical assets -->
 <link rel="preload" as="image" href="assets/logoo.webp"/>
 <link rel="stylesheet" href="./dist/output.css">
-<link rel="stylesheet" href="./css/styles.css">
 
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+>
+
+<link rel="stylesheet" href="./css/styles.css">
+<link rel="stylesheet" href="./css/aqua-stitch-theme.css">
 <!-- 15. Google Analytics — consent-gated -->
 <script>
   // Only load GA if the user has already accepted analytics
@@ -1107,49 +1113,57 @@ document.getElementById("consentDecline").addEventListener("click", function(){
       <a href="#contact" class="hero-secondary-btn font-medium" data-i18n="systems.cta">اطلب النظام المناسب لك </a>
     </div>
 
-    <div class="mt-8 grid sm:grid-cols-2 xl:grid-cols-4 gap-4">
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-glow h-full flex flex-col">
-        <div class="text-xs text-[var(--muted)]" data-i18n="systems.card1.kicker">العمليات القانونية</div>
-        <h3 class="mt-2 text-lg font-semibold" data-i18n="systems.card1.t">نظام إدارة مكاتب المحاماة</h3>
-        <p class="mt-3 text-sm text-[var(--muted2)] leading-7" data-i18n="systems.card1.d">نظام لإدارة القضايا والعملاء والمواعيد والملفات القانونية بشكل أوضح وأسهل.</p>
-        <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="systems.card1.p1">إدارة القضايا والملفات</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="systems.card1.p2">متابعة العملاء والمواعيد</span></li>
-        </ul>
-        <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="lawyer_system" data-i18n="systems.cardCta">اطلب هذا النظام </a>
+    <div class="row g-4 mt-4">
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="aq-bs-card h-100 d-flex flex-column">
+          <div class="text-xs text-[var(--muted)]" data-i18n="systems.card1.kicker">العمليات القانونية</div>
+          <h3 class="mt-2 text-lg font-semibold" data-i18n="systems.card1.t">نظام إدارة مكاتب المحاماة</h3>
+          <p class="mt-3 text-sm text-[var(--muted2)] leading-7" data-i18n="systems.card1.d">نظام لإدارة القضايا والعملاء والمواعيد والملفات القانونية بشكل أوضح وأسهل.</p>
+          <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
+            <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="systems.card1.p1">إدارة القضايا والملفات</span></li>
+            <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="systems.card1.p2">متابعة العملاء والمواعيد</span></li>
+          </ul>
+          <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="lawyer_system" data-i18n="systems.cardCta">اطلب هذا النظام </a>
+        </div>
       </div>
 
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-glow h-full flex flex-col">
-        <div class="text-xs text-[var(--muted)]" data-i18n="systems.card2.kicker">سير العمل التعليمي</div>
-        <h3 class="mt-2 text-lg font-semibold" data-i18n="systems.card2.t">منصة مشاريع الجامعة</h3>
-        <p class="mt-3 text-sm text-[var(--muted2)] leading-7" data-i18n="systems.card2.d">منصة لتنظيم مشاريع الطلبة ورفع الملفات ومتابعة الفرق والإشراف الأكاديمي.</p>
-        <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="systems.card2.p1">تنظيم فرق ومشاريع الطلبة</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="systems.card2.p2">رفع الملفات ومتابعة التقييم</span></li>
-        </ul>
-        <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="university_project_hub" data-i18n="systems.cardCta">اطلب هذا النظام </a>
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="aq-bs-card h-100 d-flex flex-column">
+          <div class="text-xs text-[var(--muted)]" data-i18n="systems.card2.kicker">سير العمل التعليمي</div>
+          <h3 class="mt-2 text-lg font-semibold" data-i18n="systems.card2.t">منصة مشاريع الجامعة</h3>
+          <p class="mt-3 text-sm text-[var(--muted2)] leading-7" data-i18n="systems.card2.d">منصة لتنظيم مشاريع الطلبة ورفع الملفات ومتابعة الفرق والإشراف الأكاديمي.</p>
+          <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
+            <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="systems.card2.p1">تنظيم فرق ومشاريع الطلبة</span></li>
+            <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="systems.card2.p2">رفع الملفات ومتابعة التقييم</span></li>
+          </ul>
+          <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="university_project_hub" data-i18n="systems.cardCta">اطلب هذا النظام </a>
+        </div>
       </div>
 
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-glow h-full flex flex-col">
-        <div class="text-xs text-[var(--muted)]" data-i18n="systems.card3.kicker">أدوات مهنية</div>
-        <h3 class="mt-2 text-lg font-semibold" data-i18n="systems.card3.t">ResumeIQ</h3>
-        <p class="mt-3 text-sm text-[var(--muted2)] leading-7" data-i18n="systems.card3.d">أداة تساعد المستخدم على إنشاء سيرة ذاتية بشكل أوضح وأسرع وتجربة أسهل.</p>
-        <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="systems.card3.p1">بناء السيرة الذاتية بسهولة</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="systems.card3.p2">تنظيم المحتوى بشكل احترافي</span></li>
-        </ul>
-        <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="resumeiq" data-i18n="systems.cardCta">اطلب هذا النظام </a>
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="aq-bs-card h-100 d-flex flex-column">
+          <div class="text-xs text-[var(--muted)]" data-i18n="systems.card3.kicker">أدوات مهنية</div>
+          <h3 class="mt-2 text-lg font-semibold" data-i18n="systems.card3.t">ResumeIQ</h3>
+          <p class="mt-3 text-sm text-[var(--muted2)] leading-7" data-i18n="systems.card3.d">أداة تساعد المستخدم على إنشاء سيرة ذاتية بشكل أوضح وأسرع وتجربة أسهل.</p>
+          <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
+            <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="systems.card3.p1">بناء السيرة الذاتية بسهولة</span></li>
+            <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="systems.card3.p2">تنظيم المحتوى بشكل احترافي</span></li>
+          </ul>
+          <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="resumeiq" data-i18n="systems.cardCta">اطلب هذا النظام </a>
+        </div>
       </div>
 
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-glow h-full flex flex-col">
-        <div class="text-xs text-[var(--muted)]" data-i18n="systems.card4.kicker">إدارة الحضور</div>
-        <h3 class="mt-2 text-lg font-semibold" data-i18n="systems.card4.t">Smart Attendance</h3>
-        <p class="mt-3 text-sm text-[var(--muted2)] leading-7" data-i18n="systems.card4.d">نظام حضور ذكي يعتمد على التعرف على الوجوه لتسجيل الحضور تلقائيًا عبر الكاميرا، مع تقليل التلاعب والأخطاء اليدوية وتسهيل المتابعة اليومية.</p>
-        <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="systems.card4.p1">تسجيل حضور تلقائي عبر الكاميرا</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="systems.card4.p2">تقارير وتنظيم أفضل للحضور</span></li>
-        </ul>
-        <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="smart_attendance" data-i18n="systems.cardCta">اطلب هذا النظام </a>
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="aq-bs-card h-100 d-flex flex-column">
+          <div class="text-xs text-[var(--muted)]" data-i18n="systems.card4.kicker">إدارة الحضور</div>
+          <h3 class="mt-2 text-lg font-semibold" data-i18n="systems.card4.t">Smart Attendance</h3>
+          <p class="mt-3 text-sm text-[var(--muted2)] leading-7" data-i18n="systems.card4.d">نظام حضور ذكي يعتمد على التعرف على الوجوه لتسجيل الحضور تلقائيًا عبر الكاميرا، مع تقليل التلاعب والأخطاء اليدوية وتسهيل المتابعة اليومية.</p>
+          <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
+            <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="systems.card4.p1">تسجيل حضور تلقائي عبر الكاميرا</span></li>
+            <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="systems.card4.p2">تقارير وتنظيم أفضل للحضور</span></li>
+          </ul>
+          <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="smart_attendance" data-i18n="systems.cardCta">اطلب هذا النظام </a>
+        </div>
       </div>
     </div>
   </div>
@@ -1305,87 +1319,78 @@ document.getElementById("consentDecline").addEventListener("click", function(){
       <a href="#contact" class="hero-secondary-btn font-medium" data-i18n="offers.cta">احصل على توصية مناسبة</a>
     </div>
 
-    <div class="mt-8 grid md:grid-cols-2 xl:grid-cols-4 gap-4">
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua h-full flex flex-col">
-        <div class="inline-flex items-center rounded-full px-3 py-1 text-xs bg-white/5 border border-[var(--border)] text-[var(--muted2)]" data-i18n="offers.card1.badge">الأسرع إطلاقًا</div>
-        <h3 class="mt-4 text-xl font-semibold" data-i18n="offers.card1.t">صفحات تسويقية احترافية</h3>
-        <p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="offers.card1.d">صفحات تسويقية احترافية تجهزك للإعلان وجمع العملاء بخطوات واضحة وسريعة.</p>
-
-        <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card1.p1">مناسبة للعروض والخدمات والإعلانات</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card1.p2">ربط واتساب / نموذج / CTA واضح</span></li>
-        </ul>
-
-        <div class="mt-4 flex flex-wrap gap-2 text-xs text-[var(--muted2)]">
-          <span class="aq-chip" data-i18n="offers.card1.chip1">يبدأ من 250$ تقريبًا</span>
-<span class="aq-chip" data-i18n="offers.card1.chip2">5–7 أيام</span>
-<span class="aq-chip" data-i18n="offers.card1.chip3">مناسب للإعلانات</span>
+    <div class="row g-4 mt-4">
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="aq-bs-card h-100 d-flex flex-column">
+          <div class="inline-flex items-center rounded-full px-3 py-1 text-xs bg-white/5 border border-[var(--border)] text-[var(--muted2)]" data-i18n="offers.card1.badge">الأسرع إطلاقًا</div>
+          <h3 class="mt-4 text-xl font-semibold" data-i18n="offers.card1.t">صفحات تسويقية احترافية</h3>
+          <p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="offers.card1.d">صفحات تسويقية احترافية تجهزك للإعلان وجمع العملاء بخطوات واضحة وسريعة.</p>
+          <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
+            <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card1.p1">مناسبة للعروض والخدمات والإعلانات</span></li>
+            <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card1.p2">ربط واتساب / نموذج / CTA واضح</span></li>
+          </ul>
+          <div class="mt-4 flex flex-wrap gap-2 text-xs text-[var(--muted2)]">
+            <span class="aq-chip" data-i18n="offers.card1.chip1">يبدأ من 250$ تقريبًا</span>
+            <span class="aq-chip" data-i18n="offers.card1.chip2">5–7 أيام</span>
+            <span class="aq-chip" data-i18n="offers.card1.chip3">مناسب للإعلانات</span>
+          </div>
+          <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="website_lead_system" data-i18n="offers.cardCta">احصل على توصية مناسبة لك</a>
         </div>
-
-        <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="website_lead_system" data-i18n="offers.cardCta">احصل على توصية مناسبة لك</a>
       </div>
 
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua h-full flex flex-col">
-        <div class="inline-flex items-center rounded-full px-3 py-1 text-xs bg-white/5 border border-[var(--border)] text-[var(--muted2)]" data-i18n="offers.card2.badge">طلب مرتفع</div>
-        <h3 class="mt-4 text-xl font-semibold" data-i18n="offers.card2.t">باقة شات بوت ذكي الأساسية</h3>
-        <p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="offers.card2.d">بوت ذكي للموقع أو واتساب يساعدك ترد أسرع وتجمع العملاء بشكل منظم.</p>
-
-        <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card2.p1">أسئلة متكررة + استقبال طلبات</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card2.p2">ربط بسيط مع واتساب أو نموذج</span></li>
-          <li class="flex gap-2">
-            <span class="text-[var(--p1)]">•</span>
-            <span data-i18n="offers.card2.p3">
-                     ردود تلقائية وتنظيم أسرع للعملاء
-            </span>
-          </li>
-        </ul>
-
-        <div class="mt-4 flex flex-wrap gap-2 text-xs text-[var(--muted2)]">
-          <span class="aq-chip" data-i18n="offers.card2.chip1">يبدأ من 400$ تقريبًا</span>
-<span class="aq-chip" data-i18n="offers.card2.chip2">3–5 أيام</span>
-<span class="aq-chip" data-i18n="offers.card2.chip3">واتساب + موقع</span>
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="aq-bs-card h-100 d-flex flex-column">
+          <div class="inline-flex items-center rounded-full px-3 py-1 text-xs bg-white/5 border border-[var(--border)] text-[var(--muted2)]" data-i18n="offers.card2.badge">طلب مرتفع</div>
+          <h3 class="mt-4 text-xl font-semibold" data-i18n="offers.card2.t">باقة شات بوت ذكي الأساسية</h3>
+          <p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="offers.card2.d">بوت ذكي للموقع أو واتساب يساعدك ترد أسرع وتجمع العملاء بشكل منظم.</p>
+          <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
+            <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card2.p1">أسئلة متكررة + استقبال طلبات</span></li>
+            <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card2.p2">ربط بسيط مع واتساب أو نموذج</span></li>
+            <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card2.p3">ردود تلقائية وتنظيم أسرع للعملاء</span></li>
+          </ul>
+          <div class="mt-4 flex flex-wrap gap-2 text-xs text-[var(--muted2)]">
+            <span class="aq-chip" data-i18n="offers.card2.chip1">يبدأ من 400$ تقريبًا</span>
+            <span class="aq-chip" data-i18n="offers.card2.chip2">3–5 أيام</span>
+            <span class="aq-chip" data-i18n="offers.card2.chip3">واتساب + موقع</span>
+          </div>
+          <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="client_management_system" data-i18n="offers.cardCta">احصل على توصية مناسبة لك</a>
         </div>
-
-        <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="client_management_system" data-i18n="offers.cardCta">احصل على توصية مناسبة لك</a>
       </div>
 
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua h-full flex flex-col">
-        <div class="inline-flex items-center rounded-full px-3 py-1 text-xs bg-white/5 border border-[var(--border)] text-[var(--muted2)]" data-i18n="offers.card3.badge">دخل متكرر</div>
-        <h3 class="mt-4 text-xl font-semibold" data-i18n="offers.card3.t">باقة النمو</h3>
-        <p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="offers.card3.d">باقة نمو شهرية تجمع بين المحتوى والتصميم والمتابعة لتحويل الحضور الرقمي إلى نتائج.</p>
-
-        <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card3.p1">خطة محتوى + تصميم + نشر</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card3.p2">تقارير ومتابعة وتحسين مستمر</span></li>
-        </ul>
-
-        <div class="mt-4 flex flex-wrap gap-2 text-xs text-[var(--muted2)]">
-          <span class="aq-chip" data-i18n="offers.card3.chip1">يبدأ من 300$ شهريًا</span>
-<span class="aq-chip" data-i18n="offers.card3.chip2">إدارة + محتوى</span>
-<span class="aq-chip" data-i18n="offers.card3.chip3">تقارير شهرية</span>
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="aq-bs-card h-100 d-flex flex-column">
+          <div class="inline-flex items-center rounded-full px-3 py-1 text-xs bg-white/5 border border-[var(--border)] text-[var(--muted2)]" data-i18n="offers.card3.badge">دخل متكرر</div>
+          <h3 class="mt-4 text-xl font-semibold" data-i18n="offers.card3.t">باقة النمو</h3>
+          <p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="offers.card3.d">باقة نمو شهرية تجمع بين المحتوى والتصميم والمتابعة لتحويل الحضور الرقمي إلى نتائج.</p>
+          <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
+            <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card3.p1">خطة محتوى + تصميم + نشر</span></li>
+            <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card3.p2">تقارير ومتابعة وتحسين مستمر</span></li>
+          </ul>
+          <div class="mt-4 flex flex-wrap gap-2 text-xs text-[var(--muted2)]">
+            <span class="aq-chip" data-i18n="offers.card3.chip1">يبدأ من 300$ شهريًا</span>
+            <span class="aq-chip" data-i18n="offers.card3.chip2">إدارة + محتوى</span>
+            <span class="aq-chip" data-i18n="offers.card3.chip3">تقارير شهرية</span>
+          </div>
+          <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="email_automation" data-i18n="offers.cardCta">احصل على توصية مناسبة لك</a>
         </div>
-
-        <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="email_automation" data-i18n="offers.cardCta">احصل على توصية مناسبة لك</a>
       </div>
 
-      <div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua h-full flex flex-col">
-        <div class="inline-flex items-center rounded-full px-3 py-1 text-xs bg-white/5 border border-[var(--border)] text-[var(--muted2)]" data-i18n="offers.card4.badge">للمشاريع الأكبر</div>
-        <h3 class="mt-4 text-xl font-semibold" data-i18n="offers.card4.t">مرحلة اكتشاف النظام المخصص</h3>
-        <p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="offers.card4.d">جلسة تحليل ونطاق عمل أولي للمشاريع المخصصة قبل البدء في التنفيذ الكامل.</p>
-
-        <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card4.p1">فهم العمليات والاحتياج الفعلي</span></li>
-          <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card4.p2">مخرجات أوضح وسعر أدق لاحقًا</span></li>
-        </ul>
-
-        <div class="mt-4 flex flex-wrap gap-2 text-xs text-[var(--muted2)]">
-          <span class="aq-chip" data-i18n="offers.card4.chip1">تسعير حسب النطاق</span>
-<span class="aq-chip" data-i18n="offers.card4.chip2">تحليل أولي</span>
-<span class="aq-chip" data-i18n="offers.card4.chip3">Scope واضح</span>
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="aq-bs-card h-100 d-flex flex-column">
+          <div class="inline-flex items-center rounded-full px-3 py-1 text-xs bg-white/5 border border-[var(--border)] text-[var(--muted2)]" data-i18n="offers.card4.badge">للمشاريع الأكبر</div>
+          <h3 class="mt-4 text-xl font-semibold" data-i18n="offers.card4.t">مرحلة اكتشاف النظام المخصص</h3>
+          <p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="offers.card4.d">جلسة تحليل ونطاق عمل أولي للمشاريع المخصصة قبل البدء في التنفيذ الكامل.</p>
+          <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
+            <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card4.p1">فهم العمليات والاحتياج الفعلي</span></li>
+            <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="offers.card4.p2">مخرجات أوضح وسعر أدق لاحقًا</span></li>
+          </ul>
+          <div class="mt-4 flex flex-wrap gap-2 text-xs text-[var(--muted2)]">
+            <span class="aq-chip" data-i18n="offers.card4.chip1">تسعير حسب النطاق</span>
+            <span class="aq-chip" data-i18n="offers.card4.chip2">تحليل أولي</span>
+            <span class="aq-chip" data-i18n="offers.card4.chip3">Scope واضح</span>
+          </div>
+          <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="whatsapp_automation" data-i18n="offers.cardCta">احصل على توصية مناسبة لك</a>
         </div>
-
-        <a href="#contact" class="mt-auto pt-5 inline-flex text-sm underline underline-offset-4 hover:text-white transition js-service-cta" data-service="whatsapp_automation" data-i18n="offers.cardCta">احصل على توصية مناسبة لك</a>
       </div>
     </div>
   </div>
@@ -1395,64 +1400,72 @@ document.getElementById("consentDecline").addEventListener("click", function(){
 
 
 <section class="border-t border-[var(--border)]/70" id="security" data-animate>
-<div class="max-w-6xl mx-auto px-4 py-14 md:py-16 lg:py-20">
-<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-<div>
-<h2 class="text-2xl md:text-3xl font-semibold" data-i18n="security.h">الأمان والثقة</h2>
-<p class="mt-2 text-[var(--muted)] max-w-3xl" data-i18n="security.sub">نبني المواقع والأنظمة وفق ممارسات حديثة تساعد على رفع الأمان، حماية البيانات، وتقوية موثوقية المشروع عند الإطلاق</p>
-</div>
-<a href="#contact" class="hero-secondary-btn font-medium" data-i18n="security.cta">اطلب موقعًا أكثر أمانًا</a>
-</div>
+  <div class="max-w-6xl mx-auto px-4 py-14 md:py-16 lg:py-20">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-semibold" data-i18n="security.h">الأمان والثقة</h2>
+        <p class="mt-2 text-[var(--muted)] max-w-3xl" data-i18n="security.sub">نبني المواقع والأنظمة وفق ممارسات حديثة تساعد على رفع الأمان، حماية البيانات، وتقوية موثوقية المشروع عند الإطلاق</p>
+      </div>
+      <a href="#contact" class="hero-secondary-btn font-medium" data-i18n="security.cta">اطلب موقعًا أكثر أمانًا</a>
+    </div>
 
-<div class="mt-8 grid md:grid-cols-2 xl:grid-cols-4 gap-4">
-<div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua">
-<div class="text-xs text-[var(--muted)]" data-i18n="security.card1.kicker">Connection</div>
-<h3 class="mt-2 text-lg font-semibold" data-i18n="security.card1.t">اتصال آمن وموثوق</h3>
-<p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="security.card1.d">تفعيل HTTPS وسياسات التصفح الأساسية لحماية نقل البيانات وتعزيز الثقة أثناء التصفح أو إرسال النماذج.</p>
-</div>
+    <div class="row g-4 mt-4">
+      <div class="col-12 col-md-6 col-xl-3">
+<div class="aq-offer-card h-100">
+            <div class="text-xs text-[var(--muted)]" data-i18n="security.card1.kicker">Connection</div>
+          <h3 class="mt-2 text-lg font-semibold" data-i18n="security.card1.t">اتصال آمن وموثوق</h3>
+          <p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="security.card1.d">تفعيل HTTPS وسياسات التصفح الأساسية لحماية نقل البيانات وتعزيز الثقة أثناء التصفح أو إرسال النماذج.</p>
+        </div>
+      </div>
 
-<div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua">
-<div class="text-xs text-[var(--muted)]" data-i18n="security.card2.kicker">Application</div>
-<h3 class="mt-2 text-lg font-semibold" data-i18n="security.card2.t">حماية على مستوى التطبيق</h3>
-<p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="security.card2.d">نطبق التحقق من المدخلات، تنقية النصوص، حماية النماذج، وتقليل المخاطر الشائعة مثل الرسائل المزعجة أو الإدخال غير الآمن.</p>
-</div>
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="aq-bs-card h-100">
+          <div class="text-xs text-[var(--muted)]" data-i18n="security.card2.kicker">Application</div>
+          <h3 class="mt-2 text-lg font-semibold" data-i18n="security.card2.t">حماية على مستوى التطبيق</h3>
+          <p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="security.card2.d">نطبق التحقق من المدخلات، تنقية النصوص، حماية النماذج، وتقليل المخاطر الشائعة مثل الرسائل المزعجة أو الإدخال غير الآمن.</p>
+        </div>
+      </div>
 
-<div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua">
-<div class="text-xs text-[var(--muted)]" data-i18n="security.card3.kicker">Deployment</div>
-<h3 class="mt-2 text-lg font-semibold" data-i18n="security.card3.t">تهيئة آمنة أثناء النشر</h3>
-<p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="security.card3.d">نهيئ المتصفح والروابط الخارجية والطلبات بشكل أكثر أمانًا، مع جاهزية لإضافة Cloudflare وSecurity Headers من جهة الاستضافة.</p>
-</div>
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="aq-bs-card h-100">
+          <div class="text-xs text-[var(--muted)]" data-i18n="security.card3.kicker">Deployment</div>
+          <h3 class="mt-2 text-lg font-semibold" data-i18n="security.card3.t">تهيئة آمنة أثناء النشر</h3>
+          <p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="security.card3.d">نهيئ المتصفح والروابط الخارجية والطلبات بشكل أكثر أمانًا، مع جاهزية لإضافة Cloudflare وSecurity Headers من جهة الاستضافة.</p>
+        </div>
+      </div>
 
-<div class="rounded-3xl p-6 bg-white/5 border border-[var(--border)] shadow-aqua">
-<div class="text-xs text-[var(--muted)]" data-i18n="security.card4.kicker">Trust</div>
-<h3 class="mt-2 text-lg font-semibold" data-i18n="security.card4.t">ثقة أعلى للمشروع والعملاء</h3>
-<p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="security.card4.d">الموقع الآمن لا يحمي المشروع فقط، بل يرفع الانطباع المهني ويزيد ثقة العميل عند التواصل أو مشاركة بياناته.</p>
-</div>
-</div>
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="aq-bs-card h-100">
+          <div class="text-xs text-[var(--muted)]" data-i18n="security.card4.kicker">Trust</div>
+          <h3 class="mt-2 text-lg font-semibold" data-i18n="security.card4.t">ثقة أعلى للمشروع والعملاء</h3>
+          <p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="security.card4.d">الموقع الآمن لا يحمي المشروع فقط، بل يرفع الانطباع المهني ويزيد ثقة العميل عند التواصل أو مشاركة بياناته.</p>
+        </div>
+      </div>
+    </div>
 
-<div class="mt-8 rounded-3xl p-6 md:p-8 bg-gradient-to-r from-[var(--p1)]/5 to-[var(--p2)]/5 border border-[var(--border)]">
-<div class="grid md:grid-cols-2 gap-8 items-start">
-<div>
-<div class="text-xs text-[var(--muted)]" data-i18n="security.list.kicker">Included practices</div>
-<h3 class="mt-2 text-xl font-semibold" data-i18n="security.list.h">ما الذي نأخذه بعين الاعتبار</h3>
-<ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
-<li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="security.list.i1">SSL / HTTPS وتشفير الاتصال</span></li>
-<li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="security.list.i2">Security Headers وسياسات المتصفح الأساسية</span></li>
-<li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="security.list.i3">التحقق من المدخلات وتنقية بيانات النماذج</span></li>
-<li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="security.list.i4">حماية من السبام ومحاولات الإرسال المتكرر</span></li>
-<li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="security.list.i5">جاهزية لدمج Cloudflare وحماية الاستضافة</span></li>
-</ul>
-</div>
+    <div class="mt-8 rounded-3xl p-6 md:p-8 bg-gradient-to-r from-[var(--p1)]/5 to-[var(--p2)]/5 border border-[var(--border)]">
+      <div class="grid md:grid-cols-2 gap-8 items-start">
+        <div>
+          <div class="text-xs text-[var(--muted)]" data-i18n="security.list.kicker">Included practices</div>
+          <h3 class="mt-2 text-xl font-semibold" data-i18n="security.list.h">ما الذي نأخذه بعين الاعتبار</h3>
+          <ul class="mt-4 space-y-2 text-sm text-[var(--muted2)]">
+            <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="security.list.i1">SSL / HTTPS وتشفير الاتصال</span></li>
+            <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="security.list.i2">Security Headers وسياسات المتصفح الأساسية</span></li>
+            <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="security.list.i3">التحقق من المدخلات وتنقية بيانات النماذج</span></li>
+            <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="security.list.i4">حماية من السبام ومحاولات الإرسال المتكرر</span></li>
+            <li class="flex gap-2"><span class="text-[var(--p1)]">•</span><span data-i18n="security.list.i5">جاهزية لدمج Cloudflare وحماية الاستضافة</span></li>
+          </ul>
+        </div>
 
-<div class="rounded-3xl p-5 bg-white/5 border border-[var(--border)]">
-<div class="text-xs text-[var(--muted)]" data-i18n="security.note.kicker">Professional note</div>
-<h3 class="mt-2 text-lg font-semibold" data-i18n="security.note.h">مهم</h3>
-<p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="security.note.d">لا يوجد موقع غير قابل للاختراق 100٪، لكن يمكن بناء موقع بمستوى حماية أعلى يقلل المخاطر ويجعل الهجوم أصعب وأكثر كلفة.</p>
-<p class="mt-3 text-xs text-[var(--muted)]" data-i18n="security.note.extra">للحماية الأقوى على الإنتاج ننصح بتفعيل Cloudflare وHSTS وWAF من جهة الاستضافة أو CDN.</p>
-</div>
-</div>
-</div>
-</div>
+        <div class="rounded-3xl p-5 bg-white/5 border border-[var(--border)]">
+          <div class="text-xs text-[var(--muted)]" data-i18n="security.note.kicker">Professional note</div>
+          <h3 class="mt-2 text-lg font-semibold" data-i18n="security.note.h">مهم</h3>
+          <p class="mt-3 text-sm leading-7 text-[var(--muted2)]" data-i18n="security.note.d">لا يوجد موقع غير قابل للاختراق 100٪، لكن يمكن بناء موقع بمستوى حماية أعلى يقلل المخاطر ويجعل الهجوم أصعب وأكثر كلفة.</p>
+          <p class="mt-3 text-xs text-[var(--muted)]" data-i18n="security.note.extra">للحماية الأقوى على الإنتاج ننصح بتفعيل Cloudflare وHSTS وWAF من جهة الاستضافة أو CDN.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="border-t border-[var(--border)]/70" id="faq" data-animate>
@@ -1551,70 +1564,53 @@ document.getElementById("consentDecline").addEventListener("click", function(){
 
 <section class="border-t border-[var(--border)]/70" id="support" data-animate>
   <div class="max-w-6xl mx-auto px-4 py-14 md:py-16 lg:py-20">
-
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
       <div>
-            <h2 class="mt-3 text-2xl md:text-3xl font-semibold"
-                   data-i18n="support.h">
-                    لا ينتهي دورنا عند التسليم
-                      </h2>
-          <p class="mt-3 text-[var(--muted)] max-w-3xl leading-8"
-                 data-i18n="support.d">
-          نساعدك بعد الإطلاق في المتابعة، التحسين، والدعم الفني حتى يبقى مشروعك مستقرًا ويحقق نتائج أفضل.
-        </p>
+        <h2 class="mt-3 text-2xl md:text-3xl font-semibold" data-i18n="support.h">لا ينتهي دورنا عند التسليم</h2>
+        <p class="mt-3 text-[var(--muted)] max-w-3xl leading-8" data-i18n="support.d">نساعدك بعد الإطلاق في المتابعة، التحسين، والدعم الفني حتى يبقى مشروعك مستقرًا ويحقق نتائج أفضل.</p>
       </div>
 
-<a href="#contact"
-   class="hero-secondary-btn font-medium"
-   data-i18n="support.cta">
-   اطلب خطة دعم مناسبة
-</a>
+      <a href="#contact" class="hero-secondary-btn font-medium" data-i18n="support.cta">اطلب خطة دعم مناسبة</a>
     </div>
 
-    <div class="mt-8 grid md:grid-cols-2 xl:grid-cols-4 gap-4">
-
-      <div class="support-card">
-        <div class="support-icon">🛠️</div>
-        <h3 data-i18n="support.card1.t">دعم فني</h3>
-
-<p data-i18n="support.card1.d">
-معالجة المشاكل التقنية والمتابعة بعد الإطلاق.
-</p>
+    <div class="row g-4 mt-4">
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="support-card h-100">
+          <div class="support-icon">🛠️</div>
+          <h3 data-i18n="support.card1.t">دعم فني</h3>
+          <p data-i18n="support.card1.d">معالجة المشاكل التقنية والمتابعة بعد الإطلاق.</p>
+        </div>
       </div>
 
-      <div class="support-card">
-        <div class="support-icon">⚡</div>
-        <h3 data-i18n="support.card2.t">استجابة سريعة</h3>
-
-<p data-i18n="support.card2.d">
-رد ومتابعة خلال وقت واضح حسب نوع الطلب.
-</p>
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="support-card h-100">
+          <div class="support-icon">⚡</div>
+          <h3 data-i18n="support.card2.t">استجابة سريعة</h3>
+          <p data-i18n="support.card2.d">رد ومتابعة خلال وقت واضح حسب نوع الطلب.</p>
+        </div>
       </div>
 
-      <div class="support-card">
-        <div class="support-icon">📈</div>
-        <h3 data-i18n="support.card3.t">تحسينات مستمرة</h3>
-
-<p data-i18n="support.card3.d">
-تحسين الأداء وتجربة المستخدم حسب الحاجة.
-</p>
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="support-card h-100">
+          <div class="support-icon">📈</div>
+          <h3 data-i18n="support.card3.t">تحسينات مستمرة</h3>
+          <p data-i18n="support.card3.d">تحسين الأداء وتجربة المستخدم حسب الحاجة.</p>
+        </div>
       </div>
 
-      <div class="support-card">
-        <div class="support-icon">🛡️</div>
-        <h3 data-i18n="support.card4.t">نسخ احتياطي</h3>
-
-<p data-i18n="support.card4.d">
-تجهيزات أساسية للحفاظ على استقرار المشروع.
-</p>
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="support-card h-100">
+          <div class="support-icon">🛡️</div>
+          <h3 data-i18n="support.card4.t">نسخ احتياطي</h3>
+          <p data-i18n="support.card4.d">تجهيزات أساسية للحفاظ على استقرار المشروع.</p>
+        </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<section class="border-t border-[var(--border)]/70" id="contact">
-<div class="max-w-6xl mx-auto px-4 py-14 md:py-16 lg:py-20">
+<section class="border-t border-[var(--border)]/70" id="contact" data-animate>
+  <div class="max-w-6xl mx-auto px-4 py-14 md:py-16 lg:py-20">
 <div class="mb-8 max-w-3xl">
 <h2 class="text-2xl md:text-3xl font-semibold" data-i18n="contact.h">اطلب النظام المناسب لمرحلتك</h2>
 <p class="mt-2 text-[var(--muted)]" data-i18n="contact.sub">
@@ -1963,6 +1959,10 @@ onclick="if(typeof gtag==='function'){
   </svg>
   <span class="wa-tip" aria-hidden="true">تواصل معنا على واتساب</span>
 </a>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+</script>
 <script defer src="./js/i18n.js"></script>
 <script defer src="./js/mobile-menu.js"></script>
 <script defer src="./js/faq.js"></script>
@@ -1970,6 +1970,8 @@ onclick="if(typeof gtag==='function'){
 <script defer src="./js/animations.js"></script>
 <script defer src="./js/utils.js"></script>
 <script defer src="./js/app.js"></script>
-<script src="js/navigation.js"></script>
+<script defer src="js/navigation.js"></script>
+<script defer src="js/progressive-sections.js"></script>
+
 </body>
 </html>

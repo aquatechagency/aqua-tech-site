@@ -1,0 +1,526 @@
+/* =========================================================
+   Aqua.Tech — Stitch Liquid Tech Pulse integration patch
+   Load this file AFTER css/styles.css, or paste it at the very end.
+   ========================================================= */
+
+:root {
+  --bg: #051424;
+  --surface: #0d1c2d;
+  --surface-2: #122131;
+  --surface-3: #1c2b3c;
+  --border: #273647;
+  --text: #d4e4fa;
+  --muted: #87929c;
+  --muted2: #bdc8d2;
+  --p1: #89ceff;
+  --p2: #00b4ff;
+  --p3: #c9e6ff;
+  --cta1: #007fbd;
+  --cta2: #00b4ff;
+  --ctaText: #001e2f;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 88% 8%, rgba(0,180,255,.12), transparent 34%),
+    radial-gradient(circle at 8% 14%, rgba(137,206,255,.06), transparent 28%),
+    linear-gradient(180deg, #051424 0%, #03101f 52%, #020915 100%) !important;
+  color: var(--text) !important;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+/* Bootstrap guard */
+:root {
+  --bs-body-bg: var(--bg);
+  --bs-body-color: var(--text);
+  --bs-primary: var(--p1);
+  --bs-border-color: var(--border);
+  --bs-border-radius: .75rem;
+  --bs-border-radius-lg: 1rem;
+}
+
+.container,
+.container-fluid,
+.row > *,
+.grid > *,
+[class*="grid"] > * {
+  min-width: 0;
+}
+
+a {
+  color: inherit;
+}
+
+a:hover {
+  color: var(--p1);
+}
+
+/* Glass card system matching Stitch reference */
+.aq-bs-card,
+.aq-offer-card,
+.about-shell,
+.trust-pill,
+.support-card,
+.premium-stat,
+#ready-systems .row > div > div,
+#results .grid > div,
+#testimonials .grid > div,
+#security .row > div > div,
+#faq .faq-item,
+#contact form,
+#contact .space-y-3 > div {
+  position: relative;
+  overflow: hidden;
+  color: var(--text) !important;
+  background:
+    radial-gradient(circle at 82% 12%, rgba(137,206,255,.10), transparent 34%),
+    linear-gradient(180deg, rgba(18,33,49,.72), rgba(1,15,31,.88)) !important;
+  border: 1px solid rgba(137,206,255,.16) !important;
+  border-radius: 1rem !important;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.02) inset,
+    0 18px 60px rgba(0,0,0,.26),
+    0 0 26px rgba(0,180,255,.045) !important;
+}
+
+.aq-bs-card:hover,
+.aq-offer-card:hover,
+.trust-pill:hover,
+.support-card:hover,
+#faq .faq-item:hover {
+  border-color: rgba(0,180,255,.34) !important;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.025) inset,
+    0 18px 60px rgba(0,0,0,.26),
+    0 0 22px rgba(0,180,255,.14) !important;
+}
+
+.aq-bs-card {
+  height: 100%;
+  min-width: 0;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-primary-btn,
+.aq-bs-btn-primary,
+.quote-submit,
+.sticky-mobile-cta-btn {
+  color: var(--ctaText) !important;
+  background: linear-gradient(135deg, var(--p1), var(--p2)) !important;
+  border: 1px solid rgba(137,206,255,.34) !important;
+  border-radius: .75rem !important;
+  box-shadow: 0 0 18px rgba(0,180,255,.13) !important;
+}
+
+.hero-secondary-btn,
+.aq-bs-btn-secondary {
+  color: var(--p1) !important;
+  background: rgba(137,206,255,.045) !important;
+  border: 1px solid rgba(137,206,255,.18) !important;
+  border-radius: .75rem !important;
+}
+
+.aq-chip,
+#services .aq-service-pill,
+#offers .aq-offer-card > .inline-flex:first-child {
+  color: var(--p1) !important;
+  background: rgba(137,206,255,.055) !important;
+  border: 1px solid rgba(137,206,255,.18) !important;
+  border-radius: 999px !important;
+}
+
+/* Progressive rendering safety */
+[data-animate] {
+  content-visibility: auto;
+  contain-intrinsic-size: 900px;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+html.aq-js-ready [data-animate]:not(.is-visible) {
+  opacity: 0 !important;
+  transform: translateY(18px) !important;
+  transition: opacity .42s ease, transform .42s ease;
+}
+
+html.aq-js-ready [data-animate].is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+body.is-scrolling .bg-blobA,
+body.is-scrolling .bg-blobB,
+body.is-scrolling .bg-blobC,
+body.is-scrolling .bubbles span,
+body.is-scrolling .tech-circuit,
+body.is-scrolling .tech-code span,
+body.is-scrolling .floatA,
+body.is-scrolling .floatB,
+body.is-scrolling .floatC,
+body.is-scrolling .premium-node,
+body.is-scrolling .aq-node,
+body.is-scrolling .aq-floating-badge,
+body.is-scrolling #wa-float {
+  animation-play-state: paused !important;
+}
+
+/* Header/menu after Bootstrap */
+header.sticky {
+  background: rgba(5,20,36,.92) !important;
+  border-bottom: 1px solid rgba(137,206,255,.16) !important;
+  box-shadow: 0 18px 50px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04) !important;
+}
+
+.nav-link,
+.mobile-nav-link,
+#mobileMenu a {
+  text-decoration: none !important;
+}
+
+@media (max-width: 767px) {
+  header.sticky,
+  #mobileMenu {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  #mobileMenu {
+    position: fixed !important;
+    top: calc(74px + env(safe-area-inset-top)) !important;
+    left: 12px !important;
+    right: 12px !important;
+    width: auto !important;
+    max-height: calc(100vh - 96px - env(safe-area-inset-bottom)) !important;
+    display: block;
+    overflow-y: auto !important;
+    padding: 0 !important;
+    border-radius: 1rem !important;
+    background:
+      radial-gradient(circle at 80% 10%, rgba(137,206,255,.08), transparent 32%),
+      rgba(1,15,31,.98) !important;
+    border: 1px solid rgba(137,206,255,.16) !important;
+    box-shadow: 0 24px 80px rgba(0,0,0,.50) !important;
+    z-index: 1200 !important;
+  }
+
+  #mobileMenu.hidden {
+    display: none !important;
+  }
+
+  #mobileMenu > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: .45rem !important;
+  }
+
+  #mobileMenu .mobile-nav-link {
+    width: 100% !important;
+    min-height: 46px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: .75rem 1rem !important;
+    border-radius: .75rem !important;
+    color: var(--muted2) !important;
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    font-size: .95rem !important;
+    font-weight: 500 !important;
+    line-height: 1.4 !important;
+  }
+
+  #mobileMenu .mobile-nav-link:hover,
+  #mobileMenu .mobile-nav-link.is-active {
+    color: #fff !important;
+    background: rgba(137,206,255,.055) !important;
+    border-color: rgba(137,206,255,.14) !important;
+  }
+
+  #mobileMenu #waLinkMobile {
+    width: 100% !important;
+    min-height: 48px !important;
+    margin-top: .75rem !important;
+    padding: .85rem 1rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: .5rem !important;
+    border-radius: .75rem !important;
+    color: var(--ctaText) !important;
+    background: linear-gradient(135deg, var(--p1), var(--p2)) !important;
+    border: 1px solid rgba(137,206,255,.24) !important;
+  }
+
+  body.menu-open {
+    overflow: hidden !important;
+  }
+}
+
+/* Services: mobile cards should match the rest, desktop keeps showcase layout */
+#services {
+  overflow-x: hidden !important;
+}
+
+#services .aq-services-wrap {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 3.25rem 1rem !important;
+  overflow: hidden !important;
+}
+
+#services .aq-service-stack {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 1rem !important;
+}
+
+#services .aq-service-card {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  min-height: auto !important;
+  display: block !important;
+  grid-template-columns: none !important;
+  padding: 1.25rem !important;
+  border-radius: 1rem !important;
+  overflow: hidden !important;
+  background:
+    radial-gradient(circle at 82% 12%, rgba(137,206,255,.10), transparent 34%),
+    linear-gradient(180deg, rgba(18,33,49,.72), rgba(1,15,31,.88)) !important;
+  border: 1px solid rgba(137,206,255,.16) !important;
+  box-shadow: 0 18px 60px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.04) !important;
+  transform: none !important;
+}
+
+#services .aq-service-card:hover {
+  transform: none !important;
+}
+
+#services .aq-service-card::before,
+#services .aq-service-card::after,
+#services .aq-service-divider {
+  display: none !important;
+}
+
+#services .aq-service-copy {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+#services .aq-service-copy h3 {
+  max-width: 100% !important;
+  margin: 0 !important;
+  font-size: 1.35rem !important;
+  line-height: 1.45 !important;
+  letter-spacing: -.02em !important;
+}
+
+#services .aq-service-desc {
+  max-width: 100% !important;
+  margin-top: .75rem !important;
+  font-size: .96rem !important;
+  line-height: 1.85 !important;
+  color: var(--muted2) !important;
+}
+
+#services .aq-feature-list {
+  margin-top: 1.1rem !important;
+  gap: .75rem !important;
+}
+
+#services .aq-feature-list li {
+  grid-template-columns: 2.25rem 1fr !important;
+  gap: .75rem !important;
+  align-items: flex-start !important;
+}
+
+#services .aq-feature-icon {
+  width: 2.25rem !important;
+  height: 2.25rem !important;
+  min-width: 2.25rem !important;
+  border-radius: .65rem !important;
+  font-size: .9rem !important;
+}
+
+#services .aq-feature-list strong {
+  font-size: .92rem !important;
+  line-height: 1.75 !important;
+  font-weight: 600 !important;
+  overflow-wrap: break-word !important;
+}
+
+#services .aq-service-link {
+  width: 100% !important;
+  min-height: 2.85rem !important;
+  margin-top: 1.25rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: .75rem !important;
+  padding: .8rem 1rem !important;
+  color: var(--ctaText) !important;
+  background: linear-gradient(135deg, var(--p1), var(--p2)) !important;
+  border: 1px solid rgba(137,206,255,.24) !important;
+  text-decoration: none !important;
+}
+
+#services .aq-service-link::before,
+#services .aq-service-link::after {
+  display: none !important;
+}
+
+@media (max-width: 1023px) {
+  #services .aq-service-visual {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  #services .aq-services-wrap {
+    width: min(100% - 2rem, 1280px) !important;
+    padding: 5.5rem 0 !important;
+  }
+
+  #services .aq-service-stack {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2.35rem !important;
+  }
+}
+
+/* Offers: Bootstrap grid, custom offer style */
+#offers .row {
+  margin-top: 2rem !important;
+}
+
+#offers .col-12 {
+  min-width: 0 !important;
+}
+
+#offers .aq-offer-card {
+  height: 100%;
+  min-height: 100%;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#offers .aq-offer-card h3 {
+  margin-top: 1rem !important;
+  font-size: 1.18rem !important;
+  line-height: 1.55 !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  text-align: start !important;
+}
+
+#offers .aq-offer-card p,
+#offers .aq-offer-card li {
+  font-size: .92rem !important;
+  line-height: 1.8 !important;
+  color: var(--muted2) !important;
+}
+
+#offers .aq-offer-card ul {
+  margin-top: 1rem !important;
+  padding: 0 !important;
+  display: grid !important;
+  gap: .6rem !important;
+  list-style: none !important;
+}
+
+#offers .aq-offer-card li {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: .5rem !important;
+}
+
+#offers .aq-offer-card .js-service-cta {
+  margin-top: auto !important;
+  padding-top: 1.25rem !important;
+  color: var(--p1) !important;
+  font-size: .9rem !important;
+  font-weight: 600 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 4px !important;
+}
+
+@media (max-width: 767px) {
+  #globalBg .tech-circuit,
+  #globalBg .tech-code,
+  #globalBg .bubbles {
+    display: none !important;
+  }
+
+  .bg-blobA,
+  .bg-blobB,
+  .bg-blobC {
+    opacity: .10 !important;
+    filter: blur(24px) !important;
+  }
+
+  .shadow-aqua,
+  .shadow-glow,
+  .aq-service-card,
+  .premium-stat,
+  .support-card,
+  .aq-bs-card,
+  .aq-offer-card {
+    box-shadow: none !important;
+  }
+
+  #offers .aq-offer-card {
+    min-height: auto !important;
+    padding: 1.25rem !important;
+    border-radius: 1rem !important;
+  }
+
+  #offers .aq-offer-card h3,
+  #offers .aq-offer-card p {
+    text-align: center !important;
+  }
+
+  #offers .aq-offer-card > .inline-flex:first-child,
+  #offers .aq-offer-card .mt-4.flex.flex-wrap {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    justify-content: center !important;
+  }
+
+  #offers .aq-offer-card .js-service-cta {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: .85rem 1rem !important;
+    margin-top: 1.25rem !important;
+    border-radius: .75rem !important;
+    text-decoration: none !important;
+    color: var(--ctaText) !important;
+    background: linear-gradient(135deg, var(--p1), var(--p2)) !important;
+    border: 1px solid rgba(137,206,255,.24) !important;
+  }
+}
