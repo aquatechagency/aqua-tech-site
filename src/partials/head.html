@@ -1,0 +1,311 @@
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Aqua.Tech | حلول رقمية ونمو فعلي</title>
+  <meta name="description" content="Aqua.Tech تبني مواقع احترافية وأنظمة مخصصة وأتمتة بالذكاء الاصطناعي وحلول نمو رقمية للشركات ورواد الأعمال." />
+  <meta name="keywords" content="Aqua.Tech, web development Jordan, AI automation Jordan, software systems, digital marketing, custom systems Jordan" />
+  <link rel="canonical" href="https://aquatechagency.com/" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#051424" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://script.google.com https://script.googleusercontent.com https://cdn.jsdelivr.net; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://www.google-analytics.com https:; base-uri 'self'; form-action 'self' https://script.google.com; upgrade-insecure-requests" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://aquatechagency.com/" />
+  <meta property="og:site_name" content="Aqua.Tech" />
+  <meta property="og:title" content="Aqua.Tech | Growth • Software • AI" />
+  <meta property="og:description" content="مواقع احترافية، أنظمة مخصصة، أتمتة بالذكاء الاصطناعي، وحلول نمو رقمية للشركات." />
+  <meta property="og:image" content="https://aquatechagency.com/assets/logoo.webp" />
+  <meta property="og:locale" content="ar_JO" />
+
+  <link rel="icon" href="assets/favicon/favicon.ico" sizes="any" />
+  <link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="manifest.json" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./dist/output.css" />
+<style>
+    :root {
+      --aqua-bg: #051424;
+      --aqua-deep: #010f1f;
+      --aqua-card: rgba(15, 23, 42, 0.60);
+      --aqua-card-solid: #122131;
+      --aqua-line: rgba(137, 206, 255, 0.12);
+      --aqua-line-strong: rgba(137, 206, 255, 0.34);
+      --aqua-primary: #89ceff;
+      --aqua-action: #00b4ff;
+      --aqua-text: #d4e4fa;
+      --aqua-muted: #bdc8d2;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background:
+        radial-gradient(circle at 50% 0%, rgba(0, 180, 255, .16), transparent 34%),
+        radial-gradient(circle at 12% 18%, rgba(137, 206, 255, .08), transparent 28%),
+        linear-gradient(180deg, #051424 0%, #03101f 52%, #010915 100%);
+      color: var(--aqua-text);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow-x: hidden;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+    }
+
+    .glass-card {
+      background: rgba(15, 23, 42, 0.60);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(137, 206, 255, 0.10);
+      box-shadow: 0 0 0 1px rgba(255,255,255,.015) inset, 0 22px 80px rgba(0,0,0,.24);
+      transition: border-color .3s ease, box-shadow .3s ease, transform .3s ease, background .3s ease;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(137, 206, 255, 0.34);
+      box-shadow: 0 0 0 1px rgba(255,255,255,.02) inset, 0 22px 80px rgba(0,0,0,.28), 0 0 24px rgba(0,180,255,.13);
+    }
+
+    .glow-text { text-shadow: 0 0 10px rgba(137, 206, 255, 0.50); }
+
+    .terminal-cursor::after { content: '_'; animation: blink 1s step-end infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .aqua-liquid-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .aqua-liquid-bg::before,
+    .aqua-liquid-bg::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(46px);
+      opacity: .35;
+      animation: drift 12s ease-in-out infinite;
+    }
+    .aqua-liquid-bg::before {
+      width: 520px;
+      height: 520px;
+      top: 10%;
+      right: 8%;
+      background: radial-gradient(circle, rgba(0,180,255,.34), transparent 64%);
+    }
+    .aqua-liquid-bg::after {
+      width: 460px;
+      height: 460px;
+      bottom: 16%;
+      left: 8%;
+      background: radial-gradient(circle, rgba(137,206,255,.20), transparent 68%);
+      animation-delay: -5s;
+    }
+    @keyframes drift {
+      0%, 100% { transform: translate3d(0,0,0) scale(1); }
+      50% { transform: translate3d(18px,-14px,0) scale(1.04); }
+    }
+
+    .circuit-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: .28;
+      background-image:
+        linear-gradient(to right, rgba(137,206,255,.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(137,206,255,.045) 1px, transparent 1px),
+        radial-gradient(circle at 20% 30%, rgba(137,206,255,.18) 0 2px, transparent 3px),
+        radial-gradient(circle at 78% 26%, rgba(0,180,255,.18) 0 2px, transparent 3px),
+        radial-gradient(circle at 52% 78%, rgba(137,206,255,.12) 0 2px, transparent 3px);
+      background-size: 92px 92px, 92px 92px, 520px 520px, 620px 620px, 700px 700px;
+      mask-image: radial-gradient(circle at 50% 20%, rgba(0,0,0,.9), transparent 74%);
+      -webkit-mask-image: radial-gradient(circle at 50% 20%, rgba(0,0,0,.9), transparent 74%);
+    }
+
+    .code-chip {
+      position: absolute;
+      font-family: "JetBrains Mono", monospace;
+      color: rgba(212, 228, 250, .20);
+      letter-spacing: .1em;
+      user-select: none;
+      text-shadow: 0 0 18px rgba(137,206,255,.12);
+    }
+
+    .section-kicker {
+      display: block;
+      margin-bottom: 1rem;
+      color: var(--aqua-primary);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      letter-spacing: .20em;
+      text-transform: uppercase;
+    }
+
+    .aqua-input {
+      width: 100%;
+      border-radius: .75rem;
+      border: 1px solid rgba(137,206,255,.14);
+      background: rgba(1, 15, 31, .62);
+      color: var(--aqua-text);
+      padding: .9rem 1rem;
+      outline: none;
+      transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .aqua-input::placeholder { color: rgba(189,200,210,.55); }
+    .aqua-input:focus {
+      border-color: rgba(137,206,255,.65);
+      box-shadow: inset 0 0 10px rgba(137,206,255,.14), 0 0 0 4px rgba(137,206,255,.06);
+      background: rgba(1, 15, 31, .86);
+    }
+    select.aqua-input option { background: #0d1c2d; color: #d4e4fa; }
+
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      left: 0;
+      bottom: -8px;
+      height: 2px;
+      background: var(--aqua-primary);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform .2s ease;
+      opacity: .9;
+    }
+    .nav-link:hover::after,
+    .nav-link.is-active::after { transform: scaleX(1); }
+
+    #mobileMenu { display: none; }
+    #mobileMenu.is-open { display: block; }
+
+    #wa-float {
+      position: fixed;
+      left: 20px;
+      bottom: 22px;
+      z-index: 80;
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      color: #001e2f;
+      background: linear-gradient(135deg, #89ceff, #00b4ff);
+      box-shadow: 0 16px 42px rgba(0,0,0,.34), 0 0 20px rgba(0,180,255,.22);
+      border: 1px solid rgba(255,255,255,.20);
+      transition: transform .2s ease, filter .2s ease;
+    }
+    #wa-float:hover { transform: translateY(-2px) scale(1.05); filter: saturate(1.1); }
+
+    #consent-banner {
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      z-index: 100;
+      display: none;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      border-radius: 1rem;
+      background: rgba(1, 15, 31, .96);
+      border: 1px solid rgba(137,206,255,.18);
+      box-shadow: 0 24px 80px rgba(0,0,0,.45);
+    }
+    #consent-banner.is-visible { display: flex; }
+
+    .success-modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 120;
+      padding: 1rem;
+      background: rgba(1, 15, 31, .72);
+      backdrop-filter: blur(10px);
+    }
+    .success-modal.is-open { display: flex; }
+    .success-modal-card {
+      width: min(100%, 28rem);
+      text-align: center;
+      padding: 2rem;
+      border-radius: 1.25rem;
+      background: #122131;
+      border: 1px solid rgba(137,206,255,.18);
+      box-shadow: 0 24px 80px rgba(0,0,0,.45);
+    }
+    .success-modal-icon {
+      width: 64px;
+      height: 64px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 1rem;
+      border-radius: 999px;
+      background: rgba(137,206,255,.12);
+      border: 1px solid rgba(137,206,255,.28);
+      color: #89ceff;
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    @media (max-width: 767px) {
+      .aqua-liquid-bg::before,
+      .aqua-liquid-bg::after { opacity: .18; filter: blur(34px); }
+      .circuit-layer { opacity: .12; }
+      .code-chip { display: none; }
+      #consent-banner { flex-direction: column; align-items: stretch; text-align: center; }
+      #wa-float { width: 50px; height: 50px; left: 14px; bottom: 14px; }
+    }
+  </style>
+
+  <script>
+    window.AQUA_CONFIG = {
+      GA_ID: 'G-N7T2EVFD6J',
+      WHATSAPP_NUMBER: '962780932199',
+      CONTACT_EMAIL: 'info.aquatech.jo@gmail.com',
+      SHEETS_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbzFVFUE-fxAUfDlczteS4_Rx9VIIQKNJZJWRZCQGKaZ73ApwR8sncPDb2zp8EJvz5PV/exec',
+      SUBMIT_COOLDOWN_MS: 30000
+    };
+  </script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    (function(){
+      try {
+        if (localStorage.getItem('aqua_analytics_consent') === 'true' || localStorage.getItem('aqua_analytics_consent') === 'accepted') {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-N7T2EVFD6J';
+          document.head.appendChild(s);
+          gtag('config', 'G-N7T2EVFD6J', { anonymize_ip: true });
+        }
+      } catch(e) {}
+    })();
+    window.__aquaEnableAnalytics = function() {
+      try {
+        localStorage.setItem('aqua_analytics_consent', 'accepted');
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-N7T2EVFD6J';
+        document.head.appendChild(s);
+        gtag('config', 'G-N7T2EVFD6J', { anonymize_ip: true });
+      } catch(e) {}
+    };
+    window.__aquaDeclineAnalytics = function() {
+      try { localStorage.setItem('aqua_analytics_consent', 'declined'); } catch(e) {}
+    };
+  </script>
+</head>

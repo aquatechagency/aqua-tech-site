@@ -1,0 +1,40 @@
+<header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-md border-b border-primary/10 shadow-[0_0_20px_rgba(0,180,255,0.1)]">
+    <nav class="flex justify-between items-center h-20 px-margin-mobile md:px-20 max-w-container-max mx-auto">
+      <a href="#top" class="font-headline-md text-headline-md font-bold text-primary flex items-center gap-2 no-underline">
+        <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 border border-primary/20 overflow-hidden">
+          <img src="assets/logoo.webp" alt="Aqua.Tech logo" class="h-8 w-8 object-contain" loading="eager" />
+        </span>
+        <span>Aqua.Tech</span>
+      </a>
+      <div class="hidden lg:flex items-center gap-8 font-body-md text-body-md">
+        <a class="nav-link is-active text-primary font-bold pb-1" href="#top">الرئيسية</a>
+        <a class="nav-link text-on-surface-variant hover:text-primary transition-colors" href="#services">الخدمات</a>
+        <a class="nav-link text-on-surface-variant hover:text-primary transition-colors" href="#solutions">الحلول</a>
+        <a class="nav-link text-on-surface-variant hover:text-primary transition-colors" href="#results">النتائج</a>
+        <a class="nav-link text-on-surface-variant hover:text-primary transition-colors" href="#faq">الأسئلة</a>
+        <a class="nav-link text-on-surface-variant hover:text-primary transition-colors" href="#contact">تواصل</a>
+      </div>
+      <div class="flex items-center gap-2">
+        <a class="hidden sm:inline-flex items-center gap-2 border border-primary/20 text-primary px-4 py-2 rounded-lg hover:bg-primary/10 transition-all" href="https://wa.me/962780932199" target="_blank" rel="noopener noreferrer" onclick="if(typeof gtag==='function'){gtag('event','whatsapp_click',{event_category:'lead',event_label:'header_whatsapp'});}">
+          <span class="material-symbols-outlined text-[18px]">chat</span>
+          واتساب
+        </a>
+        <a class="hidden md:inline-flex bg-primary-container text-on-primary font-bold px-6 py-2 rounded-lg hover:scale-95 transition-transform no-underline" href="#contact">Start Project</a>
+        <button id="menuToggle" class="lg:hidden inline-flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 border border-primary/20 text-primary" type="button" aria-label="Open menu" aria-expanded="false">
+          <span id="menuIconOpen" class="material-symbols-outlined">menu</span>
+          <span id="menuIconClose" class="material-symbols-outlined hidden">close</span>
+        </button>
+      </div>
+    </nav>
+    <div id="mobileMenu" class="lg:hidden mx-4 mb-4 rounded-xl glass-card overflow-hidden">
+      <div class="p-3 flex flex-col gap-1 text-sm">
+        <a class="rounded-lg px-4 py-3 text-on-surface-variant hover:bg-primary/10 hover:text-primary" href="#top">الرئيسية</a>
+        <a class="rounded-lg px-4 py-3 text-on-surface-variant hover:bg-primary/10 hover:text-primary" href="#services">الخدمات</a>
+        <a class="rounded-lg px-4 py-3 text-on-surface-variant hover:bg-primary/10 hover:text-primary" href="#solutions">الحلول</a>
+        <a class="rounded-lg px-4 py-3 text-on-surface-variant hover:bg-primary/10 hover:text-primary" href="#results">النتائج</a>
+        <a class="rounded-lg px-4 py-3 text-on-surface-variant hover:bg-primary/10 hover:text-primary" href="#faq">الأسئلة</a>
+        <a class="rounded-lg px-4 py-3 text-on-surface-variant hover:bg-primary/10 hover:text-primary" href="#contact">تواصل</a>
+        <a class="mt-2 rounded-lg bg-primary text-on-primary px-4 py-3 text-center font-bold" href="https://wa.me/962780932199" target="_blank" rel="noopener noreferrer">واتساب</a>
+      </div>
+    </div>
+  </header>
