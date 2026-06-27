@@ -269,6 +269,21 @@
       #consent-banner { flex-direction: column; align-items: stretch; text-align: center; }
       #wa-float { width: 50px; height: 50px; left: 14px; bottom: 14px; }
     }
+  
+    .wa-svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      display: block;
+    }
+
+    #wa-float .wa-svg {
+      width: 1.75rem;
+      height: 1.75rem;
+    }
+
+    #langToggle {
+      direction: ltr;
+    }
   </style>
 
   <script>
@@ -329,8 +344,11 @@
         <a class="nav-link text-on-surface-variant hover:text-primary transition-colors" href="#contact">تواصل</a>
       </div>
       <div class="flex items-center gap-2">
+        <button id="langToggle" type="button" class="inline-flex h-10 min-w-12 items-center justify-center rounded-lg border border-primary/20 text-primary px-3 font-label-sm text-label-sm hover:bg-primary/10 transition-all" aria-label="Switch language">EN</button>
         <a class="hidden sm:inline-flex items-center gap-2 border border-primary/20 text-primary px-4 py-2 rounded-lg hover:bg-primary/10 transition-all" href="https://wa.me/962780932199" target="_blank" rel="noopener noreferrer" onclick="if(typeof gtag==='function'){gtag('event','whatsapp_click',{event_category:'lead',event_label:'header_whatsapp'});}">
-          <span class="material-symbols-outlined text-[18px]">chat</span>
+          <span class="inline-flex items-center justify-center text-[18px]"><svg class="wa-svg" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+  <path fill="currentColor" d="M16.04 3C8.86 3 3.02 8.77 3.02 15.87c0 2.27.6 4.48 1.74 6.43L3 29l6.88-1.78a13.1 13.1 0 0 0 6.16 1.55C23.22 28.77 29 23 29 15.87S23.22 3 16.04 3Zm0 23.55c-1.96 0-3.88-.52-5.56-1.5l-.4-.23-4.08 1.06 1.09-3.92-.26-.4a10.55 10.55 0 0 1-1.6-5.69c0-5.87 4.85-10.65 10.8-10.65 5.96 0 10.8 4.78 10.8 10.65 0 5.88-4.84 10.68-10.79 10.68Zm5.92-7.98c-.32-.16-1.9-.93-2.2-1.04-.3-.1-.52-.16-.73.16-.22.32-.84 1.04-1.03 1.25-.19.22-.38.24-.7.08-.32-.16-1.36-.5-2.6-1.6-.96-.85-1.6-1.9-1.8-2.22-.18-.32-.02-.5.14-.66.14-.14.32-.38.48-.57.16-.19.22-.32.32-.54.1-.22.05-.4-.03-.57-.08-.16-.73-1.75-1-2.4-.26-.62-.53-.54-.73-.55h-.62c-.22 0-.57.08-.87.4-.3.32-1.14 1.1-1.14 2.7s1.17 3.14 1.33 3.35c.16.22 2.3 3.5 5.58 4.9.78.34 1.39.54 1.86.69.78.25 1.5.21 2.06.13.63-.09 1.9-.78 2.17-1.52.27-.75.27-1.39.19-1.52-.08-.13-.3-.21-.62-.37Z"/>
+</svg></span>
           واتساب
         </a>
         <a class="hidden md:inline-flex bg-primary-container text-on-primary font-bold px-6 py-2 rounded-lg hover:scale-95 transition-transform no-underline" href="#contact">Start Project</a>
@@ -613,7 +631,9 @@
               <h3 class="font-headline-md text-headline-md text-primary mb-stack-sm">تواصل مباشر</h3>
               <p class="text-on-surface-variant mb-stack-md">ساعات التواصل: يوميًا من 10 AM إلى 10PM</p>
               <div class="flex flex-col gap-4">
-                <a class="flex items-center gap-4 p-4 rounded-lg bg-surface-container-high hover:bg-primary/10 transition-all border border-outline-variant/20 no-underline" href="https://wa.me/962780932199" target="_blank" rel="noopener noreferrer" onclick="if(typeof gtag==='function'){gtag('event','whatsapp_click',{event_category:'lead',event_label:'contact_whatsapp'});}"><span class="material-symbols-outlined text-primary">chat</span><div><span class="block font-bold">واتساب</span><span class="text-xs text-on-surface-variant">+962 78 093 2199</span></div></a>
+                <a class="flex items-center gap-4 p-4 rounded-lg bg-surface-container-high hover:bg-primary/10 transition-all border border-outline-variant/20 no-underline" href="https://wa.me/962780932199" target="_blank" rel="noopener noreferrer" onclick="if(typeof gtag==='function'){gtag('event','whatsapp_click',{event_category:'lead',event_label:'contact_whatsapp'});}"><span class="inline-flex items-center justify-center text-primary"><svg class="wa-svg" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+  <path fill="currentColor" d="M16.04 3C8.86 3 3.02 8.77 3.02 15.87c0 2.27.6 4.48 1.74 6.43L3 29l6.88-1.78a13.1 13.1 0 0 0 6.16 1.55C23.22 28.77 29 23 29 15.87S23.22 3 16.04 3Zm0 23.55c-1.96 0-3.88-.52-5.56-1.5l-.4-.23-4.08 1.06 1.09-3.92-.26-.4a10.55 10.55 0 0 1-1.6-5.69c0-5.87 4.85-10.65 10.8-10.65 5.96 0 10.8 4.78 10.8 10.65 0 5.88-4.84 10.68-10.79 10.68Zm5.92-7.98c-.32-.16-1.9-.93-2.2-1.04-.3-.1-.52-.16-.73.16-.22.32-.84 1.04-1.03 1.25-.19.22-.38.24-.7.08-.32-.16-1.36-.5-2.6-1.6-.96-.85-1.6-1.9-1.8-2.22-.18-.32-.02-.5.14-.66.14-.14.32-.38.48-.57.16-.19.22-.32.32-.54.1-.22.05-.4-.03-.57-.08-.16-.73-1.75-1-2.4-.26-.62-.53-.54-.73-.55h-.62c-.22 0-.57.08-.87.4-.3.32-1.14 1.1-1.14 2.7s1.17 3.14 1.33 3.35c.16.22 2.3 3.5 5.58 4.9.78.34 1.39.54 1.86.69.78.25 1.5.21 2.06.13.63-.09 1.9-.78 2.17-1.52.27-.75.27-1.39.19-1.52-.08-.13-.3-.21-.62-.37Z"/>
+</svg></span><div><span class="block font-bold">واتساب</span><span class="text-xs text-on-surface-variant">+962 78 093 2199</span></div></a>
                 <a class="flex items-center gap-4 p-4 rounded-lg bg-surface-container-high hover:bg-primary/10 transition-all border border-outline-variant/20 no-underline" href="mailto:info.aquatech.jo@gmail.com"><span class="material-symbols-outlined text-primary">mail</span><div><span class="block font-bold">البريد الإلكتروني</span><span class="text-xs text-on-surface-variant">info.aquatech.jo@gmail.com</span></div></a>
               </div>
               <div class="mt-stack-md pt-stack-md border-t border-outline-variant/20">
@@ -694,7 +714,9 @@
     </div>
   </footer>
 <a id="wa-float" href="https://wa.me/962780932199?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20Aqua.Tech%2C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%D9%83%D9%85" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" onclick="if(typeof gtag==='function'){gtag('event','whatsapp_click',{event_category:'engagement',event_label:'floating_button'});}">
-    <span class="material-symbols-outlined">chat</span>
+    <span class="inline-flex items-center justify-center"><svg class="wa-svg" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+  <path fill="currentColor" d="M16.04 3C8.86 3 3.02 8.77 3.02 15.87c0 2.27.6 4.48 1.74 6.43L3 29l6.88-1.78a13.1 13.1 0 0 0 6.16 1.55C23.22 28.77 29 23 29 15.87S23.22 3 16.04 3Zm0 23.55c-1.96 0-3.88-.52-5.56-1.5l-.4-.23-4.08 1.06 1.09-3.92-.26-.4a10.55 10.55 0 0 1-1.6-5.69c0-5.87 4.85-10.65 10.8-10.65 5.96 0 10.8 4.78 10.8 10.65 0 5.88-4.84 10.68-10.79 10.68Zm5.92-7.98c-.32-.16-1.9-.93-2.2-1.04-.3-.1-.52-.16-.73.16-.22.32-.84 1.04-1.03 1.25-.19.22-.38.24-.7.08-.32-.16-1.36-.5-2.6-1.6-.96-.85-1.6-1.9-1.8-2.22-.18-.32-.02-.5.14-.66.14-.14.32-.38.48-.57.16-.19.22-.32.32-.54.1-.22.05-.4-.03-.57-.08-.16-.73-1.75-1-2.4-.26-.62-.53-.54-.73-.55h-.62c-.22 0-.57.08-.87.4-.3.32-1.14 1.1-1.14 2.7s1.17 3.14 1.33 3.35c.16.22 2.3 3.5 5.58 4.9.78.34 1.39.54 1.86.69.78.25 1.5.21 2.06.13.63-.09 1.9-.78 2.17-1.52.27-.75.27-1.39.19-1.52-.08-.13-.3-.21-.62-.37Z"/>
+</svg></span>
   </a>
 
   <div id="successModal" class="success-modal" aria-hidden="true" role="dialog" aria-modal="true">
@@ -706,83 +728,96 @@
     </div>
   </div>
 <script>
-    (function(){
-      const menuToggle = document.getElementById('menuToggle');
-      const mobileMenu = document.getElementById('mobileMenu');
-      const iconOpen = document.getElementById('menuIconOpen');
-      const iconClose = document.getElementById('menuIconClose');
-      function closeMenu(){
-        mobileMenu && mobileMenu.classList.remove('is-open');
-        menuToggle && menuToggle.setAttribute('aria-expanded','false');
-        iconOpen && iconOpen.classList.remove('hidden');
-        iconClose && iconClose.classList.add('hidden');
-      }
-      if(menuToggle && mobileMenu){
-        menuToggle.addEventListener('click', function(){
-          const isOpen = mobileMenu.classList.toggle('is-open');
-          menuToggle.setAttribute('aria-expanded', String(isOpen));
-          iconOpen.classList.toggle('hidden', isOpen);
-          iconClose.classList.toggle('hidden', !isOpen);
-        });
-        mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-      }
+  (function(){
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const iconOpen = document.getElementById('menuIconOpen');
+    const iconClose = document.getElementById('menuIconClose');
 
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e){
-          const target = document.querySelector(this.getAttribute('href'));
-          if(target){
-            e.preventDefault();
-            target.scrollIntoView({ behavior:'smooth' });
-          }
-        });
+    function closeMenu(){
+      mobileMenu && mobileMenu.classList.remove('is-open');
+      menuToggle && menuToggle.setAttribute('aria-expanded','false');
+      iconOpen && iconOpen.classList.remove('hidden');
+      iconClose && iconClose.classList.add('hidden');
+    }
+
+    if(menuToggle && mobileMenu){
+      menuToggle.addEventListener('click', function(){
+        const isOpen = mobileMenu.classList.toggle('is-open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        iconOpen.classList.toggle('hidden', isOpen);
+        iconClose.classList.toggle('hidden', !isOpen);
       });
 
-      document.querySelectorAll('.faq-q').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const item = btn.closest('.faq-item');
-          const answer = item.querySelector('.faq-a');
-          const icon = btn.querySelector('.material-symbols-outlined');
-          answer.classList.toggle('hidden');
-          if(icon) icon.textContent = answer.classList.contains('hidden') ? 'add' : 'remove';
-        });
-      });
+      mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    }
 
-      const serviceMap = {
-        'landing-page':'landing-page',
-        'company-website':'company-website',
-        'ai-agent':'ai-agent',
-        'custom-system':'custom-system',
-        'lawyer-system':'lawyer-system',
-        'resumeiq':'resumeiq',
-        'smart-attendance':'smart-attendance',
-        'university-projects':'university-projects'
-      };
-      document.querySelectorAll('.js-service-cta').forEach(link => {
-        link.addEventListener('click', () => {
-          const value = serviceMap[link.dataset.service];
-          const select = document.getElementById('fService');
-          if(value && select) select.value = value;
-        });
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e){
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({ behavior:'smooth' });
+        }
       });
+    });
 
-      const consent = localStorage.getItem('aqua_analytics_consent');
-      const banner = document.getElementById('consent-banner');
-      if(banner && consent === null){ setTimeout(() => banner.classList.add('is-visible'), 900); }
-      document.getElementById('consentAccept')?.addEventListener('click', () => {
-        banner?.classList.remove('is-visible');
-        window.__aquaEnableAnalytics?.();
-      });
-      document.getElementById('consentDecline')?.addEventListener('click', () => {
-        banner?.classList.remove('is-visible');
-        window.__aquaDeclineAnalytics?.();
-      });
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const answer = item ? item.querySelector('.faq-a') : null;
+        const icon = btn.querySelector('.material-symbols-outlined');
 
-      document.getElementById('successModalClose')?.addEventListener('click', () => {
-        document.getElementById('successModal')?.classList.remove('is-open');
-      });
-    })();
-  </script>
+        if (!answer) return;
 
+        answer.classList.toggle('hidden');
+        if(icon) icon.textContent = answer.classList.contains('hidden') ? 'add' : 'remove';
+      });
+    });
+
+    const serviceMap = {
+      'landing-page':'landing-page',
+      'company-website':'company-website',
+      'ai-agent':'ai-agent',
+      'custom-system':'custom-system',
+      'lawyer-system':'lawyer-system',
+      'resumeiq':'resumeiq',
+      'smart-attendance':'smart-attendance',
+      'university-projects':'university-projects'
+    };
+
+    document.querySelectorAll('.js-service-cta').forEach(link => {
+      link.addEventListener('click', () => {
+        const value = serviceMap[link.dataset.service];
+        const select = document.getElementById('fService');
+        if(value && select) select.value = value;
+      });
+    });
+
+    const consent = localStorage.getItem('aqua_analytics_consent');
+    const banner = document.getElementById('consent-banner');
+
+    if(banner && consent === null){
+      setTimeout(() => banner.classList.add('is-visible'), 900);
+    }
+
+    document.getElementById('consentAccept')?.addEventListener('click', () => {
+      banner?.classList.remove('is-visible');
+      window.__aquaEnableAnalytics?.();
+    });
+
+    document.getElementById('consentDecline')?.addEventListener('click', () => {
+      banner?.classList.remove('is-visible');
+      window.__aquaDeclineAnalytics?.();
+    });
+
+    document.getElementById('successModalClose')?.addEventListener('click', () => {
+      document.getElementById('successModal')?.classList.remove('is-open');
+    });
+  })();
+</script>
+
+<script defer src="./js/site-i18n.js"></script>
 <script defer src="./js/form.js"></script>
 </body>
 </html>
