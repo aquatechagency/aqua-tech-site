@@ -57,7 +57,7 @@
         "btn.call":"احجز مكالمة مجانية",
         "btn.viewServices":"خدماتنا",
 
-        "hero.badge":"حلول رقمية ونمو فعلي — من الانطلاقة إلى التوسع",
+        "hero.badge":"حلول رقمية ونمو فعلي  من الانطلاقة إلى التوسع",
         "skip.main":"تخطَّ إلى المحتوى الرئيسي",
         "hero.devMode":"DEV MODE","hero.terminalLabel":"terminal • deploy",
         "hero.terminalBody":"<span class=\"text-white/80\">$</span> npx create-aqua-app\n<span class=\"text-white/80\">$</span> build --optimize\n<span class=\"text-white/80\">$</span> deploy --env=prod\n<span class=\"text-[var(--p1)]\">✔</span>shipped in<span class=\"text-[var(--p2)]\"> minutes</span> — performance ✅",
