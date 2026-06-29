@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer base {
+  html {
+    font-family: "Manrope", "Alexandria", sans-serif;
+  }
+
+  body {
+    font-family: "Manrope", "Alexandria", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .heading-font {
+    font-family: "Space Grotesk", "Alexandria", sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  html[lang="ar"],
+  html[dir="rtl"],
+  html[lang="ar"] body,
+  html[dir="rtl"] body {
+    font-family: "Alexandria", sans-serif;
+  }
+
+  html[lang="ar"] h1,
+  html[lang="ar"] h2,
+  html[lang="ar"] h3,
+  html[lang="ar"] h4,
+  html[lang="ar"] h5,
+  html[lang="ar"] h6,
+  html[dir="rtl"] h1,
+  html[dir="rtl"] h2,
+  html[dir="rtl"] h3,
+  html[dir="rtl"] h4,
+  html[dir="rtl"] h5,
+  html[dir="rtl"] h6 {
+    font-family: "Alexandria", sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+}

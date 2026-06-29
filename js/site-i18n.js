@@ -104,7 +104,7 @@
     "يوميًا — 10 AM إلى 10 PM": "Daily — 10 AM to 10 PM",
     "© Aqua.Tech — جميع الحقوق محفوظة.": "© Aqua.Tech — All rights reserved.",
     "حلول رقمية ونمو فعلي": "Digital solutions and real growth",
-    "— من الانطلاقة إلى التوسع": "— from launch to scale",
+    " من الانطلاقة إلى التوسع": "— from launch to scale",
     "استعرض الحلول": "Explore solutions",
     "3–5 أيام": "3–5 days",
     "إطلاق صفحات تسويقية احترافية": "Launch professional landing pages",
