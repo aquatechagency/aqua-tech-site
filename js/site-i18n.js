@@ -56,7 +56,7 @@
     الاسم: "Name",
     اسمك: "Your name",
     "البريد الإلكتروني": "Email",
-    "رقم الواتساب": "WhatsApp number",
+    "WhatsApp number": "WhatsApp number",
     "رمز الدولة": "Country code",
     "الخدمة المطلوبة": "Requested service",
     "الميزانية التقريبية": "Approximate budget",
@@ -129,7 +129,7 @@
     "نبني صفحات تسويقية احترافية ومواقع وأنظمة وأتمتة تساعد الشركات ورواد الأعمال على النمو بشكل أسرع وبطريقة أوضح وأكثر احترافية.":
       "We build professional landing pages, websites, systems, and automation that help companies and entrepreneurs grow faster, clearer, and more professionally.",
     الروابط: "Links",
-    "عن الشركة": "About",
+    "About Aqua.Tech": "About",
     "تواصل معنا": "Contact us",
     "يوميًا — 10 AM إلى 10 PM": "Daily — 10 AM to 10 PM",
     "© Aqua.Tech — جميع الحقوق محفوظة.": "© Aqua.Tech — All rights reserved.",
@@ -340,14 +340,14 @@
 
       "results.metric1.label": "تحسن في استقبال الطلبات",
       "results.metric2.label": "تقليل وقت الرد الأولي",
-      "results.panel.title": "وضوح تشغيلي",
+      "results.panel.title": "Operational clarity",
 
       "security.kicker": "Trust by design",
       "security.title": "الأمان والثقة",
       "security.description":
         "نحمي البيانات ونبني مواقع وأنظمة موثوقة وفق ممارسات حديثة تساعد على رفع ثقة المشروع.",
 
-      "support.kicker": "بعد الإطلاق",
+      "support.kicker": "After launch",
       "support.title": "لا ينتهي دورنا عند التسليم",
       "support.description":
         "نساعدك بعد الإطلاق في المتابعة، التحسين، والدعم الفني حتى يبقى مشروعك مستقرًا ويحقق نتائج أفضل.",
@@ -391,8 +391,8 @@
       "footer.offers": "العروض",
       "footer.support": "الدعم بعد التسليم",
 
-      "footer.whatsapp": "واتساب",
-      "footer.email": "البريد الإلكتروني",
+      "footer.whatsapp": "WhatsApp",
+      "footer.email": "Email",
       "footer.faq": "الأسئلة المتكررة",
       "footer.start": "ابدأ مشروعك",
 
@@ -409,13 +409,13 @@
       "form.timeline.oneMonth": "خلال شهر",
       "form.timeline.exploring": "ما زلت أستكشف",
       "form.service.placeholder": "اختر الخدمة",
-      "contact.kicker": "ابدأ مشروعك",
+      "contact.kicker": "Start Project",
       "contact.title": "ابدأ رحلتك الرقمية الآن",
       "contact.subtitle":
         "احكِ لنا عن هدفك الحالي، وسنقترح عليك خطوة البداية، القناة الأنسب للتواصل، وما الذي يجب بناؤه أولًا.",
       "contact.socials": "حسابات التواصل",
 
-      "services.kicker": "ما نبنيه",
+      "services.kicker": "What we build",
       "services.title": "خدمات رقمية تركّز على النمو",
       "services.subtitle":
         "نغطي رحلة مشروعك من الفكرة إلى الإطلاق والنمو المستمر بحلول واضحة قابلة للتنفيذ.",
@@ -475,7 +475,7 @@
       "services.design.tag3": "تصميم",
       "services.design.cta": "صمّم هويتك",
 
-      "offers.kicker": "عروض الانطلاق",
+      "offers.kicker": "Launch offers",
       "offers.title": "عروض جاهزة للانطلاق",
       "offers.subtitle":
         "إذا كنت تريد بداية سريعة أو عرضًا واضحًا، هذه الباقات هي أفضل نقطة دخول للعمل معنا.",
@@ -1085,3 +1085,4 @@
     initLanguageToggle();
   }
 })();
+
