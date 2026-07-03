@@ -129,7 +129,7 @@
     "نبني صفحات تسويقية احترافية ومواقع وأنظمة وأتمتة تساعد الشركات ورواد الأعمال على النمو بشكل أسرع وبطريقة أوضح وأكثر احترافية.":
       "We build professional landing pages, websites, systems, and automation that help companies and entrepreneurs grow faster, clearer, and more professionally.",
     الروابط: "Links",
-    "عن الشركة": "About",
+    "About Aqua.Tech": "About",
     "تواصل معنا": "Contact us",
     الموقع: "Location",
     "يوميًا — 10 AM إلى 10 PM": "Daily — 10 AM to 10 PM",

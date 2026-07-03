@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html class="dark" dir="rtl" lang="ar">
   <head>
     <meta charset="utf-8" />
@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    <title>Aqua.Tech | حلول رقمية ونمو فعلي</title>
+    <title>Aqua.Tech | Growth • Software • AI</title>
     <meta
       name="description"
       content="Aqua.Tech تبني مواقع احترافية وأنظمة مخصصة وأتمتة بالذكاء الاصطناعي وحلول نمو رقمية للشركات ورواد الأعمال."
@@ -322,7 +322,7 @@
         font-family: "JetBrains Mono", monospace;
         font-size: 12px;
         letter-spacing: 0.2em;
-        text-transform: uppercase;
+        text-transform: ;
       }
 
       .aqua-card-kicker {
@@ -700,7 +700,7 @@
         font-size: 0.72rem;
         font-weight: 800;
         letter-spacing: 0.14em;
-        text-transform: uppercase;
+        text-transform: ;
         opacity: 0.95;
       }
 
@@ -1045,12 +1045,11 @@
 
       .aqua-top-pill .nav-link:hover,
       .aqua-top-pill .nav-link.is-active {
-        background:
-          linear-gradient(
-            135deg,
-            rgba(137, 206, 255, 0.12),
-            rgba(0, 180, 255, 0.04)
-          );
+        background: linear-gradient(
+          135deg,
+          rgba(137, 206, 255, 0.12),
+          rgba(0, 180, 255, 0.04)
+        );
         color: var(--aqua-primary);
       }
 
@@ -1146,8 +1145,208 @@
         } catch (e) {}
       };
     </script>
+
+    <!-- AquaTech light animations -->
+    <style>
+      @keyframes aquaTopbarIn {
+        from {
+          opacity: 0;
+          transform: translateY(-14px) scale(0.985);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @keyframes aquaSoftPulse {
+        0%,
+        100% {
+          opacity: 0.55;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.9;
+          transform: scale(1.04);
+        }
+      }
+
+      .aqua-top-pill {
+        animation: aquaTopbarIn 700ms ease both;
+      }
+
+      .aqua-reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition:
+          opacity 700ms ease,
+          transform 700ms ease,
+          border-color 240ms ease,
+          background-color 240ms ease,
+          box-shadow 240ms ease;
+        transition-delay: var(--aqua-delay, 0ms);
+        will-change: opacity, transform;
+      }
+
+      .aqua-reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .glass-card,
+      .service-card,
+      .aqua-hover-lift {
+        transition:
+          transform 240ms ease,
+          border-color 240ms ease,
+          background-color 240ms ease,
+          box-shadow 240ms ease;
+      }
+
+      .glass-card:hover,
+      .service-card:hover,
+      .aqua-hover-lift:hover {
+        transform: translateY(-3px);
+      }
+
+      .aqua-top-pill::before {
+        animation: aquaSoftPulse 4.5s ease-in-out infinite;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .aqua-top-pill,
+        .aqua-top-pill::before {
+          animation: none !important;
+        }
+
+        .aqua-reveal,
+        .glass-card,
+        .service-card,
+        .aqua-hover-lift {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+        }
+      }
+    </style>
+
+    <!-- AquaTech lightweight background animation -->
+    <style>
+      body {
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      .aqua-bg-ambient {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .aqua-bg-ambient span {
+        position: absolute;
+        display: block;
+        width: clamp(220px, 28vw, 520px);
+        aspect-ratio: 1;
+        border-radius: 9999px;
+        background: radial-gradient(
+          circle,
+          rgba(125, 211, 252, 0.2) 0%,
+          rgba(34, 211, 238, 0.08) 42%,
+          transparent 70%
+        );
+        filter: blur(22px);
+        opacity: 0.65;
+        transform: translate3d(0, 0, 0);
+        will-change: transform, opacity;
+      }
+
+      .aqua-bg-blob-1 {
+        top: 8%;
+        left: -8%;
+        animation: aquaDriftOne 16s ease-in-out infinite alternate;
+      }
+
+      .aqua-bg-blob-2 {
+        right: -10%;
+        bottom: 16%;
+        width: clamp(260px, 34vw, 620px);
+        animation: aquaDriftTwo 20s ease-in-out infinite alternate;
+      }
+
+      .aqua-bg-blob-3 {
+        top: 42%;
+        left: 42%;
+        width: clamp(180px, 22vw, 420px);
+        opacity: 0.38;
+        animation: aquaDriftThree 24s ease-in-out infinite alternate;
+      }
+
+      main,
+      footer {
+        position: relative;
+        z-index: 1;
+      }
+
+      @keyframes aquaDriftOne {
+        from {
+          transform: translate3d(0, 0, 0) scale(1);
+          opacity: 0.45;
+        }
+        to {
+          transform: translate3d(90px, 55px, 0) scale(1.12);
+          opacity: 0.75;
+        }
+      }
+
+      @keyframes aquaDriftTwo {
+        from {
+          transform: translate3d(0, 0, 0) scale(1.04);
+          opacity: 0.4;
+        }
+        to {
+          transform: translate3d(-110px, -70px, 0) scale(1.18);
+          opacity: 0.68;
+        }
+      }
+
+      @keyframes aquaDriftThree {
+        from {
+          transform: translate3d(-20px, 20px, 0) scale(1);
+        }
+        to {
+          transform: translate3d(55px, -50px, 0) scale(1.1);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .aqua-bg-blob-3 {
+          display: none;
+        }
+
+        .aqua-bg-ambient span {
+          opacity: 0.42;
+          filter: blur(26px);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .aqua-bg-ambient span {
+          animation: none !important;
+          opacity: 0.28;
+        }
+      }
+    </style>
   </head>
   <body class="dark bg-background text-on-background selection:bg-primary/30">
+    <!-- AquaTech background animation layer -->
+    <div class="aqua-bg-ambient" aria-hidden="true">
+      <span class="aqua-bg-blob-1"></span>
+      <span class="aqua-bg-blob-2"></span>
+      <span class="aqua-bg-blob-3"></span>
+    </div>
     <header
       class="fixed top-7 left-0 right-0 z-50 px-3 md:px-6 pointer-events-none"
     >
@@ -1166,10 +1365,8 @@
               alt="شعار Aqua.Tech"
               class="h-8 w-8 object-contain"
               loading="eager"
-            />
-          </span>
-          <span>Aqua.Tech</span>
-        </a>
+            /></span>
+          <span>Aqua.Tech</span></a>
 
         <div
           class="hidden lg:flex items-center gap-6 font-body-md text-body-md"
@@ -1179,56 +1376,49 @@
             href="#trust"
             data-i18n="nav.why"
           >
-            لماذا نحن
-          </a>
+            لماذا نحن</a>
 
           <a
             class="nav-link text-on-surface-variant hover:text-primary transition-colors"
             href="#services"
             data-i18n="nav.services"
           >
-            الخدمات
-          </a>
+            الخدمات</a>
 
           <a
             class="nav-link text-on-surface-variant hover:text-primary transition-colors"
             href="#solutions"
             data-i18n="nav.systems"
           >
-            الحلول
-          </a>
+            الحلول</a>
 
           <a
             class="nav-link text-on-surface-variant hover:text-primary transition-colors"
             href="#results"
             data-i18n="nav.results"
           >
-            النتائج
-          </a>
+            النتائج</a>
 
           <a
             class="nav-link text-on-surface-variant hover:text-primary transition-colors"
             href="#offers"
             data-i18n="nav.offers"
           >
-            العروض
-          </a>
+            العروض</a>
 
           <a
             class="nav-link text-on-surface-variant hover:text-primary transition-colors"
             href="#faq"
             data-i18n="nav.faq"
           >
-            الأسئلة
-          </a>
+            الأسئلة</a>
 
           <a
             class="nav-link text-on-surface-variant hover:text-primary transition-colors"
             href="#contact"
             data-i18n="nav.contact"
           >
-            تواصل
-          </a>
+            تواصل</a>
         </div>
 
         <div class="flex items-center gap-2">
@@ -1239,8 +1429,7 @@
             aria-label="Switch to English"
             title="Switch to English"
           >
-            EN
-          </button>
+            EN</button>
 
           <a
             class="hidden sm:inline-flex h-11 items-center gap-2 border border-primary/20 text-primary px-4 rounded-full hover:bg-primary/10 transition-all no-underline"
@@ -1267,18 +1456,15 @@
                   fill="currentColor"
                   d="M16.04 3C8.86 3 3.02 8.77 3.02 15.87c0 2.27.6 4.48 1.74 6.43L3 29l6.88-1.78a13.1 13.1 0 0 0 6.16 1.55C23.22 28.77 29 23 29 15.87S23.22 3 16.04 3Zm0 23.55c-1.96 0-3.88-.52-5.56-1.5l-.4-.23-4.08 1.06 1.09-3.92-.26-.4a10.55 10.55 0 0 1-1.6-5.69c0-5.87 4.85-10.65 10.8-10.65 5.96 0 10.8 4.78 10.8 10.65 0 5.88-4.84 10.68-10.79 10.68Zm5.92-7.98c-.32-.16-1.9-.93-2.2-1.04-.3-.1-.52-.16-.73.16-.22.32-.84 1.04-1.03 1.25-.19.22-.38.24-.7.08-.32-.16-1.36-.5-2.6-1.6-.96-.85-1.6-1.9-1.8-2.22-.18-.32-.02-.5.14-.66.14-.14.32-.38.48-.57.16-.19.22-.32.32-.54.1-.22.05-.4-.03-.57-.08-.16-.73-1.75-1-2.4-.26-.62-.53-.54-.73-.55h-.62c-.22 0-.57.08-.87.4-.3.32-1.14 1.1-1.14 2.7s1.17 3.14 1.33 3.35c.16.22 2.3 3.5 5.58 4.9.78.34 1.39.54 1.86.69.78.25 1.5.21 2.06.13.63-.09 1.9-.78 2.17-1.52.27-.75.27-1.39.19-1.52-.08-.13-.3-.21-.62-.37Z"
                 />
-              </svg>
-            </span>
-            واتساب
-          </a>
+              </svg></span>
+            WhatsApp</a>
 
           <a
             class="hidden md:inline-flex h-11 items-center justify-center bg-primary text-on-primary font-bold px-6 rounded-full hover:scale-95 transition-transform no-underline shadow-[0_0_20px_rgba(0,180,255,0.22)]"
             href="#contact"
             data-i18n="nav.start"
           >
-            ابدأ مشروعك
-          </a>
+            Start Project</a>
 
           <button
             id="menuToggle"
@@ -1291,9 +1477,7 @@
               >menu</span
             >
             <span id="menuIconClose" class="material-symbols-outlined hidden">
-              close
-            </span>
-          </button>
+              close</span></button>
         </div>
       </nav>
 
@@ -1307,64 +1491,56 @@
             href="#trust"
             data-i18n="nav.why"
           >
-            لماذا نحن
-          </a>
+            لماذا نحن</a>
 
           <a
             class="rounded-lg px-4 py-3 text-on-surface-variant hover:bg-primary/10 hover:text-primary"
             href="#services"
             data-i18n="nav.services"
           >
-            الخدمات
-          </a>
+            الخدمات</a>
 
           <a
             class="rounded-lg px-4 py-3 text-on-surface-variant hover:bg-primary/10 hover:text-primary"
             href="#solutions"
             data-i18n="nav.systems"
           >
-            الحلول
-          </a>
+            الحلول</a>
 
           <a
             class="rounded-lg px-4 py-3 text-on-surface-variant hover:bg-primary/10 hover:text-primary"
             href="#results"
             data-i18n="nav.results"
           >
-            النتائج
-          </a>
+            النتائج</a>
 
           <a
             class="rounded-lg px-4 py-3 text-on-surface-variant hover:bg-primary/10 hover:text-primary"
             href="#offers"
             data-i18n="nav.offers"
           >
-            العروض
-          </a>
+            العروض</a>
 
           <a
             class="rounded-lg px-4 py-3 text-on-surface-variant hover:bg-primary/10 hover:text-primary"
             href="#faq"
             data-i18n="nav.faq"
           >
-            الأسئلة
-          </a>
+            الأسئلة</a>
 
           <a
             class="rounded-lg px-4 py-3 text-on-surface-variant hover:bg-primary/10 hover:text-primary"
             href="#support"
             data-i18n="nav.support"
           >
-            الدعم
-          </a>
+            الدعم</a>
 
           <a
             class="rounded-lg px-4 py-3 text-on-surface-variant hover:bg-primary/10 hover:text-primary"
             href="#contact"
             data-i18n="nav.contact"
           >
-            تواصل
-          </a>
+            تواصل</a>
 
           <a
             class="mt-2 rounded-lg bg-primary text-on-primary px-4 py-3 text-center font-bold no-underline"
@@ -1372,8 +1548,7 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            واتساب
-          </a>
+            WhatsApp</a>
         </div>
       </div>
     </header>
@@ -1393,15 +1568,13 @@
           type="button"
           class="rounded-lg bg-primary text-on-primary px-4 py-2 font-bold"
         >
-          قبول
-        </button>
+          قبول</button>
         <button
           id="consentDecline"
           type="button"
           class="rounded-lg border border-primary/20 text-on-surface-variant px-4 py-2 hover:text-primary"
         >
-          رفض
-        </button>
+          رفض</button>
       </div>
     </div>
 
@@ -1424,7 +1597,7 @@
             class="inline-block glass-card p-4 mb-8 rounded-xl border-primary/20"
           >
             <div
-              class="flex items-center gap-4 text-primary font-label-sm uppercase tracking-widest"
+              class="flex items-center gap-4 text-primary font-label-sm "
             >
               <span class="material-symbols-outlined text-[14px]">code</span>
               <span>Programming • Launching • Expanding</span>
@@ -1490,16 +1663,14 @@
               class="w-full md:w-auto bg-primary text-on-primary px-10 py-4 font-bold rounded-lg shadow-[0_0_20px_rgba(0,180,255,0.3)] hover:scale-105 transition-all no-underline"
               data-i18n="hero.ctaPrimary"
             >
-              ابدأ مشروعك
-            </a>
+              ابدأ مشروعك</a>
 
             <a
               href="#solutions"
               class="w-full md:w-auto border border-primary text-primary px-10 py-4 font-bold rounded-lg hover:bg-primary/10 transition-all no-underline"
               data-i18n="hero.ctaSecondary"
             >
-              استعرض الحلول
-            </a>
+              استعرض الحلول</a>
           </div>
         </div>
       </section>
@@ -1757,7 +1928,7 @@
           >
             <div>
               <span class="section-kicker" data-i18n="services.kicker"
-                >ما نبنيه</span
+                >What we build</span
               >
               <h2
                 class="font-headline-lg text-headline-lg md:text-headline-xl"
@@ -1815,7 +1986,7 @@
                   <span
                     class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm"
                     data-i18n="services.landing.tag2"
-                    >واتساب</span
+                    >WhatsApp</span
                   >
                   <span
                     class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm"
@@ -1830,8 +2001,7 @@
                   href="#contact"
                 >
                   <span data-i18n="services.landing.cta">اطلب صفحة هبوط</span>
-                  <span class="material-symbols-outlined btn-icon">west</span>
-                </a>
+                  <span class="material-symbols-outlined btn-icon"></span></a>
               </div>
             </article>
 
@@ -1882,8 +2052,7 @@
                 href="#contact"
               >
                 <span data-i18n="services.website.cta">اطلب موقعك</span>
-                <span class="material-symbols-outlined btn-icon">west</span>
-              </a>
+                <span class="material-symbols-outlined btn-icon"></span></a>
             </article>
 
             <!-- AI -->
@@ -1928,8 +2097,7 @@
                 href="#contact"
               >
                 <span data-i18n="services.ai.cta">ابدأ الأتمتة</span>
-                <span class="material-symbols-outlined btn-icon">west</span>
-              </a>
+                <span class="material-symbols-outlined btn-icon"></span></a>
             </article>
 
             <!-- Custom Systems -->
@@ -1985,8 +2153,7 @@
                   href="#contact"
                 >
                   <span data-i18n="services.systems.cta">تحدث مع خبير</span>
-                  <span class="material-symbols-outlined btn-icon">west</span>
-                </a>
+                  <span class="material-symbols-outlined btn-icon"></span></a>
               </div>
             </article>
 
@@ -2037,8 +2204,7 @@
                 href="#contact"
               >
                 <span data-i18n="services.growth.cta">شاهد باقات النمو</span>
-                <span class="material-symbols-outlined btn-icon">west</span>
-              </a>
+                <span class="material-symbols-outlined btn-icon"></span></a>
             </article>
 
             <!-- Social Media -->
@@ -2088,8 +2254,7 @@
                 href="#contact"
               >
                 <span data-i18n="services.social.cta">ابدأ إدارة حساباتك</span>
-                <span class="material-symbols-outlined btn-icon">west</span>
-              </a>
+                <span class="material-symbols-outlined btn-icon"></span></a>
             </article>
 
             <!-- Design -->
@@ -2139,8 +2304,7 @@
                 href="#contact"
               >
                 <span data-i18n="services.design.cta">صمّم هويتك</span>
-                <span class="material-symbols-outlined btn-icon">west</span>
-              </a>
+                <span class="material-symbols-outlined btn-icon"></span></a>
             </article>
           </div>
         </div>
@@ -2150,8 +2314,7 @@
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
           <div class="text-center mb-16">
             <span class="section-kicker" data-i18n="solutions.kicker">
-              Deployment ready
-            </span>
+              Deployment ready</span>
 
             <h2
               class="font-headline-lg text-headline-lg md:text-headline-xl"
@@ -2220,8 +2383,7 @@
                   class="js-service-cta mt-auto block w-full border border-primary/30 text-primary py-2 rounded-lg text-sm text-center hover:bg-primary hover:text-on-primary transition-all no-underline"
                   data-i18n="solutions.cta"
                 >
-                  Request the system
-                </a>
+                  Request the system</a>
               </div>
             </article>
 
@@ -2273,8 +2435,7 @@
                   class="js-service-cta mt-auto block w-full border border-primary/30 text-primary py-2 rounded-lg text-sm text-center hover:bg-primary hover:text-on-primary transition-all no-underline"
                   data-i18n="solutions.cta"
                 >
-                  Request the system
-                </a>
+                  Request the system</a>
               </div>
             </article>
 
@@ -2326,8 +2487,7 @@
                   class="js-service-cta mt-auto block w-full bg-primary text-on-primary py-2 rounded-lg text-sm font-bold text-center shadow-lg shadow-primary/20 transition-all no-underline"
                   data-i18n="solutions.cta"
                 >
-                  Request the system
-                </a>
+                  Request the system</a>
               </div>
             </article>
 
@@ -2379,8 +2539,7 @@
                   class="js-service-cta mt-auto block w-full border border-primary/30 text-primary py-2 rounded-lg text-sm text-center hover:bg-primary hover:text-on-primary transition-all no-underline"
                   data-i18n="solutions.cta"
                 >
-                  Request the system
-                </a>
+                  Request the system</a>
               </div>
             </article>
           </div>
@@ -2396,8 +2555,7 @@
           >
             <div>
               <span class="section-kicker" data-i18n="results.kicker">
-                Proven results
-              </span>
+                Proven results</span>
 
               <h2
                 class="font-headline-lg text-headline-lg md:text-headline-xl mb-8"
@@ -2496,8 +2654,7 @@
                 <div class="grid grid-cols-2 gap-4 h-full">
                   <div class="glass-card rounded-xl p-5">
                     <span class="material-symbols-outlined text-primary mb-6">
-                      query_stats
-                    </span>
+                      query_stats</span>
 
                     <div class="text-4xl font-bold text-primary mb-2">+42%</div>
 
@@ -2511,8 +2668,7 @@
 
                   <div class="glass-card rounded-xl p-5 mt-10">
                     <span class="material-symbols-outlined text-primary mb-6">
-                      timer
-                    </span>
+                      timer</span>
 
                     <div class="text-4xl font-bold text-primary mb-2">-60%</div>
 
@@ -2530,12 +2686,10 @@
                         class="font-label-sm text-primary"
                         data-i18n="results.panel.title"
                       >
-                        Operational clarity
-                      </span>
+                        Operational clarity</span>
 
                       <span class="material-symbols-outlined text-primary">
-                        analytics
-                      </span>
+                        analytics</span>
                     </div>
 
                     <div
@@ -2571,8 +2725,7 @@
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
           <div class="text-center mb-12">
             <span class="section-kicker" data-i18n="offers.kicker">
-              عروض الانطلاق
-            </span>
+              Launch offers</span>
 
             <h2
               class="font-headline-lg text-headline-lg md:text-headline-xl"
@@ -2599,8 +2752,7 @@
               </div>
 
               <span class="aqua-card-kicker" data-i18n="offers.landing.badge">
-                الأسرع إطلاقًا
-              </span>
+                الأسرع إطلاقًا</span>
 
               <h3
                 class="font-headline-md text-headline-md mb-3"
@@ -2619,20 +2771,16 @@
               <ul class="space-y-2 text-on-surface-variant mb-5">
                 <li class="flex items-center gap-2">
                   <span class="material-symbols-outlined aqua-check-icon">
-                    check_circle
-                  </span>
+                    check_circle</span>
                   <span data-i18n="offers.landing.point1">
-                    مناسبة للعروض والخدمات والإعلانات
-                  </span>
+                    مناسبة للعروض والخدمات والإعلانات</span>
                 </li>
 
                 <li class="flex items-center gap-2">
                   <span class="material-symbols-outlined aqua-check-icon">
-                    check_circle
-                  </span>
+                    check_circle</span>
                   <span data-i18n="offers.landing.point2">
-                    ربط واتساب / نموذج / CTA واضح
-                  </span>
+                    ربط WhatsApp / نموذج / CTA واضح</span>
                 </li>
               </ul>
 
@@ -2641,15 +2789,13 @@
                   class="rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs text-primary"
                   data-i18n="offers.landing.price"
                 >
-                  يبدأ من $250 تقريبًا
-                </span>
+                  يبدأ من $250 تقريبًا</span>
 
                 <span
                   class="rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs text-primary"
                   data-i18n="offers.landing.time"
                 >
-                  5–7 أيام
-                </span>
+                  5–7 أيام</span>
               </div>
 
               <a
@@ -2658,8 +2804,7 @@
                 class="offer-cta-btn js-service-cta"
               >
                 <span data-i18n="offers.landing.cta">اطلب صفحة هبوط</span>
-                <span class="material-symbols-outlined btn-icon">west</span>
-              </a>
+                <span class="material-symbols-outlined btn-icon"></span></a>
             </article>
 
             <article
@@ -2670,8 +2815,7 @@
               </div>
 
               <span class="aqua-card-kicker" data-i18n="offers.bot.badge">
-                طلب مرتفع
-              </span>
+                طلب مرتفع</span>
 
               <h3
                 class="font-headline-md text-headline-md mb-3"
@@ -2684,27 +2828,23 @@
                 class="text-on-surface-variant leading-relaxed mb-5"
                 data-i18n="offers.bot.desc"
               >
-                بوت ذكي للموقع أو واتساب يساعدك ترد أسرع وتجمع العملاء بشكل
+                بوت ذكي للموقع أو WhatsApp يساعدك ترد أسرع وتجمع العملاء بشكل
                 منظم.
               </p>
 
               <ul class="space-y-2 text-on-surface-variant mb-5">
                 <li class="flex items-center gap-2">
                   <span class="material-symbols-outlined aqua-check-icon">
-                    check_circle
-                  </span>
+                    check_circle</span>
                   <span data-i18n="offers.bot.point1">
-                    أسئلة متكررة + استقبال طلبات
-                  </span>
+                    أسئلة متكررة + استقبال طلبات</span>
                 </li>
 
                 <li class="flex items-center gap-2">
                   <span class="material-symbols-outlined aqua-check-icon">
-                    check_circle
-                  </span>
+                    check_circle</span>
                   <span data-i18n="offers.bot.point2">
-                    ربط بسيط مع واتساب أو نموذج
-                  </span>
+                    ربط بسيط مع WhatsApp أو نموذج</span>
                 </li>
               </ul>
 
@@ -2713,15 +2853,13 @@
                   class="rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs text-primary"
                   data-i18n="offers.bot.price"
                 >
-                  يبدأ من $400 تقريبًا
-                </span>
+                  يبدأ من $400 تقريبًا</span>
 
                 <span
                   class="rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs text-primary"
                   data-i18n="offers.bot.time"
                 >
-                  3–5 أيام
-                </span>
+                  3–5 أيام</span>
               </div>
 
               <a
@@ -2730,8 +2868,7 @@
                 class="offer-cta-btn offer-cta-btn-primary js-service-cta"
               >
                 <span data-i18n="offers.bot.cta">اطلب بوت ذكي</span>
-                <span class="material-symbols-outlined btn-icon">west</span>
-              </a>
+                <span class="material-symbols-outlined btn-icon"></span></a>
             </article>
 
             <article class="glass-card p-6 rounded-2xl h-full flex flex-col">
@@ -2740,8 +2877,7 @@
               </div>
 
               <span class="aqua-card-kicker" data-i18n="offers.growth.badge">
-                دخل متكرر
-              </span>
+                دخل متكرر</span>
 
               <h3
                 class="font-headline-md text-headline-md mb-3"
@@ -2761,20 +2897,16 @@
               <ul class="space-y-2 text-on-surface-variant mb-5">
                 <li class="flex items-center gap-2">
                   <span class="material-symbols-outlined aqua-check-icon">
-                    check_circle
-                  </span>
+                    check_circle</span>
                   <span data-i18n="offers.growth.point1">
-                    خطة محتوى + تصميم + نشر
-                  </span>
+                    خطة محتوى + تصميم + نشر</span>
                 </li>
 
                 <li class="flex items-center gap-2">
                   <span class="material-symbols-outlined aqua-check-icon">
-                    check_circle
-                  </span>
+                    check_circle</span>
                   <span data-i18n="offers.growth.point2">
-                    تقارير ومتابعة وتحسين مستمر
-                  </span>
+                    تقارير ومتابعة وتحسين مستمر</span>
                 </li>
               </ul>
 
@@ -2783,15 +2915,13 @@
                   class="rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs text-primary"
                   data-i18n="offers.growth.price"
                 >
-                  يبدأ من $300 شهريًا
-                </span>
+                  يبدأ من $300 شهريًا</span>
 
                 <span
                   class="rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs text-primary"
                   data-i18n="offers.growth.type"
                 >
-                  إدارة + محتوى
-                </span>
+                  إدارة + محتوى</span>
               </div>
 
               <a
@@ -2800,8 +2930,7 @@
                 class="offer-cta-btn js-service-cta"
               >
                 <span data-i18n="offers.growth.cta">اطلب خطة نمو</span>
-                <span class="material-symbols-outlined btn-icon">west</span>
-              </a>
+                <span class="material-symbols-outlined btn-icon"></span></a>
             </article>
 
             <article class="glass-card p-6 rounded-2xl h-full flex flex-col">
@@ -2810,8 +2939,7 @@
               </div>
 
               <span class="aqua-card-kicker" data-i18n="offers.discovery.badge">
-                للمشاريع الأكبر
-              </span>
+                للمشاريع الأكبر</span>
 
               <h3
                 class="font-headline-md text-headline-md mb-3"
@@ -2831,20 +2959,16 @@
               <ul class="space-y-2 text-on-surface-variant mb-5">
                 <li class="flex items-center gap-2">
                   <span class="material-symbols-outlined aqua-check-icon">
-                    check_circle
-                  </span>
+                    check_circle</span>
                   <span data-i18n="offers.discovery.point1">
-                    فهم العمليات والاحتياج الفعلي
-                  </span>
+                    فهم العمليات والاحتياج الفعلي</span>
                 </li>
 
                 <li class="flex items-center gap-2">
                   <span class="material-symbols-outlined aqua-check-icon">
-                    check_circle
-                  </span>
+                    check_circle</span>
                   <span data-i18n="offers.discovery.point2">
-                    مخرجات أوضح وسعر أدق لاحقًا
-                  </span>
+                    مخرجات أوضح وسعر أدق لاحقًا</span>
                 </li>
               </ul>
 
@@ -2853,15 +2977,13 @@
                   class="rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs text-primary"
                   data-i18n="offers.discovery.price"
                 >
-                  تسعير حسب النطاق
-                </span>
+                  تسعير حسب النطاق</span>
 
                 <span
                   class="rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs text-primary"
                   data-i18n="offers.discovery.type"
                 >
-                  Scope واضح
-                </span>
+                  Scope واضح</span>
               </div>
 
               <a
@@ -2870,8 +2992,7 @@
                 class="offer-cta-btn js-service-cta"
               >
                 <span data-i18n="offers.discovery.cta">احجز جلسة تحليل</span>
-                <span class="material-symbols-outlined btn-icon">west</span>
-              </a>
+                <span class="material-symbols-outlined btn-icon"></span></a>
             </article>
           </div>
         </div>
@@ -2880,8 +3001,7 @@
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
           <div class="text-center mb-16">
             <span class="section-kicker" data-i18n="security.kicker">
-              Trust by design
-            </span>
+              Trust by design</span>
 
             <h2
               class="font-headline-lg text-headline-lg md:text-headline-xl"
@@ -2977,10 +3097,8 @@
                 type="button"
               >
                 <span data-i18n="faq.q1">
-                  كم يستغرق تنفيذ صفحة تسويقية أو موقع أو نظام مخصص؟
-                </span>
-                <span class="material-symbols-outlined text-primary">add</span>
-              </button>
+                  كم يستغرق تنفيذ صفحة تسويقية أو موقع أو نظام مخصص؟</span>
+                <span class="material-symbols-outlined text-primary">add</span></button>
 
               <div
                 class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
@@ -2998,10 +3116,8 @@
                 type="button"
               >
                 <span data-i18n="faq.q2">
-                  كيف يتم تحديد سعر الخدمة أو المشروع؟
-                </span>
-                <span class="material-symbols-outlined text-primary">add</span>
-              </button>
+                  كيف يتم تحديد سعر الخدمة أو المشروع؟</span>
+                <span class="material-symbols-outlined text-primary">add</span></button>
 
               <div
                 class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
@@ -3019,10 +3135,8 @@
                 type="button"
               >
                 <span data-i18n="faq.q3">
-                  هل توفرون خدمات سريعة وحلولًا مخصصة بالكامل؟
-                </span>
-                <span class="material-symbols-outlined text-primary">add</span>
-              </button>
+                  هل توفرون خدمات سريعة وحلولًا مخصصة بالكامل؟</span>
+                <span class="material-symbols-outlined text-primary">add</span></button>
 
               <div
                 class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
@@ -3040,10 +3154,8 @@
                 type="button"
               >
                 <span data-i18n="faq.q4">
-                  هل يمكنكم بناء شات بوت أو أتمتة للعملاء والعمليات؟
-                </span>
-                <span class="material-symbols-outlined text-primary">add</span>
-              </button>
+                  هل يمكنكم بناء شات بوت أو أتمتة للعملاء والعمليات؟</span>
+                <span class="material-symbols-outlined text-primary">add</span></button>
 
               <div
                 class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
@@ -3061,10 +3173,8 @@
                 type="button"
               >
                 <span data-i18n="faq.q5">
-                  هل توفرون الاستضافة والدومين ورفع الموقع؟
-                </span>
-                <span class="material-symbols-outlined text-primary">add</span>
-              </button>
+                  هل توفرون الاستضافة والدومين ورفع الموقع؟</span>
+                <span class="material-symbols-outlined text-primary">add</span></button>
 
               <div
                 class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
@@ -3081,8 +3191,7 @@
                 type="button"
               >
                 <span data-i18n="faq.q6">هل توجد صيانة بعد التسليم؟</span>
-                <span class="material-symbols-outlined text-primary">add</span>
-              </button>
+                <span class="material-symbols-outlined text-primary">add</span></button>
 
               <div
                 class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
@@ -3099,10 +3208,8 @@
                 type="button"
               >
                 <span data-i18n="faq.q7">
-                  هل يشمل التسليم شرح تشغيل وإدارة الموقع؟
-                </span>
-                <span class="material-symbols-outlined text-primary">add</span>
-              </button>
+                  هل يشمل التسليم شرح تشغيل وإدارة الموقع؟</span>
+                <span class="material-symbols-outlined text-primary">add</span></button>
 
               <div
                 class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
@@ -3119,8 +3226,7 @@
                 type="button"
               >
                 <span data-i18n="faq.q8">كيف تكون المتابعة أثناء التنفيذ؟</span>
-                <span class="material-symbols-outlined text-primary">add</span>
-              </button>
+                <span class="material-symbols-outlined text-primary">add</span></button>
 
               <div
                 class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
@@ -3137,10 +3243,8 @@
                 type="button"
               >
                 <span data-i18n="faq.q9">
-                  هل تقدمون باقات نمو وتسويق مع التنفيذ التقني؟
-                </span>
-                <span class="material-symbols-outlined text-primary">add</span>
-              </button>
+                  هل تقدمون باقات نمو وتسويق مع التنفيذ التقني؟</span>
+                <span class="material-symbols-outlined text-primary">add</span></button>
 
               <div
                 class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
@@ -3157,10 +3261,8 @@
                 type="button"
               >
                 <span data-i18n="faq.q10">
-                  هل يمكن توقيع NDA وحماية بيانات المشروع؟
-                </span>
-                <span class="material-symbols-outlined text-primary">add</span>
-              </button>
+                  هل يمكن توقيع NDA وحماية بيانات المشروع؟</span>
+                <span class="material-symbols-outlined text-primary">add</span></button>
 
               <div
                 class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
@@ -3177,10 +3279,8 @@
                 type="button"
               >
                 <span data-i18n="faq.q11">
-                  هل أحتاج موقعًا كاملًا أم صفحة تسويقية فقط؟
-                </span>
-                <span class="material-symbols-outlined text-primary">add</span>
-              </button>
+                  هل أحتاج موقعًا كاملًا أم صفحة تسويقية فقط؟</span>
+                <span class="material-symbols-outlined text-primary">add</span></button>
 
               <div
                 class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
@@ -3198,8 +3298,7 @@
                 type="button"
               >
                 <span data-i18n="faq.q12">كيف أعرف أي خدمة مناسبة لي؟</span>
-                <span class="material-symbols-outlined text-primary">add</span>
-              </button>
+                <span class="material-symbols-outlined text-primary">add</span></button>
 
               <div
                 class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
@@ -3216,8 +3315,7 @@
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
           <div class="text-center mb-10">
             <span class="section-kicker" data-i18n="support.kicker">
-              After launch
-            </span>
+              After launch</span>
 
             <h2
               class="font-headline-lg text-headline-lg md:text-headline-xl"
@@ -3245,8 +3343,7 @@
               </div>
 
               <span class="aqua-card-kicker" data-i18n="support.card1.badge">
-                Technical support
-              </span>
+                Technical support</span>
 
               <h3
                 class="font-headline-md text-headline-md mb-3"
@@ -3272,8 +3369,7 @@
               </div>
 
               <span class="aqua-card-kicker" data-i18n="support.card2.badge">
-                Fast response
-              </span>
+                Fast response</span>
 
               <h3
                 class="font-headline-md text-headline-md mb-3"
@@ -3297,8 +3393,7 @@
               </div>
 
               <span class="aqua-card-kicker" data-i18n="support.card3.badge">
-                Improvements
-              </span>
+                Improvements</span>
 
               <h3
                 class="font-headline-md text-headline-md mb-3"
@@ -3324,8 +3419,7 @@
               </div>
 
               <span class="aqua-card-kicker" data-i18n="support.card4.badge">
-                Stability
-              </span>
+                Stability</span>
 
               <h3
                 class="font-headline-md text-headline-md mb-3"
@@ -3353,8 +3447,7 @@
               <span data-i18n="support.cta"
                 >Request a suitable support plan</span
               >
-              <span class="material-symbols-outlined btn-icon">west</span>
-            </a>
+              <span class="material-symbols-outlined btn-icon"></span></a>
           </div>
         </div>
       </section>
@@ -3363,7 +3456,7 @@
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
           <div class="text-center mb-16">
             <span class="section-kicker" data-i18n="contact.kicker"
-              >ابدأ مشروعك</span
+              >Start Project</span
             >
 
             <h2
@@ -3390,12 +3483,14 @@
                 >
                   تواصل مباشر
                 </h3>
+
                 <div class="flex flex-col gap-4">
                   <a
-                    class="flex items-center gap-4 p-4 rounded-lg bg-surface-container-high hover:bg-primary/10 transition-all border border-outline-variant/20 no-underline"
+                    class="group flex items-center gap-3 p-3 rounded-lg bg-surface-container-high hover:bg-primary/10 transition-all border border-outline-variant/20 hover:border-primary/40 no-underline"
                     href="https://wa.me/962780932199"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="WhatsApp"
                     onclick="
                       if (typeof gtag === 'function') {
                         gtag('event', 'whatsapp_click', {
@@ -3404,61 +3499,12 @@
                         });
                       }
                     "
-                    ><span
-                      class="inline-flex items-center justify-center text-primary"
-                      ><svg
-                        class="wa-svg"
-                        viewBox="0 0 32 32"
-                        aria-hidden="true"
-                        focusable="false"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="M16.04 3C8.86 3 3.02 8.77 3.02 15.87c0 2.27.6 4.48 1.74 6.43L3 29l6.88-1.78a13.1 13.1 0 0 0 6.16 1.55C23.22 28.77 29 23 29 15.87S23.22 3 16.04 3Zm0 23.55c-1.96 0-3.88-.52-5.56-1.5l-.4-.23-4.08 1.06 1.09-3.92-.26-.4a10.55 10.55 0 0 1-1.6-5.69c0-5.87 4.85-10.65 10.8-10.65 5.96 0 10.8 4.78 10.8 10.65 0 5.88-4.84 10.68-10.79 10.68Zm5.92-7.98c-.32-.16-1.9-.93-2.2-1.04-.3-.1-.52-.16-.73.16-.22.32-.84 1.04-1.03 1.25-.19.22-.38.24-.7.08-.32-.16-1.36-.5-2.6-1.6-.96-.85-1.6-1.9-1.8-2.22-.18-.32-.02-.5.14-.66.14-.14.32-.38.48-.57.16-.19.22-.32.32-.54.1-.22.05-.4-.03-.57-.08-.16-.73-1.75-1-2.4-.26-.62-.53-.54-.73-.55h-.62c-.22 0-.57.08-.87.4-.3.32-1.14 1.1-1.14 2.7s1.17 3.14 1.33 3.35c.16.22 2.3 3.5 5.58 4.9.78.34 1.39.54 1.86.69.78.25 1.5.21 2.06.13.63-.09 1.9-.78 2.17-1.52.27-.75.27-1.39.19-1.52-.08-.13-.3-.21-.62-.37Z"
-                        /></svg
-                    ></span>
-                    <div>
-                      <span class="block font-bold">واتساب</span
-                      ><span class="text-xs text-on-surface-variant"
-                        >+962 78 093 2199</span
-                      >
-                    </div></a
                   >
-                  <a
-                    class="flex items-center gap-4 p-4 rounded-lg bg-surface-container-high hover:bg-primary/10 transition-all border border-outline-variant/20 no-underline"
-                    href="mailto:info.aquatech.jo@gmail.com"
-                    ><span class="material-symbols-outlined text-primary"
-                      >mail</span
-                    >
-                    <div>
-                      <span class="block font-bold">البريد الإلكتروني</span
-                      ><span class="text-xs text-on-surface-variant"
-                        >info.aquatech.jo@gmail.com</span
-                      >
-                    </div></a
-                  >
-                </div>
-
-                <!-- Social accounts -->
-                <div
-                  class="mt-stack-md pt-stack-md border-t border-outline-variant/20"
-                >
-                  <h4
-                    class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-4 text-right"
-                  >
-                    حسابات التواصل
-                  </h4>
-
-                  <div class="social-icons-grid">
-                    <a
-                      class="social-icon-link"
-                      href="https://wa.me/962780932199"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="WhatsApp"
+                    <span
+                      class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
                     >
                       <svg
-                        class="wa-svg"
+                        class="h-4 w-4"
                         viewBox="0 0 32 32"
                         aria-hidden="true"
                       >
@@ -3466,75 +3512,140 @@
                           fill="currentColor"
                           d="M16.04 3C8.86 3 3.02 8.77 3.02 15.87c0 2.27.6 4.48 1.74 6.43L3 29l6.88-1.78a13.1 13.1 0 0 0 6.16 1.55C23.22 28.77 29 23 29 15.87S23.22 3 16.04 3Zm0 23.55c-1.96 0-3.88-.52-5.56-1.5l-.4-.23-4.08 1.06 1.09-3.92-.26-.4a10.55 10.55 0 0 1-1.6-5.69c0-5.87 4.85-10.65 10.8-10.65 5.96 0 10.8 4.78 10.8 10.65 0 5.88-4.84 10.68-10.79 10.68Zm5.92-7.98c-.32-.16-1.9-.93-2.2-1.04-.3-.1-.52-.16-.73.16-.22.32-.84 1.04-1.03 1.25-.19.22-.38.24-.7.08-.32-.16-1.36-.5-2.6-1.6-.96-.85-1.6-1.9-1.8-2.22-.18-.32-.02-.5.14-.66.14-.14.32-.38.48-.57.16-.19.22-.32.32-.54.1-.22.05-.4-.03-.57-.08-.16-.73-1.75-1-2.4-.26-.62-.53-.54-.73-.55h-.62c-.22 0-.57.08-.87.4-.3.32-1.14 1.1-1.14 2.7s1.17 3.14 1.33 3.35c.16.22 2.3 3.5 5.58 4.9.78.34 1.39.54 1.86.69.78.25 1.5.21 2.06.13.63-.09 1.9-.78 2.17-1.52.27-.75.27-1.39.19-1.52-.08-.13-.3-.21-.62-.37Z"
                         />
-                      </svg>
-                    </a>
-
-                    <a
-                      class="social-icon-link"
-                      href="mailto:info.aquatech.jo@gmail.com"
-                      aria-label="Email"
+                      </svg></span>
+                    <span
+                      class="font-bold text-on-surface group-hover:text-primary transition-colors"
+                      dir="ltr"
                     >
-                      <span class="material-symbols-outlined">mail</span>
-                    </a>
+                      WhatsApp</span></a>
 
-                    <a
-                      class="social-icon-link"
-                      href="https://www.instagram.com/aquatech.jo/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Instagram"
-                    >
-                      <span class="material-symbols-outlined"
-                        >alternate_email</span
-                      >
-                    </a>
-
-                    <a
-                      class="social-icon-link"
-                      href="https://github.com/aquatechjo"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="GitHub"
-                    >
-                      <span class="material-symbols-outlined">terminal</span>
-                    </a>
-
-                    <a
-                      class="social-icon-link"
-                      href="#"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="LinkedIn"
-                    >
-                      <span class="material-symbols-outlined"
-                        >business_center</span
-                      >
-                    </a>
-
-                    <a
-                      class="social-icon-link"
-                      href="#"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Facebook"
-                    >
-                      <span class="material-symbols-outlined">public</span>
-                    </a>
-                  </div>
-                </div>
-
-                <div
-                  class="mt-stack-md pt-stack-md border-t border-outline-variant/20"
-                >
-                  <h4
-                    class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-4"
+                  <a
+                    class="group flex items-center gap-3 p-3 rounded-lg bg-surface-container-high hover:bg-primary/10 transition-all border border-outline-variant/20 hover:border-primary/40 no-underline"
+                    href="mailto:info.aquatech.jo@gmail.com"
+                    aria-label="Email"
                   >
-                    موقعنا
-                  </h4>
-                  <div class="flex items-center gap-2 text-on-surface">
-                    <span class="material-symbols-outlined">location_on</span
-                    ><span>عمّان، الأردن</span>
-                  </div>
+                    <span
+                      class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >
+                      <svg
+                        class="h-4 w-4"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"
+                        />
+                      </svg></span>
+                    <span
+                      class="font-bold text-on-surface group-hover:text-primary transition-colors"
+                      dir="ltr"
+                    >
+                      Email</span></a>
+
+                  <a
+                    class="group flex items-center gap-3 p-3 rounded-lg bg-surface-container-high hover:bg-primary/10 transition-all border border-outline-variant/20 hover:border-primary/40 no-underline"
+                    href="https://www.instagram.com/aquatech.jo/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                  >
+                    <span
+                      class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >
+                      <svg
+                        class="h-4 w-4"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A5.5 5.5 0 1 1 12 18.5 5.5 5.5 0 0 1 12 7.5Zm0 2A3.5 3.5 0 1 0 12 16.5 3.5 3.5 0 0 0 12 9.5Zm5.75-3.25a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25Z"
+                        />
+                      </svg></span>
+                    <span
+                      class="font-bold text-on-surface group-hover:text-primary transition-colors"
+                      dir="ltr"
+                    >
+                      Instagram</span></a>
+
+                  <a
+                    class="group flex items-center gap-3 p-3 rounded-lg bg-surface-container-high hover:bg-primary/10 transition-all border border-outline-variant/20 hover:border-primary/40 no-underline"
+                    href="https://github.com/aquatechjo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub"
+                  >
+                    <span
+                      class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >
+                      <svg
+                        class="h-4 w-4"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.77.6-3.36-1.18-3.36-1.18-.45-1.15-1.1-1.45-1.1-1.45-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.21-.25-4.54-1.1-4.54-4.93 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0 1 12 7.05c.85 0 1.7.11 2.5.33 1.9-1.29 2.74-1.02 2.74-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.67-4.56 4.92.36.31.68.92.68 1.86v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"
+                        />
+                      </svg></span>
+                    <span
+                      class="font-bold text-on-surface group-hover:text-primary transition-colors"
+                      dir="ltr"
+                    >
+                      GitHub</span></a>
+
+                  <a
+                    class="group flex items-center gap-3 p-3 rounded-lg bg-surface-container-high hover:bg-primary/10 transition-all border border-outline-variant/20 hover:border-primary/40 no-underline"
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                  >
+                    <span
+                      class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >
+                      <svg
+                        class="h-4 w-4"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.58c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95V21h-4V9Z"
+                        />
+                      </svg></span>
+                    <span
+                      class="font-bold text-on-surface group-hover:text-primary transition-colors"
+                      dir="ltr"
+                    >
+                      LinkedIn</span></a>
+
+                  <a
+                    class="group flex items-center gap-3 p-3 rounded-lg bg-surface-container-high hover:bg-primary/10 transition-all border border-outline-variant/20 hover:border-primary/40 no-underline"
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                  >
+                    <span
+                      class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >
+                      <svg
+                        class="h-4 w-4"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.87.24-1.46 1.49-1.46h1.59V5a21.4 21.4 0 0 0-2.32-.12c-2.3 0-3.88 1.4-3.88 3.98V11H7.8v3h2.58v8h3.12Z"
+                        />
+                      </svg></span>
+                    <span
+                      class="font-bold text-on-surface group-hover:text-primary transition-colors"
+                      dir="ltr"
+                    >
+                      Facebook</span></a>
                 </div>
               </div>
               <div
@@ -3599,7 +3710,7 @@
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
                     <label class="block"
                       ><span
-                        class="block font-label-sm text-primary uppercase mb-2"
+                        class="block font-label-sm text-primary  mb-2"
                         >الاسم</span
                       ><input
                         id="fName"
@@ -3614,8 +3725,8 @@
                     /></label>
                     <label class="block"
                       ><span
-                        class="block font-label-sm text-primary uppercase mb-2"
-                        >البريد الإلكتروني</span
+                        class="block font-label-sm text-primary  mb-2"
+                        >Email</span
                       ><input
                         id="fEmail"
                         name="email"
@@ -3632,7 +3743,7 @@
                   >
                     <label class="block"
                       ><span
-                        class="block font-label-sm text-primary uppercase mb-2"
+                        class="block font-label-sm text-primary  mb-2"
                         >رمز الدولة</span
                       ><select
                         id="fCountryCode"
@@ -3655,7 +3766,7 @@
                     >
                     <label class="block md:col-span-2"
                       ><span
-                        class="block font-label-sm text-primary uppercase mb-2"
+                        class="block font-label-sm text-primary  mb-2"
                         >رقم الواتساب</span
                       ><input
                         id="fPhone"
@@ -3675,7 +3786,7 @@
                   >
                     <label class="block"
                       ><span
-                        class="block font-label-sm text-primary uppercase mb-2"
+                        class="block font-label-sm text-primary  mb-2"
                         >الخدمة المطلوبة</span
                       >
                       <div
@@ -3692,12 +3803,10 @@
                             id="serviceSelectText"
                             data-i18n="form.service.placeholder"
                           >
-                            اختر الخدمة
-                          </span>
+                            اختر الخدمة</span>
                           <span class="material-symbols-outlined"
                             >expand_more</span
-                          >
-                        </button>
+                          ></button>
 
                         <input type="hidden" name="service" id="serviceInput" />
 
@@ -3715,48 +3824,42 @@
                             data-value="landing-page"
                             data-i18n="form.service.landing"
                           >
-                            Professional landing page
-                          </button>
+                            Professional landing page</button>
                           <button
                             type="button"
                             class="aqua-select-option"
                             data-value="company-website"
                             data-i18n="form.service.companyWebsite"
                           >
-                            Professional company website
-                          </button>
+                            Professional company website</button>
                           <button
                             type="button"
                             class="aqua-select-option"
                             data-value="lead-intake-system"
                             data-i18n="form.service.leadIntake"
                           >
-                            Website and lead intake system
-                          </button>
+                            Website and lead intake system</button>
                           <button
                             type="button"
                             class="aqua-select-option"
                             data-value="custom-business-system"
                             data-i18n="form.service.customSystem"
                           >
-                            Custom business system
-                          </button>
+                            Custom business system</button>
                           <button
                             type="button"
                             class="aqua-select-option"
                             data-value="crm-system"
                             data-i18n="form.service.crm"
                           >
-                            Customer management system
-                          </button>
+                            Customer management system</button>
                           <button
                             type="button"
                             class="aqua-select-option"
                             data-value="dashboards-reports"
                             data-i18n="form.service.dashboards"
                           >
-                            Dashboards and reports
-                          </button>
+                            Dashboards and reports</button>
 
                           <div
                             class="aqua-select-group"
@@ -3771,24 +3874,21 @@
                             data-value="ai-agent-chatbot"
                             data-i18n="form.service.aiAgent"
                           >
-                            AI Agent or chatbot
-                          </button>
+                            AI Agent or chatbot</button>
                           <button
                             type="button"
                             class="aqua-select-option"
                             data-value="whatsapp-automation"
                             data-i18n="form.service.whatsappAutomation"
                           >
-                            WhatsApp automation
-                          </button>
+                            WhatsApp automation</button>
                           <button
                             type="button"
                             class="aqua-select-option"
                             data-value="email-automation"
                             data-i18n="form.service.emailAutomation"
                           >
-                            Email automation
-                          </button>
+                            Email automation</button>
 
                           <div
                             class="aqua-select-group"
@@ -3803,32 +3903,28 @@
                             data-value="law-firm-system"
                             data-i18n="form.service.lawFirm"
                           >
-                            Law firm management system
-                          </button>
+                            Law firm management system</button>
                           <button
                             type="button"
                             class="aqua-select-option"
                             data-value="university-projects"
                             data-i18n="form.service.university"
                           >
-                            University project management platform
-                          </button>
+                            University project management platform</button>
                           <button
                             type="button"
                             class="aqua-select-option"
                             data-value="resumeiq"
                             data-i18n="form.service.resumeiq"
                           >
-                            ResumeIQ
-                          </button>
+                            ResumeIQ</button>
                           <button
                             type="button"
                             class="aqua-select-option"
                             data-value="smart-attendance"
                             data-i18n="form.service.attendance"
                           >
-                            Smart Attendance
-                          </button>
+                            Smart Attendance</button>
 
                           <button
                             type="button"
@@ -3836,16 +3932,14 @@
                             data-value="seo-visibility"
                             data-i18n="form.service.seo"
                           >
-                            SEO visibility optimization
-                          </button>
+                            SEO visibility optimization</button>
                           <button
                             type="button"
                             class="aqua-select-option"
                             data-value="other"
                             data-i18n="form.service.other"
                           >
-                            Another service or idea
-                          </button>
+                            Another service or idea</button>
                         </div>
 
                         <p
@@ -3858,10 +3952,9 @@
                     >
                     <label class="block">
                       <span
-                        class="block font-label-sm text-primary uppercase mb-2"
+                        class="block font-label-sm text-primary  mb-2"
                       >
-                        الميزانية التقريبية
-                      </span>
+                        الميزانية التقريبية</span>
 
                       <div class="aqua-custom-select" data-aqua-select="budget">
                         <button
@@ -3874,12 +3967,10 @@
                             class="aqua-select-text"
                             data-i18n="form.budget.placeholder"
                           >
-                            اختر الميزانية
-                          </span>
+                            اختر الميزانية</span>
                           <span class="material-symbols-outlined"
                             >expand_more</span
-                          >
-                        </button>
+                          ></button>
 
                         <input
                           type="hidden"
@@ -3895,8 +3986,7 @@
                             data-value="under-700"
                             data-i18n="form.budget.under700"
                           >
-                            أقل من $700
-                          </button>
+                            أقل من $700</button>
 
                           <button
                             type="button"
@@ -3904,8 +3994,7 @@
                             data-value="700-1500"
                             data-i18n="form.budget.7001500"
                           >
-                            $700 - $1,500
-                          </button>
+                            $700 - $1,500</button>
 
                           <button
                             type="button"
@@ -3913,8 +4002,7 @@
                             data-value="1500-4000"
                             data-i18n="form.budget.15004000"
                           >
-                            $1,500 - $4,000
-                          </button>
+                            $1,500 - $4,000</button>
 
                           <button
                             type="button"
@@ -3922,8 +4010,7 @@
                             data-value="over-4000"
                             data-i18n="form.budget.over4000"
                           >
-                            أكثر من $4,000
-                          </button>
+                            أكثر من $4,000</button>
                         </div>
                       </div>
                     </label>
@@ -3931,10 +4018,9 @@
 
                   <label class="block mt-gutter">
                     <span
-                      class="block font-label-sm text-primary uppercase mb-2"
+                      class="block font-label-sm text-primary  mb-2"
                     >
-                      موعد التنفيذ
-                    </span>
+                      موعد التنفيذ</span>
 
                     <div class="aqua-custom-select" data-aqua-select="timeline">
                       <button
@@ -3947,12 +4033,10 @@
                           class="aqua-select-text"
                           data-i18n="form.timeline.placeholder"
                         >
-                          اختر الموعد
-                        </span>
+                          اختر الموعد</span>
                         <span class="material-symbols-outlined"
                           >expand_more</span
-                        >
-                      </button>
+                        ></button>
 
                       <input
                         type="hidden"
@@ -3968,8 +4052,7 @@
                           data-value="asap"
                           data-i18n="form.timeline.asap"
                         >
-                          بأسرع وقت
-                        </button>
+                          بأسرع وقت</button>
 
                         <button
                           type="button"
@@ -3977,8 +4060,7 @@
                           data-value="two-weeks"
                           data-i18n="form.timeline.twoWeeks"
                         >
-                          خلال أسبوعين
-                        </button>
+                          خلال أسبوعين</button>
 
                         <button
                           type="button"
@@ -3986,15 +4068,14 @@
                           data-value="one-month"
                           data-i18n="form.timeline.oneMonth"
                         >
-                          خلال شهر
-                        </button>
+                          خلال شهر</button>
                       </div>
                     </div>
                   </label>
 
                   <label class="block mt-gutter"
                     ><span
-                      class="block font-label-sm text-primary uppercase mb-2"
+                      class="block font-label-sm text-primary  mb-2"
                       >تفاصيل المشروع</span
                     ><textarea
                       id="fDetails"
@@ -4022,8 +4103,7 @@
                     type="submit"
                     class="quote-submit mt-gutter w-full bg-primary text-on-primary px-8 py-4 rounded-lg font-bold hover:scale-[.99] transition-all shadow-[0_0_20px_rgba(0,180,255,.25)]"
                   >
-                    <span class="quote-title">ابدأ مشروعك بخطة واضحة</span>
-                  </button>
+                    <span class="quote-title">ابدأ مشروعك بخطة واضحة</span></button>
                   <div
                     class="mt-4 flex flex-wrap gap-2 text-xs text-on-surface-variant"
                   >
@@ -4084,8 +4164,7 @@
               >
                 <span class="material-symbols-outlined text-sm"
                   >alternate_email</span
-                >
-              </a>
+                ></a>
 
               <a
                 class="aqua-btn aqua-btn-soft h-11 w-11 !min-h-0 !p-0"
@@ -4094,16 +4173,14 @@
                 rel="noopener noreferrer"
                 aria-label="GitHub"
               >
-                <span class="material-symbols-outlined text-sm">terminal</span>
-              </a>
+                <span class="material-symbols-outlined text-sm">terminal</span></a>
 
               <a
                 class="aqua-btn aqua-btn-soft h-11 w-11 !min-h-0 !p-0"
                 href="mailto:info.aquatech.jo@gmail.com"
                 aria-label="Email"
               >
-                <span class="material-symbols-outlined text-sm">mail</span>
-              </a>
+                <span class="material-symbols-outlined text-sm">mail</span></a>
 
               <a
                 class="aqua-btn aqua-btn-soft h-11 w-11 !min-h-0 !p-0"
@@ -4112,8 +4189,7 @@
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
               >
-                <span class="material-symbols-outlined text-sm">chat</span>
-              </a>
+                <span class="material-symbols-outlined text-sm">chat</span></a>
             </div>
           </div>
 
@@ -4133,8 +4209,7 @@
                     href="#about"
                     data-i18n="footer.about"
                   >
-                    من نحن
-                  </a>
+                    من نحن</a>
                 </li>
                 <li>
                   <a
@@ -4142,8 +4217,7 @@
                     href="#trust"
                     data-i18n="footer.why"
                   >
-                    لماذا نحن
-                  </a>
+                    لماذا نحن</a>
                 </li>
                 <li>
                   <a
@@ -4151,8 +4225,7 @@
                     href="#results"
                     data-i18n="footer.results"
                   >
-                    النتائج
-                  </a>
+                    النتائج</a>
                 </li>
                 <li>
                   <a
@@ -4160,8 +4233,7 @@
                     href="#security"
                     data-i18n="footer.security"
                   >
-                    الأمان
-                  </a>
+                    الأمان</a>
                 </li>
               </ul>
             </div>
@@ -4181,8 +4253,7 @@
                     href="#services"
                     data-i18n="footer.services"
                   >
-                    الخدمات
-                  </a>
+                    الخدمات</a>
                 </li>
                 <li>
                   <a
@@ -4190,8 +4261,7 @@
                     href="#solutions"
                     data-i18n="footer.solutions"
                   >
-                    الحلول الجاهزة
-                  </a>
+                    الحلول الجاهزة</a>
                 </li>
                 <li>
                   <a
@@ -4199,8 +4269,7 @@
                     href="#offers"
                     data-i18n="footer.offers"
                   >
-                    العروض
-                  </a>
+                    العروض</a>
                 </li>
                 <li>
                   <a
@@ -4208,8 +4277,7 @@
                     href="#support"
                     data-i18n="footer.support"
                   >
-                    الدعم بعد التسليم
-                  </a>
+                    الدعم بعد التسليم</a>
                 </li>
               </ul>
             </div>
@@ -4231,8 +4299,7 @@
                     rel="noopener noreferrer"
                     data-i18n="footer.whatsapp"
                   >
-                    واتساب
-                  </a>
+                    WhatsApp</a>
                 </li>
                 <li>
                   <a
@@ -4240,8 +4307,7 @@
                     href="mailto:info.aquatech.jo@gmail.com"
                     data-i18n="footer.email"
                   >
-                    البريد الإلكتروني
-                  </a>
+                    Email</a>
                 </li>
                 <li>
                   <a
@@ -4249,8 +4315,7 @@
                     href="#faq"
                     data-i18n="footer.faq"
                   >
-                    الأسئلة المتكررة
-                  </a>
+                    الأسئلة المتكررة</a>
                 </li>
                 <li>
                   <a
@@ -4258,8 +4323,7 @@
                     href="#contact"
                     data-i18n="footer.start"
                   >
-                    ابدأ مشروعك
-                  </a>
+                    ابدأ مشروعك</a>
                 </li>
               </ul>
             </div>
@@ -4299,8 +4363,7 @@
             fill="currentColor"
             d="M16.04 3C8.86 3 3.02 8.77 3.02 15.87c0 2.27.6 4.48 1.74 6.43L3 29l6.88-1.78a13.1 13.1 0 0 0 6.16 1.55C23.22 28.77 29 23 29 15.87S23.22 3 16.04 3Zm0 23.55c-1.96 0-3.88-.52-5.56-1.5l-.4-.23-4.08 1.06 1.09-3.92-.26-.4a10.55 10.55 0 0 1-1.6-5.69c0-5.87 4.85-10.65 10.8-10.65 5.96 0 10.8 4.78 10.8 10.65 0 5.88-4.84 10.68-10.79 10.68Zm5.92-7.98c-.32-.16-1.9-.93-2.2-1.04-.3-.1-.52-.16-.73.16-.22.32-.84 1.04-1.03 1.25-.19.22-.38.24-.7.08-.32-.16-1.36-.5-2.6-1.6-.96-.85-1.6-1.9-1.8-2.22-.18-.32-.02-.5.14-.66.14-.14.32-.38.48-.57.16-.19.22-.32.32-.54.1-.22.05-.4-.03-.57-.08-.16-.73-1.75-1-2.4-.26-.62-.53-.54-.73-.55h-.62c-.22 0-.57.08-.87.4-.3.32-1.14 1.1-1.14 2.7s1.17 3.14 1.33 3.35c.16.22 2.3 3.5 5.58 4.9.78.34 1.39.54 1.86.69.78.25 1.5.21 2.06.13.63-.09 1.9-.78 2.17-1.52.27-.75.27-1.39.19-1.52-.08-.13-.3-.21-.62-.37Z"
           /></svg
-      ></span>
-    </a>
+      ></span></a>
 
     <div
       id="successModal"
@@ -4320,8 +4383,7 @@
           id="successModalClose"
           class="mt-6 rounded-lg bg-primary text-on-primary px-6 py-3 font-bold"
         >
-          حسنًا
-        </button>
+          حسنًا</button>
       </div>
     </div>
     <script>
@@ -4539,5 +4601,294 @@
 
     <script defer src="./js/site-i18n.js"></script>
     <script defer src="./js/form.js"></script>
-  </body>
+
+    <!-- AquaTech reveal animations script -->
+    <script>
+      (() => {
+        const selectors = [
+          "section",
+          ".glass-card",
+          ".service-card",
+          ".result-card",
+          ".solution-card",
+          ".faq-item",
+          ".contact-card",
+        ];
+
+        const items = Array.from(
+          document.querySelectorAll(selectors.join(",")),
+        ).filter(
+          (el) =>
+            !el.closest("header") && !el.classList.contains("aqua-reveal"),
+        );
+
+        items.forEach((el, index) => {
+          el.classList.add("aqua-reveal");
+          el.style.setProperty(
+            "--aqua-delay",
+            Math.min(index % 6, 5) * 70 + "ms",
+          );
+        });
+
+        const hoverTargets = document.querySelectorAll(
+          ".glass-card a, .service-card a, a[href^='https://wa.me'], a[href^='mailto:'], a[aria-label='Instagram'], a[aria-label='GitHub'], a[aria-label='LinkedIn'], a[aria-label='Facebook']",
+        );
+
+        hoverTargets.forEach((el) => {
+          el.classList.add("aqua-hover-lift");
+        });
+
+        if (!("IntersectionObserver" in window)) {
+          items.forEach((el) => el.classList.add("is-visible"));
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            });
+          },
+          {
+            threshold: 0.12,
+            rootMargin: "0px 0px -60px 0px",
+          },
+        );
+
+        items.forEach((el) => observer.observe(el));
+      })();
+    </script>
+  
+
+
+\n
+<!-- AQUA_HARD_CONTACT_FORM_FIX_START -->
+<script>
+  (() => {
+    const AR = {
+      title: "\u062A\u0641\u0627\u0635\u064A\u0644 \u0627\u0644\u0645\u0634\u0631\u0648\u0639",
+      desc: "\u0627\u0645\u0644\u0623 \u0627\u0644\u0628\u064A\u0627\u0646\u0627\u062A \u0627\u0644\u062A\u0627\u0644\u064A\u0629 \u0648\u0633\u0646\u0631\u0633\u0644 \u0644\u0643 \u0627\u0644\u062E\u0637\u0648\u0629 \u0627\u0644\u0645\u0646\u0627\u0633\u0628\u0629.",
+      name: "\u0627\u0644\u0627\u0633\u0645",
+      namePh: "\u0627\u0633\u0645\u0643",
+      email: "\u0627\u0644\u0628\u0631\u064A\u062F \u0627\u0644\u0625\u0644\u0643\u062A\u0631\u0648\u0646\u064A",
+      phone: "\u0631\u0642\u0645 \u0627\u0644\u0648\u0627\u062A\u0633\u0627\u0628",
+      country: "\u0631\u0645\u0632 \u0627\u0644\u062F\u0648\u0644\u0629",
+      service: "\u0627\u0644\u062E\u062F\u0645\u0629 \u0627\u0644\u0645\u0637\u0644\u0648\u0628\u0629",
+      servicePh: "\u0627\u062E\u062A\u0631 \u0627\u0644\u062E\u062F\u0645\u0629",
+      budget: "\u0627\u0644\u0645\u064A\u0632\u0627\u0646\u064A\u0629 \u0627\u0644\u062A\u0642\u0631\u064A\u0628\u064A\u0629",
+      budgetPh: "\u0627\u062E\u062A\u0631 \u0627\u0644\u0645\u064A\u0632\u0627\u0646\u064A\u0629",
+      timeline: "\u0645\u0648\u0639\u062F \u0627\u0644\u062A\u0646\u0641\u064A\u0630",
+      timelinePh: "\u0627\u062E\u062A\u0631 \u0627\u0644\u0645\u0648\u0639\u062F",
+      message: "\u062A\u0641\u0627\u0635\u064A\u0644 \u0627\u0644\u0645\u0634\u0631\u0648\u0639",
+      messagePh: "\u0627\u0643\u062A\u0628 \u0627\u0644\u0647\u062F\u0641\u060C \u0627\u0644\u0645\u064A\u0632\u0627\u062A\u060C \u0648\u0627\u0644\u0645\u0648\u0639\u062F \u0627\u0644\u0645\u062A\u0648\u0642\u0639...",
+      submit: "\u0627\u0628\u062F\u0623 \u0645\u0634\u0631\u0648\u0639\u0643 \u0628\u062E\u0637\u0629 \u0648\u0627\u0636\u062D\u0629",
+      direct: "\u062A\u0648\u0627\u0635\u0644 \u0645\u0628\u0627\u0634\u0631"
+    };
+
+    const EN = {
+      title: "Project details",
+      desc: "Fill in the details below and we will send you the right next step.",
+      name: "Name",
+      namePh: "Your name",
+      email: "Email",
+      phone: "WhatsApp number",
+      country: "Country code",
+      service: "Required service",
+      servicePh: "Choose service",
+      budget: "Estimated budget",
+      budgetPh: "Choose budget",
+      timeline: "Execution timeline",
+      timelinePh: "Choose timeline",
+      message: "Project details",
+      messagePh: "Write the goal, features, and expected timeline...",
+      submit: "Start your project with a clear plan",
+      direct: "Direct contact"
+    };
+
+    function isArabic() {
+      const lang = (document.documentElement.getAttribute("lang") || "").toLowerCase();
+      const dir = (document.documentElement.getAttribute("dir") || "").toLowerCase();
+      return lang.startsWith("ar") || dir === "rtl";
+    }
+
+    function cleanElement(el, dir) {
+      if (!el) return;
+      el.classList.remove("tracking-widest", "uppercase");
+      el.style.letterSpacing = "normal";
+      el.style.textTransform = "none";
+      el.setAttribute("dir", dir);
+    }
+
+    function setText(el, text, dir) {
+      if (!el) return;
+      cleanElement(el, dir);
+      el.textContent = text;
+    }
+
+    function findLabelFor(control) {
+      if (!control) return null;
+
+      if (control.id) {
+        const direct = document.querySelector('label[for="' + CSS.escape(control.id) + '"]');
+        if (direct) return direct;
+      }
+
+      let node = control.parentElement;
+
+      for (let level = 0; node && level < 5; level += 1, node = node.parentElement) {
+        const labels = Array.from(node.querySelectorAll("label, .font-label-sm, .text-label-sm"))
+          .filter((el) => !el.contains(control) && el.children.length === 0);
+
+        if (labels.length) {
+          return labels[labels.length - 1];
+        }
+      }
+
+      return null;
+    }
+
+    function findNearestHeading(formCard) {
+      if (!formCard) return null;
+      return formCard.querySelector("h1,h2,h3");
+    }
+
+    function findNearestDesc(formCard) {
+      if (!formCard) return null;
+      const paragraphs = Array.from(formCard.querySelectorAll("p")).filter((p) => p.children.length === 0);
+      return paragraphs[0] || null;
+    }
+
+    function getForm() {
+      return document.querySelector("#contact form") || document.querySelector("form");
+    }
+
+    function applyContactFormLanguage() {
+      const dict = isArabic() ? AR : EN;
+      const dir = isArabic() ? "rtl" : "ltr";
+
+      const form = getForm();
+      if (!form) return;
+
+      const formCard = form.closest(".glass-card") || form.closest("section") || form.parentElement;
+
+      setText(findNearestHeading(formCard), dict.title, dir);
+      setText(findNearestDesc(formCard), dict.desc, dir);
+
+      const nameInput =
+        form.querySelector('input[name*="name" i], input[id*="name" i]') ||
+        Array.from(form.querySelectorAll("input")).find((el) => /name|???/i.test(el.placeholder || ""));
+
+      const emailInput =
+        form.querySelector('input[type="email"], input[name*="email" i], input[id*="email" i]') ||
+        Array.from(form.querySelectorAll("input")).find((el) => /example|email|mail/i.test(el.placeholder || ""));
+
+      const phoneInput =
+        form.querySelector('input[type="tel"], input[name*="phone" i], input[name*="whatsapp" i], input[id*="phone" i], input[id*="whatsapp" i]') ||
+        Array.from(form.querySelectorAll("input")).find((el) => /7x|7X|phone|whatsapp/i.test(el.placeholder || ""));
+
+      const textarea = form.querySelector("textarea");
+
+      const selects = Array.from(form.querySelectorAll("select"));
+      const countrySelect = selects.find((el) => /country|code|??????/i.test((el.name || "") + " " + (el.id || ""))) || selects[0];
+      const serviceSelect = selects.find((el) => /service|??????/i.test((el.name || "") + " " + (el.id || ""))) || selects[1];
+      const budgetSelect = selects.find((el) => /budget|?????????/i.test((el.name || "") + " " + (el.id || ""))) || selects[2];
+      const timelineSelect = selects.find((el) => /timeline|????|time/i.test((el.name || "") + " " + (el.id || ""))) || selects[3];
+
+      if (nameInput) {
+        setText(findLabelFor(nameInput), dict.name, dir);
+        nameInput.placeholder = dict.namePh;
+        nameInput.setAttribute("dir", dir);
+      }
+
+      if (emailInput) {
+        setText(findLabelFor(emailInput), dict.email, dir);
+        emailInput.placeholder = "example@gmail.com";
+        emailInput.setAttribute("dir", "ltr");
+      }
+
+      if (phoneInput) {
+        setText(findLabelFor(phoneInput), dict.phone, dir);
+        phoneInput.placeholder = "7XXXXXXXX";
+        phoneInput.setAttribute("dir", "ltr");
+      }
+
+      if (countrySelect) {
+        setText(findLabelFor(countrySelect), dict.country, dir);
+      }
+
+      if (serviceSelect) {
+        setText(findLabelFor(serviceSelect), dict.service, dir);
+        const option = serviceSelect.querySelector('option[value=""], option[disabled]');
+        if (option) option.textContent = dict.servicePh;
+      }
+
+      if (budgetSelect) {
+        setText(findLabelFor(budgetSelect), dict.budget, dir);
+        const option = budgetSelect.querySelector('option[value=""], option[disabled]');
+        if (option) option.textContent = dict.budgetPh;
+      }
+
+      if (timelineSelect) {
+        setText(findLabelFor(timelineSelect), dict.timeline, dir);
+        const option = timelineSelect.querySelector('option[value=""], option[disabled]');
+        if (option) option.textContent = dict.timelinePh;
+      }
+
+      if (textarea) {
+        setText(findLabelFor(textarea), dict.message, dir);
+        textarea.placeholder = dict.messagePh;
+        textarea.setAttribute("dir", dir);
+      }
+
+      const submit = form.querySelector('button[type="submit"], button:not([type])');
+      if (submit) {
+        setText(submit, dict.submit, dir);
+      }
+
+      // Direct contact heading follows page language
+      const contactRoot = document.querySelector("#contact") || form.closest("section") || document.body;
+      const directCards = Array.from(contactRoot.querySelectorAll(".glass-card")).filter((card) =>
+        card.querySelector("[aria-label='WhatsApp']")
+      );
+
+      directCards.forEach((card) => {
+        const heading = card.querySelector("h1,h2,h3,h4");
+        setText(heading, dict.direct, dir);
+      });
+
+      // Social card names stay English in both languages
+      contactRoot.querySelectorAll(
+        "[aria-label='WhatsApp'] .font-bold, [aria-label='Email'] .font-bold, [aria-label='Instagram'] .font-bold, [aria-label='GitHub'] .font-bold, [aria-label='LinkedIn'] .font-bold, [aria-label='Facebook'] .font-bold"
+      ).forEach((el) => {
+        const card = el.closest("[aria-label]");
+        if (!card) return;
+        setText(el, card.getAttribute("aria-label"), "ltr");
+      });
+
+      contactRoot.querySelectorAll("label, .font-label-sm, .text-label-sm, span, button").forEach((el) => {
+        cleanElement(el, el.closest("[aria-label]") ? "ltr" : dir);
+      });
+    }
+
+    function boot() {
+      applyContactFormLanguage();
+      setTimeout(applyContactFormLanguage, 50);
+      setTimeout(applyContactFormLanguage, 250);
+      setTimeout(applyContactFormLanguage, 800);
+      setTimeout(applyContactFormLanguage, 1500);
+    }
+
+    document.addEventListener("DOMContentLoaded", boot);
+    window.addEventListener("load", boot);
+    document.addEventListener("click", () => {
+      setTimeout(applyContactFormLanguage, 100);
+      setTimeout(applyContactFormLanguage, 400);
+    });
+  })();
+</script>
+<!-- AQUA_HARD_CONTACT_FORM_FIX_END -->
+
+</body>
 </html>
