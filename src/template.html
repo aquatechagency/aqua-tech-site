@@ -1,12 +1,4543 @@
-<!DOCTYPE html>
+<!doctype html>
 <html class="dark" dir="rtl" lang="ar">
-{{> head}}
-<body class="dark bg-background text-on-background selection:bg-primary/30">
-{{> header}}
-{{> consent}}
-{{> main}}
-{{> footer}}
-{{> floating}}
-{{> scripts}}
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Aqua.Tech | حلول رقمية ونمو فعلي</title>
+    <meta
+      name="description"
+      content="Aqua.Tech تبني مواقع احترافية وأنظمة مخصصة وأتمتة بالذكاء الاصطناعي وحلول نمو رقمية للشركات ورواد الأعمال."
+    />
+    <meta
+      name="keywords"
+      content="Aqua.Tech, web development Jordan, AI automation Jordan, software systems, digital marketing, custom systems Jordan"
+    />
+    <link rel="canonical" href="https://aquatechagency.com/" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="theme-color" content="#051424" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://script.google.com https://script.googleusercontent.com https://cdn.jsdelivr.net; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://www.google-analytics.com https:; base-uri 'self'; form-action 'self' https://script.google.com; upgrade-insecure-requests"
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aquatechagency.com/" />
+    <meta property="og:site_name" content="Aqua.Tech" />
+    <meta property="og:title" content="Aqua.Tech | Growth • Software • AI" />
+    <meta
+      property="og:description"
+      content="مواقع احترافية، أنظمة مخصصة، أتمتة بالذكاء الاصطناعي، وحلول نمو رقمية للشركات."
+    />
+    <meta
+      property="og:image"
+      content="https://aquatechagency.com/assets/logoo.webp"
+    />
+    <meta property="og:locale" content="ar_JO" />
+
+    <link rel="icon" href="assets/favicon/favicon.ico" sizes="any" />
+    <link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="manifest.json" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./dist/output.css" />
+    <style>
+      :root {
+        --aqua-bg: #051424;
+        --aqua-deep: #010f1f;
+        --aqua-card: rgba(15, 23, 42, 0.6);
+        --aqua-card-solid: #122131;
+        --aqua-line: rgba(137, 206, 255, 0.12);
+        --aqua-line-strong: rgba(137, 206, 255, 0.34);
+        --aqua-primary: #89ceff;
+        --aqua-action: #00b4ff;
+        --aqua-text: #d4e4fa;
+        --aqua-muted: #bdc8d2;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background:
+          radial-gradient(
+            circle at 50% 0%,
+            rgba(0, 180, 255, 0.16),
+            transparent 34%
+          ),
+          radial-gradient(
+            circle at 12% 18%,
+            rgba(137, 206, 255, 0.08),
+            transparent 28%
+          ),
+          linear-gradient(180deg, #051424 0%, #03101f 52%, #010915 100%);
+        color: var(--aqua-text);
+        font-family:
+          Inter,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        overflow-x: hidden;
+      }
+
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+        line-height: 1;
+      }
+
+      .glass-card {
+        background: rgba(15, 23, 42, 0.6);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(137, 206, 255, 0.1);
+        box-shadow:
+          0 0 0 1px rgba(255, 255, 255, 0.015) inset,
+          0 22px 80px rgba(0, 0, 0, 0.24);
+        transition:
+          border-color 0.3s ease,
+          box-shadow 0.3s ease,
+          transform 0.3s ease,
+          background 0.3s ease;
+      }
+
+      .glass-card:hover {
+        border-color: rgba(137, 206, 255, 0.34);
+        box-shadow:
+          0 0 0 1px rgba(255, 255, 255, 0.02) inset,
+          0 22px 80px rgba(0, 0, 0, 0.28),
+          0 0 24px rgba(0, 180, 255, 0.13);
+      }
+
+      .glow-text {
+        text-shadow: 0 0 10px rgba(137, 206, 255, 0.5);
+      }
+
+      .terminal-cursor::after {
+        content: "_";
+        animation: blink 1s step-end infinite;
+      }
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+
+      .service-cta-btn {
+        width: fit-content;
+        min-height: 2.55rem;
+        margin-top: auto;
+        padding: 0.65rem 1rem;
+        border-radius: 0.9rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.55rem;
+        color: var(--aqua-primary);
+        background:
+          linear-gradient(
+            135deg,
+            rgba(137, 206, 255, 0.1),
+            rgba(0, 180, 255, 0.045)
+          ),
+          rgba(137, 206, 255, 0.045);
+        border: 1px solid rgba(137, 206, 255, 0.26);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.05),
+          0 10px 26px rgba(0, 0, 0, 0.14);
+        font-weight: 800;
+        font-size: 0.85rem;
+        text-decoration: none;
+        transition:
+          transform 0.2s ease,
+          background 0.2s ease,
+          border-color 0.2s ease,
+          box-shadow 0.2s ease,
+          color 0.2s ease;
+      }
+
+      .service-cta-btn:hover {
+        color: #001e2f;
+        background: linear-gradient(135deg, #89ceff, #00b4ff);
+        border-color: rgba(255, 255, 255, 0.28);
+        transform: translateY(-2px);
+        box-shadow:
+          0 14px 34px rgba(0, 180, 255, 0.22),
+          0 0 18px rgba(137, 206, 255, 0.12);
+      }
+
+      .service-cta-btn-primary {
+        color: #001e2f;
+        background: linear-gradient(135deg, #89ceff, #00b4ff);
+        border-color: rgba(255, 255, 255, 0.28);
+      }
+
+      .service-cta-btn .btn-icon {
+        font-size: 1.1rem;
+        line-height: 1;
+        transition: transform 0.2s ease;
+      }
+
+      .service-cta-btn:hover .btn-icon {
+        transform: translateX(-4px);
+      }
+
+      @media (max-width: 767px) {
+        .service-cta-btn {
+          width: 100%;
+        }
+      }
+
+      .aqua-liquid-bg {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        overflow: hidden;
+        pointer-events: none;
+      }
+      .aqua-liquid-bg::before,
+      .aqua-liquid-bg::after {
+        content: "";
+        position: absolute;
+        border-radius: 999px;
+        filter: blur(46px);
+        opacity: 0.35;
+        animation: drift 12s ease-in-out infinite;
+      }
+      .aqua-liquid-bg::before {
+        width: 520px;
+        height: 520px;
+        top: 10%;
+        right: 8%;
+        background: radial-gradient(
+          circle,
+          rgba(0, 180, 255, 0.34),
+          transparent 64%
+        );
+      }
+      .aqua-liquid-bg::after {
+        width: 460px;
+        height: 460px;
+        bottom: 16%;
+        left: 8%;
+        background: radial-gradient(
+          circle,
+          rgba(137, 206, 255, 0.2),
+          transparent 68%
+        );
+        animation-delay: -5s;
+      }
+      @keyframes drift {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+        50% {
+          transform: translate3d(18px, -14px, 0) scale(1.04);
+        }
+      }
+
+      .circuit-layer {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.28;
+        background-image:
+          linear-gradient(
+            to right,
+            rgba(137, 206, 255, 0.06) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(137, 206, 255, 0.045) 1px,
+            transparent 1px
+          ),
+          radial-gradient(
+            circle at 20% 30%,
+            rgba(137, 206, 255, 0.18) 0 2px,
+            transparent 3px
+          ),
+          radial-gradient(
+            circle at 78% 26%,
+            rgba(0, 180, 255, 0.18) 0 2px,
+            transparent 3px
+          ),
+          radial-gradient(
+            circle at 52% 78%,
+            rgba(137, 206, 255, 0.12) 0 2px,
+            transparent 3px
+          );
+        background-size:
+          92px 92px,
+          92px 92px,
+          520px 520px,
+          620px 620px,
+          700px 700px;
+        mask-image: radial-gradient(
+          circle at 50% 20%,
+          rgba(0, 0, 0, 0.9),
+          transparent 74%
+        );
+        -webkit-mask-image: radial-gradient(
+          circle at 50% 20%,
+          rgba(0, 0, 0, 0.9),
+          transparent 74%
+        );
+      }
+
+      .code-chip {
+        position: absolute;
+        font-family: "JetBrains Mono", monospace;
+        color: rgba(212, 228, 250, 0.2);
+        letter-spacing: 0.1em;
+        user-select: none;
+        text-shadow: 0 0 18px rgba(137, 206, 255, 0.12);
+      }
+
+      .section-kicker {
+        display: block;
+        margin-bottom: 1rem;
+        color: var(--aqua-primary);
+        font-family: "JetBrains Mono", monospace;
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+
+      .aqua-card-kicker {
+        display: inline-flex;
+        width: fit-content;
+        margin-bottom: 1rem;
+        color: var(--aqua-primary);
+        font-family: "Alexandria", system-ui, sans-serif;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0;
+        padding: 0.35rem 0.7rem;
+        border-radius: 999px;
+        border: 1px solid rgba(137, 206, 255, 0.18);
+        background: rgba(137, 206, 255, 0.055);
+      }
+
+      .aqua-input {
+        width: 100%;
+        border-radius: 0.75rem;
+        border: 1px solid rgba(137, 206, 255, 0.14);
+        background: rgba(1, 15, 31, 0.62);
+        color: var(--aqua-text);
+        padding: 0.9rem 1rem;
+        outline: none;
+        transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease,
+          background 0.2s ease;
+      }
+      .aqua-input::placeholder {
+        color: rgba(189, 200, 210, 0.55);
+      }
+      .aqua-input:focus {
+        border-color: rgba(137, 206, 255, 0.65);
+        box-shadow:
+          inset 0 0 10px rgba(137, 206, 255, 0.14),
+          0 0 0 4px rgba(137, 206, 255, 0.06);
+        background: rgba(1, 15, 31, 0.86);
+      }
+      select.aqua-input option {
+        background: #0d1c2d;
+        color: #d4e4fa;
+      }
+      .aqua-btn .btn-icon {
+        font-size: 1.15rem;
+        line-height: 1;
+        transition: transform 0.2s ease;
+      }
+
+      .aqua-btn:hover .btn-icon {
+        transform: translateX(-4px);
+      }
+
+      .offer-cta-btn {
+        width: 100%;
+        min-height: 3.15rem;
+        margin-top: auto;
+        padding: 0.85rem 1rem;
+        border-radius: 0.95rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.55rem;
+        color: #d4e4fa;
+        background:
+          linear-gradient(
+            135deg,
+            rgba(137, 206, 255, 0.12),
+            rgba(0, 180, 255, 0.06)
+          ),
+          rgba(137, 206, 255, 0.055);
+        border: 1px solid rgba(137, 206, 255, 0.32);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.06),
+          0 10px 28px rgba(0, 0, 0, 0.18);
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .offer-cta-btn:hover {
+        color: #001e2f;
+        background: linear-gradient(135deg, #89ceff, #00b4ff);
+        border-color: rgba(255, 255, 255, 0.28);
+        transform: translateY(-2px);
+        box-shadow:
+          0 16px 38px rgba(0, 180, 255, 0.24),
+          0 0 18px rgba(137, 206, 255, 0.16);
+      }
+
+      .offer-cta-btn .btn-icon {
+        font-size: 1.1rem;
+        transition: transform 0.2s ease;
+      }
+
+      .offer-cta-btn:hover .btn-icon {
+        transform: translateX(-4px);
+      }
+
+      .offer-cta-btn-primary {
+        color: #001e2f;
+        background: linear-gradient(135deg, #89ceff, #00b4ff);
+        border-color: rgba(255, 255, 255, 0.28);
+      }
+
+      .nav-link {
+        position: relative;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: -8px;
+        height: 2px;
+        background: var(--aqua-primary);
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.2s ease;
+        opacity: 0.9;
+      }
+      .nav-link:hover::after,
+      .nav-link.is-active::after {
+        transform: scaleX(1);
+      }
+
+      #mobileMenu {
+        display: none;
+      }
+      #mobileMenu.is-open {
+        display: block;
+      }
+
+      #wa-float {
+        position: fixed;
+        left: 20px;
+        bottom: 22px;
+        z-index: 80;
+        width: 56px;
+        height: 56px;
+        border-radius: 999px;
+        display: grid;
+        place-items: center;
+        color: #001e2f;
+        background: linear-gradient(135deg, #89ceff, #00b4ff);
+        box-shadow:
+          0 16px 42px rgba(0, 0, 0, 0.34),
+          0 0 20px rgba(0, 180, 255, 0.22);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition:
+          transform 0.2s ease,
+          filter 0.2s ease;
+      }
+      #wa-float:hover {
+        transform: translateY(-2px) scale(1.05);
+        filter: saturate(1.1);
+      }
+
+      #consent-banner {
+        position: fixed;
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        z-index: 100;
+        display: none;
+        gap: 1rem;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+        border-radius: 1rem;
+        background: rgba(1, 15, 31, 0.96);
+        border: 1px solid rgba(137, 206, 255, 0.18);
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+      }
+      #consent-banner.is-visible {
+        display: flex;
+      }
+
+      .success-modal {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 120;
+        padding: 1rem;
+        background: rgba(1, 15, 31, 0.72);
+        backdrop-filter: blur(10px);
+      }
+      .success-modal.is-open {
+        display: flex;
+      }
+      .success-modal-card {
+        width: min(100%, 28rem);
+        text-align: center;
+        padding: 2rem;
+        border-radius: 1.25rem;
+        background: #122131;
+        border: 1px solid rgba(137, 206, 255, 0.18);
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+      }
+      .success-modal-icon {
+        width: 64px;
+        height: 64px;
+        display: grid;
+        place-items: center;
+        margin: 0 auto 1rem;
+        border-radius: 999px;
+        background: rgba(137, 206, 255, 0.12);
+        border: 1px solid rgba(137, 206, 255, 0.28);
+        color: #89ceff;
+        font-size: 28px;
+        font-weight: 800;
+      }
+
+      @media (max-width: 767px) {
+        .aqua-liquid-bg::before,
+        .aqua-liquid-bg::after {
+          opacity: 0.18;
+          filter: blur(34px);
+        }
+        .circuit-layer {
+          opacity: 0.12;
+        }
+        .code-chip {
+          display: none;
+        }
+        #consent-banner {
+          flex-direction: column;
+          align-items: stretch;
+          text-align: center;
+        }
+        #wa-float {
+          width: 50px;
+          height: 50px;
+          left: 14px;
+          bottom: 14px;
+        }
+      }
+
+      .wa-svg {
+        width: 1.25rem;
+        height: 1.25rem;
+        display: block;
+      }
+
+      #wa-float .wa-svg {
+        width: 1.75rem;
+        height: 1.75rem;
+      }
+
+      #langToggle {
+        direction: ltr;
+      }
+      .aqua-custom-select {
+        position: relative;
+        width: 100%;
+      }
+
+      .social-icons-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 58px);
+        justify-content: center;
+        column-gap: 26px;
+        row-gap: 20px;
+        width: 100%;
+      }
+
+      .social-icon-link {
+        width: 58px;
+        height: 58px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 16px;
+        border: 1px solid rgba(137, 206, 255, 0.28);
+        background: rgba(137, 206, 255, 0.06);
+        color: var(--aqua-primary);
+        text-decoration: none;
+        transition:
+          background 0.2s ease,
+          border-color 0.2s ease,
+          color 0.2s ease,
+          transform 0.2s ease;
+      }
+
+      .social-icon-link:hover {
+        background: var(--aqua-primary);
+        color: #001e2f;
+        border-color: rgba(255, 255, 255, 0.28);
+        transform: translateY(-2px);
+      }
+
+      .social-icon-link .material-symbols-outlined {
+        font-size: 25px;
+      }
+
+      .social-icon-link svg {
+        width: 25px;
+        height: 25px;
+        display: block;
+      }
+
+      @media (max-width: 420px) {
+        .social-icons-grid {
+          grid-template-columns: repeat(3, 52px);
+          row-gap: 14px;
+        }
+
+        .social-icon-link {
+          width: 52px;
+          height: 52px;
+          border-radius: 14px;
+        }
+      }
+
+      .aqua-select-trigger {
+        width: 100%;
+        min-height: 3.55rem;
+        padding: 0.9rem 1rem;
+        border-radius: 0.75rem;
+        border: 1px solid rgba(137, 206, 255, 0.14);
+        background: rgba(1, 15, 31, 0.62);
+        color: var(--aqua-text);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        outline: none;
+        text-align: inherit;
+      }
+
+      .aqua-select-trigger:focus,
+      .aqua-custom-select.is-open .aqua-select-trigger {
+        border-color: rgba(137, 206, 255, 0.65);
+        box-shadow:
+          inset 0 0 10px rgba(137, 206, 255, 0.14),
+          0 0 0 4px rgba(137, 206, 255, 0.06);
+        background: rgba(1, 15, 31, 0.9);
+      }
+
+      .aqua-select-menu {
+        position: absolute;
+        top: calc(100% + 0.55rem);
+        left: 0;
+        right: 0;
+        z-index: 200;
+        display: none;
+        max-height: 18rem;
+        overflow-y: auto;
+        padding: 0.6rem;
+        border-radius: 1rem;
+        border: 1px solid rgba(137, 206, 255, 0.24);
+        background: #071827;
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+
+      .aqua-select-menu::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        display: none;
+      }
+
+      .aqua-custom-select.is-open .aqua-select-menu {
+        display: block;
+      }
+
+      .aqua-select-group {
+        padding: 0.55rem 0.75rem 0.35rem;
+        color: var(--aqua-primary);
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        opacity: 0.95;
+      }
+
+      .aqua-select-option {
+        width: 100%;
+        display: block;
+        border: 0;
+        background: transparent;
+        color: var(--aqua-text);
+        text-align: right;
+        padding: 0.7rem 0.75rem;
+        border-radius: 0.75rem;
+        cursor: pointer;
+        font: inherit;
+        line-height: 1.35;
+      }
+
+      html[dir="ltr"] .aqua-select-option {
+        text-align: left;
+      }
+
+      .aqua-select-option:hover,
+      .aqua-select-option.is-selected {
+        background: rgba(137, 206, 255, 0.12);
+        color: #ffffff;
+      }
+
+      .aqua-select-error {
+        display: none;
+        margin-top: 0.5rem;
+        color: #fca5a5;
+        font-size: 0.8rem;
+      }
+
+      .aqua-select-error.is-visible {
+        display: block;
+      }
+
+      /* Aqua.Tech icon system - no images */
+      .aqua-icon-box {
+        width: 56px;
+        height: 56px;
+        border-radius: 18px;
+        display: grid;
+        place-items: center;
+        color: var(--aqua-primary);
+        background:
+          radial-gradient(
+            circle at 35% 20%,
+            rgba(137, 206, 255, 0.18),
+            transparent 56%
+          ),
+          linear-gradient(
+            135deg,
+            rgba(137, 206, 255, 0.12),
+            rgba(0, 180, 255, 0.045)
+          ),
+          rgba(15, 35, 55, 0.72);
+        border: 1px solid rgba(137, 206, 255, 0.24);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.06),
+          0 14px 35px rgba(0, 0, 0, 0.22),
+          0 0 18px rgba(0, 180, 255, 0.06);
+        transition:
+          transform 0.22s ease,
+          border-color 0.22s ease,
+          background 0.22s ease,
+          box-shadow 0.22s ease,
+          color 0.22s ease;
+      }
+
+      .aqua-icon-box .material-symbols-outlined {
+        font-size: 26px;
+        color: currentColor;
+      }
+
+      .aqua-icon-box svg {
+        width: 26px;
+        height: 26px;
+        display: block;
+      }
+
+      .glass-card:hover .aqua-icon-box,
+      .aqua-icon-box:hover {
+        transform: translateY(-2px);
+        border-color: rgba(137, 206, 255, 0.48);
+        background:
+          radial-gradient(
+            circle at 35% 20%,
+            rgba(137, 206, 255, 0.32),
+            transparent 58%
+          ),
+          linear-gradient(
+            135deg,
+            rgba(137, 206, 255, 0.18),
+            rgba(0, 180, 255, 0.09)
+          ),
+          rgba(18, 42, 64, 0.9);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          0 16px 42px rgba(0, 0, 0, 0.28),
+          0 0 24px rgba(0, 180, 255, 0.13);
+      }
+
+      .aqua-icon-box.is-primary {
+        color: #001e2f;
+        background: linear-gradient(135deg, #89ceff, #00b4ff);
+        border-color: rgba(255, 255, 255, 0.28);
+      }
+
+      .aqua-icon-box.is-sm {
+        width: 48px;
+        height: 48px;
+        border-radius: 15px;
+      }
+
+      .aqua-icon-box.is-sm .material-symbols-outlined {
+        font-size: 23px;
+      }
+
+      .aqua-icon-box.is-lg {
+        width: 64px;
+        height: 64px;
+        border-radius: 20px;
+      }
+
+      .aqua-icon-box.is-lg .material-symbols-outlined {
+        font-size: 30px;
+      }
+      .aqua-floating-nav {
+        min-height: 76px;
+        padding: 0.75rem 1rem;
+        border-radius: 28px;
+        background: linear-gradient(
+          180deg,
+          rgba(8, 25, 42, 0.92),
+          rgba(5, 18, 32, 0.88)
+        );
+        border: 1px solid rgba(137, 206, 255, 0.14);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.045),
+          0 18px 55px rgba(0, 0, 0, 0.28),
+          0 0 24px rgba(0, 180, 255, 0.08);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+      }
+
+      .aqua-nav-logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        color: #d4e4fa;
+        font-weight: 800;
+        font-size: 1.25rem;
+        white-space: nowrap;
+      }
+
+      .aqua-nav-logo:hover {
+        color: var(--aqua-primary);
+      }
+
+      .aqua-nav-logo-mark {
+        width: 42px;
+        height: 42px;
+        border-radius: 16px;
+        display: grid;
+        place-items: center;
+        background:
+          radial-gradient(
+            circle at 35% 20%,
+            rgba(137, 206, 255, 0.2),
+            transparent 58%
+          ),
+          rgba(137, 206, 255, 0.055);
+        border: 1px solid rgba(137, 206, 255, 0.24);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.06),
+          0 0 18px rgba(0, 180, 255, 0.08);
+      }
+
+      .aqua-nav-links {
+        padding: 0.25rem;
+        border-radius: 999px;
+      }
+
+      .aqua-nav-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 0 1rem;
+        border-radius: 999px;
+        color: rgba(212, 228, 250, 0.78);
+        font-weight: 600;
+        text-decoration: none;
+        transition:
+          color 0.2s ease,
+          background 0.2s ease,
+          border-color 0.2s ease,
+          transform 0.2s ease;
+      }
+
+      .aqua-nav-link:hover {
+        color: var(--aqua-primary);
+        background: rgba(137, 206, 255, 0.07);
+      }
+
+      .aqua-nav-link.is-active {
+        color: #dff3ff;
+        background:
+          linear-gradient(
+            135deg,
+            rgba(137, 206, 255, 0.18),
+            rgba(0, 180, 255, 0.08)
+          ),
+          rgba(137, 206, 255, 0.08);
+        border: 1px solid rgba(137, 206, 255, 0.18);
+      }
+
+      .aqua-nav-action {
+        min-height: 44px;
+        padding: 0 1rem;
+        border-radius: 18px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.55rem;
+        color: #d4e4fa;
+        background: rgba(137, 206, 255, 0.045);
+        border: 1px solid rgba(137, 206, 255, 0.16);
+        font-weight: 700;
+        text-decoration: none;
+        transition:
+          background 0.2s ease,
+          border-color 0.2s ease,
+          color 0.2s ease,
+          transform 0.2s ease;
+      }
+
+      .aqua-nav-action:hover {
+        color: var(--aqua-primary);
+        background: rgba(137, 206, 255, 0.09);
+        border-color: rgba(137, 206, 255, 0.32);
+        transform: translateY(-1px);
+      }
+
+      .aqua-nav-primary {
+        min-height: 44px;
+        padding: 0 1.2rem;
+        border-radius: 16px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #001e2f;
+        background: linear-gradient(135deg, #89ceff, #00b4ff);
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        font-weight: 900;
+        box-shadow: 0 14px 32px rgba(0, 180, 255, 0.22);
+        transition:
+          transform 0.2s ease,
+          filter 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .aqua-nav-primary:hover {
+        transform: translateY(-1px);
+        filter: saturate(1.08);
+        box-shadow: 0 18px 40px rgba(0, 180, 255, 0.3);
+      }
+
+      .aqua-nav-menu-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 16px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--aqua-primary);
+        background: rgba(137, 206, 255, 0.06);
+        border: 1px solid rgba(137, 206, 255, 0.22);
+      }
+
+      .aqua-mobile-link {
+        border-radius: 1rem;
+        padding: 0.85rem 1rem;
+        color: rgba(212, 228, 250, 0.82);
+        text-decoration: none;
+        transition:
+          background 0.2s ease,
+          color 0.2s ease;
+      }
+
+      .aqua-mobile-link:hover {
+        background: rgba(137, 206, 255, 0.08);
+        color: var(--aqua-primary);
+      }
+
+      @media (max-width: 1180px) {
+        .aqua-nav-link {
+          padding: 0 0.72rem;
+          font-size: 0.92rem;
+        }
+      }
+      .aqua-top-pill {
+        width: min(calc(100vw - 2rem), 1320px);
+        min-height: 70px;
+        padding: 0.6rem 1.1rem;
+        border-radius: 999px;
+        background:
+          radial-gradient(
+            circle at 14% 0%,
+            rgba(137, 206, 255, 0.16),
+            transparent 36%
+          ),
+          radial-gradient(
+            circle at 88% 0%,
+            rgba(0, 180, 255, 0.1),
+            transparent 34%
+          ),
+          linear-gradient(180deg, rgba(7, 24, 41, 0.94), rgba(4, 17, 31, 0.88));
+        border: 1px solid rgba(137, 206, 255, 0.18);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.055),
+          0 18px 48px rgba(0, 0, 0, 0.34),
+          0 0 34px rgba(0, 180, 255, 0.1);
+        backdrop-filter: blur(22px);
+        -webkit-backdrop-filter: blur(22px);
+      }
+
+      .aqua-top-pill .nav-link {
+        min-height: 42px;
+        display: inline-flex;
+        align-items: center;
+        padding: 0 0.8rem;
+        border-radius: 999px;
+        white-space: nowrap;
+      }
+
+      .aqua-top-pill .nav-link::after {
+        display: none;
+      }
+
+      .aqua-top-pill .nav-link:hover,
+      .aqua-top-pill .nav-link.is-active {
+        background:
+          linear-gradient(
+            135deg,
+            rgba(137, 206, 255, 0.12),
+            rgba(0, 180, 255, 0.04)
+          );
+        color: var(--aqua-primary);
+      }
+
+      .aqua-top-pill a,
+      .aqua-top-pill button {
+        white-space: nowrap;
+      }
+
+      @media (max-width: 1280px) {
+        .aqua-top-pill {
+          width: min(calc(100vw - 1.25rem), 1220px);
+          padding-inline: 0.9rem;
+        }
+
+        .aqua-top-pill .nav-link {
+          padding: 0 0.55rem;
+          font-size: 0.92rem;
+        }
+      }
+
+      @media (max-width: 1023px) {
+        .aqua-top-pill {
+          width: calc(100vw - 1rem);
+          min-height: 66px;
+          padding: 0.65rem 0.75rem;
+          border-radius: 2rem;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .aqua-floating-nav {
+          min-height: 66px;
+          border-radius: 22px;
+          padding: 0.65rem;
+        }
+
+        .aqua-nav-logo {
+          font-size: 1.05rem;
+        }
+
+        .aqua-nav-logo-mark {
+          width: 38px;
+          height: 38px;
+          border-radius: 14px;
+        }
+      }
+    </style>
+
+    <script>
+      window.AQUA_CONFIG = {
+        GA_ID: "G-N7T2EVFD6J",
+        WHATSAPP_NUMBER: "962780932199",
+        CONTACT_EMAIL: "info.aquatech.jo@gmail.com",
+        SHEETS_SCRIPT_URL:
+          "https://script.google.com/macros/s/AKfycbzFVFUE-fxAUfDlczteS4_Rx9VIIQKNJZJWRZCQGKaZ73ApwR8sncPDb2zp8EJvz5PV/exec",
+        SUBMIT_COOLDOWN_MS: 30000,
+      };
+    </script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      (function () {
+        try {
+          if (
+            localStorage.getItem("aqua_analytics_consent") === "true" ||
+            localStorage.getItem("aqua_analytics_consent") === "accepted"
+          ) {
+            var s = document.createElement("script");
+            s.async = true;
+            s.src = "https://www.googletagmanager.com/gtag/js?id=G-N7T2EVFD6J";
+            document.head.appendChild(s);
+            gtag("config", "G-N7T2EVFD6J", { anonymize_ip: true });
+          }
+        } catch (e) {}
+      })();
+      window.__aquaEnableAnalytics = function () {
+        try {
+          localStorage.setItem("aqua_analytics_consent", "accepted");
+          var s = document.createElement("script");
+          s.async = true;
+          s.src = "https://www.googletagmanager.com/gtag/js?id=G-N7T2EVFD6J";
+          document.head.appendChild(s);
+          gtag("config", "G-N7T2EVFD6J", { anonymize_ip: true });
+        } catch (e) {}
+      };
+      window.__aquaDeclineAnalytics = function () {
+        try {
+          localStorage.setItem("aqua_analytics_consent", "declined");
+        } catch (e) {}
+      };
+    </script>
+  </head>
+  <body class="dark bg-background text-on-background selection:bg-primary/30">
+    <header
+      class="fixed top-7 left-0 right-0 z-50 px-3 md:px-6 pointer-events-none"
+    >
+      <nav
+        class="aqua-top-pill pointer-events-auto flex justify-between items-center h-16 px-4 md:px-5 max-w-container-max mx-auto"
+      >
+        <a
+          href="#top"
+          class="font-headline-md text-headline-md font-bold text-primary flex items-center gap-2 no-underline"
+        >
+          <span
+            class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 border border-primary/20 overflow-hidden"
+          >
+            <img
+              src="assets/logoo.webp"
+              alt="شعار Aqua.Tech"
+              class="h-8 w-8 object-contain"
+              loading="eager"
+            />
+          </span>
+          <span>Aqua.Tech</span>
+        </a>
+
+        <div
+          class="hidden lg:flex items-center gap-6 font-body-md text-body-md"
+        >
+          <a
+            class="nav-link text-on-surface-variant hover:text-primary transition-colors"
+            href="#trust"
+            data-i18n="nav.why"
+          >
+            لماذا نحن
+          </a>
+
+          <a
+            class="nav-link text-on-surface-variant hover:text-primary transition-colors"
+            href="#services"
+            data-i18n="nav.services"
+          >
+            الخدمات
+          </a>
+
+          <a
+            class="nav-link text-on-surface-variant hover:text-primary transition-colors"
+            href="#solutions"
+            data-i18n="nav.systems"
+          >
+            الحلول
+          </a>
+
+          <a
+            class="nav-link text-on-surface-variant hover:text-primary transition-colors"
+            href="#results"
+            data-i18n="nav.results"
+          >
+            النتائج
+          </a>
+
+          <a
+            class="nav-link text-on-surface-variant hover:text-primary transition-colors"
+            href="#offers"
+            data-i18n="nav.offers"
+          >
+            العروض
+          </a>
+
+          <a
+            class="nav-link text-on-surface-variant hover:text-primary transition-colors"
+            href="#faq"
+            data-i18n="nav.faq"
+          >
+            الأسئلة
+          </a>
+
+          <a
+            class="nav-link text-on-surface-variant hover:text-primary transition-colors"
+            href="#contact"
+            data-i18n="nav.contact"
+          >
+            تواصل
+          </a>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button
+            id="langToggle"
+            type="button"
+            class="inline-flex h-11 min-w-12 items-center justify-center rounded-full border border-primary/20 text-primary px-4 font-label-sm text-label-sm hover:bg-primary/10 transition-all"
+            aria-label="Switch to English"
+            title="Switch to English"
+          >
+            EN
+          </button>
+
+          <a
+            class="hidden sm:inline-flex h-11 items-center gap-2 border border-primary/20 text-primary px-4 rounded-full hover:bg-primary/10 transition-all no-underline"
+            href="https://wa.me/962780932199"
+            target="_blank"
+            rel="noopener noreferrer"
+            onclick="
+              if (typeof gtag === 'function') {
+                gtag('event', 'whatsapp_click', {
+                  event_category: 'lead',
+                  event_label: 'header_whatsapp',
+                });
+              }
+            "
+          >
+            <span class="inline-flex items-center justify-center text-[18px]">
+              <svg
+                class="wa-svg"
+                viewBox="0 0 32 32"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  fill="currentColor"
+                  d="M16.04 3C8.86 3 3.02 8.77 3.02 15.87c0 2.27.6 4.48 1.74 6.43L3 29l6.88-1.78a13.1 13.1 0 0 0 6.16 1.55C23.22 28.77 29 23 29 15.87S23.22 3 16.04 3Zm0 23.55c-1.96 0-3.88-.52-5.56-1.5l-.4-.23-4.08 1.06 1.09-3.92-.26-.4a10.55 10.55 0 0 1-1.6-5.69c0-5.87 4.85-10.65 10.8-10.65 5.96 0 10.8 4.78 10.8 10.65 0 5.88-4.84 10.68-10.79 10.68Zm5.92-7.98c-.32-.16-1.9-.93-2.2-1.04-.3-.1-.52-.16-.73.16-.22.32-.84 1.04-1.03 1.25-.19.22-.38.24-.7.08-.32-.16-1.36-.5-2.6-1.6-.96-.85-1.6-1.9-1.8-2.22-.18-.32-.02-.5.14-.66.14-.14.32-.38.48-.57.16-.19.22-.32.32-.54.1-.22.05-.4-.03-.57-.08-.16-.73-1.75-1-2.4-.26-.62-.53-.54-.73-.55h-.62c-.22 0-.57.08-.87.4-.3.32-1.14 1.1-1.14 2.7s1.17 3.14 1.33 3.35c.16.22 2.3 3.5 5.58 4.9.78.34 1.39.54 1.86.69.78.25 1.5.21 2.06.13.63-.09 1.9-.78 2.17-1.52.27-.75.27-1.39.19-1.52-.08-.13-.3-.21-.62-.37Z"
+                />
+              </svg>
+            </span>
+            واتساب
+          </a>
+
+          <a
+            class="hidden md:inline-flex h-11 items-center justify-center bg-primary text-on-primary font-bold px-6 rounded-full hover:scale-95 transition-transform no-underline shadow-[0_0_20px_rgba(0,180,255,0.22)]"
+            href="#contact"
+            data-i18n="nav.start"
+          >
+            ابدأ مشروعك
+          </a>
+
+          <button
+            id="menuToggle"
+            class="lg:hidden inline-flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 border border-primary/20 text-primary"
+            type="button"
+            aria-label="افتح القائمة"
+            aria-expanded="false"
+          >
+            <span id="menuIconOpen" class="material-symbols-outlined"
+              >menu</span
+            >
+            <span id="menuIconClose" class="material-symbols-outlined hidden">
+              close
+            </span>
+          </button>
+        </div>
+      </nav>
+
+      <div
+        id="mobileMenu"
+        class="lg:hidden mx-4 mb-4 rounded-xl glass-card overflow-hidden"
+      >
+        <div class="p-3 flex flex-col gap-1 text-sm">
+          <a
+            class="rounded-lg px-4 py-3 text-on-surface-variant hover:bg-primary/10 hover:text-primary"
+            href="#trust"
+            data-i18n="nav.why"
+          >
+            لماذا نحن
+          </a>
+
+          <a
+            class="rounded-lg px-4 py-3 text-on-surface-variant hover:bg-primary/10 hover:text-primary"
+            href="#services"
+            data-i18n="nav.services"
+          >
+            الخدمات
+          </a>
+
+          <a
+            class="rounded-lg px-4 py-3 text-on-surface-variant hover:bg-primary/10 hover:text-primary"
+            href="#solutions"
+            data-i18n="nav.systems"
+          >
+            الحلول
+          </a>
+
+          <a
+            class="rounded-lg px-4 py-3 text-on-surface-variant hover:bg-primary/10 hover:text-primary"
+            href="#results"
+            data-i18n="nav.results"
+          >
+            النتائج
+          </a>
+
+          <a
+            class="rounded-lg px-4 py-3 text-on-surface-variant hover:bg-primary/10 hover:text-primary"
+            href="#offers"
+            data-i18n="nav.offers"
+          >
+            العروض
+          </a>
+
+          <a
+            class="rounded-lg px-4 py-3 text-on-surface-variant hover:bg-primary/10 hover:text-primary"
+            href="#faq"
+            data-i18n="nav.faq"
+          >
+            الأسئلة
+          </a>
+
+          <a
+            class="rounded-lg px-4 py-3 text-on-surface-variant hover:bg-primary/10 hover:text-primary"
+            href="#support"
+            data-i18n="nav.support"
+          >
+            الدعم
+          </a>
+
+          <a
+            class="rounded-lg px-4 py-3 text-on-surface-variant hover:bg-primary/10 hover:text-primary"
+            href="#contact"
+            data-i18n="nav.contact"
+          >
+            تواصل
+          </a>
+
+          <a
+            class="mt-2 rounded-lg bg-primary text-on-primary px-4 py-3 text-center font-bold no-underline"
+            href="https://wa.me/962780932199"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            واتساب
+          </a>
+        </div>
+      </div>
+    </header>
+    <a
+      href="#top"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-primary focus:text-on-primary focus:rounded-lg focus:font-semibold"
+      >تخطَّ إلى المحتوى الرئيسي</a
+    >
+
+    <div id="consent-banner" role="region" aria-label="Privacy notice">
+      <p class="text-sm text-on-surface-variant">
+        نستخدم Google Analytics لتحسين تجربتك. هل توافق؟
+      </p>
+      <div class="flex gap-2">
+        <button
+          id="consentAccept"
+          type="button"
+          class="rounded-lg bg-primary text-on-primary px-4 py-2 font-bold"
+        >
+          قبول
+        </button>
+        <button
+          id="consentDecline"
+          type="button"
+          class="rounded-lg border border-primary/20 text-on-surface-variant px-4 py-2 hover:text-primary"
+        >
+          رفض
+        </button>
+      </div>
+    </div>
+
+    <!-- Top Navigation Bar -->
+    <main class="pt-32" id="top">
+      <section
+        class="relative min-h-[921px] flex items-center justify-center py-section-padding px-margin-mobile overflow-hidden"
+      >
+        <div class="aqua-liquid-bg" aria-hidden="true"></div>
+        <div class="circuit-layer" aria-hidden="true"></div>
+        <span class="code-chip top-[22%] right-[12%] text-5xl">&lt;/&gt;</span>
+        <span class="code-chip top-[70%] left-[12%] text-sm">function()</span>
+        <span class="code-chip top-[32%] left-[18%] text-xs">0101 0010</span>
+        <span class="code-chip bottom-[18%] right-[20%] text-xs"
+          >API • SQL • AI</span
+        >
+
+        <div class="max-w-4xl w-full text-center z-10">
+          <div
+            class="inline-block glass-card p-4 mb-8 rounded-xl border-primary/20"
+          >
+            <div
+              class="flex items-center gap-4 text-primary font-label-sm uppercase tracking-widest"
+            >
+              <span class="material-symbols-outlined text-[14px]">code</span>
+              <span>Programming • Launching • Expanding</span>
+            </div>
+          </div>
+          <h1
+            class="font-headline-xl text-headline-xl md:text-[64px] mb-6 leading-tight"
+          >
+            حلول رقمية ونمو فعلي <br />
+            <span class="text-primary glow-text" data-i18n="hero.titleAccent"
+              >From launch to scale</span
+            >
+          </h1>
+          <p
+            class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10"
+            data-i18n="hero.subtitle"
+          >
+            We build websites and systems focused on attracting leads, receiving
+            requests, and handling the first response through a clear,
+            executable flow.
+          </p>
+
+          <!-- Terminal Display Component -->
+          <div
+            class="glass-card rounded-xl overflow-hidden text-left font-label-sm border-primary/30 max-w-2xl mx-auto shadow-2xl"
+            style="direction: ltr"
+          >
+            <div
+              class="bg-surface-container-highest px-4 py-2 flex items-center gap-2 border-b border-primary/10"
+            >
+              <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+              <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+              <span class="ml-4 text-xs text-outline opacity-50"
+                >terminal — aqua-tech</span
+              >
+            </div>
+            <div class="p-6 font-mono text-sm leading-relaxed text-on-surface">
+              <div class="flex gap-2">
+                <span class="text-primary">$</span
+                ><span>npx create-aqua-app</span>
+              </div>
+              <div class="text-secondary mt-1">... fetching architecture</div>
+              <div class="flex gap-2 mt-4">
+                <span class="text-primary">$</span><span>build --optimize</span>
+              </div>
+              <div class="text-tertiary-fixed-dim mt-1">
+                ✔ shipped in <span class="text-primary">minutes</span> —
+                performance ✅
+              </div>
+              <div class="flex gap-2 mt-4">
+                <span class="text-primary">$</span
+                ><span class="terminal-cursor">deploy --env=prod</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="mt-12 flex flex-col md:flex-row items-center justify-center gap-6"
+          >
+            <a
+              href="#contact"
+              class="w-full md:w-auto bg-primary text-on-primary px-10 py-4 font-bold rounded-lg shadow-[0_0_20px_rgba(0,180,255,0.3)] hover:scale-105 transition-all no-underline"
+              data-i18n="hero.ctaPrimary"
+            >
+              ابدأ مشروعك
+            </a>
+
+            <a
+              href="#solutions"
+              class="w-full md:w-auto border border-primary text-primary px-10 py-4 font-bold rounded-lg hover:bg-primary/10 transition-all no-underline"
+              data-i18n="hero.ctaSecondary"
+            >
+              استعرض الحلول
+            </a>
+          </div>
+        </div>
+      </section>
+      <section
+        class="max-w-container-max mx-auto px-margin-mobile md:px-20 py-20"
+      >
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+          <div
+            class="glass-card p-8 rounded-2xl flex flex-col items-center text-center"
+          >
+            <span class="font-headline-xl text-headline-xl text-primary mb-2"
+              >3–5 أيام</span
+            >
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              إطلاق صفحات تسويقية احترافية
+            </p>
+          </div>
+          <div
+            class="glass-card p-8 rounded-2xl flex flex-col items-center text-center"
+          >
+            <span class="font-headline-xl text-headline-xl text-primary mb-2"
+              >24 ساعة</span
+            >
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              خطة واضحة بعد التواصل
+            </p>
+          </div>
+          <div
+            class="glass-card p-8 rounded-2xl flex flex-col items-center text-center border-primary/40"
+          >
+            <span class="font-headline-xl text-headline-xl text-primary mb-2"
+              >100+</span
+            >
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              مشروع منجز بنجاح
+            </p>
+          </div>
+        </div>
+      </section>
+      <section
+        class="font-arabic py-section-padding bg-surface-container-lowest/60"
+        id="about"
+      >
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
+          <div
+            class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-stretch"
+          >
+            <div class="lg:col-span-5 glass-card p-10 rounded-2xl">
+              <span class="section-kicker font-heading">About Aqua.Tech</span>
+
+              <h2
+                class="font-headline-lg text-headline-lg md:text-headline-xl mb-6"
+              >
+                هندسة رقمية دقيقة، وليست مجرد واجهة جميلة
+              </h2>
+
+              <p
+                class="font-body-lg text-on-surface-variant leading-relaxed"
+                data-i18n="about.description"
+              >
+                Aqua.Tech is a digital partner that helps companies and
+                entrepreneurs build a stronger online presence and develop
+                practical websites and systems that support growth and daily
+                operations.
+              </p>
+            </div>
+
+            <div
+              class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-gutter"
+            >
+              <div class="glass-card p-8 rounded-2xl">
+                <div class="aqua-icon-box mb-6">
+                  <span class="material-symbols-outlined">route</span>
+                </div>
+
+                <h3 class="font-headline-md text-headline-md mb-3">
+                  خطة واضحة خلال 24 ساعة
+                </h3>
+
+                <p
+                  class="text-on-surface-variant leading-relaxed"
+                  data-i18n="trust.card1.desc"
+                >
+                  We quickly understand your goal, then define what should be
+                  built first and what can be delayed.
+                </p>
+              </div>
+
+              <div class="glass-card p-8 rounded-2xl">
+                <div class="aqua-icon-box mb-6">
+                  <span class="material-symbols-outlined">deployed_code</span>
+                </div>
+
+                <h3 class="font-headline-md text-headline-md mb-3">
+                  حل يتوسع لاحقًا
+                </h3>
+
+                <p
+                  class="text-on-surface-variant leading-relaxed"
+                  data-i18n="about.card2.desc"
+                >
+                  We build a useful version now that remains ready for
+                  development without rebuilding from scratch.
+                </p>
+              </div>
+
+              <div class="glass-card p-8 rounded-2xl">
+                <div class="aqua-icon-box mb-6">
+                  <span class="material-symbols-outlined">support_agent</span>
+                </div>
+
+                <h3 class="font-headline-md text-headline-md mb-3">
+                  دعم بعد الإطلاق
+                </h3>
+
+                <p class="text-on-surface-variant leading-relaxed">
+                  تحسينات وتعديلات ومعالجة ملاحظات حتى يبقى الحل فعالًا.
+                </p>
+              </div>
+
+              <div class="glass-card p-8 rounded-2xl">
+                <div class="aqua-icon-box mb-6">
+                  <span class="material-symbols-outlined">monitoring</span>
+                </div>
+
+                <h3 class="font-headline-md text-headline-md mb-3">
+                  قرار مبني على نتيجة
+                </h3>
+
+                <p class="text-on-surface-variant leading-relaxed">
+                  نركز على التحويل، سرعة الرد، وتنظيم العملاء بدل الزينة فقط.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 bg-surface-container-lowest/60" id="trust">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
+          <div class="text-center mb-10">
+            <span class="section-kicker">Why Aqua.Tech</span>
+
+            <h2
+              class="font-headline-lg text-headline-lg md:text-headline-xl"
+              data-i18n="trust.title"
+            >
+              Why choose Aqua.Tech
+            </h2>
+
+            <p
+              class="mt-4 font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto leading-relaxed"
+              data-i18n="trust.description"
+            >
+              We focus on building clear, executable solutions that serve the
+              project goal instead of only creating a beautiful interface.
+            </p>
+          </div>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter"
+          >
+            <article class="glass-card p-7 rounded-2xl h-full">
+              <div class="aqua-icon-box mb-6">
+                <span class="material-symbols-outlined">route</span>
+              </div>
+
+              <span class="section-kicker">First step</span>
+
+              <h3 class="font-headline-md text-headline-md mb-3">
+                خطة واضحة خلال 24 ساعة
+              </h3>
+
+              <p
+                class="text-on-surface-variant leading-relaxed"
+                data-i18n="trust.card1.desc"
+              >
+                We quickly understand your goal, then define what should be
+                built first and what can be delayed.
+              </p>
+            </article>
+
+            <article
+              class="glass-card p-8 rounded-2xl h-full border-primary/20"
+            >
+              <div class="aqua-icon-box mb-6">
+                <span class="material-symbols-outlined">rocket_launch</span>
+              </div>
+
+              <span class="section-kicker">Delivery</span>
+
+              <h3 class="font-headline-md text-headline-md mb-3">
+                حل يتوسع لاحقًا
+              </h3>
+
+              <p
+                class="text-on-surface-variant leading-relaxed"
+                data-i18n="trust.card2.desc"
+              >
+                We build a useful version now that remains ready for future
+                development without rebuilding from scratch.
+              </p>
+            </article>
+
+            <article class="glass-card p-7 rounded-2xl h-full">
+              <div class="aqua-icon-box mb-6">
+                <span class="material-symbols-outlined">support_agent</span>
+              </div>
+
+              <span class="section-kicker">Support</span>
+
+              <h3 class="font-headline-md text-headline-md mb-3">
+                دعم بعد الإطلاق
+              </h3>
+
+              <p
+                class="text-on-surface-variant leading-relaxed"
+                data-i18n="trust.card3.desc"
+              >
+                We help with improvements, adjustments, and feedback handling so
+                the solution stays effective.
+              </p>
+            </article>
+
+            <article
+              class="glass-card p-7 rounded-2xl h-full border-primary/30"
+            >
+              <div class="aqua-icon-box mb-6">
+                <span class="material-symbols-outlined">forum</span>
+              </div>
+
+              <span class="section-kicker">Clarity</span>
+
+              <h3
+                class="font-headline-md text-headline-md mb-3"
+                data-i18n="trust.card4.title"
+              >
+                Clearer communication
+              </h3>
+              <p
+                class="text-on-surface-variant leading-relaxed"
+                data-i18n="trust.card4.desc"
+              >
+                Clear updates during execution, organized outputs, and
+                structured delivery based on the agreement.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="py-16 bg-surface-container-low/30" id="services">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
+          <div
+            class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6"
+          >
+            <div>
+              <span class="section-kicker" data-i18n="services.kicker"
+                >ما نبنيه</span
+              >
+              <h2
+                class="font-headline-lg text-headline-lg md:text-headline-xl"
+                data-i18n="services.title"
+              >
+                خدمات رقمية تركّز على النمو
+              </h2>
+            </div>
+
+            <p
+              class="font-body-md text-body-md text-on-surface-variant max-w-md"
+              data-i18n="services.subtitle"
+            >
+              نغطي رحلة مشروعك من الفكرة إلى الإطلاق والنمو المستمر بحلول واضحة
+              قابلة للتنفيذ.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
+            <!-- Landing Page -->
+            <article
+              class="lg:col-span-7 glass-card p-7 rounded-2xl relative overflow-hidden group flex flex-col h-full border-primary/20"
+            >
+              <div
+                class="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-primary/10 to-transparent"
+                aria-hidden="true"
+              ></div>
+
+              <div class="relative z-10 flex flex-col h-full">
+                <div class="aqua-icon-box mb-6">
+                  <span class="material-symbols-outlined">rocket_launch</span>
+                </div>
+
+                <h3
+                  class="font-headline-md text-headline-md mb-4"
+                  data-i18n="services.landing.title"
+                >
+                  صفحات هبوط تسويقية
+                </h3>
+
+                <p
+                  class="font-body-md text-on-surface-variant mb-6 leading-relaxed max-w-xl"
+                  data-i18n="services.landing.desc"
+                >
+                  صفحات سريعة وواضحة تساعدك تبدأ الإعلان، تجمع الطلبات، وتحوّل
+                  الزوار إلى عملاء محتملين.
+                </p>
+
+                <div class="flex flex-wrap gap-2 mb-8">
+                  <span
+                    class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm"
+                    data-i18n="services.landing.tag1"
+                    >صفحة هبوط</span
+                  >
+                  <span
+                    class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm"
+                    data-i18n="services.landing.tag2"
+                    >واتساب</span
+                  >
+                  <span
+                    class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm"
+                    data-i18n="services.landing.tag3"
+                    >تتبع</span
+                  >
+                </div>
+
+                <a
+                  class="service-cta-btn js-service-cta"
+                  data-service="landing-page"
+                  href="#contact"
+                >
+                  <span data-i18n="services.landing.cta">اطلب صفحة هبوط</span>
+                  <span class="material-symbols-outlined btn-icon">west</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Websites -->
+            <article
+              class="lg:col-span-5 glass-card p-7 rounded-2xl group flex flex-col h-full"
+            >
+              <div class="aqua-icon-box mb-6">
+                <span class="material-symbols-outlined">language</span>
+              </div>
+
+              <h3
+                class="font-headline-md text-headline-md mb-4"
+                data-i18n="services.website.title"
+              >
+                مواقع شركات ومتاجر
+              </h3>
+
+              <p
+                class="font-body-md text-on-surface-variant mb-6 leading-relaxed"
+                data-i18n="services.website.desc"
+              >
+                نبني مواقع شركات ومتاجر وصفحات خدمات تعزز الثقة، تشرح العرض
+                بوضوح، وتدعم الظهور في البحث.
+              </p>
+
+              <div class="flex flex-wrap gap-2 mb-8">
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm"
+                  data-i18n="services.website.tag1"
+                  >SEO</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm"
+                  data-i18n="services.website.tag2"
+                  >CMS</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm"
+                  data-i18n="services.website.tag3"
+                  >أداء</span
+                >
+              </div>
+
+              <a
+                class="service-cta-btn js-service-cta"
+                data-service="company-website"
+                href="#contact"
+              >
+                <span data-i18n="services.website.cta">اطلب موقعك</span>
+                <span class="material-symbols-outlined btn-icon">west</span>
+              </a>
+            </article>
+
+            <!-- AI -->
+            <article
+              class="lg:col-span-4 glass-card p-7 rounded-2xl group flex flex-col h-full"
+            >
+              <div class="aqua-icon-box mb-6">
+                <span class="material-symbols-outlined">auto_awesome</span>
+              </div>
+
+              <h3
+                class="font-headline-md text-headline-md mb-4"
+                data-i18n="services.ai.title"
+              >
+                أتمتة وذكاء اصطناعي
+              </h3>
+
+              <p
+                class="font-body-md text-on-surface-variant mb-6 leading-relaxed"
+                data-i18n="services.ai.desc"
+              >
+                نبني بوتات ومهام تلقائية تساعدك ترد أسرع، تجمع بيانات العملاء،
+                وتقلل العمل اليدوي.
+              </p>
+
+              <div class="flex flex-wrap gap-2 mb-8">
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm"
+                  data-i18n="services.ai.tag1"
+                  >AI Agent</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm"
+                  data-i18n="services.ai.tag2"
+                  >أتمتة</span
+                >
+              </div>
+
+              <a
+                class="service-cta-btn js-service-cta"
+                data-service="ai-agent"
+                href="#contact"
+              >
+                <span data-i18n="services.ai.cta">ابدأ الأتمتة</span>
+                <span class="material-symbols-outlined btn-icon">west</span>
+              </a>
+            </article>
+
+            <!-- Custom Systems -->
+            <article
+              class="lg:col-span-8 glass-card p-7 rounded-2xl relative overflow-hidden group flex flex-col h-full border-primary/30"
+            >
+              <div
+                class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_70%_30%,rgba(0,180,255,.45),transparent_36%)]"
+                aria-hidden="true"
+              ></div>
+
+              <div class="relative z-10 flex flex-col h-full">
+                <div class="aqua-icon-box is-primary mb-6">
+                  <span class="material-symbols-outlined">hub</span>
+                </div>
+
+                <h3
+                  class="font-headline-md text-headline-md mb-4"
+                  data-i18n="services.systems.title"
+                >
+                  أنظمة ولوحات تحكم مخصصة
+                </h3>
+
+                <p
+                  class="font-body-md text-on-surface-variant mb-6 leading-relaxed max-w-xl"
+                  data-i18n="services.systems.desc"
+                >
+                  أنظمة داخلية، لوحات تحكم، وتكاملات API تنظّم العمليات وتوفر
+                  الوقت والتكلفة.
+                </p>
+
+                <div class="flex flex-wrap gap-2 mb-8">
+                  <span
+                    class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm"
+                    data-i18n="services.systems.tag1"
+                    >Dashboard</span
+                  >
+                  <span
+                    class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm"
+                    data-i18n="services.systems.tag2"
+                    >API</span
+                  >
+                  <span
+                    class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm"
+                    data-i18n="services.systems.tag3"
+                    >Workflow</span
+                  >
+                </div>
+
+                <a
+                  class="service-cta-btn service-cta-btn-primary js-service-cta"
+                  data-service="custom-system"
+                  href="#contact"
+                >
+                  <span data-i18n="services.systems.cta">تحدث مع خبير</span>
+                  <span class="material-symbols-outlined btn-icon">west</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Growth -->
+            <article
+              class="lg:col-span-4 glass-card p-7 rounded-2xl group flex flex-col h-full"
+            >
+              <div class="aqua-icon-box mb-6">
+                <span class="material-symbols-outlined">monitoring</span>
+              </div>
+
+              <h3
+                class="font-headline-md text-headline-md mb-4"
+                data-i18n="services.growth.title"
+              >
+                نمو وتسويق رقمي
+              </h3>
+
+              <p
+                class="font-body-md text-on-surface-variant mb-6 leading-relaxed"
+                data-i18n="services.growth.desc"
+              >
+                ندعم نمو مشروعك بخطة محتوى، إعلانات، وتحسين ظهور يساعدك على
+                تحويل الزوار إلى عملاء.
+              </p>
+
+              <div class="flex flex-wrap gap-2 mb-8">
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm"
+                  data-i18n="services.growth.tag1"
+                  >محتوى</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm"
+                  data-i18n="services.growth.tag2"
+                  >إعلانات</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm"
+                  data-i18n="services.growth.tag3"
+                  >نمو</span
+                >
+              </div>
+
+              <a
+                class="service-cta-btn js-service-cta"
+                data-service="ads"
+                href="#contact"
+              >
+                <span data-i18n="services.growth.cta">شاهد باقات النمو</span>
+                <span class="material-symbols-outlined btn-icon">west</span>
+              </a>
+            </article>
+
+            <!-- Social Media -->
+            <article
+              class="lg:col-span-4 glass-card p-7 rounded-2xl group flex flex-col h-full border-primary/20"
+            >
+              <div class="aqua-icon-box mb-6">
+                <span class="material-symbols-outlined">campaign</span>
+              </div>
+
+              <h3
+                class="font-headline-md text-headline-md mb-4"
+                data-i18n="services.social.title"
+              >
+                إدارة السوشيال ميديا
+              </h3>
+
+              <p
+                class="font-body-md text-on-surface-variant mb-6 leading-relaxed"
+                data-i18n="services.social.desc"
+              >
+                نجهز خطة محتوى، تصاميم، وجدولة تساعدك تبني حضور ثابت وتحول
+                المتابعين إلى عملاء محتملين.
+              </p>
+
+              <div class="flex flex-wrap gap-2 mb-8">
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm"
+                  data-i18n="services.social.tag1"
+                  >سوشيال</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm"
+                  data-i18n="services.social.tag2"
+                  >تصميم</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm"
+                  data-i18n="services.social.tag3"
+                  >تقارير</span
+                >
+              </div>
+
+              <a
+                class="service-cta-btn js-service-cta"
+                data-service="social-management"
+                href="#contact"
+              >
+                <span data-i18n="services.social.cta">ابدأ إدارة حساباتك</span>
+                <span class="material-symbols-outlined btn-icon">west</span>
+              </a>
+            </article>
+
+            <!-- Design -->
+            <article
+              class="lg:col-span-4 glass-card p-7 rounded-2xl group flex flex-col h-full"
+            >
+              <div class="aqua-icon-box mb-6">
+                <span class="material-symbols-outlined">draw</span>
+              </div>
+
+              <h3
+                class="font-headline-md text-headline-md mb-4"
+                data-i18n="services.design.title"
+              >
+                واجهات وهوية بصرية
+              </h3>
+
+              <p
+                class="font-body-md text-on-surface-variant mb-6 leading-relaxed"
+                data-i18n="services.design.desc"
+              >
+                نصمم واجهات وتجارب وهوية بصرية تعطي مشروعك شكلًا احترافيًا وثقة
+                أعلى أمام العملاء.
+              </p>
+
+              <div class="flex flex-wrap gap-2 mb-8">
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm"
+                  data-i18n="services.design.tag1"
+                  >UI/UX</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm"
+                  data-i18n="services.design.tag2"
+                  >هوية</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm"
+                  data-i18n="services.design.tag3"
+                  >تصميم</span
+                >
+              </div>
+
+              <a
+                class="service-cta-btn js-service-cta"
+                data-service="content-design"
+                href="#contact"
+              >
+                <span data-i18n="services.design.cta">صمّم هويتك</span>
+                <span class="material-symbols-outlined btn-icon">west</span>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-section-padding" id="solutions">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
+          <div class="text-center mb-16">
+            <span class="section-kicker" data-i18n="solutions.kicker">
+              Deployment ready
+            </span>
+
+            <h2
+              class="font-headline-lg text-headline-lg md:text-headline-xl"
+              data-i18n="solutions.title"
+            >
+              Ready solutions to launch
+            </h2>
+
+            <p
+              class="mt-4 text-on-surface-variant max-w-2xl mx-auto"
+              data-i18n="solutions.subtitle"
+            >
+              Ready systems and platforms that can be customized based on your
+              business type and current project stage.
+            </p>
+          </div>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter"
+          >
+            <article
+              class="glass-card rounded-2xl overflow-hidden group hover:-translate-y-2 flex flex-col h-full"
+            >
+              <div class="solution-media h-48 overflow-hidden relative">
+                <img
+                  class="solution-img w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  alt="Law firm management system dashboard"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzmcbCXaOUGT7Za4ybK62e3IaFLEtoXyb2qs5ItMo0AzFo5NRD-zjbyomyhgdIMZsmPTVi13sUgwyOe8H4iOkbODNqrsd17Ji57eLR6TVOAuS8K8jS3QGWuNoc8LFovdICwzzpi3NCvNJt9meaR49Ae_dh8hxihRWTdD480VLn6lIX826hgtAlCmClFe0PJGQT7x5prOuXyyEplfI7XgnHh5z6EG1fe0n5vCyuB6Jb_5UA76vRucs6RpC8yqzEiMFJBn0gxPClOg"
+                />
+              </div>
+
+              <div class="p-6 flex flex-col flex-1">
+                <h4
+                  class="font-headline-md text-headline-md mb-2"
+                  data-i18n="solutions.law.title"
+                >
+                  Law firm management
+                </h4>
+
+                <p
+                  class="font-body-md text-on-surface-variant mb-4 text-sm"
+                  data-i18n="solutions.law.desc"
+                >
+                  A system for managing cases, clients, appointments, and legal
+                  files in a clearer way.
+                </p>
+
+                <ul class="space-y-2 mb-6">
+                  <li class="text-xs text-outline flex items-center gap-2">
+                    <span class="w-1 h-1 bg-primary rounded-full"></span>
+                    <span data-i18n="solutions.law.point1"
+                      >File management</span
+                    >
+                  </li>
+                  <li class="text-xs text-outline flex items-center gap-2">
+                    <span class="w-1 h-1 bg-primary rounded-full"></span>
+                    <span data-i18n="solutions.law.point2"
+                      >Appointment tracking</span
+                    >
+                  </li>
+                </ul>
+
+                <a
+                  href="#contact"
+                  data-service="lawyer-system"
+                  class="js-service-cta mt-auto block w-full border border-primary/30 text-primary py-2 rounded-lg text-sm text-center hover:bg-primary hover:text-on-primary transition-all no-underline"
+                  data-i18n="solutions.cta"
+                >
+                  Request the system
+                </a>
+              </div>
+            </article>
+
+            <article
+              class="glass-card rounded-2xl overflow-hidden group hover:-translate-y-2 flex flex-col h-full"
+            >
+              <div class="solution-media h-48 overflow-hidden relative">
+                <img
+                  class="solution-img w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  alt="AI resume builder interface"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWwLCMVoHTjTeAN62SN9fOAjzpoX5rBIKwftuljcPp_G851rlNYSv6IS-kBdvIOW24dBBdhaspLmgtNGNXbIN5KEc9u0zxS1NFE7h7GOXRTu3mIpPPRz6ihia80D5w0TT_8PypvvFdBfvqJE6yb_q7h9OlboI1vVgmigmbke4F8qhQCRGBGc7Os03MciztSztJNYRDTIBs3iVAQaxf_CBmaVrfinrqDrElq8OE_GeRK95FKMg_-Qu5E--GZiUkSXnGfknb3XdbpQ"
+                />
+              </div>
+
+              <div class="p-6 flex flex-col flex-1">
+                <h4
+                  class="font-headline-md text-headline-md mb-2"
+                  data-i18n="solutions.resume.title"
+                >
+                  ResumeIQ
+                </h4>
+
+                <p
+                  class="font-body-md text-on-surface-variant mb-4 text-sm"
+                  data-i18n="solutions.resume.desc"
+                >
+                  A tool that helps users create resumes more clearly, faster,
+                  and with an easier experience.
+                </p>
+
+                <ul class="space-y-2 mb-6">
+                  <li class="text-xs text-outline flex items-center gap-2">
+                    <span class="w-1 h-1 bg-primary rounded-full"></span>
+                    <span data-i18n="solutions.resume.point1"
+                      >Smart resume builder</span
+                    >
+                  </li>
+                  <li class="text-xs text-outline flex items-center gap-2">
+                    <span class="w-1 h-1 bg-primary rounded-full"></span>
+                    <span data-i18n="solutions.resume.point2"
+                      >Professional templates</span
+                    >
+                  </li>
+                </ul>
+
+                <a
+                  href="#contact"
+                  data-service="resumeiq"
+                  class="js-service-cta mt-auto block w-full border border-primary/30 text-primary py-2 rounded-lg text-sm text-center hover:bg-primary hover:text-on-primary transition-all no-underline"
+                  data-i18n="solutions.cta"
+                >
+                  Request the system
+                </a>
+              </div>
+            </article>
+
+            <article
+              class="glass-card rounded-2xl overflow-hidden group hover:-translate-y-2 border-primary/30 flex flex-col h-full"
+            >
+              <div class="solution-media h-48 overflow-hidden relative">
+                <img
+                  class="solution-img w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  alt="Smart attendance biometric dashboard"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrtBWzO6_jIlQ9UUDL29W1wLUCs9jeFdBzZG36GhfLhkiYTOcwm6gruGcMCcxLGEEUMoNc-9UyY8FunS6EwPVqzYqm01HplPRF2TzG-fhqNmaRChQdk9SlEaHDDWPfnbunmgliOemFQyKditpDPSn1sKhvcbFRNs-FOysP7IsFFqH_VGGwkp89YXpIEtylgTUWi3Mh9cwH2u50oWFRkhZAOGtIM_5Ovet2WHmkDsWC1nUeM6dWwAevKD2ZRCRUt5ivg2eLYJsj_w"
+                />
+              </div>
+
+              <div class="p-6 flex flex-col flex-1">
+                <h4
+                  class="font-headline-md text-headline-md mb-2"
+                  data-i18n="solutions.attendance.title"
+                >
+                  Smart Attendance
+                </h4>
+
+                <p
+                  class="font-body-md text-on-surface-variant mb-4 text-sm"
+                  data-i18n="solutions.attendance.desc"
+                >
+                  A smart attendance system based on face recognition to
+                  register attendance automatically.
+                </p>
+
+                <ul class="space-y-2 mb-6">
+                  <li class="text-xs text-outline flex items-center gap-2">
+                    <span class="w-1 h-1 bg-primary rounded-full"></span>
+                    <span data-i18n="solutions.attendance.point1"
+                      >Face recognition</span
+                    >
+                  </li>
+                  <li class="text-xs text-outline flex items-center gap-2">
+                    <span class="w-1 h-1 bg-primary rounded-full"></span>
+                    <span data-i18n="solutions.attendance.point2"
+                      >Instant reports</span
+                    >
+                  </li>
+                </ul>
+
+                <a
+                  href="#contact"
+                  data-service="smart-attendance"
+                  class="js-service-cta mt-auto block w-full bg-primary text-on-primary py-2 rounded-lg text-sm font-bold text-center shadow-lg shadow-primary/20 transition-all no-underline"
+                  data-i18n="solutions.cta"
+                >
+                  Request the system
+                </a>
+              </div>
+            </article>
+
+            <article
+              class="glass-card rounded-2xl overflow-hidden group hover:-translate-y-2 flex flex-col h-full"
+            >
+              <div class="solution-media h-48 overflow-hidden relative">
+                <img
+                  class="solution-img w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  alt="University project management dashboard"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjBLxv-_OGI1kPvK9I6tO0calB0AW6_kA0tOaHYZVnQOgtN8xmcHaQ3Q0n_dbgYUxNQf6Blpk6GTztnUo3_CcwMAHK7ixiqQqYkCK2C_I1N806-nvPns34hg5HdqPF6IiQLQJn7f2t8bASc8xPvqPuxPS47BMPWa_bE4cwjBmwRL97-4KE3uz5V7CXu4_0dgXx2paiub1jjs8sqCblz6FxeEYFufjr7KKSx5vCg3GTg95kK6JKr5zLZKYf2Imk__zGvx75N_sR2w"
+                />
+              </div>
+
+              <div class="p-6 flex flex-col flex-1">
+                <h4
+                  class="font-headline-md text-headline-md mb-2"
+                  data-i18n="solutions.university.title"
+                >
+                  University projects platform
+                </h4>
+
+                <p
+                  class="font-body-md text-on-surface-variant mb-4 text-sm"
+                  data-i18n="solutions.university.desc"
+                >
+                  A platform for organizing student projects, uploading files,
+                  tracking teams, and academic supervision.
+                </p>
+
+                <ul class="space-y-2 mb-6">
+                  <li class="text-xs text-outline flex items-center gap-2">
+                    <span class="w-1 h-1 bg-primary rounded-full"></span>
+                    <span data-i18n="solutions.university.point1"
+                      >Team organization</span
+                    >
+                  </li>
+                  <li class="text-xs text-outline flex items-center gap-2">
+                    <span class="w-1 h-1 bg-primary rounded-full"></span>
+                    <span data-i18n="solutions.university.point2"
+                      >Evaluation tracking</span
+                    >
+                  </li>
+                </ul>
+
+                <a
+                  href="#contact"
+                  data-service="university-projects"
+                  class="js-service-cta mt-auto block w-full border border-primary/30 text-primary py-2 rounded-lg text-sm text-center hover:bg-primary hover:text-on-primary transition-all no-underline"
+                  data-i18n="solutions.cta"
+                >
+                  Request the system
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section
+        class="py-section-padding bg-surface-container-lowest"
+        id="results"
+      >
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
+          <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center"
+          >
+            <div>
+              <span class="section-kicker" data-i18n="results.kicker">
+                Proven results
+              </span>
+
+              <h2
+                class="font-headline-lg text-headline-lg md:text-headline-xl mb-8"
+                data-i18n="results.title"
+              >
+                Results we can achieve with you
+              </h2>
+
+              <div class="space-y-8">
+                <div class="flex gap-6 group">
+                  <div
+                    class="w-12 h-12 shrink-0 rounded-full bg-primary/10 flex items-center justify-center text-primary border border-primary/20 group-hover:scale-110 transition-transform"
+                  >
+                    <span class="material-symbols-outlined">trending_up</span>
+                  </div>
+
+                  <div>
+                    <h4
+                      class="font-headline-md text-headline-md mb-2"
+                      data-i18n="results.item1.title"
+                    >
+                      Clearer conversion
+                    </h4>
+
+                    <p
+                      class="font-body-md text-on-surface-variant"
+                      data-i18n="results.item1.desc"
+                    >
+                      Professional landing pages with clear CTAs to increase
+                      inquiries and reduce visitor drop-off.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex gap-6 group">
+                  <div
+                    class="w-12 h-12 shrink-0 rounded-full bg-primary/10 flex items-center justify-center text-primary border border-primary/20 group-hover:scale-110 transition-transform"
+                  >
+                    <span class="material-symbols-outlined">bolt</span>
+                  </div>
+
+                  <div>
+                    <h4
+                      class="font-headline-md text-headline-md mb-2"
+                      data-i18n="results.item2.title"
+                    >
+                      Reduced response time
+                    </h4>
+
+                    <p
+                      class="font-body-md text-on-surface-variant"
+                      data-i18n="results.item2.desc"
+                    >
+                      Automation or a chatbot that helps you respond within
+                      minutes instead of hours, while collecting data in an
+                      organized way.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex gap-6 group">
+                  <div
+                    class="w-12 h-12 shrink-0 rounded-full bg-primary/10 flex items-center justify-center text-primary border border-primary/20 group-hover:scale-110 transition-transform"
+                  >
+                    <span class="material-symbols-outlined">dashboard</span>
+                  </div>
+
+                  <div>
+                    <h4
+                      class="font-headline-md text-headline-md mb-2"
+                      data-i18n="results.item3.title"
+                    >
+                      Clearer operations, less time
+                    </h4>
+
+                    <p
+                      class="font-body-md text-on-surface-variant"
+                      data-i18n="results.item3.desc"
+                    >
+                      A custom system or dashboard that helps organize requests,
+                      follow-ups, and accurate reports.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative">
+              <div
+                class="absolute -inset-4 bg-primary/20 blur-3xl rounded-full"
+              ></div>
+
+              <div
+                class="glass-card rounded-3xl p-8 relative z-10 overflow-hidden min-h-[420px]"
+              >
+                <div class="grid grid-cols-2 gap-4 h-full">
+                  <div class="glass-card rounded-xl p-5">
+                    <span class="material-symbols-outlined text-primary mb-6">
+                      query_stats
+                    </span>
+
+                    <div class="text-4xl font-bold text-primary mb-2">+42%</div>
+
+                    <p
+                      class="text-sm text-on-surface-variant"
+                      data-i18n="results.metric1.label"
+                    >
+                      Improvement in request intake
+                    </p>
+                  </div>
+
+                  <div class="glass-card rounded-xl p-5 mt-10">
+                    <span class="material-symbols-outlined text-primary mb-6">
+                      timer
+                    </span>
+
+                    <div class="text-4xl font-bold text-primary mb-2">-60%</div>
+
+                    <p
+                      class="text-sm text-on-surface-variant"
+                      data-i18n="results.metric2.label"
+                    >
+                      Reduction in first response time
+                    </p>
+                  </div>
+
+                  <div class="col-span-2 glass-card rounded-xl p-5">
+                    <div class="flex items-center justify-between mb-5">
+                      <span
+                        class="font-label-sm text-primary"
+                        data-i18n="results.panel.title"
+                      >
+                        Operational clarity
+                      </span>
+
+                      <span class="material-symbols-outlined text-primary">
+                        analytics
+                      </span>
+                    </div>
+
+                    <div
+                      class="h-3 rounded-full bg-surface-container-high overflow-hidden mb-3"
+                    >
+                      <div class="h-full w-[82%] bg-primary rounded-full"></div>
+                    </div>
+
+                    <div
+                      class="h-3 rounded-full bg-surface-container-high overflow-hidden mb-3"
+                    >
+                      <div
+                        class="h-full w-[64%] bg-primary/70 rounded-full"
+                      ></div>
+                    </div>
+
+                    <div
+                      class="h-3 rounded-full bg-surface-container-high overflow-hidden"
+                    >
+                      <div
+                        class="h-full w-[92%] bg-primary/50 rounded-full"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 bg-surface-container-low/30" id="offers">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
+          <div class="text-center mb-12">
+            <span class="section-kicker" data-i18n="offers.kicker">
+              عروض الانطلاق
+            </span>
+
+            <h2
+              class="font-headline-lg text-headline-lg md:text-headline-xl"
+              data-i18n="offers.title"
+            >
+              عروض جاهزة للانطلاق
+            </h2>
+
+            <p
+              class="mt-4 font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto leading-relaxed"
+              data-i18n="offers.subtitle"
+            >
+              إذا كنت تريد بداية سريعة أو عرضًا واضحًا، هذه الباقات هي أفضل نقطة
+              دخول للعمل معنا.
+            </p>
+          </div>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter"
+          >
+            <article class="glass-card p-6 rounded-2xl h-full flex flex-col">
+              <div class="aqua-icon-box mb-6">
+                <span class="material-symbols-outlined">ads_click</span>
+              </div>
+
+              <span class="aqua-card-kicker" data-i18n="offers.landing.badge">
+                الأسرع إطلاقًا
+              </span>
+
+              <h3
+                class="font-headline-md text-headline-md mb-3"
+                data-i18n="offers.landing.title"
+              >
+                صفحات هبوط تسويقية
+              </h3>
+
+              <p
+                class="text-on-surface-variant leading-relaxed mb-5"
+                data-i18n="offers.landing.desc"
+              >
+                صفحات تسويقية تجهزك للإعلان وجمع العملاء بخطوات واضحة وسريعة.
+              </p>
+
+              <ul class="space-y-2 text-on-surface-variant mb-5">
+                <li class="flex items-center gap-2">
+                  <span class="material-symbols-outlined aqua-check-icon">
+                    check_circle
+                  </span>
+                  <span data-i18n="offers.landing.point1">
+                    مناسبة للعروض والخدمات والإعلانات
+                  </span>
+                </li>
+
+                <li class="flex items-center gap-2">
+                  <span class="material-symbols-outlined aqua-check-icon">
+                    check_circle
+                  </span>
+                  <span data-i18n="offers.landing.point2">
+                    ربط واتساب / نموذج / CTA واضح
+                  </span>
+                </li>
+              </ul>
+
+              <div class="mt-auto flex flex-wrap gap-2 mb-6">
+                <span
+                  class="rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs text-primary"
+                  data-i18n="offers.landing.price"
+                >
+                  يبدأ من $250 تقريبًا
+                </span>
+
+                <span
+                  class="rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs text-primary"
+                  data-i18n="offers.landing.time"
+                >
+                  5–7 أيام
+                </span>
+              </div>
+
+              <a
+                href="#contact"
+                data-service="landing-page"
+                class="offer-cta-btn js-service-cta"
+              >
+                <span data-i18n="offers.landing.cta">اطلب صفحة هبوط</span>
+                <span class="material-symbols-outlined btn-icon">west</span>
+              </a>
+            </article>
+
+            <article
+              class="glass-card p-7 rounded-2xl h-full flex flex-col border-primary/30"
+            >
+              <div class="aqua-icon-box mb-6">
+                <span class="material-symbols-outlined">smart_toy</span>
+              </div>
+
+              <span class="aqua-card-kicker" data-i18n="offers.bot.badge">
+                طلب مرتفع
+              </span>
+
+              <h3
+                class="font-headline-md text-headline-md mb-3"
+                data-i18n="offers.bot.title"
+              >
+                باقة شات بوت ذكي الأساسية
+              </h3>
+
+              <p
+                class="text-on-surface-variant leading-relaxed mb-5"
+                data-i18n="offers.bot.desc"
+              >
+                بوت ذكي للموقع أو واتساب يساعدك ترد أسرع وتجمع العملاء بشكل
+                منظم.
+              </p>
+
+              <ul class="space-y-2 text-on-surface-variant mb-5">
+                <li class="flex items-center gap-2">
+                  <span class="material-symbols-outlined aqua-check-icon">
+                    check_circle
+                  </span>
+                  <span data-i18n="offers.bot.point1">
+                    أسئلة متكررة + استقبال طلبات
+                  </span>
+                </li>
+
+                <li class="flex items-center gap-2">
+                  <span class="material-symbols-outlined aqua-check-icon">
+                    check_circle
+                  </span>
+                  <span data-i18n="offers.bot.point2">
+                    ربط بسيط مع واتساب أو نموذج
+                  </span>
+                </li>
+              </ul>
+
+              <div class="mt-auto flex flex-wrap gap-2 mb-6">
+                <span
+                  class="rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs text-primary"
+                  data-i18n="offers.bot.price"
+                >
+                  يبدأ من $400 تقريبًا
+                </span>
+
+                <span
+                  class="rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs text-primary"
+                  data-i18n="offers.bot.time"
+                >
+                  3–5 أيام
+                </span>
+              </div>
+
+              <a
+                href="#contact"
+                data-service="ai-agent"
+                class="offer-cta-btn offer-cta-btn-primary js-service-cta"
+              >
+                <span data-i18n="offers.bot.cta">اطلب بوت ذكي</span>
+                <span class="material-symbols-outlined btn-icon">west</span>
+              </a>
+            </article>
+
+            <article class="glass-card p-6 rounded-2xl h-full flex flex-col">
+              <div class="aqua-icon-box mb-6">
+                <span class="material-symbols-outlined">trending_up</span>
+              </div>
+
+              <span class="aqua-card-kicker" data-i18n="offers.growth.badge">
+                دخل متكرر
+              </span>
+
+              <h3
+                class="font-headline-md text-headline-md mb-3"
+                data-i18n="offers.growth.title"
+              >
+                باقة النمو
+              </h3>
+
+              <p
+                class="text-on-surface-variant leading-relaxed mb-5"
+                data-i18n="offers.growth.desc"
+              >
+                باقة نمو شهرية تجمع بين المحتوى والتصميم والمتابعة لتحويل الحضور
+                الرقمي إلى نتائج.
+              </p>
+
+              <ul class="space-y-2 text-on-surface-variant mb-5">
+                <li class="flex items-center gap-2">
+                  <span class="material-symbols-outlined aqua-check-icon">
+                    check_circle
+                  </span>
+                  <span data-i18n="offers.growth.point1">
+                    خطة محتوى + تصميم + نشر
+                  </span>
+                </li>
+
+                <li class="flex items-center gap-2">
+                  <span class="material-symbols-outlined aqua-check-icon">
+                    check_circle
+                  </span>
+                  <span data-i18n="offers.growth.point2">
+                    تقارير ومتابعة وتحسين مستمر
+                  </span>
+                </li>
+              </ul>
+
+              <div class="mt-auto flex flex-wrap gap-2 mb-6">
+                <span
+                  class="rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs text-primary"
+                  data-i18n="offers.growth.price"
+                >
+                  يبدأ من $300 شهريًا
+                </span>
+
+                <span
+                  class="rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs text-primary"
+                  data-i18n="offers.growth.type"
+                >
+                  إدارة + محتوى
+                </span>
+              </div>
+
+              <a
+                href="#contact"
+                data-service="social-management"
+                class="offer-cta-btn js-service-cta"
+              >
+                <span data-i18n="offers.growth.cta">اطلب خطة نمو</span>
+                <span class="material-symbols-outlined btn-icon">west</span>
+              </a>
+            </article>
+
+            <article class="glass-card p-6 rounded-2xl h-full flex flex-col">
+              <div class="aqua-icon-box mb-6">
+                <span class="material-symbols-outlined">schema</span>
+              </div>
+
+              <span class="aqua-card-kicker" data-i18n="offers.discovery.badge">
+                للمشاريع الأكبر
+              </span>
+
+              <h3
+                class="font-headline-md text-headline-md mb-3"
+                data-i18n="offers.discovery.title"
+              >
+                مرحلة اكتشاف النظام المخصص
+              </h3>
+
+              <p
+                class="text-on-surface-variant leading-relaxed mb-5"
+                data-i18n="offers.discovery.desc"
+              >
+                جلسة تحليل ونطاق عمل أولي للمشاريع المخصصة قبل البدء في التنفيذ
+                الكامل.
+              </p>
+
+              <ul class="space-y-2 text-on-surface-variant mb-5">
+                <li class="flex items-center gap-2">
+                  <span class="material-symbols-outlined aqua-check-icon">
+                    check_circle
+                  </span>
+                  <span data-i18n="offers.discovery.point1">
+                    فهم العمليات والاحتياج الفعلي
+                  </span>
+                </li>
+
+                <li class="flex items-center gap-2">
+                  <span class="material-symbols-outlined aqua-check-icon">
+                    check_circle
+                  </span>
+                  <span data-i18n="offers.discovery.point2">
+                    مخرجات أوضح وسعر أدق لاحقًا
+                  </span>
+                </li>
+              </ul>
+
+              <div class="mt-auto flex flex-wrap gap-2 mb-6">
+                <span
+                  class="rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs text-primary"
+                  data-i18n="offers.discovery.price"
+                >
+                  تسعير حسب النطاق
+                </span>
+
+                <span
+                  class="rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs text-primary"
+                  data-i18n="offers.discovery.type"
+                >
+                  Scope واضح
+                </span>
+              </div>
+
+              <a
+                href="#contact"
+                data-service="custom-system"
+                class="offer-cta-btn js-service-cta"
+              >
+                <span data-i18n="offers.discovery.cta">احجز جلسة تحليل</span>
+                <span class="material-symbols-outlined btn-icon">west</span>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="py-section-padding" id="security">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
+          <div class="text-center mb-16">
+            <span class="section-kicker" data-i18n="security.kicker">
+              Trust by design
+            </span>
+
+            <h2
+              class="font-headline-lg text-headline-lg md:text-headline-xl"
+              data-i18n="security.title"
+            >
+              Security and trust
+            </h2>
+
+            <p
+              class="mt-4 font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto leading-relaxed"
+              data-i18n="security.description"
+            >
+              We build secure, reliable websites and systems using modern
+              practices that help increase project trust.
+            </p>
+          </div>
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter"
+          >
+            <div class="glass-card p-8 rounded-2xl">
+              <div class="aqua-icon-box mb-6">
+                <span class="material-symbols-outlined">encrypted</span>
+              </div>
+
+              <h3 class="font-headline-md text-headline-md mb-3">اتصال آمن</h3>
+              <p class="text-on-surface-variant">
+                HTTPS وتهيئة آمنة للروابط والنماذج.
+              </p>
+            </div>
+
+            <div class="glass-card p-8 rounded-2xl">
+              <div class="aqua-icon-box mb-6">
+                <span class="material-symbols-outlined">shield</span>
+              </div>
+
+              <h3 class="font-headline-md text-headline-md mb-3">
+                حماية التطبيق
+              </h3>
+              <p class="text-on-surface-variant">
+                تحقق من المدخلات وتقليل مخاطر السبام.
+              </p>
+            </div>
+
+            <div class="glass-card p-8 rounded-2xl">
+              <div class="aqua-icon-box mb-6">
+                <span class="material-symbols-outlined">cloud_done</span>
+              </div>
+
+              <h3 class="font-headline-md text-headline-md mb-3">نشر موثوق</h3>
+              <p class="text-on-surface-variant">
+                جاهزية لإضافة Cloudflare وSecurity Headers.
+              </p>
+            </div>
+
+            <div class="glass-card p-8 rounded-2xl">
+              <div class="aqua-icon-box mb-6">
+                <span class="material-symbols-outlined">verified_user</span>
+              </div>
+
+              <h3 class="font-headline-md text-headline-md mb-3">ثقة أعلى</h3>
+              <p class="text-on-surface-variant">
+                تجربة احترافية تعزز ثقة العميل عند التواصل.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-16 bg-surface-container-low/30" id="faq">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
+          <div class="text-center mb-10">
+            <span class="section-kicker" data-i18n="faq.kicker">FAQ</span>
+
+            <h2
+              class="font-headline-lg text-headline-lg md:text-headline-xl"
+              data-i18n="faq.title"
+            >
+              أسئلة متكررة
+            </h2>
+
+            <p
+              class="mt-4 text-on-surface-variant max-w-2xl mx-auto leading-relaxed"
+              data-i18n="faq.subtitle"
+            >
+              إجابات واضحة تساعدك تعرف كيف نبدأ، كيف نحدد السعر، وما الذي يحدث
+              أثناء التنفيذ وبعد التسليم.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+            <div class="faq-item glass-card p-6 rounded-2xl">
+              <button
+                class="faq-q w-full flex justify-between items-center gap-4 text-start font-bold"
+                type="button"
+              >
+                <span data-i18n="faq.q1">
+                  كم يستغرق تنفيذ صفحة تسويقية أو موقع أو نظام مخصص؟
+                </span>
+                <span class="material-symbols-outlined text-primary">add</span>
+              </button>
+
+              <div
+                class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
+                data-i18n="faq.a1"
+              >
+                يعتمد ذلك على نوع الخدمة ونطاقها. الصفحات التسويقية أو الشات بوت
+                يمكن إطلاقها خلال وقت قصير، بينما تحتاج المشاريع الأكبر إلى
+                تحليل أوضح وجدول زمني أدق.
+              </div>
+            </div>
+
+            <div class="faq-item glass-card p-6 rounded-2xl">
+              <button
+                class="faq-q w-full flex justify-between items-center gap-4 text-start font-bold"
+                type="button"
+              >
+                <span data-i18n="faq.q2">
+                  كيف يتم تحديد سعر الخدمة أو المشروع؟
+                </span>
+                <span class="material-symbols-outlined text-primary">add</span>
+              </button>
+
+              <div
+                class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
+                data-i18n="faq.a2"
+              >
+                يتم التسعير حسب نوع الخدمة، نطاق العمل، عدد الصفحات أو الخصائص،
+                التكاملات المطلوبة، وسرعة التنفيذ. بعد فهم هدفك نرسل عرضًا
+                واضحًا بالمراحل والمخرجات.
+              </div>
+            </div>
+
+            <div class="faq-item glass-card p-6 rounded-2xl">
+              <button
+                class="faq-q w-full flex justify-between items-center gap-4 text-start font-bold"
+                type="button"
+              >
+                <span data-i18n="faq.q3">
+                  هل توفرون خدمات سريعة وحلولًا مخصصة بالكامل؟
+                </span>
+                <span class="material-symbols-outlined text-primary">add</span>
+              </button>
+
+              <div
+                class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
+                data-i18n="faq.a3"
+              >
+                نعم. نوفر خدمات سريعة مثل الصفحات التسويقية والبوتات، ونبني
+                أيضًا مواقع وأنظمة مخصصة بالكامل حسب احتياج المشروع وطريقة
+                تشغيله.
+              </div>
+            </div>
+
+            <div class="faq-item glass-card p-6 rounded-2xl">
+              <button
+                class="faq-q w-full flex justify-between items-center gap-4 text-start font-bold"
+                type="button"
+              >
+                <span data-i18n="faq.q4">
+                  هل يمكنكم بناء شات بوت أو أتمتة للعملاء والعمليات؟
+                </span>
+                <span class="material-symbols-outlined text-primary">add</span>
+              </button>
+
+              <div
+                class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
+                data-i18n="faq.a4"
+              >
+                نعم، نبني شات بوتات وأتمتة تساعد في الرد على العملاء، استقبال
+                الطلبات، تنظيم البيانات، وربط النماذج والأدوات لتقليل العمل
+                اليدوي.
+              </div>
+            </div>
+
+            <div class="faq-item glass-card p-6 rounded-2xl">
+              <button
+                class="faq-q w-full flex justify-between items-center gap-4 text-start font-bold"
+                type="button"
+              >
+                <span data-i18n="faq.q5">
+                  هل توفرون الاستضافة والدومين ورفع الموقع؟
+                </span>
+                <span class="material-symbols-outlined text-primary">add</span>
+              </button>
+
+              <div
+                class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
+                data-i18n="faq.a5"
+              >
+                نعم عند الطلب. يمكننا مساعدتك في رفع الموقع، ربط الدومين، تفعيل
+                SSL، وتجهيز الإعدادات الأساسية للتشغيل.
+              </div>
+            </div>
+
+            <div class="faq-item glass-card p-6 rounded-2xl">
+              <button
+                class="faq-q w-full flex justify-between items-center gap-4 text-start font-bold"
+                type="button"
+              >
+                <span data-i18n="faq.q6">هل توجد صيانة بعد التسليم؟</span>
+                <span class="material-symbols-outlined text-primary">add</span>
+              </button>
+
+              <div
+                class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
+                data-i18n="faq.a6"
+              >
+                نعم، تتوفر باقات دعم وتحسينات وتحديثات حسب الحاجة، حتى يبقى
+                المشروع مستقرًا وقابلًا للتطوير بعد الإطلاق.
+              </div>
+            </div>
+
+            <div class="faq-item glass-card p-6 rounded-2xl">
+              <button
+                class="faq-q w-full flex justify-between items-center gap-4 text-start font-bold"
+                type="button"
+              >
+                <span data-i18n="faq.q7">
+                  هل يشمل التسليم شرح تشغيل وإدارة الموقع؟
+                </span>
+                <span class="material-symbols-outlined text-primary">add</span>
+              </button>
+
+              <div
+                class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
+                data-i18n="faq.a7"
+              >
+                نعم، نسلّم الموقع أو النظام جاهزًا للاستخدام، مع شرح واضح لطريقة
+                الإدارة والتحديثات الأساسية حسب طبيعة المشروع.
+              </div>
+            </div>
+
+            <div class="faq-item glass-card p-6 rounded-2xl">
+              <button
+                class="faq-q w-full flex justify-between items-center gap-4 text-start font-bold"
+                type="button"
+              >
+                <span data-i18n="faq.q8">كيف تكون المتابعة أثناء التنفيذ؟</span>
+                <span class="material-symbols-outlined text-primary">add</span>
+              </button>
+
+              <div
+                class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
+                data-i18n="faq.a8"
+              >
+                نتفق على قناة تواصل واضحة، ونشاركك التحديثات حسب مراحل التنفيذ،
+                مع توثيق أي تعديل أو قرار مهم حتى تبقى الصورة واضحة.
+              </div>
+            </div>
+
+            <div class="faq-item glass-card p-6 rounded-2xl">
+              <button
+                class="faq-q w-full flex justify-between items-center gap-4 text-start font-bold"
+                type="button"
+              >
+                <span data-i18n="faq.q9">
+                  هل تقدمون باقات نمو وتسويق مع التنفيذ التقني؟
+                </span>
+                <span class="material-symbols-outlined text-primary">add</span>
+              </button>
+
+              <div
+                class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
+                data-i18n="faq.a9"
+              >
+                نعم، يمكن دعم المشروع بباقات نمو تشمل المحتوى، التصميم،
+                الإعلانات، والتحسين المستمر حتى لا يتوقف دورنا عند التسليم فقط.
+              </div>
+            </div>
+
+            <div class="faq-item glass-card p-6 rounded-2xl">
+              <button
+                class="faq-q w-full flex justify-between items-center gap-4 text-start font-bold"
+                type="button"
+              >
+                <span data-i18n="faq.q10">
+                  هل يمكن توقيع NDA وحماية بيانات المشروع؟
+                </span>
+                <span class="material-symbols-outlined text-primary">add</span>
+              </button>
+
+              <div
+                class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
+                data-i18n="faq.a10"
+              >
+                نعم، يمكن توقيع اتفاقية سرية عند الحاجة، ونتعامل مع بيانات
+                المشروع بحذر وفق أفضل الممارسات الممكنة أثناء التطوير والتشغيل.
+              </div>
+            </div>
+
+            <div class="faq-item glass-card p-6 rounded-2xl">
+              <button
+                class="faq-q w-full flex justify-between items-center gap-4 text-start font-bold"
+                type="button"
+              >
+                <span data-i18n="faq.q11">
+                  هل أحتاج موقعًا كاملًا أم صفحة تسويقية فقط؟
+                </span>
+                <span class="material-symbols-outlined text-primary">add</span>
+              </button>
+
+              <div
+                class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
+                data-i18n="faq.a11"
+              >
+                إذا كان هدفك حملة أو خدمة محددة وجمع طلبات بسرعة، فغالبًا الصفحة
+                التسويقية تكفي كبداية. أما إذا كنت تريد حضورًا أوسع وثقة أعلى
+                ومحتوى أكثر، فالموقع الكامل أنسب.
+              </div>
+            </div>
+
+            <div class="faq-item glass-card p-6 rounded-2xl border-primary/30">
+              <button
+                class="faq-q w-full flex justify-between items-center gap-4 text-start font-bold"
+                type="button"
+              >
+                <span data-i18n="faq.q12">كيف أعرف أي خدمة مناسبة لي؟</span>
+                <span class="material-symbols-outlined text-primary">add</span>
+              </button>
+
+              <div
+                class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
+                data-i18n="faq.a12"
+              >
+                شاركنا هدفك الحالي، وسنحدد لك أسرع بداية مناسبة، وما الذي يجب
+                بناؤه أولًا، وما الذي يمكن تأجيله بدون تكلفة غير ضرورية.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-16 bg-surface-container-lowest/60" id="support">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
+          <div class="text-center mb-10">
+            <span class="section-kicker" data-i18n="support.kicker">
+              After launch
+            </span>
+
+            <h2
+              class="font-headline-lg text-headline-lg md:text-headline-xl"
+              data-i18n="support.title"
+            >
+              Our role does not end at delivery
+            </h2>
+
+            <p
+              class="mt-4 font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto leading-relaxed"
+              data-i18n="support.description"
+            >
+              We support you after launch with follow-up, improvements, and
+              technical support to keep your project stable and performing
+              better.
+            </p>
+          </div>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter"
+          >
+            <article class="glass-card p-7 rounded-2xl h-full">
+              <div class="aqua-icon-box mb-6">
+                <span class="material-symbols-outlined">construction</span>
+              </div>
+
+              <span class="aqua-card-kicker" data-i18n="support.card1.badge">
+                Technical support
+              </span>
+
+              <h3
+                class="font-headline-md text-headline-md mb-3"
+                data-i18n="support.card1.title"
+              >
+                Issue handling and follow-up
+              </h3>
+
+              <p
+                class="text-on-surface-variant leading-relaxed"
+                data-i18n="support.card1.desc"
+              >
+                We handle technical issues and post-launch follow-up so the
+                website or system stays stable.
+              </p>
+            </article>
+
+            <article
+              class="glass-card p-7 rounded-2xl h-full border-primary/20"
+            >
+              <div class="aqua-icon-box mb-6">
+                <span class="material-symbols-outlined">bolt</span>
+              </div>
+
+              <span class="aqua-card-kicker" data-i18n="support.card2.badge">
+                Fast response
+              </span>
+
+              <h3
+                class="font-headline-md text-headline-md mb-3"
+                data-i18n="support.card2.title"
+              >
+                Clear response time
+              </h3>
+
+              <p
+                class="text-on-surface-variant leading-relaxed"
+                data-i18n="support.card2.desc"
+              >
+                Clear response and follow-up time based on the request type and
+                issue priority.
+              </p>
+            </article>
+
+            <article class="glass-card p-7 rounded-2xl h-full">
+              <div class="aqua-icon-box mb-6">
+                <span class="material-symbols-outlined">trending_up</span>
+              </div>
+
+              <span class="aqua-card-kicker" data-i18n="support.card3.badge">
+                Improvements
+              </span>
+
+              <h3
+                class="font-headline-md text-headline-md mb-3"
+                data-i18n="support.card3.title"
+              >
+                Continuous improvement
+              </h3>
+
+              <p
+                class="text-on-surface-variant leading-relaxed"
+                data-i18n="support.card3.desc"
+              >
+                Performance and user experience improvements with small
+                adjustments based on post-launch needs.
+              </p>
+            </article>
+
+            <article
+              class="glass-card p-7 rounded-2xl h-full border-primary/30"
+            >
+              <div class="aqua-icon-box mb-6">
+                <span class="material-symbols-outlined">shield</span>
+              </div>
+
+              <span class="aqua-card-kicker" data-i18n="support.card4.badge">
+                Stability
+              </span>
+
+              <h3
+                class="font-headline-md text-headline-md mb-3"
+                data-i18n="support.card4.title"
+              >
+                Backup readiness
+              </h3>
+
+              <p
+                class="text-on-surface-variant leading-relaxed"
+                data-i18n="support.card4.desc"
+              >
+                Essential preparations to protect project stability and reduce
+                the impact of unexpected issues.
+              </p>
+            </article>
+          </div>
+
+          <div class="mt-10 flex justify-center">
+            <a
+              href="#contact"
+              data-service="other"
+              class="offer-cta-btn offer-cta-btn-primary js-service-cta max-w-[320px]"
+            >
+              <span data-i18n="support.cta"
+                >Request a suitable support plan</span
+              >
+              <span class="material-symbols-outlined btn-icon">west</span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="py-section-padding relative" id="contact">
+        <div class="aqua-liquid-bg" aria-hidden="true"></div>
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
+          <div class="text-center mb-16">
+            <span class="section-kicker" data-i18n="contact.kicker"
+              >ابدأ مشروعك</span
+            >
+
+            <h2
+              class="font-headline-xl text-headline-xl mb-6"
+              data-i18n="contact.title"
+            >
+              ابدأ رحلتك الرقمية الآن
+            </h2>
+
+            <p
+              class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto"
+              data-i18n="contact.subtitle"
+            >
+              احكِ لنا عن هدفك الحالي، وسنقترح عليك خطوة البداية، القناة الأنسب
+              للتواصل، وما الذي يجب بناؤه أولًا.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+            <aside class="lg:col-span-4 flex flex-col gap-stack-md">
+              <div class="glass-card p-stack-md rounded-xl">
+                <h3
+                  class="font-headline-md text-headline-md text-primary mb-stack-sm"
+                >
+                  تواصل مباشر
+                </h3>
+                <div class="flex flex-col gap-4">
+                  <a
+                    class="flex items-center gap-4 p-4 rounded-lg bg-surface-container-high hover:bg-primary/10 transition-all border border-outline-variant/20 no-underline"
+                    href="https://wa.me/962780932199"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onclick="
+                      if (typeof gtag === 'function') {
+                        gtag('event', 'whatsapp_click', {
+                          event_category: 'lead',
+                          event_label: 'contact_whatsapp',
+                        });
+                      }
+                    "
+                    ><span
+                      class="inline-flex items-center justify-center text-primary"
+                      ><svg
+                        class="wa-svg"
+                        viewBox="0 0 32 32"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M16.04 3C8.86 3 3.02 8.77 3.02 15.87c0 2.27.6 4.48 1.74 6.43L3 29l6.88-1.78a13.1 13.1 0 0 0 6.16 1.55C23.22 28.77 29 23 29 15.87S23.22 3 16.04 3Zm0 23.55c-1.96 0-3.88-.52-5.56-1.5l-.4-.23-4.08 1.06 1.09-3.92-.26-.4a10.55 10.55 0 0 1-1.6-5.69c0-5.87 4.85-10.65 10.8-10.65 5.96 0 10.8 4.78 10.8 10.65 0 5.88-4.84 10.68-10.79 10.68Zm5.92-7.98c-.32-.16-1.9-.93-2.2-1.04-.3-.1-.52-.16-.73.16-.22.32-.84 1.04-1.03 1.25-.19.22-.38.24-.7.08-.32-.16-1.36-.5-2.6-1.6-.96-.85-1.6-1.9-1.8-2.22-.18-.32-.02-.5.14-.66.14-.14.32-.38.48-.57.16-.19.22-.32.32-.54.1-.22.05-.4-.03-.57-.08-.16-.73-1.75-1-2.4-.26-.62-.53-.54-.73-.55h-.62c-.22 0-.57.08-.87.4-.3.32-1.14 1.1-1.14 2.7s1.17 3.14 1.33 3.35c.16.22 2.3 3.5 5.58 4.9.78.34 1.39.54 1.86.69.78.25 1.5.21 2.06.13.63-.09 1.9-.78 2.17-1.52.27-.75.27-1.39.19-1.52-.08-.13-.3-.21-.62-.37Z"
+                        /></svg
+                    ></span>
+                    <div>
+                      <span class="block font-bold">واتساب</span
+                      ><span class="text-xs text-on-surface-variant"
+                        >+962 78 093 2199</span
+                      >
+                    </div></a
+                  >
+                  <a
+                    class="flex items-center gap-4 p-4 rounded-lg bg-surface-container-high hover:bg-primary/10 transition-all border border-outline-variant/20 no-underline"
+                    href="mailto:info.aquatech.jo@gmail.com"
+                    ><span class="material-symbols-outlined text-primary"
+                      >mail</span
+                    >
+                    <div>
+                      <span class="block font-bold">البريد الإلكتروني</span
+                      ><span class="text-xs text-on-surface-variant"
+                        >info.aquatech.jo@gmail.com</span
+                      >
+                    </div></a
+                  >
+                </div>
+
+                <!-- Social accounts -->
+                <div
+                  class="mt-stack-md pt-stack-md border-t border-outline-variant/20"
+                >
+                  <h4
+                    class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-4 text-right"
+                  >
+                    حسابات التواصل
+                  </h4>
+
+                  <div class="social-icons-grid">
+                    <a
+                      class="social-icon-link"
+                      href="https://wa.me/962780932199"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="WhatsApp"
+                    >
+                      <svg
+                        class="wa-svg"
+                        viewBox="0 0 32 32"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M16.04 3C8.86 3 3.02 8.77 3.02 15.87c0 2.27.6 4.48 1.74 6.43L3 29l6.88-1.78a13.1 13.1 0 0 0 6.16 1.55C23.22 28.77 29 23 29 15.87S23.22 3 16.04 3Zm0 23.55c-1.96 0-3.88-.52-5.56-1.5l-.4-.23-4.08 1.06 1.09-3.92-.26-.4a10.55 10.55 0 0 1-1.6-5.69c0-5.87 4.85-10.65 10.8-10.65 5.96 0 10.8 4.78 10.8 10.65 0 5.88-4.84 10.68-10.79 10.68Zm5.92-7.98c-.32-.16-1.9-.93-2.2-1.04-.3-.1-.52-.16-.73.16-.22.32-.84 1.04-1.03 1.25-.19.22-.38.24-.7.08-.32-.16-1.36-.5-2.6-1.6-.96-.85-1.6-1.9-1.8-2.22-.18-.32-.02-.5.14-.66.14-.14.32-.38.48-.57.16-.19.22-.32.32-.54.1-.22.05-.4-.03-.57-.08-.16-.73-1.75-1-2.4-.26-.62-.53-.54-.73-.55h-.62c-.22 0-.57.08-.87.4-.3.32-1.14 1.1-1.14 2.7s1.17 3.14 1.33 3.35c.16.22 2.3 3.5 5.58 4.9.78.34 1.39.54 1.86.69.78.25 1.5.21 2.06.13.63-.09 1.9-.78 2.17-1.52.27-.75.27-1.39.19-1.52-.08-.13-.3-.21-.62-.37Z"
+                        />
+                      </svg>
+                    </a>
+
+                    <a
+                      class="social-icon-link"
+                      href="mailto:info.aquatech.jo@gmail.com"
+                      aria-label="Email"
+                    >
+                      <span class="material-symbols-outlined">mail</span>
+                    </a>
+
+                    <a
+                      class="social-icon-link"
+                      href="https://www.instagram.com/aquatech.jo/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Instagram"
+                    >
+                      <span class="material-symbols-outlined"
+                        >alternate_email</span
+                      >
+                    </a>
+
+                    <a
+                      class="social-icon-link"
+                      href="https://github.com/aquatechjo"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="GitHub"
+                    >
+                      <span class="material-symbols-outlined">terminal</span>
+                    </a>
+
+                    <a
+                      class="social-icon-link"
+                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="LinkedIn"
+                    >
+                      <span class="material-symbols-outlined"
+                        >business_center</span
+                      >
+                    </a>
+
+                    <a
+                      class="social-icon-link"
+                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Facebook"
+                    >
+                      <span class="material-symbols-outlined">public</span>
+                    </a>
+                  </div>
+                </div>
+
+                <div
+                  class="mt-stack-md pt-stack-md border-t border-outline-variant/20"
+                >
+                  <h4
+                    class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-4"
+                  >
+                    موقعنا
+                  </h4>
+                  <div class="flex items-center gap-2 text-on-surface">
+                    <span class="material-symbols-outlined">location_on</span
+                    ><span>عمّان، الأردن</span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="glass-card p-stack-md rounded-xl border-l-4 border-l-primary"
+              >
+                <h3 class="font-headline-md text-headline-md text-primary mb-4">
+                  ماذا يحدث بعد ذلك؟
+                </h3>
+                <ul class="space-y-4">
+                  <li class="flex gap-4">
+                    <span class="font-label-sm text-primary">01</span>
+                    <div>
+                      <p class="font-bold">تحليل البيانات</p>
+                      <p class="text-sm text-on-surface-variant">
+                        نراجع طلبك ونفهم المتطلبات التقنية والأهداف التجارية.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="flex gap-4">
+                    <span class="font-label-sm text-primary">02</span>
+                    <div>
+                      <p class="font-bold">جلسة استشارية</p>
+                      <p class="text-sm text-on-surface-variant">
+                        نتواصل معك خلال 24 ساعة لتحديد نقطة البداية.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="flex gap-4">
+                    <span class="font-label-sm text-primary">03</span>
+                    <div>
+                      <p class="font-bold">عرض واضح</p>
+                      <p class="text-sm text-on-surface-variant">
+                        نقدم خطة عمل مع التكلفة والجدول الزمني.
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </aside>
+
+            <div class="lg:col-span-8">
+              <form
+                class="glass-card p-stack-lg rounded-xl flex flex-col gap-stack-md relative overflow-hidden"
+                id="contactForm"
+                novalidate
+              >
+                <div class="absolute top-0 left-0 p-8 opacity-10">
+                  <span
+                    class="material-symbols-outlined text-[120px]"
+                    style="font-variation-settings: &quot;FILL&quot; 1"
+                    >rocket_launch</span
+                  >
+                </div>
+                <div class="relative z-10">
+                  <h3 class="font-headline-lg text-headline-lg mb-2">
+                    تفاصيل المشروع
+                  </h3>
+                  <p class="text-on-surface-variant mb-8">
+                    املأ البيانات التالية وسنرسل لك الخطوة المناسبة.
+                  </p>
+
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+                    <label class="block"
+                      ><span
+                        class="block font-label-sm text-primary uppercase mb-2"
+                        >الاسم</span
+                      ><input
+                        id="fName"
+                        name="name"
+                        type="text"
+                        class="aqua-input form-field"
+                        required
+                        minlength="2"
+                        maxlength="80"
+                        autocomplete="name"
+                        placeholder="اسمك"
+                    /></label>
+                    <label class="block"
+                      ><span
+                        class="block font-label-sm text-primary uppercase mb-2"
+                        >البريد الإلكتروني</span
+                      ><input
+                        id="fEmail"
+                        name="email"
+                        type="email"
+                        class="aqua-input form-field"
+                        autocomplete="email"
+                        maxlength="120"
+                        placeholder="example@gmail.com"
+                    /></label>
+                  </div>
+
+                  <div
+                    class="grid grid-cols-1 md:grid-cols-3 gap-gutter mt-gutter"
+                  >
+                    <label class="block"
+                      ><span
+                        class="block font-label-sm text-primary uppercase mb-2"
+                        >رمز الدولة</span
+                      ><select
+                        id="fCountryCode"
+                        name="country_code"
+                        class="aqua-input form-field"
+                      >
+                        <option value="+962" selected>Jordan (+962)</option>
+                        <option value="+966">Saudi Arabia (+966)</option>
+                        <option value="+971">UAE (+971)</option>
+                        <option value="+20">Egypt (+20)</option>
+                        <option value="+964">Iraq (+964)</option>
+                        <option value="+965">Kuwait (+965)</option>
+                        <option value="+968">Oman (+968)</option>
+                        <option value="+974">Qatar (+974)</option>
+                        <option value="+973">Bahrain (+973)</option>
+                        <option value="+961">Lebanon (+961)</option>
+                        <option value="+1">USA (+1)</option>
+                        <option value="+44">UK (+44)</option>
+                      </select></label
+                    >
+                    <label class="block md:col-span-2"
+                      ><span
+                        class="block font-label-sm text-primary uppercase mb-2"
+                        >رقم الواتساب</span
+                      ><input
+                        id="fPhone"
+                        name="phone"
+                        type="tel"
+                        class="aqua-input form-field"
+                        autocomplete="tel"
+                        inputmode="numeric"
+                        maxlength="15"
+                        placeholder="7XXXXXXXX"
+                    /></label>
+                  </div>
+                  <input id="fFullPhone" name="full_phone" type="hidden" />
+
+                  <div
+                    class="grid grid-cols-1 md:grid-cols-2 gap-gutter mt-gutter"
+                  >
+                    <label class="block"
+                      ><span
+                        class="block font-label-sm text-primary uppercase mb-2"
+                        >الخدمة المطلوبة</span
+                      >
+                      <div
+                        class="aqua-custom-select"
+                        data-aqua-select="service"
+                      >
+                        <button
+                          type="button"
+                          class="aqua-select-trigger"
+                          aria-haspopup="listbox"
+                          aria-expanded="false"
+                        >
+                          <span
+                            id="serviceSelectText"
+                            data-i18n="form.service.placeholder"
+                          >
+                            اختر الخدمة
+                          </span>
+                          <span class="material-symbols-outlined"
+                            >expand_more</span
+                          >
+                        </button>
+
+                        <input type="hidden" name="service" id="serviceInput" />
+
+                        <div class="aqua-select-menu" role="listbox">
+                          <div
+                            class="aqua-select-group"
+                            data-i18n="form.service.group.digital"
+                          >
+                            Digital services
+                          </div>
+
+                          <button
+                            type="button"
+                            class="aqua-select-option"
+                            data-value="landing-page"
+                            data-i18n="form.service.landing"
+                          >
+                            Professional landing page
+                          </button>
+                          <button
+                            type="button"
+                            class="aqua-select-option"
+                            data-value="company-website"
+                            data-i18n="form.service.companyWebsite"
+                          >
+                            Professional company website
+                          </button>
+                          <button
+                            type="button"
+                            class="aqua-select-option"
+                            data-value="lead-intake-system"
+                            data-i18n="form.service.leadIntake"
+                          >
+                            Website and lead intake system
+                          </button>
+                          <button
+                            type="button"
+                            class="aqua-select-option"
+                            data-value="custom-business-system"
+                            data-i18n="form.service.customSystem"
+                          >
+                            Custom business system
+                          </button>
+                          <button
+                            type="button"
+                            class="aqua-select-option"
+                            data-value="crm-system"
+                            data-i18n="form.service.crm"
+                          >
+                            Customer management system
+                          </button>
+                          <button
+                            type="button"
+                            class="aqua-select-option"
+                            data-value="dashboards-reports"
+                            data-i18n="form.service.dashboards"
+                          >
+                            Dashboards and reports
+                          </button>
+
+                          <div
+                            class="aqua-select-group"
+                            data-i18n="form.service.group.automation"
+                          >
+                            Automation and AI
+                          </div>
+
+                          <button
+                            type="button"
+                            class="aqua-select-option"
+                            data-value="ai-agent-chatbot"
+                            data-i18n="form.service.aiAgent"
+                          >
+                            AI Agent or chatbot
+                          </button>
+                          <button
+                            type="button"
+                            class="aqua-select-option"
+                            data-value="whatsapp-automation"
+                            data-i18n="form.service.whatsappAutomation"
+                          >
+                            WhatsApp automation
+                          </button>
+                          <button
+                            type="button"
+                            class="aqua-select-option"
+                            data-value="email-automation"
+                            data-i18n="form.service.emailAutomation"
+                          >
+                            Email automation
+                          </button>
+
+                          <div
+                            class="aqua-select-group"
+                            data-i18n="form.service.group.ready"
+                          >
+                            Ready solutions
+                          </div>
+
+                          <button
+                            type="button"
+                            class="aqua-select-option"
+                            data-value="law-firm-system"
+                            data-i18n="form.service.lawFirm"
+                          >
+                            Law firm management system
+                          </button>
+                          <button
+                            type="button"
+                            class="aqua-select-option"
+                            data-value="university-projects"
+                            data-i18n="form.service.university"
+                          >
+                            University project management platform
+                          </button>
+                          <button
+                            type="button"
+                            class="aqua-select-option"
+                            data-value="resumeiq"
+                            data-i18n="form.service.resumeiq"
+                          >
+                            ResumeIQ
+                          </button>
+                          <button
+                            type="button"
+                            class="aqua-select-option"
+                            data-value="smart-attendance"
+                            data-i18n="form.service.attendance"
+                          >
+                            Smart Attendance
+                          </button>
+
+                          <button
+                            type="button"
+                            class="aqua-select-option"
+                            data-value="seo-visibility"
+                            data-i18n="form.service.seo"
+                          >
+                            SEO visibility optimization
+                          </button>
+                          <button
+                            type="button"
+                            class="aqua-select-option"
+                            data-value="other"
+                            data-i18n="form.service.other"
+                          >
+                            Another service or idea
+                          </button>
+                        </div>
+
+                        <p
+                          class="aqua-select-error"
+                          data-i18n="form.service.required"
+                        >
+                          Please select a service.
+                        </p>
+                      </div></label
+                    >
+                    <label class="block">
+                      <span
+                        class="block font-label-sm text-primary uppercase mb-2"
+                      >
+                        الميزانية التقريبية
+                      </span>
+
+                      <div class="aqua-custom-select" data-aqua-select="budget">
+                        <button
+                          type="button"
+                          class="aqua-select-trigger"
+                          aria-haspopup="listbox"
+                          aria-expanded="false"
+                        >
+                          <span
+                            class="aqua-select-text"
+                            data-i18n="form.budget.placeholder"
+                          >
+                            اختر الميزانية
+                          </span>
+                          <span class="material-symbols-outlined"
+                            >expand_more</span
+                          >
+                        </button>
+
+                        <input
+                          type="hidden"
+                          name="budget"
+                          id="fBudget"
+                          class="aqua-select-input form-field"
+                        />
+
+                        <div class="aqua-select-menu" role="listbox">
+                          <button
+                            type="button"
+                            class="aqua-select-option"
+                            data-value="under-700"
+                            data-i18n="form.budget.under700"
+                          >
+                            أقل من $700
+                          </button>
+
+                          <button
+                            type="button"
+                            class="aqua-select-option"
+                            data-value="700-1500"
+                            data-i18n="form.budget.7001500"
+                          >
+                            $700 - $1,500
+                          </button>
+
+                          <button
+                            type="button"
+                            class="aqua-select-option"
+                            data-value="1500-4000"
+                            data-i18n="form.budget.15004000"
+                          >
+                            $1,500 - $4,000
+                          </button>
+
+                          <button
+                            type="button"
+                            class="aqua-select-option"
+                            data-value="over-4000"
+                            data-i18n="form.budget.over4000"
+                          >
+                            أكثر من $4,000
+                          </button>
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+
+                  <label class="block mt-gutter">
+                    <span
+                      class="block font-label-sm text-primary uppercase mb-2"
+                    >
+                      موعد التنفيذ
+                    </span>
+
+                    <div class="aqua-custom-select" data-aqua-select="timeline">
+                      <button
+                        type="button"
+                        class="aqua-select-trigger"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                      >
+                        <span
+                          class="aqua-select-text"
+                          data-i18n="form.timeline.placeholder"
+                        >
+                          اختر الموعد
+                        </span>
+                        <span class="material-symbols-outlined"
+                          >expand_more</span
+                        >
+                      </button>
+
+                      <input
+                        type="hidden"
+                        name="timeline"
+                        id="fTimeline"
+                        class="aqua-select-input form-field"
+                      />
+
+                      <div class="aqua-select-menu" role="listbox">
+                        <button
+                          type="button"
+                          class="aqua-select-option"
+                          data-value="asap"
+                          data-i18n="form.timeline.asap"
+                        >
+                          بأسرع وقت
+                        </button>
+
+                        <button
+                          type="button"
+                          class="aqua-select-option"
+                          data-value="two-weeks"
+                          data-i18n="form.timeline.twoWeeks"
+                        >
+                          خلال أسبوعين
+                        </button>
+
+                        <button
+                          type="button"
+                          class="aqua-select-option"
+                          data-value="one-month"
+                          data-i18n="form.timeline.oneMonth"
+                        >
+                          خلال شهر
+                        </button>
+                      </div>
+                    </div>
+                  </label>
+
+                  <label class="block mt-gutter"
+                    ><span
+                      class="block font-label-sm text-primary uppercase mb-2"
+                      >تفاصيل المشروع</span
+                    ><textarea
+                      id="fDetails"
+                      name="details"
+                      rows="5"
+                      class="aqua-input form-field"
+                      minlength="10"
+                      maxlength="2000"
+                      placeholder="اكتب الهدف، المميزات، والموعد المتوقع…"
+                    ></textarea>
+                  </label>
+                  <label class="hidden"
+                    ><span>Website</span
+                    ><input
+                      id="fWebsite"
+                      name="website"
+                      type="text"
+                      tabindex="-1"
+                      autocomplete="off"
+                      aria-hidden="true"
+                  /></label>
+
+                  <button
+                    id="sendLead"
+                    type="submit"
+                    class="quote-submit mt-gutter w-full bg-primary text-on-primary px-8 py-4 rounded-lg font-bold hover:scale-[.99] transition-all shadow-[0_0_20px_rgba(0,180,255,.25)]"
+                  >
+                    <span class="quote-title">ابدأ مشروعك بخطة واضحة</span>
+                  </button>
+                  <div
+                    class="mt-4 flex flex-wrap gap-2 text-xs text-on-surface-variant"
+                  >
+                    <span
+                      class="inline-flex items-center gap-2 rounded-full px-3 py-2 bg-primary/5 border border-primary/10"
+                      >🔒 مدخلات مُتحقق منها</span
+                    ><span
+                      class="inline-flex items-center gap-2 rounded-full px-3 py-2 bg-primary/5 border border-primary/10"
+                      >🛡️ حماية من السبام</span
+                    ><span
+                      class="inline-flex items-center gap-2 rounded-full px-3 py-2 bg-primary/5 border border-primary/10"
+                      >⚙️ تهيئة آمنة عند النشر</span
+                    >
+                  </div>
+                  <p
+                    id="formStatus"
+                    class="mt-3 text-xs text-on-surface-variant"
+                  ></p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer
+      class="bg-surface-container-lowest border-t border-outline-variant/20 py-16 px-margin-mobile md:px-20"
+    >
+      <div class="max-w-container-max mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-14">
+          <div class="lg:col-span-5">
+            <div
+              class="font-headline-md text-headline-md font-bold text-primary mb-6 flex items-center gap-2"
+            >
+              <img
+                src="assets/logoo.webp"
+                alt="Aqua.Tech"
+                class="h-9 w-9 object-contain"
+              />
+              <span>Aqua.Tech</span>
+            </div>
+
+            <p
+              class="font-body-md text-on-surface-variant leading-relaxed max-w-md"
+              data-i18n="footer.desc"
+            >
+              نبني صفحات تسويقية احترافية، مواقع، أنظمة، وأتمتة تساعد الشركات
+              ورواد الأعمال على النمو بشكل أسرع وبطريقة أوضح وأكثر احترافية.
+            </p>
+
+            <div class="flex gap-3 mt-8">
+              <a
+                class="aqua-btn aqua-btn-soft h-11 w-11 !min-h-0 !p-0"
+                href="https://www.instagram.com/aquatech.jo/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <span class="material-symbols-outlined text-sm"
+                  >alternate_email</span
+                >
+              </a>
+
+              <a
+                class="aqua-btn aqua-btn-soft h-11 w-11 !min-h-0 !p-0"
+                href="https://github.com/aquatechjo"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
+                <span class="material-symbols-outlined text-sm">terminal</span>
+              </a>
+
+              <a
+                class="aqua-btn aqua-btn-soft h-11 w-11 !min-h-0 !p-0"
+                href="mailto:info.aquatech.jo@gmail.com"
+                aria-label="Email"
+              >
+                <span class="material-symbols-outlined text-sm">mail</span>
+              </a>
+
+              <a
+                class="aqua-btn aqua-btn-soft h-11 w-11 !min-h-0 !p-0"
+                href="https://wa.me/962780932199"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+              >
+                <span class="material-symbols-outlined text-sm">chat</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">
+            <div>
+              <h5
+                class="font-bold text-on-surface mb-5"
+                data-i18n="footer.companyH"
+              >
+                الشركة
+              </h5>
+
+              <ul class="space-y-3 text-on-surface-variant font-body-md">
+                <li>
+                  <a
+                    class="hover:text-primary transition-colors"
+                    href="#about"
+                    data-i18n="footer.about"
+                  >
+                    من نحن
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="hover:text-primary transition-colors"
+                    href="#trust"
+                    data-i18n="footer.why"
+                  >
+                    لماذا نحن
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="hover:text-primary transition-colors"
+                    href="#results"
+                    data-i18n="footer.results"
+                  >
+                    النتائج
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="hover:text-primary transition-colors"
+                    href="#security"
+                    data-i18n="footer.security"
+                  >
+                    الأمان
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h5
+                class="font-bold text-on-surface mb-5"
+                data-i18n="footer.servicesH"
+              >
+                الخدمات
+              </h5>
+
+              <ul class="space-y-3 text-on-surface-variant font-body-md">
+                <li>
+                  <a
+                    class="hover:text-primary transition-colors"
+                    href="#services"
+                    data-i18n="footer.services"
+                  >
+                    الخدمات
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="hover:text-primary transition-colors"
+                    href="#solutions"
+                    data-i18n="footer.solutions"
+                  >
+                    الحلول الجاهزة
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="hover:text-primary transition-colors"
+                    href="#offers"
+                    data-i18n="footer.offers"
+                  >
+                    العروض
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="hover:text-primary transition-colors"
+                    href="#support"
+                    data-i18n="footer.support"
+                  >
+                    الدعم بعد التسليم
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-span-2 md:col-span-1">
+              <h5
+                class="font-bold text-on-surface mb-5"
+                data-i18n="footer.contactH"
+              >
+                تواصل
+              </h5>
+
+              <ul class="space-y-3 text-on-surface-variant font-body-md">
+                <li>
+                  <a
+                    class="hover:text-primary transition-colors"
+                    href="https://wa.me/962780932199"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-i18n="footer.whatsapp"
+                  >
+                    واتساب
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="hover:text-primary transition-colors"
+                    href="mailto:info.aquatech.jo@gmail.com"
+                    data-i18n="footer.email"
+                  >
+                    البريد الإلكتروني
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="hover:text-primary transition-colors"
+                    href="#faq"
+                    data-i18n="footer.faq"
+                  >
+                    الأسئلة المتكررة
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="hover:text-primary transition-colors"
+                    href="#contact"
+                    data-i18n="footer.start"
+                  >
+                    ابدأ مشروعك
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-outline-variant/10 text-on-surface-variant font-label-sm"
+        >
+          <p data-i18n="footer.copy">© Aqua.Tech — جميع الحقوق محفوظة.</p>
+        </div>
+      </div>
+    </footer>
+    <a
+      id="wa-float"
+      href="https://wa.me/962780932199?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20Aqua.Tech%2C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%D9%83%D9%85"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="WhatsApp"
+      onclick="
+        if (typeof gtag === 'function') {
+          gtag('event', 'whatsapp_click', {
+            event_category: 'engagement',
+            event_label: 'floating_button',
+          });
+        }
+      "
+    >
+      <span class="inline-flex items-center justify-center"
+        ><svg
+          class="wa-svg"
+          viewBox="0 0 32 32"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            fill="currentColor"
+            d="M16.04 3C8.86 3 3.02 8.77 3.02 15.87c0 2.27.6 4.48 1.74 6.43L3 29l6.88-1.78a13.1 13.1 0 0 0 6.16 1.55C23.22 28.77 29 23 29 15.87S23.22 3 16.04 3Zm0 23.55c-1.96 0-3.88-.52-5.56-1.5l-.4-.23-4.08 1.06 1.09-3.92-.26-.4a10.55 10.55 0 0 1-1.6-5.69c0-5.87 4.85-10.65 10.8-10.65 5.96 0 10.8 4.78 10.8 10.65 0 5.88-4.84 10.68-10.79 10.68Zm5.92-7.98c-.32-.16-1.9-.93-2.2-1.04-.3-.1-.52-.16-.73.16-.22.32-.84 1.04-1.03 1.25-.19.22-.38.24-.7.08-.32-.16-1.36-.5-2.6-1.6-.96-.85-1.6-1.9-1.8-2.22-.18-.32-.02-.5.14-.66.14-.14.32-.38.48-.57.16-.19.22-.32.32-.54.1-.22.05-.4-.03-.57-.08-.16-.73-1.75-1-2.4-.26-.62-.53-.54-.73-.55h-.62c-.22 0-.57.08-.87.4-.3.32-1.14 1.1-1.14 2.7s1.17 3.14 1.33 3.35c.16.22 2.3 3.5 5.58 4.9.78.34 1.39.54 1.86.69.78.25 1.5.21 2.06.13.63-.09 1.9-.78 2.17-1.52.27-.75.27-1.39.19-1.52-.08-.13-.3-.21-.62-.37Z"
+          /></svg
+      ></span>
+    </a>
+
+    <div
+      id="successModal"
+      class="success-modal"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="success-modal-card">
+        <div class="success-modal-icon">✓</div>
+        <h3 class="text-xl font-bold text-on-surface">تم إرسال طلبك بنجاح</h3>
+        <p id="successModalText" class="mt-3 text-on-surface-variant">
+          سوف نتواصل معك في أقرب وقت
+        </p>
+        <button
+          type="button"
+          id="successModalClose"
+          class="mt-6 rounded-lg bg-primary text-on-primary px-6 py-3 font-bold"
+        >
+          حسنًا
+        </button>
+      </div>
+    </div>
+    <script>
+      (function () {
+        const menuToggle = document.getElementById("menuToggle");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const iconOpen = document.getElementById("menuIconOpen");
+        const iconClose = document.getElementById("menuIconClose");
+
+        function closeMenu() {
+          mobileMenu && mobileMenu.classList.remove("is-open");
+          menuToggle && menuToggle.setAttribute("aria-expanded", "false");
+          iconOpen && iconOpen.classList.remove("hidden");
+          iconClose && iconClose.classList.add("hidden");
+        }
+
+        if (menuToggle && mobileMenu) {
+          menuToggle.addEventListener("click", function () {
+            const isOpen = mobileMenu.classList.toggle("is-open");
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
+            iconOpen.classList.toggle("hidden", isOpen);
+            iconClose.classList.toggle("hidden", !isOpen);
+          });
+
+          mobileMenu
+            .querySelectorAll("a")
+            .forEach((a) => a.addEventListener("click", closeMenu));
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+              e.preventDefault();
+              target.scrollIntoView({ behavior: "smooth" });
+            }
+          });
+        });
+
+        document.querySelectorAll(".faq-q").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const item = btn.closest(".faq-item");
+            const answer = item ? item.querySelector(".faq-a") : null;
+            const icon = btn.querySelector(".material-symbols-outlined");
+
+            if (!answer) return;
+
+            answer.classList.toggle("hidden");
+            if (icon)
+              icon.textContent = answer.classList.contains("hidden")
+                ? "add"
+                : "remove";
+          });
+        });
+
+        function initAquaCustomSelect() {
+          document.querySelectorAll("[data-aqua-select]").forEach((root) => {
+            const trigger = root.querySelector(".aqua-select-trigger");
+            const label =
+              root.querySelector(".aqua-select-text") ||
+              root.querySelector("#serviceSelectText");
+
+            const input =
+              root.querySelector(".aqua-select-input") ||
+              root.querySelector("#serviceInput");
+
+            const options = root.querySelectorAll(".aqua-select-option");
+            const error = root.querySelector(".aqua-select-error");
+
+            if (!trigger || !label || !input) return;
+
+            function openSelect() {
+              document
+                .querySelectorAll(".aqua-custom-select.is-open")
+                .forEach((item) => {
+                  if (item !== root) {
+                    item.classList.remove("is-open");
+                    item
+                      .querySelector(".aqua-select-trigger")
+                      ?.setAttribute("aria-expanded", "false");
+                  }
+                });
+
+              root.classList.add("is-open");
+              trigger.setAttribute("aria-expanded", "true");
+            }
+
+            function closeSelect() {
+              root.classList.remove("is-open");
+              trigger.setAttribute("aria-expanded", "false");
+            }
+
+            function selectOption(option) {
+              options.forEach((item) => item.classList.remove("is-selected"));
+              option.classList.add("is-selected");
+
+              input.value = option.dataset.value || "";
+              label.textContent = option.textContent.trim();
+
+              const i18nKey = option.getAttribute("data-i18n");
+              if (i18nKey) {
+                label.setAttribute("data-i18n", i18nKey);
+              }
+
+              error?.classList.remove("is-visible");
+              closeSelect();
+            }
+
+            trigger.addEventListener("click", (event) => {
+              event.preventDefault();
+              event.stopPropagation();
+
+              root.classList.contains("is-open") ? closeSelect() : openSelect();
+            });
+
+            options.forEach((option) => {
+              option.addEventListener("click", (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                selectOption(option);
+              });
+            });
+
+            document.addEventListener("click", (event) => {
+              if (!root.contains(event.target)) {
+                closeSelect();
+              }
+            });
+
+            document.addEventListener("keydown", (event) => {
+              if (event.key === "Escape") {
+                closeSelect();
+              }
+            });
+          });
+        }
+
+        initAquaCustomSelect();
+
+        const serviceMap = {
+          ads: "seo-visibility",
+          "social-management": "other",
+          "content-design": "other",
+          "landing-page": "landing-page",
+          "company-website": "company-website",
+          "ai-agent": "ai-agent-chatbot",
+          "custom-system": "custom-business-system",
+          "lawyer-system": "law-firm-system",
+          resumeiq: "resumeiq",
+          "smart-attendance": "smart-attendance",
+          "university-projects": "university-projects",
+          other: "other",
+        };
+
+        document.querySelectorAll(".js-service-cta").forEach((link) => {
+          link.addEventListener("click", () => {
+            const value = serviceMap[link.dataset.service];
+            if (!value) return;
+
+            const input = document.getElementById("serviceInput");
+            const label = document.getElementById("serviceSelectText");
+            const option = document.querySelector(
+              `.aqua-select-option[data-value="${value}"]`,
+            );
+
+            if (input) input.value = value;
+
+            if (label && option) {
+              label.textContent = option.textContent.trim();
+
+              const i18nKey = option.getAttribute("data-i18n");
+              if (i18nKey) {
+                label.setAttribute("data-i18n", i18nKey);
+              }
+            }
+
+            document
+              .querySelectorAll(".aqua-select-option")
+              .forEach((item) => item.classList.remove("is-selected"));
+
+            option?.classList.add("is-selected");
+          });
+        });
+
+        const consent = localStorage.getItem("aqua_analytics_consent");
+        const banner = document.getElementById("consent-banner");
+
+        if (banner && consent === null) {
+          setTimeout(() => banner.classList.add("is-visible"), 900);
+        }
+
+        document
+          .getElementById("consentAccept")
+          ?.addEventListener("click", () => {
+            banner?.classList.remove("is-visible");
+            window.__aquaEnableAnalytics?.();
+          });
+
+        document
+          .getElementById("consentDecline")
+          ?.addEventListener("click", () => {
+            banner?.classList.remove("is-visible");
+            window.__aquaDeclineAnalytics?.();
+          });
+
+        document
+          .getElementById("successModalClose")
+          ?.addEventListener("click", () => {
+            document
+              .getElementById("successModal")
+              ?.classList.remove("is-open");
+          });
+      })();
+    </script>
+
+    <script defer src="./js/site-i18n.js"></script>
+    <script defer src="./js/form.js"></script>
+  </body>
 </html>
