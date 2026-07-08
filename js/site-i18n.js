@@ -2,13 +2,14 @@
   const STORAGE_KEY = "aqua_lang";
 
   const AR_TO_EN = {
+    الدعم: "Support",
     الرئيسية: "Home",
     الخدمات: "Services",
     الحلول: "Solutions",
     النتائج: "Results",
     الأسئلة: "FAQ",
     تواصل: "Contact",
-    واتساب: "WhatsApp",
+    whatsapp: "WhatsApp",
     "ابدأ مشروعك": "Start Project",
     "لماذا نحن": "Why us",
     الخدمات: "Services",
@@ -16,9 +17,9 @@
     النتائج: "Results",
     العروض: "Offers",
     الأسئلة: "FAQ",
-    الدعم: "Support",
+    Support: "Support",
     تواصل: "Contact",
-    واتساب: "WhatsApp",
+    whatsapp: "WhatsApp",
     "ابدأ مشروعك": "Start Project",
     "افتح القائمة": "Open menu",
     "شعار Aqua.Tech": "Aqua.Tech logo",
@@ -55,7 +56,7 @@
 
     الاسم: "Name",
     اسمك: "Your name",
-    "البريد الإلكتروني": "Email",
+    Email: "Email",
     "WhatsApp number": "WhatsApp number",
     "رمز الدولة": "Country code",
     "الخدمة المطلوبة": "Requested service",
@@ -162,9 +163,9 @@
     "حماية التطبيق": "Application protection",
     "تحقق من المدخلات وتقليل مخاطر السبام.":
       "Input validation and reduced spam risks.",
-    "نشر موثوق": "Reliable deployment",
-    "جاهزية لإضافة Cloudflare وSecurity Headers.":
-      "Ready to add Cloudflare and security headers.",
+    "جاهزية لإضافة إعدادات Cloudflare و Security Headers.":
+      "Ready to add Cloudflare and Security Headers.",
+
     "ثقة أعلى": "Higher trust",
     "تجربة احترافية تعزز ثقة العميل عند التواصل.":
       "A professional experience that increases customer trust when contacting you.",
@@ -227,6 +228,39 @@
     "الحلول الجاهزة": "Ready solutions",
     الأمان: "Security",
     "Solutions الجاهزة": "Ready solutions",
+
+    "نشر موثوق": "Reliable deployment",
+
+    "جاهزية لإضافة Cloudflare وSecurity Headers.":
+      "Ready to add Cloudflare and Security Headers.",
+
+    "جاهزية لإضافة Cloudflare و Security Headers.":
+      "Ready to add Cloudflare and Security Headers.",
+
+    "جاهزية لإضافة إعدادات Cloudflare و Security Headers.":
+      "Ready to add Cloudflare and Security Headers.",
+
+    "نحوّل التقنية إلى تشغيل أوضح":
+      "We turn technology into clearer operations",
+
+    "Aqua.Tech وكالة برمجية تبني مواقع، أنظمة، وأتمتة تساعد الشركات ورواد الأعمال على تبسيط العمليات، رفع الكفاءة، وتحويل الحضور الرقمي إلى طلبات منظمة ونتائج قابلة للقياس.":
+      "Aqua.Tech is a software agency that builds websites, systems, and automation to help companies and entrepreneurs simplify operations, improve efficiency, and turn digital presence into organized requests and measurable results.",
+
+    "نفهم الهدف": "Understand the goal",
+    "نبدأ من المشكلة الفعلية، الجمهور، وطريقة استقبال الطلبات قبل أي تصميم أو برمجة.":
+      "We start with the real problem, the audience, and how requests are received before any design or development.",
+
+    "نبني المسار": "Build the flow",
+    "نحوّل الفكرة إلى صفحة، نظام، أو أتمتة لها خطوات واضحة ونتيجة قابلة للتنفيذ.":
+      "We turn the idea into a page, system, or automation with clear steps and an executable outcome.",
+
+    "نطلق بثقة": "Launch with confidence",
+    "نجهز المشروع للإطلاق مع أساسيات الأداء، التتبع، الأمان، وتجربة المستخدم.":
+      "We prepare the project for launch with performance, tracking, security, and user experience basics.",
+
+    "نحسّن بعد الإطلاق": "Improve after launch",
+    "نتابع النتائج والملاحظات لنطوّر الحل بدل أن يبقى مجرد نسخة أولى.":
+      "We follow results and feedback to improve the solution instead of leaving it as a first version.",
   };
 
   const EN_TO_AR = Object.fromEntries(
@@ -242,23 +276,26 @@
         "نبني مواقع وأنظمة تركّز على جذب العملاء، استقبال الطلبات، والتعامل مع أول رد من خلال مسار واضح وقابل للتنفيذ.",
       "hero.ctaPrimary": "ابدأ مشروعك",
       "hero.ctaSecondary": "استعرض الحلول",
-
-      "about.kicker": "من نحن",
-      "about.title": "هندسة رقمية دقيقة، وليست مجرد واجهة جميلة",
+      "about.kicker": "About Aqua.Tech",
+      "about.title": "نحوّل التقنية إلى تشغيل أوضح",
       "about.description":
-        "Aqua.Tech شريك رقمي يساعد الشركات ورواد الأعمال على بناء حضور أقوى على الإنترنت، وتطوير مواقع وأنظمة عملية تدعم النمو والتشغيل اليومي.",
-      "about.card1.title": "خطة واضحة خلال 24 ساعة",
+        "Aqua.Tech وكالة برمجية تبني مواقع، أنظمة، وأتمتة تساعد الشركات ورواد الأعمال على تبسيط العمليات، رفع الكفاءة، وتحويل الحضور الرقمي إلى طلبات منظمة ونتائج قابلة للقياس.",
+
+      "about.card1.title": "نفهم الهدف",
       "about.card1.desc":
-        "نفهم هدفك بسرعة ونحدد ما الذي يجب بناؤه أولًا وما يمكن تأجيله.",
-      "about.card2.title": "حل يتوسع لاحقًا",
+        "نبدأ من المشكلة الفعلية، الجمهور، وطريقة استقبال الطلبات قبل أي تصميم أو برمجة.",
+
+      "about.card2.title": "نبني المسار",
       "about.card2.desc":
-        "نبني نسخة مفيدة الآن وتبقى جاهزة للتطوير بدون إعادة بناء من الصفر.",
-      "about.card3.title": "دعم بعد الإطلاق",
+        "نحوّل الفكرة إلى صفحة، نظام، أو أتمتة لها خطوات واضحة ونتيجة قابلة للتنفيذ.",
+
+      "about.card3.title": "نطلق بثقة",
       "about.card3.desc":
-        "تحسينات وتعديلات ومعالجة ملاحظات حتى يبقى الحل فعالًا.",
-      "about.card4.title": "قرار مبني على نتيجة",
+        "نجهز المشروع للإطلاق مع أساسيات الأداء، التتبع، الأمان، وتجربة المستخدم.",
+
+      "about.card4.title": "نحسّن بعد الإطلاق",
       "about.card4.desc":
-        "نركز على التحويل، سرعة الرد، وتنظيم العملاء بدل الزينة فقط.",
+        "نتابع النتائج والملاحظات لنطوّر الحل بدل أن يبقى مجرد نسخة أولى.",
 
       "trust.kicker": "لماذا Aqua.Tech",
       "trust.title": "لماذا تختار Aqua.Tech",
@@ -272,7 +309,7 @@
       "trust.card2.title": "حل يتوسع لاحقًا",
       "trust.card2.desc":
         "نبني نسخة مفيدة الآن وتبقى جاهزة للتطوير لاحقًا بدون إعادة بناء من الصفر.",
-      "trust.card3.kicker": "الدعم",
+      "trust.card3.kicker": "Support",
       "trust.card3.title": "دعم بعد الإطلاق",
       "trust.card3.desc":
         "نساعدك في التحسينات، التعديلات، ومعالجة الملاحظات حتى يبقى الحل فعالًا.",
@@ -297,7 +334,7 @@
       "solutions.subtitle":
         "أنظمة ومنصات جاهزة يمكن تخصيصها بحسب نوع النشاط والمرحلة الحالية لمشروعك.",
 
-      "solutions.law.title": "إدارة مكاتب المحاماة",
+      "solutions.law.title": "viresto",
       "solutions.law.desc":
         "نظام لإدارة القضايا والعملاء والمواعيد والملفات القانونية بشكل أوضح.",
       "solutions.law.point1": "إدارة الملفات",
@@ -309,13 +346,13 @@
       "solutions.resume.point1": "بناء ذكي للسيرة",
       "solutions.resume.point2": "قوالب احترافية",
 
-      "solutions.attendance.title": "الحضور الذكي",
+      "solutions.attendance.title": "Smart Attendance",
       "solutions.attendance.desc":
         "نظام حضور ذكي يعتمد على التعرف على الوجوه لتسجيل الحضور تلقائيًا.",
       "solutions.attendance.point1": "التعرف على الوجوه",
       "solutions.attendance.point2": "تقارير فورية",
 
-      "solutions.university.title": "منصة مشاريع الجامعة",
+      "solutions.university.title": "University projects platform",
       "solutions.university.desc":
         "منصة لتنظيم مشاريع الطلبة ورفع الملفات ومتابعة الفرق والإشراف الأكاديمي.",
       "solutions.university.point1": "تنظيم الفرق",
@@ -423,9 +460,9 @@
       "services.landing.title": "صفحات هبوط تسويقية",
       "services.landing.desc":
         "صفحات سريعة وواضحة تساعدك تبدأ الإعلان، تجمع الطلبات، وتحوّل الزوار إلى عملاء محتملين.",
-      "services.landing.tag1": "صفحة هبوط",
-      "services.landing.tag2": "واتساب",
-      "services.landing.tag3": "تتبع",
+      "services.landing.tag1": "Landing page",
+      "services.landing.tag2": "whatsapp",
+      "services.landing.tag3": "Tracking",
       "services.landing.cta": "اطلب صفحة هبوط",
 
       "services.website.title": "مواقع شركات ومتاجر",
@@ -433,14 +470,14 @@
         "نبني مواقع شركات ومتاجر وصفحات خدمات تعزز الثقة، تشرح العرض بوضوح، وتدعم الظهور في البحث.",
       "services.website.tag1": "SEO",
       "services.website.tag2": "CMS",
-      "services.website.tag3": "أداء",
+      "services.website.tag3": "Performance",
       "services.website.cta": "اطلب موقعك",
 
       "services.ai.title": "أتمتة وذكاء اصطناعي",
       "services.ai.desc":
         "نبني بوتات ومهام تلقائية تساعدك ترد أسرع، تجمع بيانات العملاء، وتقلل العمل اليدوي.",
       "services.ai.tag1": "AI Agent",
-      "services.ai.tag2": "أتمتة",
+      "services.ai.tag2": "Automation",
       "services.ai.cta": "ابدأ الأتمتة",
 
       "services.systems.title": "أنظمة ولوحات تحكم مخصصة",
@@ -454,25 +491,25 @@
       "services.growth.title": "نمو وتسويق رقمي",
       "services.growth.desc":
         "ندعم نمو مشروعك بخطة محتوى، إعلانات، وتحسين ظهور يساعدك على تحويل الزوار إلى عملاء.",
-      "services.growth.tag1": "محتوى",
-      "services.growth.tag2": "إعلانات",
-      "services.growth.tag3": "نمو",
+      "services.growth.tag1": "Content",
+      "services.growth.tag2": "Ads",
+      "services.growth.tag3": "Growth",
       "services.growth.cta": "شاهد باقات النمو",
 
       "services.social.title": "إدارة السوشيال ميديا",
       "services.social.desc":
         "نجهز خطة محتوى، تصاميم، وجدولة تساعدك تبني حضور ثابت وتحول المتابعين إلى عملاء محتملين.",
-      "services.social.tag1": "سوشيال",
-      "services.social.tag2": "تصميم",
-      "services.social.tag3": "تقارير",
+      "services.social.tag1": "Social",
+      "services.social.tag2": "Design",
+      "services.social.tag3": "Reports",
       "services.social.cta": "ابدأ إدارة حساباتك",
 
       "services.design.title": "واجهات وهوية بصرية",
       "services.design.desc":
         "نصمم واجهات وتجارب وهوية بصرية تعطي مشروعك شكلًا احترافيًا وثقة أعلى أمام العملاء.",
       "services.design.tag1": "UI/UX",
-      "services.design.tag2": "هوية",
-      "services.design.tag3": "تصميم",
+      "services.design.tag2": "Brand",
+      "services.design.tag3": "Visuals",
       "services.design.cta": "صمّم هويتك",
 
       "offers.kicker": "Launch offers",
@@ -574,10 +611,140 @@
         "شاركنا هدفك الحالي، وسنحدد لك أسرع بداية مناسبة، وما الذي يجب بناؤه أولًا، وما الذي يمكن تأجيله بدون تكلفة غير ضرورية.",
       "hero.ctaPrimary": "ابدأ مشروعك",
       "hero.ctaSecondary": "استعرض الحلول",
+
+      "about.loop.kicker": "مسار العمل",
+      "about.loop.1": "نفهم",
+      "about.loop.2": "نبني",
+      "about.loop.3": "نطلق",
+      "about.loop.4": "نحسّن",
+      "nav.support": "الدعم",
+      "form.phone": "رقم الواتساب",
+
+      "offers.landing.badge": "الأسرع إطلاقًا",
+      "offers.landing.title": "صفحات هبوط تسويقية",
+      "offers.landing.desc":
+        "صفحات تسويقية تجهزك للإعلان وجمع العملاء بخطوات واضحة وسريعة.",
+      "offers.landing.point1": "مناسبة للعروض والخدمات والإعلانات",
+      "offers.landing.point2": "ربط واتساب / نموذج / CTA واضح",
+      "offers.landing.point3": "تحسين أساسي للسرعة و SEO",
+      "offers.landing.price": "يبدأ من 250$ تقريبًا",
+      "offers.landing.time": "5–7 أيام",
+      "offers.landing.cta": "اطلب صفحة هبوط",
+
+      "offers.website.badge": "الأكثر طلبًا",
+      "offers.website.title": "موقع شركة احترافي",
+      "offers.website.desc":
+        "موقع تعريفي كامل يعرض خدماتك، أعمالك، وطريقة التواصل معك بشكل احترافي.",
+      "offers.website.point1": "الرئيسية، الخدمات، من نحن، وتواصل",
+      "offers.website.point2": "تصميم متجاوب عربي / إنجليزي حسب الحاجة",
+      "offers.website.point3": "ربط واتساب ونموذج تواصل",
+      "offers.website.point4": "SEO أساسي وتجهيز للنشر",
+      "offers.website.price": "يبدأ من 500$ — دفع مرة واحدة",
+      "offers.website.time": "10–14 يوم",
+      "offers.website.cta": "اطلب موقع شركة",
+
+      "offers.bot.badge": "طلب مرتفع",
+      "offers.bot.title": "باقة شات بوت ذكي أساسية",
+      "offers.bot.desc":
+        "بوت ذكي للموقع أو واتساب يساعدك ترد أسرع وتجمع العملاء بشكل منظم.",
+      "offers.bot.point1": "أسئلة متكررة + استقبال طلبات",
+      "offers.bot.point2": "ربط بسيط مع واتساب أو نموذج",
+      "offers.bot.point3": "ربط مع Google Sheets / n8n",
+      "offers.bot.price": "يبدأ من 400$ تقريبًا",
+      "offers.bot.time": "3–5 أيام",
+      "offers.bot.cta": "اطلب بوت ذكي",
+
+      "offers.growth.badge": "دخل متكرر",
+      "offers.growth.title": "باقة النمو",
+      "offers.growth.desc":
+        "باقة نمو شهرية تجمع بين المحتوى، التصميم، والمتابعة لتحويل الحضور الرقمي إلى نتائج.",
+      "offers.growth.point1": "خطة محتوى + تصميم + نشر",
+      "offers.growth.point2": "تقارير ومتابعة وتحسين مستمر",
+      "offers.growth.point3": "تحسين البايو والروابط",
+      "offers.growth.point4": "تقرير أداء شهري وتوصيات",
+      "offers.growth.price": "يبدأ من 300$ شهريًا",
+      "offers.growth.type": "إدارة + محتوى",
+      "offers.growth.cta": "اطلب خطة نمو",
+      "services.core.kicker": "Core Services",
+      "services.core.title": "البناء الأساسي للمشروع",
+      "services.core.desc":
+        "مواقع، صفحات هبوط، أنظمة، وأتمتة تساعد مشروعك يبدأ بشكل واضح وقابل للتوسع.",
+      "services.core.tag1": "Websites",
+      "services.core.tag2": "Landing Pages",
+      "services.core.tag3": "Systems",
+      "services.core.tag4": "AI/Automation",
+
+      "services.growthGroup.kicker": "Growth Services",
+      "services.growthGroup.title": "النمو والتحويل",
+      "services.growthGroup.desc":
+        "سوشيال ميديا، حملات، تحسين التحويل، وتصميم يربط الحضور الرقمي بالطلبات.",
+      "services.growthGroup.tag1": "Social Media",
+      "services.growthGroup.tag2": "Campaigns",
+      "services.growthGroup.tag3": "Conversion Optimization",
+      "services.growthGroup.tag4": "Design",
+
+      "services.care.kicker": "Care Services",
+      "services.care.title": "الدعم والتحسين المستمر",
+      "services.care.desc":
+        "صيانة، دعم، تحسينات، وتقارير تحافظ على أداء الحل بعد الإطلاق وتطوره مع الوقت.",
+      "services.care.tag1": "Maintenance",
+      "services.care.tag2": "Support",
+      "services.care.tag3": "Improvements",
+      "services.care.tag4": "Reports",
+
+      "services.details.toggle": "استعرض الخدمات بالتفصيل",
+      "services.details.core.title": "Core Services",
+      "services.details.core.item1": "صفحات هبوط للإعلانات وجمع الطلبات",
+      "services.details.core.item2": "مواقع شركات ومتاجر وصفحات خدمات",
+      "services.details.core.item3": "أنظمة ولوحات تحكم مخصصة",
+      "services.details.core.item4": "بوتات وعمليات أتمتة وربط أدوات",
+      "services.details.growth.title": "Growth Services",
+      "services.details.growth.item1": "إدارة السوشيال ميديا وخطط المحتوى",
+      "services.details.growth.item2": "حملات إعلانية وتحسين صفحات الهبوط",
+      "services.details.growth.item3": "تحسين التحويل وتتبع النتائج",
+      "services.details.growth.item4": "واجهات وهوية بصرية للمشاريع الرقمية",
+      "services.details.care.title": "Care Services",
+      "services.details.care.item1": "صيانة وتحديثات بعد الإطلاق",
+      "services.details.care.item2": "دعم فني ومعالجة ملاحظات",
+      "services.details.care.item3": "تحسينات مستمرة على الأداء والتجربة",
+      "services.details.care.item4": "تقارير شهرية وخطوات تطوير مقترحة",
+
+      // Arabic
+      "form.service.group.core": "Core Services — البناء الأساسي",
+      "form.service.group.growth": "Growth Services — النمو والتحويل",
+      "form.service.group.care": "Care Services — الدعم والتحسين",
+      "form.service.group.ready": "Ready Solutions ",
+
+      "form.service.corePackage": "Core Services - البناء الأساسي للمشروع",
+      "form.service.landing": "صفحة هبوط تسويقية",
+      "form.service.companyWebsite": "موقع شركة أو متجر",
+      "form.service.customSystem": "نظام أو لوحة تحكم مخصصة",
+      "form.service.aiAutomation": "AI / Automation",
+      "form.service.leadIntake": "موقع مع نظام استقبال طلبات",
+
+      "form.service.growthPackage": "Growth Services - النمو والتحويل",
+      "form.service.socialMedia": "إدارة السوشيال ميديا",
+      "form.service.paidCampaigns": "حملات إعلانية",
+      "form.service.conversion": "تحسين التحويل",
+      "form.service.designBranding": "تصميم واجهات وهوية بصرية",
+      "form.service.seo": "تحسين الظهور في البحث SEO",
+
+      "form.service.carePackage": "Care Services - الدعم والتحسين",
+      "form.service.maintenance": "صيانة وتحديثات",
+      "form.service.support": "دعم فني",
+      "form.service.performance": "تحسين السرعة والأداء",
+      "form.service.reports": "تقارير ومتابعة",
+
+      "form.service.lawFirm": "نظام إدارة مكاتب المحاماة",
+      "form.service.university": "منصة إدارة مشاريع جامعية",
+      "form.service.resumeiq": "ResumeIQ",
+      "form.service.attendance": "Smart Attendance",
+      "form.service.other": "خدمة أخرى أو فكرة جديدة",
+      "form.service.required": "يرجى اختيار الخدمة المطلوبة.",
     },
 
     en: {
-      "hero.kicker": "Programming • Launching • Expanding",
+      "hero.kicker": "Growth • Software • AI",
       "hero.title": "Digital solutions and real growth",
       "hero.titleAccent": "From launch to scale",
       "hero.subtitle":
@@ -586,22 +753,25 @@
       "hero.ctaSecondary": "View solutions",
 
       "about.kicker": "About Aqua.Tech",
-      "about.title":
-        "Precise digital engineering, not just a beautiful interface",
+      "about.title": "We turn technology into clearer operations",
       "about.description":
-        "Aqua.Tech is a digital partner that helps companies and entrepreneurs build a stronger online presence and develop practical websites and systems that support growth and daily operations.",
-      "about.card1.title": "A clear plan within 24 hours",
+        "Aqua.Tech is a software agency that builds websites, systems, and automation to help companies and entrepreneurs simplify operations, improve efficiency, and turn digital presence into organized requests and measurable results.",
+
+      "about.card1.title": "Understand the goal",
       "about.card1.desc":
-        "We quickly understand your goal and define what should be built first and what can be delayed.",
-      "about.card2.title": "A solution that scales later",
+        "We start with the real problem, the audience, and how requests are received before any design or development.",
+
+      "about.card2.title": "Build the flow",
       "about.card2.desc":
-        "We build a useful version now that remains ready for development without rebuilding from scratch.",
-      "about.card3.title": "Post-launch support",
+        "We turn the idea into a page, system, or automation with clear steps and an executable outcome.",
+
+      "about.card3.title": "Launch with confidence",
       "about.card3.desc":
-        "Improvements, adjustments, and feedback handling to keep the solution effective.",
-      "about.card4.title": "Result-driven decisions",
+        "We prepare the project for launch with performance, tracking, security, and user experience basics.",
+
+      "about.card4.title": "Improve after launch",
       "about.card4.desc":
-        "We focus on conversion, response speed, and customer organization instead of decoration only.",
+        "We follow results and feedback to improve the solution instead of leaving it as a first version.",
 
       "trust.kicker": "Why Aqua.Tech",
       "trust.title": "Why choose Aqua.Tech",
@@ -833,6 +1003,43 @@
       "offers.landing.price": "Starts from about $250",
       "offers.landing.time": "5–7 days",
       "offers.landing.cta": "landing page",
+      "offers.landing.badge": "Fastest launch",
+      "offers.landing.point1":
+        "Suitable for offers, services, and ad campaigns",
+      "offers.landing.point2": "WhatsApp / form / clear CTA integration",
+      "offers.landing.point3": "Basic speed and SEO optimization",
+      "offers.landing.price": "Starts from about $250",
+      "offers.landing.time": "5–7 days",
+      "offers.landing.cta": "landing page",
+
+      "offers.bot.badge": "High demand",
+      "offers.bot.point1": "FAQ handling and request intake",
+      "offers.bot.point2": "Simple WhatsApp or form integration",
+      "offers.bot.point3": "Google Sheets / n8n integration",
+      "offers.bot.price": "Starts from about $400",
+      "offers.bot.time": "3–5 days",
+      "offers.bot.cta": "AI chatbot",
+
+      "offers.growth.badge": "Recurring growth",
+      "offers.growth.point1": "Content plan + design + publishing",
+      "offers.growth.point2": "Reports, follow-up, and continuous improvement",
+      "offers.growth.point3": "Bio and link optimization",
+      "offers.growth.point4": "Monthly performance report and recommendations",
+      "offers.growth.price": "Starts from $300 / month",
+      "offers.growth.type": "Management + content",
+      "offers.growth.cta": "Growth plan",
+
+      "offers.website.badge": "Most requested",
+      "offers.website.title": "Professional company website",
+      "offers.website.desc":
+        "A complete business website that presents your services, work, and contact channels professionally.",
+      "offers.website.point1": "Home, services, about us, and contact pages",
+      "offers.website.point2": "Responsive Arabic / English design when needed",
+      "offers.website.point3": "WhatsApp and contact form integration",
+      "offers.website.point4": "Basic SEO and publishing setup",
+      "offers.website.price": "Starts from about $500 — one-time payment",
+      "offers.website.time": "10–14 days",
+      "offers.website.cta": "company website",
 
       "offers.bot.badge": "High demand",
       "offers.bot.title": "Basic AI chatbot package",
@@ -921,6 +1128,96 @@
         "Share your current goal with us, and we will define the fastest suitable starting point, what should be built first, and what can be delayed without unnecessary cost.",
       "hero.ctaPrimary": "Start your project",
       "hero.ctaSecondary": "View solutions",
+
+      "about.loop.kicker": "Operating loop",
+      "about.loop.1": "Discover",
+      "about.loop.2": "Build",
+      "about.loop.3": "Launch",
+      "about.loop.4": "Improve",
+      "nav.support": "Support",
+      "form.phone": "WhatsApp number",
+
+      "services.core.kicker": "Core Services",
+      "services.core.title": "Project foundation",
+      "services.core.desc":
+        "Websites, landing pages, systems, and automation that help your project launch clearly and scale later.",
+      "services.core.tag1": "Websites",
+      "services.core.tag2": "Landing Pages",
+      "services.core.tag3": "Systems",
+      "services.core.tag4": "AI/Automation",
+
+      "services.growthGroup.kicker": "Growth Services",
+      "services.growthGroup.title": "Growth and conversion",
+      "services.growthGroup.desc":
+        "Social media, campaigns, conversion improvement, and design that connect your digital presence to real leads.",
+      "services.growthGroup.tag1": "Social Media",
+      "services.growthGroup.tag2": "Campaigns",
+      "services.growthGroup.tag3": "Conversion",
+      "services.growthGroup.tag4": "Design",
+
+      "services.care.kicker": "Care Services",
+      "services.care.title": "Ongoing support and improvement",
+      "services.care.desc":
+        "Maintenance, support, improvements, and reports that keep your solution performing after launch.",
+      "services.care.tag1": "Maintenance",
+      "services.care.tag2": "Support",
+      "services.care.tag3": "Improvements",
+      "services.care.tag4": "Reports",
+
+      "services.details.toggle": "View services in detail",
+      "services.details.core.title": "Core Services",
+      "services.details.core.item1": "Landing pages for ads and lead capture",
+      "services.details.core.item2":
+        "Company websites, stores, and service pages",
+      "services.details.core.item3": "Custom systems and dashboards",
+      "services.details.core.item4": "Bots, automations, and tool integrations",
+      "services.details.growth.title": "Growth Services",
+      "services.details.growth.item1":
+        "Social media management and content plans",
+      "services.details.growth.item2":
+        "Ad campaigns and landing page optimization",
+      "services.details.growth.item3":
+        "Conversion optimization and result tracking",
+      "services.details.growth.item4":
+        "Interfaces and visual identity for digital projects",
+      "services.details.care.title": "Care Services",
+      "services.details.care.item1": "Maintenance and updates after launch",
+      "services.details.care.item2": "Technical support and issue handling",
+      "services.details.care.item3":
+        "Continuous performance and UX improvements",
+      "services.details.care.item4": "Monthly reports and suggested next steps",
+      // English
+      "form.service.group.core": "Core Services",
+      "form.service.group.growth": "Growth Services",
+      "form.service.group.care": "Care Services",
+      "form.service.group.ready": "Ready Solutions",
+
+      "form.service.corePackage": "Core Services package",
+      "form.service.landing": "Professional landing page",
+      "form.service.companyWebsite": "Company website or online store",
+      "form.service.customSystem": "Custom system or dashboard",
+      "form.service.aiAutomation": "AI / Automation",
+      "form.service.leadIntake": "Website and lead intake system",
+
+      "form.service.growthPackage": "Growth Services package",
+      "form.service.socialMedia": "Social media management",
+      "form.service.paidCampaigns": "Paid advertising campaigns",
+      "form.service.conversion": "Conversion optimization",
+      "form.service.designBranding": "UI/UX design and branding",
+      "form.service.seo": "SEO visibility optimization",
+
+      "form.service.carePackage": "Care Services package",
+      "form.service.maintenance": "Maintenance and updates",
+      "form.service.support": "Technical support",
+      "form.service.performance": "Performance optimization",
+      "form.service.reports": "Reports and monitoring",
+
+      "form.service.lawFirm": "Law firm management system",
+      "form.service.university": "University project management platform",
+      "form.service.resumeiq": "ResumeIQ",
+      "form.service.attendance": "Smart Attendance",
+      "form.service.other": "Another service or idea",
+      "form.service.required": "Please select a service.",
     },
   };
 
@@ -1018,8 +1315,8 @@
   function updateAquaMeta(lang) {
     document.title =
       lang === "en"
-        ? "Aqua.Tech | Digital Solutions and Real Growth"
-        : "Aqua.Tech | حلول رقمية ونمو فعلي";
+        ? "Aqua.Tech | Growth • Software • AI"
+        : "Aqua.Tech | Growth • Software • AI";
 
     const description = document.querySelector('meta[name="description"]');
     if (description) {
@@ -1085,4 +1382,3 @@
     initLanguageToggle();
   }
 })();
-

@@ -8,7 +8,7 @@
     النتائج: "Results",
     الأسئلة: "FAQ",
     تواصل: "Contact",
-    واتساب: "WhatsApp",
+    whatsapp: "WhatsApp",
     "ابدأ مشروعك": "Start Project",
     "لماذا نحن": "Why us",
     العروض: "Offers",
@@ -17,9 +17,8 @@
     "إغلاق القائمة": "Close menu",
     "شعار Aqua.Tech": "Aqua.Tech logo",
 
-    "برمجة • إطلاق • توسع": "Programming • Launching • Expanding",
-    "Programming • Launching • Expanding":
-      "Programming • Launching • Expanding",
+    "برمجة • إطلاق • توسع": "Growth • Software • AI",
+    "Growth • Software • AI": "Growth • Software • AI",
     "من الانطلاقة إلى التوسع": "from launch to scale",
 
     "حلول رقمية ونمو فعلي — من الانطلاقة إلى التوسع":
@@ -54,7 +53,7 @@
 
     الاسم: "Name",
     اسمك: "Your name",
-    "البريد الإلكتروني": "Email",
+    " Email": "Email",
     "رقم الواتساب": "WhatsApp number",
     "رمز الدولة": "Country code",
     "الخدمة المطلوبة": "Requested service",
@@ -73,8 +72,7 @@
     "تفاصيل المشروع": "Project details",
     "اكتب الهدف، المميزات، والموعد المتوقع…":
       "Write the goal, features, and expected timeline…",
-    "ابدأ مشروعك بخطة واضحة":
-      "Start your project with a clear plan ",
+    "ابدأ مشروعك بخطة واضحة": "Start your project with a clear plan ",
 
     "تم إرسال طلبك بنجاح": "Your request was sent successfully",
     "سوف نتواصل معك في أقرب وقت": "We will contact you as soon as possible",
@@ -163,8 +161,9 @@
     "تحقق من المدخلات وتقليل مخاطر السبام.":
       "Input validation and reduced spam risks.",
     "نشر موثوق": "Reliable deployment",
-    "جاهزية لإضافة Cloudflare وSecurity Headers.":
-      "Ready to add Cloudflare and security headers.",
+    "جاهزية لإضافة إعدادات Cloudflare و Security Headers.":
+      "Ready to add Cloudflare and Security Headers.",
+
     "ثقة أعلى": "Higher trust",
     "تجربة احترافية تعزز ثقة العميل عند التواصل.":
       "A professional experience that increases customer trust when contacting you.",
@@ -228,6 +227,17 @@
     "الحلول الجاهزة": "Ready solutions",
     الأمان: "Security",
     "Solutions الجاهزة": "Ready solutions",
+
+    "نشر موثوق": "Reliable deployment",
+
+    "جاهزية لإضافة Cloudflare وSecurity Headers.":
+      "Ready to add Cloudflare and Security Headers.",
+
+    "جاهزية لإضافة Cloudflare و Security Headers.":
+      "Ready to add Cloudflare and Security Headers.",
+
+    "جاهزية لإضافة إعدادات Cloudflare و Security Headers.":
+      "Ready to add Cloudflare and Security Headers.",
   };
 
   const EN_TO_AR = Object.fromEntries(
@@ -351,10 +361,11 @@
       "footer.offers": "العروض",
       "footer.support": "الدعم بعد التسليم",
       "footer.contactH": "تواصل",
-      "footer.whatsapp": "واتساب",
-      "footer.email": "البريد الإلكتروني",
+      "footer.whatsapp": "whatsapp",
+      "footer.email": "Email",
       "footer.faq": "الأسئلة المتكررة",
       "footer.start": "ابدأ مشروعك",
+      "form.phone": "رقم الواتساب",
       "footer.copy": "© Aqua.Tech — جميع الحقوق محفوظة.",
     },
     en: {
@@ -369,7 +380,7 @@
       "nav.support": "Support",
       "nav.contact": "Contact",
       "btn.whatsapp": "WhatsApp",
-      "hero.kicker": "Programming • Launching • Expanding",
+      "hero.kicker": "Growth • Software • AI",
       "hero.title": "Digital solutions and real growth",
       "hero.titleAccent": "from launch to scale",
       "hero.desc":
@@ -392,6 +403,7 @@
       "footer.faq": "FAQ",
       "footer.start": "Start Project",
       "footer.copy": "© Aqua.Tech — All rights reserved.",
+      "form.phone": "WhatsApp number",
     },
   };
 
@@ -423,8 +435,8 @@
   function updateAquaMeta(lang) {
     document.title =
       lang === "en"
-        ? "Aqua.Tech | Digital Solutions and Real Growth"
-        : "Aqua.Tech | حلول رقمية ونمو فعلي";
+        ? "Aqua.Tech | Growth • Software • AI"
+        : "Aqua.Tech | Growth • Software • AI";
 
     const description = document.querySelector('meta[name="description"]');
     if (description) {
