@@ -1,51 +1,56 @@
 (function () {
-  const form = document.querySelector("[data-aquatech-contact-form]");
-  if (!form) return;
-
-  if (form.dataset.aquatechBound === "true") return;
-  form.dataset.aquatechBound = "true";
-
-  const statusEl =
-    document.querySelector("[data-contact-status]") ||
-    document.getElementById("formStatus");
-
-  const sendButton = document.getElementById("sendLead");
-  const box = document.getElementById("proposalWhatsAppBox");
-  const whatsappLink = document.getElementById("proposalWhatsAppLink");
-
-  function getValue(id) {
-    return String(document.getElementById(id)?.value || "").trim();
-  }
-
-  function setStatus(message, type) {
-    if (!statusEl) return;
-
-    statusEl.textContent = message || "";
-    statusEl.classList.remove(
-      "text-red-400",
-      "text-primary",
-      "text-on-surface-variant"
-    );
-
-    if (type === "error") {
-      statusEl.classList.add("text-red-400");
-    } else if (type === "success") {
-      statusEl.classList.add("text-primary");
+  function onReady(fn) {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", fn);
     } else {
-      statusEl.classList.add("text-on-surface-variant");
+      fn();
     }
   }
 
   function getLang() {
-    const htmlLang = document.documentElement.lang || "";
-    if (htmlLang.toLowerCase().startsWith("ar")) return "ar";
-    if (document.documentElement.dir === "rtl") return "ar";
-    return "en";
+    const lang =
+      localStorage.getItem("aqua_lang") ||
+      document.documentElement.lang ||
+      "ar";
+
+    return lang.toLowerCase().startsWith("en") ? "en" : "ar";
+  }
+
+  function valueOf(id) {
+    return document.getElementById(id)?.value?.trim() || "";
+  }
+
+  function setStatus(message, type) {
+    const el =
+      document.querySelector("[data-contact-status]") ||
+      document.getElementById("formStatus");
+
+    if (!el) return;
+
+    el.textContent = message || "";
+    el.classList.remove("text-red-400", "text-primary", "text-on-surface-variant");
+
+    if (type === "error") {
+      el.classList.add("text-red-400");
+    } else if (type === "success") {
+      el.classList.add("text-primary");
+    } else {
+      el.classList.add("text-on-surface-variant");
+    }
+  }
+
+  function setBusy(isBusy) {
+    const btn = document.getElementById("sendLead");
+    if (!btn) return;
+
+    btn.disabled = !!isBusy;
+    btn.classList.toggle("opacity-70", !!isBusy);
+    btn.classList.toggle("cursor-not-allowed", !!isBusy);
   }
 
   function buildPhone() {
-    const countryCode = getValue("fCountryCode") || "+962";
-    const localPhone = getValue("fPhone");
+    const countryCode = valueOf("fCountryCode") || "+962";
+    const localPhone = valueOf("fPhone");
 
     if (!localPhone) return "";
     if (localPhone.startsWith("+")) return localPhone;
@@ -54,141 +59,177 @@
     return `${countryCode}${cleanLocal}`;
   }
 
-  form.addEventListener(
-    "submit",
-    async function (event) {
-      event.preventDefault();
-      event.stopImmediatePropagation();
+  function showWhatsAppBox(url, requestId) {
+    const box = document.getElementById("proposalWhatsAppBox");
+    const link = document.getElementById("proposalWhatsAppLink");
 
-      if (box) box.classList.add("hidden");
-      if (whatsappLink) whatsappLink.href = "#";
+    if (!box || !link || !url) {
+      console.warn("[AquaTech n8n] WhatsApp box/link missing or URL empty", {
+        box,
+        link,
+        url,
+      });
+      return;
+    }
 
-      const lang = getLang();
-      const honeypot = getValue("fWebsite");
+    link.href = url;
+    link.setAttribute("target", "_blank");
+    link.setAttribute("rel", "noopener noreferrer");
 
-      if (honeypot) {
-        setStatus(lang === "ar" ? "تم استلام طلبك بنجاح." : "Request received.", "success");
-        return;
-      }
+    if (requestId) {
+      link.setAttribute("data-request-id", requestId);
+    }
 
-      const fullName = getValue("fName");
-      const email = getValue("fEmail");
-      const phone = buildPhone();
-      const service = getValue("serviceInput");
-      const budget = getValue("fBudget");
-      const timeline = getValue("fTimeline");
-      const details = getValue("fDetails");
-      const companyName = getValue("fCompanyName");
-      const companyActivity = getValue("fCompanyActivity");
+    box.classList.remove("hidden");
+    box.style.display = "";
 
-      if (!fullName || fullName.length < 2) {
-        setStatus(lang === "ar" ? "اكتب الاسم بشكل صحيح." : "Please enter a valid name.", "error");
-        return;
-      }
+    setTimeout(() => {
+      box.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }, 150);
+  }
 
-      if (!service) {
-        setStatus(lang === "ar" ? "اختر الخدمة المطلوبة." : "Please select a service.", "error");
-        return;
-      }
+  onReady(function () {
+    const form = document.getElementById("contactForm");
+    if (!form) return;
 
-      if (!phone && !email) {
-        setStatus(
-          lang === "ar"
-            ? "أدخل رقم الواتساب أو البريد الإلكتروني."
-            : "Please enter WhatsApp number or email.",
-          "error"
-        );
-        return;
-      }
+    form.setAttribute("data-aquatech-contact-form", "");
 
-      const payload = {
-        full_name: fullName,
-        email,
-        phone,
-        company_name: companyName,
-        company_activity: companyActivity,
-        service_type: service,
-        budget,
-        timeline,
-        message: details,
-        page_url: window.location.href,
-        lang,
-        website: honeypot,
-      };
+    if (form.dataset.n8nBound === "true") return;
+    form.dataset.n8nBound = "true";
 
-      try {
-        if (sendButton) {
-          sendButton.disabled = true;
-          sendButton.classList.add("opacity-70", "cursor-not-allowed");
+    form.addEventListener(
+      "submit",
+      async function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+
+        const lang = getLang();
+        const box = document.getElementById("proposalWhatsAppBox");
+        const link = document.getElementById("proposalWhatsAppLink");
+
+        if (box) box.classList.add("hidden");
+        if (link) link.href = "#";
+
+        const honeypot = valueOf("fWebsite");
+        if (honeypot) {
+          setStatus(lang === "ar" ? "تم استلام طلبك بنجاح." : "Request received.", "success");
+          return;
         }
 
-        setStatus(lang === "ar" ? "جاري إرسال الطلب..." : "Sending request...", "neutral");
+        const fullName = valueOf("fName");
+        const email = valueOf("fEmail");
+        const phone = buildPhone();
+        const service = valueOf("serviceInput");
+        const budget = valueOf("fBudget");
+        const timeline = valueOf("fTimeline");
+        const details = valueOf("fDetails");
+        const companyName = valueOf("fCompanyName");
+        const companyActivity = valueOf("fCompanyActivity");
 
-        const response = await fetch("/api/contact", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(payload),
-        });
+        if (!fullName || fullName.length < 2) {
+          setStatus(lang === "ar" ? "اكتب الاسم بشكل صحيح." : "Please enter a valid name.", "error");
+          return;
+        }
 
-        const data = await response.json().catch(() => ({}));
+        if (!service) {
+          setStatus(lang === "ar" ? "اختر الخدمة المطلوبة." : "Please select a service.", "error");
+          return;
+        }
 
-        if (!response.ok || !data.ok) {
-          throw new Error(
+        if (!phone && !email) {
+          setStatus(
+            lang === "ar"
+              ? "أدخل رقم الواتساب أو البريد الإلكتروني."
+              : "Please enter WhatsApp number or email.",
+            "error"
+          );
+          return;
+        }
+
+        const payload = {
+          full_name: fullName,
+          email,
+          phone,
+          company_name: companyName,
+          company_activity: companyActivity,
+          service_type: service,
+          budget,
+          timeline,
+          message: details,
+          page_url: window.location.href,
+          lang,
+          source: "website",
+        };
+
+        try {
+          setBusy(true);
+          setStatus(lang === "ar" ? "جاري إرسال الطلب..." : "Sending request...", "neutral");
+
+          const response = await fetch("/api/contact", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          });
+
+          const text = await response.text();
+
+          let data = {};
+          try {
+            data = text ? JSON.parse(text) : {};
+          } catch {
+            throw new Error("Invalid response from contact API.");
+          }
+
+          console.log("[AquaTech n8n] /api/contact response:", data);
+
+          if (!response.ok || !data.ok) {
+            throw new Error(
+              data.message ||
+                (lang === "ar"
+                  ? "تعذر إرسال الطلب حالياً."
+                  : "Could not send the request right now.")
+            );
+          }
+
+          setStatus(
             data.message ||
               (lang === "ar"
-                ? "تعذر إرسال الطلب حالياً."
-                : "Could not send the request right now.")
+                ? "تم استلام طلبك بنجاح."
+                : "Your request has been received."),
+            "success"
           );
-        }
 
-        setStatus(
-          data.message ||
-            (lang === "ar"
-              ? "تم استلام طلبك بنجاح."
-              : "Your request has been received."),
-          "success"
-        );
+          if (data.whatsapp_url) {
+            showWhatsAppBox(data.whatsapp_url, data.request_id || data.lead_id || "");
+          } else {
+            console.warn("[AquaTech n8n] No whatsapp_url returned:", data);
+          }
 
-        if (data.whatsapp_url && whatsappLink && box) {
-          whatsappLink.href = data.whatsapp_url;
-          box.classList.remove("hidden");
-        }
-
-        if (typeof gtag === "function") {
-          gtag("event", "contact_form_submit", {
+          window.gtag?.("event", "contact_form_submit", {
             event_category: "lead",
             event_label: "website_intake",
             request_id: data.request_id || data.lead_id || "",
           });
+        } catch (error) {
+          console.error("[AquaTech n8n] Contact form error:", error);
+          setStatus(
+            error.message ||
+              (lang === "ar"
+                ? "حدث خطأ أثناء إرسال الطلب."
+                : "An error occurred while sending the request."),
+            "error"
+          );
+        } finally {
+          setBusy(false);
         }
-      } catch (error) {
-        setStatus(
-          error.message ||
-            (lang === "ar"
-              ? "حدث خطأ أثناء إرسال الطلب."
-              : "An error occurred while sending the request."),
-          "error"
-        );
-      } finally {
-        if (sendButton) {
-          sendButton.disabled = false;
-          sendButton.classList.remove("opacity-70", "cursor-not-allowed");
-        }
-      }
-    },
-    true
-  );
-
-  if (whatsappLink) {
-    whatsappLink.addEventListener("click", function () {
-      if (typeof gtag === "function") {
-        gtag("event", "instant_proposal_whatsapp_click", {
-          event_category: "lead",
-          event_label: "proposal_whatsapp",
-        });
-      }
-    });
-  }
+      },
+      true
+    );
+  });
 })();
