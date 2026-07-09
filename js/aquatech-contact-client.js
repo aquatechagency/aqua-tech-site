@@ -28,7 +28,11 @@
     if (!el) return;
 
     el.textContent = message || "";
-    el.classList.remove("text-red-400", "text-primary", "text-on-surface-variant");
+    el.classList.remove(
+      "text-red-400",
+      "text-primary",
+      "text-on-surface-variant",
+    );
 
     if (type === "error") {
       el.classList.add("text-red-400");
@@ -60,28 +64,81 @@
   }
 
   function showWhatsAppBox(url, requestId) {
-    const box = document.getElementById("proposalWhatsAppBox");
-    const link = document.getElementById("proposalWhatsAppLink");
-
-    if (!box || !link || !url) {
-      console.warn("[AquaTech n8n] WhatsApp box/link missing or URL empty", {
-        box,
-        link,
-        url,
-      });
+    if (!url) {
+      console.warn("[AquaTech n8n] WhatsApp URL is empty");
       return;
     }
 
+    let box = document.getElementById("proposalWhatsAppBox");
+    let link = document.getElementById("proposalWhatsAppLink");
+
+    const statusEl =
+      document.querySelector("[data-contact-status]") ||
+      document.getElementById("formStatus");
+
+    // If the box is missing from HTML, create it dynamically.
+    if (!box) {
+      box = document.createElement("div");
+      box.id = "proposalWhatsAppBox";
+      box.className =
+        "mt-4 rounded-xl border border-primary/20 bg-primary/5 p-4";
+
+      const message = document.createElement("p");
+      message.className = "text-sm text-on-surface-variant mb-3";
+      message.textContent =
+        getLang() === "ar"
+          ? "تم تجهيز رابط البروبوزل الأولي. اضغط الزر التالي لفتحه على واتساب وإرسال رقم الطلب."
+          : "Your instant proposal link is ready. Click the WhatsApp button to send your request ID and start the conversation.";
+
+      link = document.createElement("a");
+      link.id = "proposalWhatsAppLink";
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.className =
+        "inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 font-bold text-on-primary no-underline hover:scale-[.99] transition-all";
+      link.textContent =
+        getLang() === "ar"
+          ? "استلام البروبوزل على واتساب"
+          : "Receive proposal on WhatsApp";
+
+      box.appendChild(message);
+      box.appendChild(link);
+
+      if (statusEl) {
+        statusEl.insertAdjacentElement("afterend", box);
+      } else {
+        const form = document.getElementById("contactForm");
+        form?.appendChild(box);
+      }
+    }
+
+    // If link is missing inside an existing box, create it.
+    if (!link) {
+      link = document.createElement("a");
+      link.id = "proposalWhatsAppLink";
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.className =
+        "inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 font-bold text-on-primary no-underline hover:scale-[.99] transition-all";
+      link.textContent =
+        getLang() === "ar"
+          ? "استلام البروبوزل على واتساب"
+          : "Receive proposal on WhatsApp";
+
+      box.appendChild(link);
+    }
+
     link.href = url;
-    link.setAttribute("target", "_blank");
-    link.setAttribute("rel", "noopener noreferrer");
 
     if (requestId) {
       link.setAttribute("data-request-id", requestId);
     }
 
     box.classList.remove("hidden");
-    box.style.display = "";
+    box.removeAttribute("hidden");
+    box.style.display = "block";
+    box.style.visibility = "visible";
+    box.style.opacity = "1";
 
     setTimeout(() => {
       box.scrollIntoView({
@@ -116,7 +173,10 @@
 
         const honeypot = valueOf("fWebsite");
         if (honeypot) {
-          setStatus(lang === "ar" ? "تم استلام طلبك بنجاح." : "Request received.", "success");
+          setStatus(
+            lang === "ar" ? "تم استلام طلبك بنجاح." : "Request received.",
+            "success",
+          );
           return;
         }
 
@@ -131,12 +191,22 @@
         const companyActivity = valueOf("fCompanyActivity");
 
         if (!fullName || fullName.length < 2) {
-          setStatus(lang === "ar" ? "اكتب الاسم بشكل صحيح." : "Please enter a valid name.", "error");
+          setStatus(
+            lang === "ar"
+              ? "اكتب الاسم بشكل صحيح."
+              : "Please enter a valid name.",
+            "error",
+          );
           return;
         }
 
         if (!service) {
-          setStatus(lang === "ar" ? "اختر الخدمة المطلوبة." : "Please select a service.", "error");
+          setStatus(
+            lang === "ar"
+              ? "اختر الخدمة المطلوبة."
+              : "Please select a service.",
+            "error",
+          );
           return;
         }
 
@@ -145,7 +215,7 @@
             lang === "ar"
               ? "أدخل رقم الواتساب أو البريد الإلكتروني."
               : "Please enter WhatsApp number or email.",
-            "error"
+            "error",
           );
           return;
         }
@@ -167,7 +237,10 @@
 
         try {
           setBusy(true);
-          setStatus(lang === "ar" ? "جاري إرسال الطلب..." : "Sending request...", "neutral");
+          setStatus(
+            lang === "ar" ? "جاري إرسال الطلب..." : "Sending request...",
+            "neutral",
+          );
 
           const response = await fetch("/api/contact", {
             method: "POST",
@@ -193,7 +266,7 @@
               data.message ||
                 (lang === "ar"
                   ? "تعذر إرسال الطلب حالياً."
-                  : "Could not send the request right now.")
+                  : "Could not send the request right now."),
             );
           }
 
@@ -202,11 +275,14 @@
               (lang === "ar"
                 ? "تم استلام طلبك بنجاح."
                 : "Your request has been received."),
-            "success"
+            "success",
           );
 
           if (data.whatsapp_url) {
-            showWhatsAppBox(data.whatsapp_url, data.request_id || data.lead_id || "");
+            showWhatsAppBox(
+              data.whatsapp_url,
+              data.request_id || data.lead_id || "",
+            );
           } else {
             console.warn("[AquaTech n8n] No whatsapp_url returned:", data);
           }
@@ -223,13 +299,13 @@
               (lang === "ar"
                 ? "حدث خطأ أثناء إرسال الطلب."
                 : "An error occurred while sending the request."),
-            "error"
+            "error",
           );
         } finally {
           setBusy(false);
         }
       },
-      true
+      true,
     );
   });
 })();
