@@ -69,8 +69,29 @@
     document.querySelectorAll(".js-service-cta").forEach((link) => {
       link.addEventListener("click", () => {
         const value = serviceMap[link.dataset.service];
-        const select = document.getElementById("fService");
-        if (value && select) select.value = value;
+        const input = document.getElementById("serviceInput");
+        const label = document.getElementById("serviceSelectText");
+        const option = document.querySelector(
+          `.aqua-select-option[data-value="${value}"]`,
+        );
+
+        if (!value || !input) return;
+
+        input.value = value;
+        input.dispatchEvent(new Event("change", { bubbles: true }));
+
+        document
+          .querySelectorAll(
+            '[data-aqua-select="service"] .aqua-select-option.is-selected',
+          )
+          .forEach((item) => item.classList.remove("is-selected"));
+
+        option?.classList.add("is-selected");
+
+        if (label) {
+          label.textContent = option?.textContent.trim() || value;
+          label.removeAttribute("data-i18n");
+        }
       });
     });
 
