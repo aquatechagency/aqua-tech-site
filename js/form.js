@@ -29,8 +29,10 @@
       success: "Your request has been received. We will contact you soon.",
       error:
         "We could not send your request right now. Please try again or contact us on WhatsApp.",
-      required: "Please fill in your name, contact method, and required service.",
-      cooldown: "A request was sent recently. Please wait a little and try again.",
+      required:
+        "Please fill in your name, contact method, and required service.",
+      cooldown:
+        "A request was sent recently. Please wait a little and try again.",
     },
   };
 
@@ -42,6 +44,10 @@
   onReady(function () {
     const formEl = document.getElementById("contactForm");
     if (!formEl) return;
+
+    // New n8n contact flow is handled by js/aquatech-contact-client.js.
+    // Keep this legacy Google Sheets handler away from the new form.
+    if (formEl.matches("[data-aquatech-contact-form]")) return;
 
     const statusEl = document.getElementById("formStatus");
     const btnSend = document.getElementById("sendLead");
@@ -202,7 +208,9 @@
         root.classList.remove("is-open");
 
         const input = root.querySelector("input[type='hidden']");
-        const selected = root.querySelectorAll(".aqua-select-option.is-selected");
+        const selected = root.querySelectorAll(
+          ".aqua-select-option.is-selected",
+        );
 
         selected.forEach((item) => item.classList.remove("is-selected"));
         if (input) input.value = "";
@@ -216,7 +224,8 @@
 
         if (type === "service") {
           text.setAttribute("data-i18n", "form.service.placeholder");
-          text.textContent = getLang() === "ar" ? "اختر الخدمة" : "Choose service";
+          text.textContent =
+            getLang() === "ar" ? "اختر الخدمة" : "Choose service";
         }
 
         if (type === "budget") {
