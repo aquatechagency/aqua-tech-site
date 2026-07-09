@@ -63,11 +63,23 @@
     return `${countryCode}${cleanLocal}`;
   }
 
-  function showWhatsAppBox(url, requestId) {
+  function showWhatsAppBox(url, requestId, labels = {}) {
     if (!url) {
       console.warn("[AquaTech n8n] WhatsApp URL is empty");
       return;
     }
+
+    const lang = getLang();
+
+    const helperText =
+      labels.proposal_helper_text ||
+      (lang === "ar"
+        ? "اضغط الزر التالي للحصول على البروبوزل الأولي عبر واتساب."
+        : "Click the button below to get your instant proposal on WhatsApp.");
+
+    const buttonLabel =
+      labels.proposal_button_label ||
+      (lang === "ar" ? "الحصول على البروبوزل" : "Get the proposal");
 
     let box = document.getElementById("proposalWhatsAppBox");
     let link = document.getElementById("proposalWhatsAppLink");
@@ -76,7 +88,6 @@
       document.querySelector("[data-contact-status]") ||
       document.getElementById("formStatus");
 
-    // If the box is missing from HTML, create it dynamically.
     if (!box) {
       box = document.createElement("div");
       box.id = "proposalWhatsAppBox";
@@ -85,10 +96,8 @@
 
       const message = document.createElement("p");
       message.className = "text-sm text-on-surface-variant mb-3";
-      message.textContent =
-        getLang() === "ar"
-          ? "تم تجهيز رابط البروبوزل الأولي. اضغط الزر التالي لفتحه على واتساب وإرسال رقم الطلب."
-          : "Your instant proposal link is ready. Click the WhatsApp button to send your request ID and start the conversation.";
+      message.setAttribute("data-proposal-helper", "");
+      message.textContent = helperText;
 
       link = document.createElement("a");
       link.id = "proposalWhatsAppLink";
@@ -96,10 +105,7 @@
       link.rel = "noopener noreferrer";
       link.className =
         "inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 font-bold text-on-primary no-underline hover:scale-[.99] transition-all";
-      link.textContent =
-        getLang() === "ar"
-          ? "استلام البروبوزل على واتساب"
-          : "Receive proposal on WhatsApp";
+      link.textContent = buttonLabel;
 
       box.appendChild(message);
       box.appendChild(link);
@@ -107,12 +113,17 @@
       if (statusEl) {
         statusEl.insertAdjacentElement("afterend", box);
       } else {
-        const form = document.getElementById("contactForm");
-        form?.appendChild(box);
+        document.getElementById("contactForm")?.appendChild(box);
       }
     }
 
-    // If link is missing inside an existing box, create it.
+    const helperEl =
+      box.querySelector("[data-proposal-helper]") || box.querySelector("p");
+
+    if (helperEl) {
+      helperEl.textContent = helperText;
+    }
+
     if (!link) {
       link = document.createElement("a");
       link.id = "proposalWhatsAppLink";
@@ -120,15 +131,11 @@
       link.rel = "noopener noreferrer";
       link.className =
         "inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 font-bold text-on-primary no-underline hover:scale-[.99] transition-all";
-      link.textContent =
-        getLang() === "ar"
-          ? "استلام البروبوزل على واتساب"
-          : "Receive proposal on WhatsApp";
-
       box.appendChild(link);
     }
 
     link.href = url;
+    link.textContent = buttonLabel;
 
     if (requestId) {
       link.setAttribute("data-request-id", requestId);
@@ -273,8 +280,8 @@
           setStatus(
             data.message ||
               (lang === "ar"
-                ? "تم استلام طلبك بنجاح."
-                : "Your request has been received."),
+                ? "تم تقديم الطلب بنجاح."
+                : "Your request has been submitted successfully."),
             "success",
           );
 
@@ -282,6 +289,10 @@
             showWhatsAppBox(
               data.whatsapp_url,
               data.request_id || data.lead_id || "",
+              {
+                proposal_helper_text: data.proposal_helper_text,
+                proposal_button_label: data.proposal_button_label,
+              },
             );
           } else {
             console.warn("[AquaTech n8n] No whatsapp_url returned:", data);
