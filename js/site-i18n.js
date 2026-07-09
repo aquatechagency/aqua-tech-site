@@ -459,13 +459,13 @@
       "services.subtitle":
         "نغطي رحلة مشروعك من الفكرة إلى الإطلاق والنمو المستمر بحلول واضحة قابلة للتنفيذ.",
 
-      "services.landing.title": "صفحات هبوط تسويقية",
+      "services.landing.title": "صفحات تسويقية",
       "services.landing.desc":
         "صفحات سريعة وواضحة تساعدك تبدأ الإعلان، تجمع الطلبات، وتحوّل الزوار إلى عملاء محتملين.",
       "services.landing.tag1": "Landing page",
       "services.landing.tag2": "whatsapp",
       "services.landing.tag3": "Tracking",
-      "services.landing.cta": "اطلب صفحة هبوط",
+      "services.landing.cta": "اطلب صفحة تسويقية",
 
       "services.website.title": "مواقع شركات ومتاجر",
       "services.website.desc":
@@ -520,14 +520,14 @@
         "إذا كنت تريد بداية سريعة أو عرضًا واضحًا، هذه الباقات هي أفضل نقطة دخول للعمل معنا.",
 
       "offers.landing.badge": "الأسرع إطلاقًا",
-      "offers.landing.title": "صفحات هبوط تسويقية",
+      "offers.landing.title": "صفحات تسويقية",
       "offers.landing.desc":
         "صفحات تسويقية تجهزك للإعلان وجمع العملاء بخطوات واضحة وسريعة.",
       "offers.landing.point1": "مناسبة للعروض والخدمات والإعلانات",
       "offers.landing.point2": "ربط واتساب / نموذج / CTA واضح",
       "offers.landing.price": "يبدأ من $250 تقريبًا",
       "offers.landing.time": "5–7 أيام",
-      "offers.landing.cta": "اطلب صفحة هبوط",
+      "offers.landing.cta": "اطلب صفحة تسويقية",
 
       "offers.bot.badge": "طلب مرتفع",
       "offers.bot.title": "باقة شات بوت ذكي الأساسية",
@@ -623,7 +623,7 @@
       "form.phone": "رقم الواتساب",
 
       "offers.landing.badge": "الأسرع إطلاقًا",
-      "offers.landing.title": "صفحات هبوط تسويقية",
+      "offers.landing.title": "صفحات تسويقية",
       "offers.landing.desc":
         "صفحات تسويقية تجهزك للإعلان وجمع العملاء بخطوات واضحة وسريعة.",
       "offers.landing.point1": "مناسبة للعروض والخدمات والإعلانات",
@@ -631,7 +631,7 @@
       "offers.landing.point3": "تحسين أساسي للسرعة و SEO",
       "offers.landing.price": "يبدأ من 250$ تقريبًا",
       "offers.landing.time": "5–7 أيام",
-      "offers.landing.cta": "اطلب صفحة هبوط",
+      "offers.landing.cta": "اطلب صفحة تسويقية",
 
       "offers.website.badge": "الأكثر طلبًا",
       "offers.website.title": "موقع شركة احترافي",
@@ -670,7 +670,7 @@
       "services.core.kicker": "Core Services",
       "services.core.title": "البناء الأساسي للمشروع",
       "services.core.desc":
-        "مواقع، صفحات هبوط، أنظمة، وأتمتة تساعد مشروعك يبدأ بشكل واضح وقابل للتوسع.",
+        "مواقع، صفحات تسويقية، أنظمة، وأتمتة تساعد مشروعك يبدأ بشكل واضح وقابل للتوسع.",
       "services.core.tag1": "Websites",
       "services.core.tag2": "Landing Pages",
       "services.core.tag3": "Systems",
@@ -696,13 +696,13 @@
 
       "services.details.toggle": "استعرض الخدمات بالتفصيل",
       "services.details.core.title": "Core Services",
-      "services.details.core.item1": "صفحات هبوط للإعلانات وجمع الطلبات",
+      "services.details.core.item1": "صفحات تسويقية للإعلانات وجمع الطلبات",
       "services.details.core.item2": "مواقع شركات ومتاجر وصفحات خدمات",
       "services.details.core.item3": "أنظمة ولوحات تحكم مخصصة",
       "services.details.core.item4": "بوتات وعمليات أتمتة وربط أدوات",
       "services.details.growth.title": "Growth Services",
       "services.details.growth.item1": "إدارة السوشيال ميديا وخطط المحتوى",
-      "services.details.growth.item2": "حملات إعلانية وتحسين صفحات الهبوط",
+      "services.details.growth.item2": "حملات إعلانية وتحسين صفحات التسويق",
       "services.details.growth.item3": "تحسين التحويل وتتبع النتائج",
       "services.details.growth.item4": "واجهات وهوية بصرية للمشاريع الرقمية",
       "services.details.care.title": "Care Services",
@@ -717,7 +717,7 @@
       "form.service.group.care": "Care Services ",
       "form.service.group.ready": "Ready Solutions ",
 
-      "form.service.landing": "صفحة هبوط تسويقية",
+      "form.service.landing": "صفحة تسويقية",
       "form.service.companyWebsite": "موقع شركة أو متجر",
       "form.service.customSystem": "نظام أو لوحة تحكم مخصصة",
       "form.service.aiAutomation": "AI / Automation",
