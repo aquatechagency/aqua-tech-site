@@ -4200,14 +4200,6 @@
     Core Services
   </div>
 
-  <button
-    type="button"
-    class="aqua-select-option"
-    data-value="core-services"
-    data-i18n="form.service.corePackage"
-  >
-    Core Services package
-  </button>
 
   <button
     type="button"
@@ -4262,15 +4254,6 @@
   <button
     type="button"
     class="aqua-select-option"
-    data-value="growth-services"
-    data-i18n="form.service.growthPackage"
-  >
-    Growth Services package
-  </button>
-
-  <button
-    type="button"
-    class="aqua-select-option"
     data-value="social-media-management"
     data-i18n="form.service.socialMedia"
   >
@@ -4318,14 +4301,7 @@
     Care Services
   </div>
 
-  <button
-    type="button"
-    class="aqua-select-option"
-    data-value="care-services"
-    data-i18n="form.service.carePackage"
-  >
-    Care Services package
-  </button>
+
 
   <button
     type="button"
@@ -4417,6 +4393,9 @@
 <p class="aqua-select-error" data-i18n="form.service.required">
   Please select a service.
 </p>
+                      </div>
+                    </label>
+
                     <label class="block">
                       <span class="block font-label-sm text-primary mb-2">
                         الميزانية التقريبية</span
@@ -4578,21 +4557,33 @@
                     type="submit"
                     class="quote-submit mt-gutter w-full bg-primary text-on-primary px-8 py-4 rounded-lg font-bold hover:scale-[.99] transition-all shadow-[0_0_20px_rgba(0,180,255,.25)]"
                   >
-                    <span class="quote-title">ابدأ مشروعك بخطة واضحة</span>
+<span class="quote-title" data-i18n="form.submit">
+  ابدأ مشروعك بخطة واضحة
+</span>
                   </button>
                   <div
                     class="mt-4 flex flex-wrap gap-2 text-xs text-on-surface-variant"
                   >
-                    <span
-                      class="inline-flex items-center gap-2 rounded-full px-3 py-2 bg-primary/5 border border-primary/10"
-                      >🔒 مدخلات مُتحقق منها</span
-                    ><span
-                      class="inline-flex items-center gap-2 rounded-full px-3 py-2 bg-primary/5 border border-primary/10"
-                      >🛡️ حماية من السبام</span
-                    ><span
-                      class="inline-flex items-center gap-2 rounded-full px-3 py-2 bg-primary/5 border border-primary/10"
-                      >⚙️ تهيئة آمنة عند النشر</span
-                    >
+<span
+  class="inline-flex items-center gap-2 rounded-full px-3 py-2 bg-primary/5 border border-primary/10"
+  data-i18n="form.badge.validated"
+>
+  🔒 مدخلات مُتحقق منها
+</span>
+
+<span
+  class="inline-flex items-center gap-2 rounded-full px-3 py-2 bg-primary/5 border border-primary/10"
+  data-i18n="form.badge.spam"
+>
+  🛡️ حماية من السبام
+</span>
+
+<span
+  class="inline-flex items-center gap-2 rounded-full px-3 py-2 bg-primary/5 border border-primary/10"
+  data-i18n="form.badge.secure"
+>
+  ⚙️ تهيئة آمنة عند النشر
+</span>
                   </div>
                   <p
                     id="formStatus"
@@ -4976,8 +4967,9 @@
               options.forEach((item) => item.classList.remove("is-selected"));
               option.classList.add("is-selected");
 
-              input.value = option.dataset.value || "";
-              label.textContent = option.textContent.trim();
+input.value = option.dataset.value || "";
+input.dispatchEvent(new Event("change", { bubbles: true }));
+label.textContent = option.textContent.trim();
 
               const i18nKey = option.getAttribute("data-i18n");
               if (i18nKey) {
@@ -5025,7 +5017,7 @@
           "content-design": "other",
           "landing-page": "landing-page",
           "company-website": "company-website",
-          "ai-agent": "ai-agent-chatbot",
+"ai-agent": "ai-automation",
           "custom-system": "custom-business-system",
           "lawyer-system": "law-firm-system",
           resumeiq: "resumeiq",
@@ -5158,326 +5150,5 @@
     </script>
 
     \n
-    <!-- AQUA_HARD_CONTACT_FORM_FIX_START -->
-    <script>
-      (() => {
-        const AR = {
-          title:
-            "\u062A\u0641\u0627\u0635\u064A\u0644 \u0627\u0644\u0645\u0634\u0631\u0648\u0639",
-          desc: "\u0627\u0645\u0644\u0623 \u0627\u0644\u0628\u064A\u0627\u0646\u0627\u062A \u0627\u0644\u062A\u0627\u0644\u064A\u0629 \u0648\u0633\u0646\u0631\u0633\u0644 \u0644\u0643 \u0627\u0644\u062E\u0637\u0648\u0629 \u0627\u0644\u0645\u0646\u0627\u0633\u0628\u0629.",
-          name: "\u0627\u0644\u0627\u0633\u0645",
-          namePh: "\u0627\u0633\u0645\u0643",
-          email:
-            "\u0627\u0644\u0628\u0631\u064A\u062F \u0627\u0644\u0625\u0644\u0643\u062A\u0631\u0648\u0646\u064A",
-          phone:
-            "\u0631\u0642\u0645 \u0627\u0644\u0648\u0627\u062A\u0633\u0627\u0628",
-          country: "\u0631\u0645\u0632 \u0627\u0644\u062F\u0648\u0644\u0629",
-          service:
-            "\u0627\u0644\u062E\u062F\u0645\u0629 \u0627\u0644\u0645\u0637\u0644\u0648\u0628\u0629",
-          servicePh:
-            "\u0627\u062E\u062A\u0631 \u0627\u0644\u062E\u062F\u0645\u0629",
-          budget:
-            "\u0627\u0644\u0645\u064A\u0632\u0627\u0646\u064A\u0629 \u0627\u0644\u062A\u0642\u0631\u064A\u0628\u064A\u0629",
-          budgetPh:
-            "\u0627\u062E\u062A\u0631 \u0627\u0644\u0645\u064A\u0632\u0627\u0646\u064A\u0629",
-          timeline:
-            "\u0645\u0648\u0639\u062F \u0627\u0644\u062A\u0646\u0641\u064A\u0630",
-          timelinePh:
-            "\u0627\u062E\u062A\u0631 \u0627\u0644\u0645\u0648\u0639\u062F",
-          message:
-            "\u062A\u0641\u0627\u0635\u064A\u0644 \u0627\u0644\u0645\u0634\u0631\u0648\u0639",
-          messagePh:
-            "\u0627\u0643\u062A\u0628 \u0627\u0644\u0647\u062F\u0641\u060C \u0627\u0644\u0645\u064A\u0632\u0627\u062A\u060C \u0648\u0627\u0644\u0645\u0648\u0639\u062F \u0627\u0644\u0645\u062A\u0648\u0642\u0639...",
-          submit:
-            "\u0627\u0628\u062F\u0623 \u0645\u0634\u0631\u0648\u0639\u0643 \u0628\u062E\u0637\u0629 \u0648\u0627\u0636\u062D\u0629",
-          direct:
-            "\u062A\u0648\u0627\u0635\u0644 \u0645\u0628\u0627\u0634\u0631",
-        };
-
-        const EN = {
-          title: "Project details",
-          desc: "Fill in the details below and we will send you the right next step.",
-          name: "Name",
-          namePh: "Your name",
-          email: "Email",
-          phone: "WhatsApp number",
-          country: "Country code",
-          service: "Required service",
-          servicePh: "Choose service",
-          budget: "Estimated budget",
-          budgetPh: "Choose budget",
-          timeline: "Execution timeline",
-          timelinePh: "Choose timeline",
-          message: "Project details",
-          messagePh: "Write the goal, features, and expected timeline...",
-          submit: "Start your project with a clear plan",
-          direct: "Direct contact",
-        };
-
-        function isArabic() {
-          const html = document.documentElement;
-
-          const lang = (html.getAttribute("lang") || "").toLowerCase();
-          const dir = (html.getAttribute("dir") || "").toLowerCase();
-          const bodyDir = (
-            document.body.getAttribute("dir") || ""
-          ).toLowerCase();
-
-          const storedLang = (
-            localStorage.getItem("aquatech_lang") ||
-            localStorage.getItem("lang") ||
-            localStorage.getItem("language") ||
-            window.currentLang ||
-            ""
-          ).toLowerCase();
-
-          return (
-            lang.startsWith("ar") ||
-            dir === "rtl" ||
-            bodyDir === "rtl" ||
-            storedLang.startsWith("ar")
-          );
-        }
-
-        function cleanElement(el, dir) {
-          if (!el) return;
-          el.classList.remove("tracking-widest", "uppercase");
-          el.style.letterSpacing = "normal";
-          el.style.textTransform = "none";
-          el.setAttribute("dir", dir);
-        }
-
-        function setText(el, text, dir) {
-          if (!el) return;
-          cleanElement(el, dir);
-          el.textContent = text;
-        }
-
-        function findLabelFor(control) {
-          if (!control) return null;
-
-          if (control.id) {
-            const direct = document.querySelector(
-              'label[for="' + CSS.escape(control.id) + '"]',
-            );
-            if (direct) return direct;
-          }
-
-          let node = control.parentElement;
-
-          for (
-            let level = 0;
-            node && level < 5;
-            level += 1, node = node.parentElement
-          ) {
-            const labels = Array.from(
-              node.querySelectorAll("label, .font-label-sm, .text-label-sm"),
-            ).filter((el) => !el.contains(control) && el.children.length === 0);
-
-            if (labels.length) {
-              return labels[labels.length - 1];
-            }
-          }
-
-          return null;
-        }
-
-        function findNearestHeading(formCard) {
-          if (!formCard) return null;
-          return formCard.querySelector("h1,h2,h3");
-        }
-
-        function findNearestDesc(formCard) {
-          if (!formCard) return null;
-          const paragraphs = Array.from(formCard.querySelectorAll("p")).filter(
-            (p) => p.children.length === 0,
-          );
-          return paragraphs[0] || null;
-        }
-
-        function getForm() {
-          return (
-            document.querySelector("#contact form") ||
-            document.querySelector("form")
-          );
-        }
-
-        function applyContactFormLanguage() {
-          const dict = isArabic() ? AR : EN;
-          const dir = isArabic() ? "rtl" : "ltr";
-
-          const form = getForm();
-          if (!form) return;
-
-          const formCard =
-            form.closest(".glass-card") ||
-            form.closest("section") ||
-            form.parentElement;
-
-          setText(findNearestHeading(formCard), dict.title, dir);
-          setText(findNearestDesc(formCard), dict.desc, dir);
-
-          const nameInput =
-            form.querySelector('input[name*="name" i], input[id*="name" i]') ||
-            Array.from(form.querySelectorAll("input")).find((el) =>
-              /name|???/i.test(el.placeholder || ""),
-            );
-
-          const emailInput =
-            form.querySelector(
-              'input[type="email"], input[name*="email" i], input[id*="email" i]',
-            ) ||
-            Array.from(form.querySelectorAll("input")).find((el) =>
-              /example|email|mail/i.test(el.placeholder || ""),
-            );
-
-          const phoneInput =
-            form.querySelector(
-              'input[type="tel"], input[name*="phone" i], input[name*="whatsapp" i], input[id*="phone" i], input[id*="whatsapp" i]',
-            ) ||
-            Array.from(form.querySelectorAll("input")).find((el) =>
-              /7x|7X|phone|whatsapp/i.test(el.placeholder || ""),
-            );
-
-          const textarea = form.querySelector("textarea");
-
-          const selects = Array.from(form.querySelectorAll("select"));
-          const countrySelect =
-            selects.find((el) =>
-              /country|code|??????/i.test(
-                (el.name || "") + " " + (el.id || ""),
-              ),
-            ) || selects[0];
-          const serviceSelect =
-            selects.find((el) =>
-              /service|??????/i.test((el.name || "") + " " + (el.id || "")),
-            ) || selects[1];
-          const budgetSelect =
-            selects.find((el) =>
-              /budget|?????????/i.test((el.name || "") + " " + (el.id || "")),
-            ) || selects[2];
-          const timelineSelect =
-            selects.find((el) =>
-              /timeline|????|time/i.test((el.name || "") + " " + (el.id || "")),
-            ) || selects[3];
-
-          if (nameInput) {
-            setText(findLabelFor(nameInput), dict.name, dir);
-            nameInput.placeholder = dict.namePh;
-            nameInput.setAttribute("dir", dir);
-          }
-
-          if (emailInput) {
-            setText(findLabelFor(emailInput), dict.email, dir);
-            emailInput.placeholder = "example@gmail.com";
-            emailInput.setAttribute("dir", "ltr");
-          }
-
-          if (phoneInput) {
-            setText(findLabelFor(phoneInput), dict.phone, dir);
-            phoneInput.placeholder = "7XXXXXXXX";
-            phoneInput.setAttribute("dir", "ltr");
-            phoneInput.style.textAlign = isArabic() ? "right" : "left";
-          }
-
-          if (countrySelect) {
-            setText(findLabelFor(countrySelect), dict.country, dir);
-          }
-
-          if (serviceSelect) {
-            setText(findLabelFor(serviceSelect), dict.service, dir);
-            const option = serviceSelect.querySelector(
-              'option[value=""], option[disabled]',
-            );
-            if (option) option.textContent = dict.servicePh;
-          }
-
-          if (budgetSelect) {
-            setText(findLabelFor(budgetSelect), dict.budget, dir);
-            const option = budgetSelect.querySelector(
-              'option[value=""], option[disabled]',
-            );
-            if (option) option.textContent = dict.budgetPh;
-          }
-
-          if (timelineSelect) {
-            setText(findLabelFor(timelineSelect), dict.timeline, dir);
-            const option = timelineSelect.querySelector(
-              'option[value=""], option[disabled]',
-            );
-            if (option) option.textContent = dict.timelinePh;
-          }
-
-          if (textarea) {
-            setText(findLabelFor(textarea), dict.message, dir);
-            textarea.placeholder = dict.messagePh;
-            textarea.setAttribute("dir", dir);
-          }
-
-          const submit =
-            form.querySelector('button[type="submit"]') ||
-            Array.from(form.querySelectorAll("button")).find((btn) =>
-              /ابدأ مشروعك|Start your project|clear plan/i.test(
-                btn.textContent || "",
-              ),
-            );
-
-          if (submit) {
-            const submitTitle = submit.querySelector(".quote-title") || submit;
-            setText(submitTitle, dict.submit, dir);
-            submit.setAttribute("dir", dir);
-          }
-
-          // Direct contact heading follows page language
-          const contactRoot =
-            document.querySelector("#contact") ||
-            form.closest("section") ||
-            document.body;
-          const directCards = Array.from(
-            contactRoot.querySelectorAll(".glass-card"),
-          ).filter((card) => card.querySelector("[aria-label='WhatsApp']"));
-
-          directCards.forEach((card) => {
-            const heading = card.querySelector("h1,h2,h3,h4");
-            setText(heading, dict.direct, dir);
-          });
-
-          // Social card names stay English in both languages
-          contactRoot
-            .querySelectorAll(
-              "[aria-label='WhatsApp'] .font-bold, [aria-label='Email'] .font-bold, [aria-label='Instagram'] .font-bold, [aria-label='GitHub'] .font-bold, [aria-label='LinkedIn'] .font-bold, [aria-label='Facebook'] .font-bold",
-            )
-            .forEach((el) => {
-              const card = el.closest("[aria-label]");
-              if (!card) return;
-              setText(el, card.getAttribute("aria-label"), "ltr");
-            });
-
-          contactRoot
-            .querySelectorAll(
-              "label, .font-label-sm, .text-label-sm, span, button",
-            )
-            .forEach((el) => {
-              cleanElement(el, el.closest("[aria-label]") ? "ltr" : dir);
-            });
-        }
-
-        function boot() {
-          applyContactFormLanguage();
-          setTimeout(applyContactFormLanguage, 50);
-          setTimeout(applyContactFormLanguage, 250);
-          setTimeout(applyContactFormLanguage, 800);
-          setTimeout(applyContactFormLanguage, 1500);
-        }
-
-        document.addEventListener("DOMContentLoaded", boot);
-        window.addEventListener("load", boot);
-        document.addEventListener("click", () => {
-          setTimeout(applyContactFormLanguage, 100);
-          setTimeout(applyContactFormLanguage, 400);
-        });
-      })();
-    </script>
-    <!-- AQUA_HARD_CONTACT_FORM_FIX_END -->
   </body>
 </html>

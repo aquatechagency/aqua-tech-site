@@ -299,6 +299,8 @@
 
       "trust.kicker": "لماذا Aqua.Tech",
       "trust.title": "لماذا تختار Aqua.Tech",
+      "form.submit": "ابدأ مشروعك بخطة واضحة",
+
       "trust.description":
         "نركز على بناء حلول واضحة، قابلة للتنفيذ، وتخدم هدف المشروع بدل الاكتفاء بواجهة جميلة فقط.",
       "trust.card1.kicker": "الخطوة الأولى",
@@ -710,26 +712,23 @@
       "services.details.care.item4": "تقارير شهرية وخطوات تطوير مقترحة",
 
       // Arabic
-      "form.service.group.core": "Core Services — البناء الأساسي",
-      "form.service.group.growth": "Growth Services — النمو والتحويل",
-      "form.service.group.care": "Care Services — الدعم والتحسين",
+      "form.service.group.core": "Core Services",
+      "form.service.group.growth": "Growth Services ",
+      "form.service.group.care": "Care Services ",
       "form.service.group.ready": "Ready Solutions ",
 
-      "form.service.corePackage": "Core Services - البناء الأساسي للمشروع",
       "form.service.landing": "صفحة هبوط تسويقية",
       "form.service.companyWebsite": "موقع شركة أو متجر",
       "form.service.customSystem": "نظام أو لوحة تحكم مخصصة",
       "form.service.aiAutomation": "AI / Automation",
       "form.service.leadIntake": "موقع مع نظام استقبال طلبات",
 
-      "form.service.growthPackage": "Growth Services - النمو والتحويل",
       "form.service.socialMedia": "إدارة السوشيال ميديا",
       "form.service.paidCampaigns": "حملات إعلانية",
       "form.service.conversion": "تحسين التحويل",
       "form.service.designBranding": "تصميم واجهات وهوية بصرية",
       "form.service.seo": "تحسين الظهور في البحث SEO",
 
-      "form.service.carePackage": "Care Services - الدعم والتحسين",
       "form.service.maintenance": "صيانة وتحديثات",
       "form.service.support": "دعم فني",
       "form.service.performance": "تحسين السرعة والأداء",
@@ -741,6 +740,10 @@
       "form.service.attendance": "Smart Attendance",
       "form.service.other": "خدمة أخرى أو فكرة جديدة",
       "form.service.required": "يرجى اختيار الخدمة المطلوبة.",
+
+      "form.badge.validated": "🔒 مدخلات مُتحقق منها",
+      "form.badge.spam": "🛡️ حماية من السبام",
+      "form.badge.secure": "⚙️ تهيئة آمنة عند النشر",
     },
 
     en: {
@@ -814,6 +817,7 @@
         "A system for managing cases, clients, appointments, and legal files in a clearer way.",
       "solutions.law.point1": "File management",
       "solutions.law.point2": "Appointment tracking",
+      "form.submit": "Start your project with a clear plan",
 
       "solutions.resume.title": "ResumeIQ",
       "solutions.resume.desc":
@@ -1192,21 +1196,18 @@
       "form.service.group.care": "Care Services",
       "form.service.group.ready": "Ready Solutions",
 
-      "form.service.corePackage": "Core Services package",
       "form.service.landing": "Professional landing page",
       "form.service.companyWebsite": "Company website or online store",
       "form.service.customSystem": "Custom system or dashboard",
       "form.service.aiAutomation": "AI / Automation",
       "form.service.leadIntake": "Website and lead intake system",
 
-      "form.service.growthPackage": "Growth Services package",
       "form.service.socialMedia": "Social media management",
       "form.service.paidCampaigns": "Paid advertising campaigns",
       "form.service.conversion": "Conversion optimization",
       "form.service.designBranding": "UI/UX design and branding",
       "form.service.seo": "SEO visibility optimization",
 
-      "form.service.carePackage": "Care Services package",
       "form.service.maintenance": "Maintenance and updates",
       "form.service.support": "Technical support",
       "form.service.performance": "Performance optimization",
@@ -1218,6 +1219,10 @@
       "form.service.attendance": "Smart Attendance",
       "form.service.other": "Another service or idea",
       "form.service.required": "Please select a service.",
+
+      "form.badge.validated": "🔒 Validated inputs",
+      "form.badge.spam": "🛡️ Spam protection",
+      "form.badge.secure": "⚙️ Secure launch setup",
     },
   };
 
