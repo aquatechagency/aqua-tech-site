@@ -1,210 +1,293 @@
-// ===== Form send (Google Sheets only) =====
+(function () {
+  function onReady(fn) {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", fn);
+    } else {
+      fn();
+    }
+  }
+
+  function getLang() {
+    const lang =
+      localStorage.getItem("aqua_lang") ||
+      document.documentElement.lang ||
+      "ar";
+
+    return lang.toLowerCase().startsWith("en") ? "en" : "ar";
+  }
+
+  const COPY = {
+    ar: {
+      sending: "جارٍ إرسال الطلب...",
+      success: "تم استلام طلبك بنجاح. سنتواصل معك قريبًا.",
+      error: "تعذر إرسال الطلب حاليًا. حاول مرة أخرى أو تواصل معنا عبر واتساب.",
+      required: "يرجى تعبئة الاسم وطريقة التواصل والخدمة المطلوبة.",
+      cooldown: "تم إرسال طلب قبل قليل. انتظر لحظات ثم حاول مرة أخرى.",
+    },
+    en: {
+      sending: "Sending your request...",
+      success: "Your request has been received. We will contact you soon.",
+      error:
+        "We could not send your request right now. Please try again or contact us on WhatsApp.",
+      required: "Please fill in your name, contact method, and required service.",
+      cooldown: "A request was sent recently. Please wait a little and try again.",
+    },
+  };
+
+  function t(key) {
+    const lang = getLang();
+    return COPY[lang]?.[key] || COPY.ar[key] || "";
+  }
+
+  onReady(function () {
     const formEl = document.getElementById("contactForm");
+    if (!formEl) return;
+
     const statusEl = document.getElementById("formStatus");
     const btnSend = document.getElementById("sendLead");
-
     const successModal = document.getElementById("successModal");
-const successModalText = document.getElementById("successModalText");
-const successModalClose = document.getElementById("successModalClose");
+    const successModalText = document.getElementById("successModalText");
+    const successModalClose = document.getElementById("successModalClose");
 
-function showSuccessModal(message){
-  if(!successModal) return;
-  if(successModalText && message) successModalText.textContent = message;
-  successModal.classList.add("is-open");
-  successModal.setAttribute("aria-hidden", "false");
-  document.body.style.overflow = "hidden";
-}
+    const CONFIG = window.AQUA_CONFIG || {};
+    const SUBMIT_URL = CONFIG.SHEETS_SCRIPT_URL || "";
+    const COOLDOWN_MS = Number(CONFIG.SUBMIT_COOLDOWN_MS || 30000);
+    const COOLDOWN_KEY = "aqua_contact_last_submit";
 
-function hideSuccessModal(){
-  if(!successModal) return;
-  successModal.classList.remove("is-open");
-  successModal.setAttribute("aria-hidden", "true");
-  document.body.style.overflow = "";
-}
+    function showSuccessModal(message) {
+      if (!successModal) {
+        setStatus(message);
+        return;
+      }
 
-if(successModalClose){
-  successModalClose.addEventListener("click", hideSuccessModal);
-}
+      if (successModalText && message) {
+        successModalText.textContent = message;
+      }
 
-if(successModal){
-  successModal.addEventListener("click", function(e){
-    if(e.target === successModal) hideSuccessModal();
-  });
-}
+      successModal.classList.add("is-open");
+      successModal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
 
-document.addEventListener("keydown", function(e){
-  if(e.key === "Escape") hideSuccessModal();
-});
+    function hideSuccessModal() {
+      if (!successModal) return;
 
-function getFormData() {
-  const email = document.getElementById("fEmail")?.value?.trim() || "";
-  const countryCode = document.getElementById("fCountryCode")?.value?.trim() || "+962";
-  const phone = document.getElementById("fPhone")?.value?.trim() || "";
-  const cleanPhone = phone.replace(/\D/g, "").replace(/^0+/, "");
-  const fullPhone = cleanPhone ? `${countryCode.replace("+", "")}${cleanPhone}` : "";
-  const fullPhoneEl = document.getElementById("fFullPhone");
-  if(fullPhoneEl) fullPhoneEl.value = fullPhone;
+      successModal.classList.remove("is-open");
+      successModal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
 
-  return {
-    name: document.getElementById("fName")?.value?.trim() || "",
-    email,
-    country_code: countryCode,
-    phone,
-    full_phone: fullPhone,
-    service: document.getElementById("fService")?.value?.trim() || "",
-    budget: document.getElementById("fBudget")?.value?.trim() || "",
-    timeline: document.getElementById("fTimeline")?.value?.trim() || "",
-    details: document.getElementById("fDetails")?.value?.trim() || ""
-  };
-}
+    successModalClose?.addEventListener("click", hideSuccessModal);
 
-    function getLeadPayload(){
-      const d = getFormData();
-      const website = document.getElementById("fWebsite")?.value?.trim() || "";
+    successModal?.addEventListener("click", function (event) {
+      if (event.target === successModal) hideSuccessModal();
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") hideSuccessModal();
+    });
+
+    function valueOf(id) {
+      return document.getElementById(id)?.value?.trim() || "";
+    }
+
+    function setStatus(text) {
+      if (statusEl) statusEl.textContent = text || "";
+    }
+
+    function setBusy(isBusy) {
+      if (!btnSend) return;
+
+      btnSend.disabled = !!isBusy;
+      btnSend.classList.toggle("opacity-60", !!isBusy);
+      btnSend.classList.toggle("cursor-not-allowed", !!isBusy);
+    }
+
+    function setFieldError(id, hasError) {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      el.classList.toggle("ring-2", !!hasError);
+      el.classList.toggle("ring-red-500/40", !!hasError);
+      el.classList.toggle("border-red-500/40", !!hasError);
+    }
+
+    function setServiceError(hasError) {
+      const root = document.querySelector('[data-aqua-select="service"]');
+      if (!root) return;
+
+      const trigger = root.querySelector(".aqua-select-trigger");
+      const error = root.querySelector(".aqua-select-error");
+
+      trigger?.classList.toggle("ring-2", !!hasError);
+      trigger?.classList.toggle("ring-red-500/40", !!hasError);
+      trigger?.classList.toggle("border-red-500/40", !!hasError);
+      error?.classList.toggle("is-visible", !!hasError);
+    }
+
+    function getFormData() {
+      const email = valueOf("fEmail");
+      const countryCode = valueOf("fCountryCode") || "+962";
+      const phone = valueOf("fPhone");
+      const cleanPhone = phone.replace(/\D/g, "").replace(/^0+/, "");
+      const fullPhone = cleanPhone
+        ? `${countryCode.replace("+", "")}${cleanPhone}`
+        : "";
+
+      const fullPhoneEl = document.getElementById("fFullPhone");
+      if (fullPhoneEl) fullPhoneEl.value = fullPhone;
+
       return {
-        name: d.name,
-        email: d.email,
-        country_code: d.country_code,
-        phone: d.phone,
-        full_phone: d.full_phone,
-        contact: d.email || d.full_phone,
-        service: d.service,
-        budget: d.budget,
-        timeline: d.timeline,
-        details: d.details,
-        website,          // honeypot (should stay empty)
-        lang: currentLang,
-        page: location.href,
-        referrer: document.referrer || "",
-        ua: navigator.userAgent || "",
-        ts: new Date().toISOString()
+        name: valueOf("fName"),
+        email,
+        country_code: countryCode,
+        phone,
+        full_phone: fullPhone,
+        service: valueOf("serviceInput"),
+        budget: valueOf("fBudget"),
+        timeline: valueOf("fTimeline"),
+        details: valueOf("fDetails"),
+        website: valueOf("fWebsite"),
       };
     }
 
-    function buildMessage(lang, data){
-      const m = (I18N[lang] || I18N.ar).msg;
-      return `${m.name}: ${data.name}
-${m.contact}: ${data.email || data.full_phone || "-"}
-${m.service}: ${data.service || "-"}
-${m.budget}: ${data.budget || "-"}
-${m.timeline}: ${data.timeline || "-"}
-${m.details}:
-${data.details || "-"}
+    function validate(data) {
+      ["fName", "fEmail", "fPhone", "fDetails"].forEach((id) =>
+        setFieldError(id, false),
+      );
+      setServiceError(false);
 
-— Aqua.Tech`;
-    }
+      const hasName = data.name.length >= 2;
+      const hasContact = Boolean(data.email || data.full_phone);
+      const hasService = Boolean(data.service);
 
-    function setStatus(text){
-      if(!statusEl) return;
-      statusEl.textContent = text;
-    }
+      if (!hasName) setFieldError("fName", true);
 
-    function setBusy(on){
-      [btnSend].forEach(b=>{
-        if(!b) return;
-        b.disabled = !!on;
-        b.classList.toggle("opacity-60", !!on);
-        b.classList.toggle("cursor-not-allowed", !!on);
-      });
-    }
-
-    function setFieldError(id, on){
-      const el = document.getElementById(id);
-      if(!el) return;
-      el.classList.toggle("ring-2", on);
-      el.classList.toggle("ring-red-500/40", on);
-      el.classList.toggle("border-red-500/40", on);
-    }
-
-    function validate(data){
-      // reset
-      ["fName","fEmail","fPhone","fDetails"].forEach(id => setFieldError(id,false));
-
-      const hasName = !!data.name;
-      const hasDetails = (data.details || "").trim().length >= 10; // تفاصيل مفهومة
-      const hasEmail = !!data.email;
-      const hasPhone = !!data.full_phone;
-      const hasContact = hasEmail || hasPhone;
-
-      if(!hasName) setFieldError("fName", true);
-      if(!hasContact){
+      if (!hasContact) {
         setFieldError("fEmail", true);
         setFieldError("fPhone", true);
       }
-      if(!hasDetails && !hasContact){
-        setFieldError("fDetails", true);
+
+      if (!hasService) {
+        setServiceError(true);
       }
 
-      return hasName && hasContact;
+      return hasName && hasContact && hasService;
     }
 
-    // Smart form helper for Social Media Management
-function updateDetailsPlaceholderByService(){
-  const serviceSelect = document.getElementById("fService");
-  const detailsField = document.getElementById("fDetails");
-  if(!serviceSelect || !detailsField) return;
-
-  if(serviceSelect.value === "social_media_management"){
-    detailsField.placeholder = currentLang === "ar"
-      ? "اكتب لنا عدد الحسابات، نوع النشاط، هل لديك محتوى جاهز، وكم منشور/ريلز تحتاج شهريًا."
-      : "Tell us how many accounts you have, your business type, if content is ready, and how many posts/reels you need monthly.";
-  } else {
-    const dict = I18N[currentLang] || I18N.ar;
-    detailsField.placeholder = dict["form.detailsPh"] || "";
-  }
-}
-
-document.getElementById("fService")?.addEventListener("change", updateDetailsPlaceholderByService);
-
-function prefillService(serviceKey){
-  const select = document.getElementById("fService");
-  const details = document.getElementById("fDetails");
-  const name = document.getElementById("fName");
-
-  if(select){
-    const option = Array.from(select.options).find(opt => opt.value === serviceKey);
-    if(option){
-      select.value = serviceKey;
-      select.dispatchEvent(new Event("change", { bubbles: true }));
+    function buildPayload(data) {
+      return {
+        ...data,
+        contact: data.email || data.full_phone,
+        lang: getLang(),
+        page: window.location.href,
+        referrer: document.referrer || "",
+        ua: navigator.userAgent || "",
+        ts: new Date().toISOString(),
+        source: "aquatech_website_contact_form",
+      };
     }
-  }
 
-  if(details && select){
-    const label = (select.options[select.selectedIndex]?.textContent || "").trim();
-    const prefix = (currentLang === "ar") ? "أرغب بخدمة:" : "I'm interested in:";
-    const line = `${prefix} ${label}`.trim();
-    const existing = (details.value || "").trim();
-
-    if(!existing){
-      details.value = line + "\n";
-    } else if(existing.startsWith(prefix)){
-      const parts = existing.split("\n");
-      parts[0] = line;
-      details.value = parts.join("\n");
-    } else {
-      details.value = line + "\n" + existing;
+    function canSubmitNow() {
+      const last = Number(localStorage.getItem(COOLDOWN_KEY) || 0);
+      return Date.now() - last > COOLDOWN_MS;
     }
-  }
 
-  setTimeout(()=>{
-    try{
-      name?.focus({ preventScroll: true });
-    } catch(e){
-      name?.focus();
+    function markSubmittedNow() {
+      localStorage.setItem(COOLDOWN_KEY, String(Date.now()));
     }
-  }, 350);
-}
 
-        function bindServiceCtas(){
-      document.querySelectorAll(".js-service-cta").forEach((a)=>{
-        a.addEventListener("click", (e)=>{
-          e.preventDefault();
-          const service = a.getAttribute("data-service") || "";
-          scrollToContactWithOffset();
-          prefillService(service);
-          try { history.replaceState(null, "", "#contact"); } catch(e) {}
-        });
+    function resetCustomSelects() {
+      document.querySelectorAll(".aqua-custom-select").forEach((root) => {
+        root.classList.remove("is-open");
+
+        const input = root.querySelector("input[type='hidden']");
+        const selected = root.querySelectorAll(".aqua-select-option.is-selected");
+
+        selected.forEach((item) => item.classList.remove("is-selected"));
+        if (input) input.value = "";
+
+        const type = root.getAttribute("data-aqua-select");
+        const text =
+          root.querySelector(".aqua-select-text") ||
+          root.querySelector("#serviceSelectText");
+
+        if (!text) return;
+
+        if (type === "service") {
+          text.setAttribute("data-i18n", "form.service.placeholder");
+          text.textContent = getLang() === "ar" ? "اختر الخدمة" : "Choose service";
+        }
+
+        if (type === "budget") {
+          text.setAttribute("data-i18n", "form.budget.placeholder");
+          text.textContent =
+            getLang() === "ar" ? "اختر الميزانية" : "Choose budget";
+        }
+
+        if (type === "timeline") {
+          text.setAttribute("data-i18n", "form.timeline.placeholder");
+          text.textContent =
+            getLang() === "ar" ? "اختر الموعد" : "Choose timeline";
+        }
       });
+
+      window.applyAquaLanguage?.(getLang());
     }
 
-        bindServiceCtas();
+    formEl.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const data = getFormData();
+
+      if (data.website) return;
+
+      if (!validate(data)) {
+        setStatus(t("required"));
+        return;
+      }
+
+      if (!canSubmitNow()) {
+        setStatus(t("cooldown"));
+        return;
+      }
+
+      if (!SUBMIT_URL) {
+        setStatus(t("error"));
+        return;
+      }
+
+      setBusy(true);
+      setStatus(t("sending"));
+
+      try {
+        const payload = buildPayload(data);
+
+        await fetch(SUBMIT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8",
+          },
+          body: JSON.stringify(payload),
+        });
+
+        markSubmittedNow();
+        formEl.reset();
+        resetCustomSelects();
+        setStatus("");
+        showSuccessModal(t("success"));
+
+        window.gtag?.("event", "generate_lead", {
+          event_category: "contact",
+          event_label: data.service || "unknown",
+        });
+      } catch (error) {
+        console.error("Aqua contact form error:", error);
+        setStatus(t("error"));
+      } finally {
+        setBusy(false);
+      }
+    });
+  });
+})();
