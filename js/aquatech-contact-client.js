@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   function onReady(fn) {
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", fn);
@@ -63,6 +63,31 @@
     return `${countryCode}${cleanLocal}`;
   }
 
+  function buildProposalWhatsAppUrl(leadId, lang) {
+    const aquaWhatsAppNumber = "962780932199";
+
+    const message =
+      lang === "ar"
+        ? [
+            "مرحباً Aqua.Tech،",
+            "أريد استلام البروبوزل الأولي لطلبي.",
+            leadId ? `رقم الطلب: ${leadId}` : "",
+          ]
+            .filter(Boolean)
+            .join("\n")
+        : [
+            "Hello Aqua.Tech,",
+            "I would like to receive my instant proposal.",
+            leadId ? `Request ID: ${leadId}` : "",
+          ]
+            .filter(Boolean)
+            .join("\n");
+
+    return `https://wa.me/${aquaWhatsAppNumber}?text=${encodeURIComponent(
+      message,
+    )}`;
+  }
+
   function showWhatsAppBox(url, requestId, labels = {}) {
     if (!url) {
       console.warn("[AquaTech n8n] WhatsApp URL is empty");
@@ -79,7 +104,9 @@
 
     const buttonLabel =
       labels.proposal_button_label ||
-      (lang === "ar" ? "الحصول على البروبوزل" : "Get the proposal");
+      (lang === "ar"
+        ? "الحصول على البروبوزل"
+        : "Get the proposal");
 
     let box = document.getElementById("proposalWhatsAppBox");
     let link = document.getElementById("proposalWhatsAppLink");
@@ -136,6 +163,18 @@
 
     link.href = url;
     link.textContent = buttonLabel;
+    link.style.display = "inline-flex";
+    link.style.width = "100%";
+    link.style.alignItems = "center";
+    link.style.justifyContent = "center";
+    link.style.minHeight = "48px";
+    link.style.padding = "0 22px";
+    link.style.borderRadius = "14px";
+    link.style.color = "#ffffff";
+    link.style.fontWeight = "900";
+    link.style.textDecoration = "none";
+    link.style.background = "linear-gradient(135deg, #0f7fd8, #18c7e8)";
+    link.style.boxShadow = "0 14px 30px rgba(15, 127, 216, 0.28)";
 
     if (requestId) {
       link.setAttribute("data-request-id", requestId);
@@ -181,7 +220,9 @@
         const honeypot = valueOf("fWebsite");
         if (honeypot) {
           setStatus(
-            lang === "ar" ? "تم استلام طلبك بنجاح." : "Request received.",
+            lang === "ar"
+              ? "تم استلام طلبك بنجاح."
+              : "Request received.",
             "success",
           );
           return;
@@ -245,58 +286,110 @@
         try {
           setBusy(true);
           setStatus(
-            lang === "ar" ? "جاري إرسال الطلب..." : "Sending request...",
+            lang === "ar"
+              ? "جاري إرسال الطلب..."
+              : "Sending request...",
             "neutral",
           );
 
-          const response = await fetch("/api/contact", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(payload),
-          });
-
-          const text = await response.text();
-
           let data = {};
-          try {
-            data = text ? JSON.parse(text) : {};
-          } catch {
-            throw new Error("Invalid response from contact API.");
-          }
 
-          console.log("[AquaTech n8n] /api/contact response:", data);
+          const isLocalPreview =
+            window.location.hostname === "localhost" ||
+            window.location.hostname === "127.0.0.1" ||
+            window.location.protocol === "file:";
 
-          if (!response.ok || !data.ok) {
-            throw new Error(
-              data.message ||
-                (lang === "ar"
-                  ? "تعذر إرسال الطلب حالياً."
-                  : "Could not send the request right now."),
-            );
-          }
+          if (isLocalPreview) {
+            const localId = `LOCAL-${Date.now()}`;
 
-          setStatus(
-            data.message ||
-              (lang === "ar"
-                ? "تم تقديم الطلب بنجاح."
-                : "Your request has been submitted successfully."),
-            "success",
-          );
+            data = {
+              ok: true,
+              message:
+                lang === "ar"
+                  ? "تم تقديم الطلب بنجاح."
+                  : "Your request has been submitted successfully.",
+              request_id: localId,
+              lead_id: localId,
+            };
 
-          if (data.whatsapp_url) {
-            showWhatsAppBox(
-              data.whatsapp_url,
-              data.request_id || data.lead_id || "",
-              {
-                proposal_helper_text: data.proposal_helper_text,
-                proposal_button_label: data.proposal_button_label,
-              },
-            );
+            console.log("[AquaTech local preview] Contact API skipped:", data);
           } else {
-            console.warn("[AquaTech n8n] No whatsapp_url returned:", data);
+            const response = await fetch("/api/contact", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(payload),
+            });
+
+            const text = await response.text();
+
+            try {
+              data = text ? JSON.parse(text) : {};
+            } catch {
+              throw new Error("Invalid response from contact API.");
+            }
+
+            console.log("[AquaTech n8n] /api/contact response:", data);
+
+            if (!response.ok || !data.ok) {
+              throw new Error(
+                data.message ||
+                  (lang === "ar"
+                    ? "تعذر إرسال الطلب حالياً."
+                    : "Could not send the request right now."),
+              );
+            }
           }
+
+          const isArabic = lang === "ar";
+          const leadId = data.request_id || data.lead_id || `AQ-${Date.now()}`;
+
+          const proposalLead = {
+            ...payload,
+            id: leadId,
+            leadId,
+            proposalId: leadId,
+            name: payload.full_name,
+            service: payload.service_type,
+            details: payload.message,
+            activity: payload.company_activity,
+            company: payload.company_name,
+            created_at: new Date().toISOString(),
+          };
+
+          try {
+            localStorage.setItem(
+              "aquatech_proposal_lead",
+              JSON.stringify(proposalLead),
+            );
+          } catch (_) {}
+
+          const successMessage = isArabic
+            ? "تم تقديم الطلب بنجاح."
+            : "Your request has been submitted successfully.";
+
+          setStatus(successMessage, "success");
+
+          const modal = document.getElementById("successModal");
+          if (modal) {
+            modal.classList.remove("is-open");
+            modal.setAttribute("hidden", "");
+            modal.style.display = "none";
+            modal.style.visibility = "hidden";
+            modal.style.opacity = "0";
+          }
+
+          const proposalWhatsAppUrl = buildProposalWhatsAppUrl(leadId, lang);
+
+          showWhatsAppBox(proposalWhatsAppUrl, leadId, {
+            proposal_helper_text: isArabic
+              ? "اضغط الزر التالي للحصول على البروبوزل الأولي عبر واتساب."
+              : "Click the button below to get your instant proposal on WhatsApp.",
+            proposal_button_label: isArabic
+              ? "الحصول على البروبوزل"
+              : "Get Proposal",
+          });
 
           window.gtag?.("event", "contact_form_submit", {
             event_category: "lead",

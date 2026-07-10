@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Aqua.Tech Proposal</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --aqua-bg: #061416;
+        --aqua-card: rgba(255, 255, 255, 0.08);
+        --aqua-border: rgba(118, 255, 239, 0.22);
+        --aqua-text: #ecfeff;
+        --aqua-muted: rgba(236, 254, 255, 0.72);
+        --aqua-primary: #35f4e6;
+        --aqua-primary-2: #0ea5a8;
+        --overlay-text: #ecfeff;
+        --overlay-muted: rgba(236, 254, 255, 0.78);
+        --overlay-dark: #082426;
+        --page-width: 794px;
+        --page-height: 1123px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background:
+          radial-gradient(circle at 15% 0%, rgba(53, 244, 230, 0.18), transparent 32%),
+          radial-gradient(circle at 85% 15%, rgba(14, 165, 168, 0.14), transparent 34%),
+          var(--aqua-bg);
+        color: var(--aqua-text);
+        font-family: Alexandria, Manrope, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      body[dir="ltr"] {
+        font-family: Manrope, Alexandria, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .proposal-shell {
+        width: 100%;
+        min-height: 100vh;
+        padding: 96px 16px 48px;
+      }
+
+      .proposal-toolbar {
+        position: fixed;
+        z-index: 100;
+        top: 18px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(960px, calc(100% - 28px));
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 12px;
+        border: 1px solid var(--aqua-border);
+        border-radius: 999px;
+        background: rgba(6, 20, 22, 0.78);
+        backdrop-filter: blur(18px);
+        box-shadow: 0 18px 56px rgba(0, 0, 0, 0.28);
+      }
+
+      .toolbar-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+        padding-inline-start: 8px;
+      }
+
+      .toolbar-logo {
+        display: grid;
+        width: 36px;
+        height: 36px;
+        place-items: center;
+        border-radius: 12px;
+        background: linear-gradient(135deg, rgba(53, 244, 230, 0.22), rgba(14, 165, 168, 0.08));
+        border: 1px solid rgba(53, 244, 230, 0.28);
+        font-family: "Space Grotesk", Alexandria, sans-serif;
+        font-weight: 800;
+        color: var(--aqua-primary);
+      }
+
+      .toolbar-title {
+        display: grid;
+        line-height: 1.2;
+      }
+
+      .toolbar-title strong {
+        font-size: 13px;
+        letter-spacing: 0.02em;
+      }
+
+      .toolbar-title span {
+        color: var(--aqua-muted);
+        font-size: 11px;
+      }
+
+      .toolbar-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+
+      .tool-btn {
+        border: 1px solid rgba(236, 254, 255, 0.14);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--aqua-text);
+        min-height: 38px;
+        padding: 0 14px;
+        font: inherit;
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+      }
+
+      .tool-btn:hover {
+        transform: translateY(-1px);
+        border-color: rgba(53, 244, 230, 0.42);
+        background: rgba(53, 244, 230, 0.12);
+      }
+
+      .tool-btn.primary {
+        color: #042427;
+        border-color: transparent;
+        background: linear-gradient(135deg, var(--aqua-primary), #9ffcf5);
+      }
+
+      .proposal-pages {
+        display: grid;
+        justify-content: center;
+        gap: 24px;
+      }
+
+      .proposal-page {
+        position: relative;
+        width: var(--page-width);
+        height: var(--page-height);
+        max-width: 100%;
+        overflow: hidden;
+        isolation: isolate;
+        border-radius: 18px;
+        background-color: #061416;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        box-shadow: 0 30px 100px rgba(0, 0, 0, 0.36);
+      }
+
+      .page-1 {
+        background-image: url("./assets/proposal/proposal-page-1.png");
+      }
+
+      .page-2 {
+        background-image: url("./assets/proposal/proposal-page-2.png");
+      }
+
+      .page-2.is-hidden {
+        display: none;
+      }
+
+      .field {
+        position: absolute;
+        z-index: 2;
+        color: var(--overlay-text);
+        line-height: 1.55;
+        overflow: hidden;
+        overflow-wrap: anywhere;
+        white-space: pre-wrap;
+        text-align: start;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.18);
+      }
+
+      .field.small {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--overlay-muted);
+      }
+
+      .field.medium {
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      .field.large {
+        font-size: 26px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+
+      .field.box {
+        padding: 12px 14px;
+        border: 1px solid rgba(53, 244, 230, 0.18);
+        border-radius: 16px;
+        background: rgba(6, 20, 22, 0.38);
+      }
+
+      .ltr-value {
+        direction: ltr;
+        unicode-bidi: plaintext;
+      }
+
+      /*
+        IMPORTANT:
+        هاي الإحداثيات هي نقطة البداية فقط.
+        عشان يكون مطابق 100%، عدّل top/right/left/width/height بعد ما تحط صورة الصفحة الأصلية.
+      */
+      #proposalId {
+        top: 71px;
+        inset-inline-end: 76px;
+        width: 220px;
+        height: 28px;
+      }
+
+      #proposalDate {
+        top: 103px;
+        inset-inline-end: 76px;
+        width: 220px;
+        height: 28px;
+      }
+
+      #clientName {
+        top: 292px;
+        inset-inline-start: 76px;
+        width: 410px;
+        height: 48px;
+      }
+
+      #clientContact {
+        top: 346px;
+        inset-inline-start: 76px;
+        width: 410px;
+        height: 64px;
+      }
+
+      #serviceName {
+        top: 476px;
+        inset-inline-start: 76px;
+        width: 300px;
+        height: 54px;
+      }
+
+      #budgetValue {
+        top: 476px;
+        inset-inline-start: 404px;
+        width: 145px;
+        height: 54px;
+      }
+
+      #timelineValue {
+        top: 476px;
+        inset-inline-start: 574px;
+        width: 145px;
+        height: 54px;
+      }
+
+      #projectDetails {
+        top: 604px;
+        inset-inline-start: 76px;
+        width: 642px;
+        height: 150px;
+      }
+
+      #suggestedNextStep {
+        top: 815px;
+        inset-inline-start: 76px;
+        width: 642px;
+        height: 94px;
+      }
+
+      #companyNote {
+        top: 972px;
+        inset-inline-start: 76px;
+        width: 642px;
+        height: 68px;
+      }
+
+      #page2ClientName {
+        top: 150px;
+        inset-inline-start: 76px;
+        width: 350px;
+        height: 44px;
+      }
+
+      #page2Methodology {
+        top: 285px;
+        inset-inline-start: 76px;
+        width: 642px;
+        height: 310px;
+      }
+
+      #page2WhatsAppNote {
+        top: 795px;
+        inset-inline-start: 76px;
+        width: 642px;
+        height: 92px;
+      }
+
+      @media (max-width: 860px) {
+        .proposal-shell {
+          padding-top: 148px;
+        }
+
+        .proposal-toolbar {
+          border-radius: 24px;
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .toolbar-actions {
+          justify-content: stretch;
+        }
+
+        .tool-btn {
+          flex: 1 1 auto;
+        }
+
+        .proposal-page {
+          transform-origin: top center;
+        }
+      }
+
+      @media print {
+        @page {
+          size: A4;
+          margin: 0;
+        }
+
+        html,
+        body {
+          width: 210mm;
+          background: #ffffff !important;
+        }
+
+        .proposal-toolbar {
+          display: none !important;
+        }
+
+        .proposal-shell {
+          padding: 0 !important;
+          background: #ffffff !important;
+        }
+
+        .proposal-pages {
+          display: block;
+          gap: 0;
+        }
+
+        .proposal-page {
+          width: 210mm;
+          height: 297mm;
+          max-width: none;
+          border-radius: 0;
+          box-shadow: none;
+          break-after: page;
+          page-break-after: always;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+
+        .proposal-page:last-child {
+          break-after: auto;
+          page-break-after: auto;
+        }
+      }
+    </style>
+  </head>
+
+  <body dir="rtl">
+    <header class="proposal-toolbar" aria-label="Proposal actions">
+      <div class="toolbar-brand">
+        <div class="toolbar-logo">A</div>
+        <div class="toolbar-title">
+          <strong>Aqua.Tech</strong>
+          <span data-i18n="toolbar.subtitle">عرض مبدئي جاهز للعميل</span>
+        </div>
+      </div>
+
+      <nav class="toolbar-actions" aria-label="Actions">
+        <button class="tool-btn" type="button" id="langToggle">English</button>
+        <a class="tool-btn" href="./index.html" data-i18n="toolbar.back">العودة للموقع</a>
+        <a class="tool-btn" id="whatsappBtn" href="#" target="_blank" rel="noopener" data-i18n="toolbar.whatsapp">إرسال على واتساب</a>
+        <button class="tool-btn primary" type="button" id="printBtn" data-i18n="toolbar.print">تحميل PDF</button>
+      </nav>
+    </header>
+
+    <main class="proposal-shell">
+      <section class="proposal-pages" aria-label="Aqua.Tech proposal preview">
+        <article class="proposal-page page-1">
+          <div id="proposalId" class="field small ltr-value"></div>
+          <div id="proposalDate" class="field small"></div>
+
+          <div id="clientName" class="field large"></div>
+          <div id="clientContact" class="field small"></div>
+
+          <div id="serviceName" class="field medium"></div>
+          <div id="budgetValue" class="field medium"></div>
+          <div id="timelineValue" class="field medium"></div>
+
+          <div id="projectDetails" class="field box medium"></div>
+          <div id="suggestedNextStep" class="field box small"></div>
+          <div id="companyNote" class="field small"></div>
+        </article>
+
+        <article class="proposal-page page-2 is-hidden" id="optionalPage2">
+          <div id="page2ClientName" class="field large"></div>
+          <div id="page2Methodology" class="field box medium"></div>
+          <div id="page2WhatsAppNote" class="field box small"></div>
+        </article>
+      </section>
+    </main>
+
+    <script>
+      (function () {
+        "use strict";
+
+        const AQUA_WHATSAPP_NUMBER = "9627XXXXXXXX"; // عدّل الرقم قبل الإطلاق
+        const DEFAULT_LANG = "ar";
+
+        const i18n = {
+          ar: {
+            "toolbar.subtitle": "عرض مبدئي جاهز للعميل",
+            "toolbar.back": "العودة للموقع",
+            "toolbar.whatsapp": "إرسال على واتساب",
+            "toolbar.print": "تحميل PDF",
+            langButton: "English",
+            fallbackName: "عميل Aqua.Tech",
+            notProvided: "غير محدد",
+            proposalLabel: "رقم العرض",
+            dateLabel: "تاريخ العرض",
+            contactEmail: "البريد",
+            contactPhone: "واتساب",
+            detailsFallback: "لم يتم إدخال تفاصيل كافية بعد. سيتم استكمال المتطلبات عبر المحادثة قبل تجهيز العرض الرسمي.",
+            nextStepTitle: "الخطوة التالية المقترحة",
+            nextStepText:
+              "هذا العرض مبدئي ومختصر بناءً على البيانات التي أرسلها العميل. بعد الضغط على زر واتساب، يبدأ فريق Aqua.Tech بجمع التفاصيل الفنية والتجارية اللازمة لتجهيز عرض رسمي أدق.",
+            companyNote:
+              "Aqua.Tech تساعد الشركات على بناء مواقع احترافية، أنظمة مخصصة، أتمتة وذكاء اصطناعي، وحلول نمو قابلة للقياس.",
+            methodology:
+              "منهجيتنا تبدأ بفهم الهدف التجاري، ثم تحويله إلى نطاق عمل واضح، ثم تصميم تجربة مناسبة، ثم بناء وتنفيذ قابل للتوسع، وبعد الإطلاق نتابع التحسين والدعم حسب احتياج المشروع.",
+            whatsappNote:
+              "جاهز نكمل؟ أرسل هذا العرض على واتساب حتى نراجع التفاصيل ونجهز لك Proposal رسمي مخصص بناءً على نطاق المشروع الحقيقي.",
+            whatsappMessageIntro: "مرحباً Aqua.Tech، أريد متابعة العرض المبدئي التالي:",
+            service: "الخدمة",
+            budget: "الميزانية",
+            timeline: "المدة",
+            details: "التفاصيل",
+          },
+          en: {
+            "toolbar.subtitle": "Client-ready preliminary proposal",
+            "toolbar.back": "Back to website",
+            "toolbar.whatsapp": "Send on WhatsApp",
+            "toolbar.print": "Download PDF",
+            langButton: "العربية",
+            fallbackName: "Aqua.Tech Client",
+            notProvided: "Not specified",
+            proposalLabel: "Proposal ID",
+            dateLabel: "Proposal date",
+            contactEmail: "Email",
+            contactPhone: "WhatsApp",
+            detailsFallback: "Not enough project details were submitted yet. Requirements will be completed through the follow-up conversation before preparing the formal proposal.",
+            nextStepTitle: "Suggested next step",
+            nextStepText:
+              "This is a short preliminary proposal based on the client’s submitted information. After sending it on WhatsApp, Aqua.Tech will collect the technical and business details needed to prepare a more accurate formal proposal.",
+            companyNote:
+              "Aqua.Tech helps businesses build professional websites, custom systems, AI automation, and measurable growth solutions.",
+            methodology:
+              "Our methodology starts by understanding the business goal, translating it into a clear scope, designing the right experience, building a scalable solution, then supporting and improving after launch based on the project needs.",
+            whatsappNote:
+              "Ready to continue? Send this proposal on WhatsApp so we can review the details and prepare a tailored formal proposal based on the real project scope.",
+            whatsappMessageIntro: "Hello Aqua.Tech, I want to continue with this preliminary proposal:",
+            service: "Service",
+            budget: "Budget",
+            timeline: "Timeline",
+            details: "Details",
+          },
+        };
+
+        const params = new URLSearchParams(window.location.search);
+
+        function safeDecode(value) {
+          if (!value) return "";
+          try {
+            return decodeURIComponent(String(value).replace(/\+/g, " ")).trim();
+          } catch (_) {
+            return String(value).trim();
+          }
+        }
+
+        function getStoredLead() {
+          const keys = [
+            "aquatech_proposal_lead",
+            "aquatech_last_lead",
+            "aquaTechLastLead",
+            "aqua_lead_payload",
+          ];
+
+          for (const key of keys) {
+            try {
+              const raw = localStorage.getItem(key);
+              if (!raw) continue;
+              const parsed = JSON.parse(raw);
+              if (parsed && typeof parsed === "object") return parsed;
+            } catch (_) {}
+          }
+
+          return {};
+        }
+
+        const storedLead = getStoredLead();
+
+        function pick(keys, fallback = "") {
+          for (const key of keys) {
+            const fromParams = safeDecode(params.get(key));
+            if (fromParams) return fromParams;
+
+            const fromStorage = storedLead[key];
+            if (typeof fromStorage === "string" && fromStorage.trim()) return fromStorage.trim();
+            if (fromStorage !== undefined && fromStorage !== null && String(fromStorage).trim()) {
+              return String(fromStorage).trim();
+            }
+          }
+          return fallback;
+        }
+
+        function currentLang() {
+          const requested = safeDecode(params.get("lang")) || localStorage.getItem("aqua_lang") || document.documentElement.lang || DEFAULT_LANG;
+          return requested.toLowerCase().startsWith("en") ? "en" : "ar";
+        }
+
+        let lang = currentLang();
+
+        const lead = {
+          id: pick(["proposalId", "leadId", "id"]),
+          name: pick(["name", "full_name", "fullName", "clientName", "fName"]),
+          email: pick(["email", "clientEmail", "fEmail"]),
+          phone: pick(["phone", "full_phone", "fullPhone", "clientPhone", "fFullPhone", "whatsapp"]),
+          service: pick(["service", "service_type", "serviceType", "fService"]),
+          budget: pick(["budget", "fBudget"]),
+          timeline: pick(["timeline", "fTimeline"]),
+          details: pick(["details", "message", "projectDetails", "description", "fDetails"]),
+        };
+
+        function makeProposalId() {
+          if (lead.id) return lead.id;
+          const d = new Date();
+          const y = d.getFullYear();
+          const m = String(d.getMonth() + 1).padStart(2, "0");
+          const day = String(d.getDate()).padStart(2, "0");
+          const random = Math.random().toString(36).slice(2, 6).toUpperCase();
+          return `AQ-PROP-${y}${m}${day}-${random}`;
+        }
+
+        function formatDate(activeLang) {
+          const locale = activeLang === "ar" ? "ar-JO" : "en-GB";
+          return new Intl.DateTimeFormat(locale, {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          }).format(new Date());
+        }
+
+        function t(key) {
+          return i18n[lang][key] || i18n.en[key] || key;
+        }
+
+        function setText(id, value) {
+          const el = document.getElementById(id);
+          if (!el) return;
+          el.textContent = value || "";
+        }
+
+        function setLanguage(nextLang) {
+          lang = nextLang === "en" ? "en" : "ar";
+          document.documentElement.lang = lang;
+          document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+          document.body.dir = lang === "ar" ? "rtl" : "ltr";
+          localStorage.setItem("aqua_lang", lang);
+
+          document.querySelectorAll("[data-i18n]").forEach((el) => {
+            const key = el.getAttribute("data-i18n");
+            el.textContent = t(key);
+          });
+
+          const name = lead.name || t("fallbackName");
+          const email = lead.email || t("notProvided");
+          const phone = lead.phone || t("notProvided");
+          const service = lead.service || t("notProvided");
+          const budget = lead.budget || t("notProvided");
+          const timeline = lead.timeline || t("notProvided");
+          const details = lead.details || t("detailsFallback");
+          const proposalId = makeProposalId();
+
+          setText("proposalId", `${t("proposalLabel")}: ${proposalId}`);
+          setText("proposalDate", `${t("dateLabel")}: ${formatDate(lang)}`);
+          setText("clientName", name);
+          setText("clientContact", `${t("contactEmail")}: ${email}\n${t("contactPhone")}: ${phone}`);
+          setText("serviceName", service);
+          setText("budgetValue", budget);
+          setText("timelineValue", timeline);
+          setText("projectDetails", details);
+          setText("suggestedNextStep", `${t("nextStepTitle")}\n${t("nextStepText")}`);
+          setText("companyNote", t("companyNote"));
+          setText("page2ClientName", name);
+          setText("page2Methodology", t("methodology"));
+          setText("page2WhatsAppNote", t("whatsappNote"));
+
+          const langToggle = document.getElementById("langToggle");
+          if (langToggle) langToggle.textContent = t("langButton");
+
+          const message = [
+            t("whatsappMessageIntro"),
+            "",
+            `${t("proposalLabel")}: ${proposalId}`,
+            `${lang === "ar" ? "الاسم" : "Name"}: ${name}`,
+            `${t("service")}: ${service}`,
+            `${t("budget")}: ${budget}`,
+            `${t("timeline")}: ${timeline}`,
+            `${t("details")}: ${details}`,
+          ].join("\n");
+
+          const whatsappBtn = document.getElementById("whatsappBtn");
+          if (whatsappBtn) {
+            whatsappBtn.href = `https://wa.me/${AQUA_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+          }
+        }
+
+        function detectOptionalPage2() {
+          const page2 = document.getElementById("optionalPage2");
+          if (!page2) return;
+
+          const img = new Image();
+          img.onload = function () {
+            page2.classList.remove("is-hidden");
+          };
+          img.onerror = function () {
+            page2.classList.add("is-hidden");
+          };
+          img.src = "./assets/proposal/proposal-page-2.png";
+        }
+
+        const printBtn = document.getElementById("printBtn");
+        if (printBtn) {
+          printBtn.addEventListener("click", function () {
+            window.print();
+          });
+        }
+
+        const langToggle = document.getElementById("langToggle");
+        if (langToggle) {
+          langToggle.addEventListener("click", function () {
+            setLanguage(lang === "ar" ? "en" : "ar");
+          });
+        }
+
+        detectOptionalPage2();
+        setLanguage(lang);
+      })();
+    </script>
+  </body>
+</html>
