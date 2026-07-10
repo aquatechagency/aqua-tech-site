@@ -47,9 +47,9 @@
     const btn = document.getElementById("sendLead");
     if (!btn) return;
 
-    btn.disabled = !!isBusy;
-    btn.classList.toggle("opacity-70", !!isBusy);
-    btn.classList.toggle("cursor-not-allowed", !!isBusy);
+    btn.disabled = Boolean(isBusy);
+    btn.classList.toggle("opacity-70", Boolean(isBusy));
+    btn.classList.toggle("cursor-not-allowed", Boolean(isBusy));
   }
 
   function buildPhone() {
@@ -63,53 +63,89 @@
     return `${countryCode}${cleanLocal}`;
   }
 
-  function buildProposalWhatsAppUrl(leadId, lang) {
-    const aquaWhatsAppNumber = "962780932199";
+  function buildLocalProposalUrl(payload, requestId, lang) {
+    const baseUrl =
+      window.location.protocol === "file:"
+        ? "https://aquatechagency.com/proposal-exact-overlay-template.html"
+        : "/proposal-exact-overlay-template.html";
 
-    const message =
-      lang === "ar"
-        ? [
-            "مرحباً Aqua.Tech،",
-            "أريد استلام البروبوزل الأولي لطلبي.",
-            leadId ? `رقم الطلب: ${leadId}` : "",
-          ]
-            .filter(Boolean)
-            .join("\n")
-        : [
-            "Hello Aqua.Tech,",
-            "I would like to receive my instant proposal.",
-            leadId ? `Request ID: ${leadId}` : "",
-          ]
-            .filter(Boolean)
-            .join("\n");
+    const params = {
+      lang,
+      proposalId: requestId,
+      request_id: requestId,
+      leadId: requestId,
+      name: payload.full_name,
+      full_name: payload.full_name,
+      email: payload.email,
+      phone: payload.phone,
+      company: payload.company_name,
+      company_name: payload.company_name,
+      activity: payload.company_activity,
+      company_activity: payload.company_activity,
+      service: payload.service_type,
+      service_type: payload.service_type,
+      budget: payload.budget,
+      timeline: payload.timeline,
+      details: payload.message,
+      message: payload.message,
+    };
 
-    return `https://wa.me/${aquaWhatsAppNumber}?text=${encodeURIComponent(
-      message,
-    )}`;
+    const queryString = Object.entries(params)
+      .filter(([, value]) => {
+        return (
+          value !== undefined &&
+          value !== null &&
+          String(value).trim() !== ""
+        );
+      })
+      .map(([key, value]) => {
+        return `${encodeURIComponent(key)}=${encodeURIComponent(
+          String(value),
+        )}`;
+      })
+      .join("&");
+
+    return queryString ? `${baseUrl}?${queryString}` : baseUrl;
   }
 
-  function showWhatsAppBox(url, requestId, labels = {}) {
+  function hideProposalBox() {
+    const box = document.getElementById("proposalResultBox");
+    const link = document.getElementById("proposalResultLink");
+
+    if (box) {
+      box.classList.add("hidden");
+      box.setAttribute("hidden", "");
+      box.style.display = "none";
+    }
+
+    if (link) {
+      link.removeAttribute("href");
+    }
+
+    // إزالة الصندوق القديم إذا بقي من نسخة واتساب السابقة.
+    document.getElementById("proposalWhatsAppBox")?.remove();
+  }
+
+  function showProposalBox(url, requestId, labels = {}) {
     if (!url) {
-      console.warn("[AquaTech n8n] WhatsApp URL is empty");
+      console.warn("[AquaTech proposal] Proposal URL is empty");
       return;
     }
 
     const lang = getLang();
 
     const helperText =
-      labels.proposal_helper_text ||
+      labels.helperText ||
       (lang === "ar"
-        ? "اضغط الزر التالي للحصول على البروبوزل الأولي عبر واتساب."
-        : "Click the button below to get your instant proposal on WhatsApp.");
+        ? "تم تجهيز البروبوزل الأولي الخاص بطلبك. اضغط الزر التالي لفتحه."
+        : "Your initial proposal is ready. Click the button below to open it.");
 
     const buttonLabel =
-      labels.proposal_button_label ||
-      (lang === "ar"
-        ? "الحصول على البروبوزل"
-        : "Get the proposal");
+      labels.buttonLabel ||
+      (lang === "ar" ? "الحصول على البروبوزل" : "Get Proposal");
 
-    let box = document.getElementById("proposalWhatsAppBox");
-    let link = document.getElementById("proposalWhatsAppLink");
+    let box = document.getElementById("proposalResultBox");
+    let link = document.getElementById("proposalResultLink");
 
     const statusEl =
       document.querySelector("[data-contact-status]") ||
@@ -117,7 +153,7 @@
 
     if (!box) {
       box = document.createElement("div");
-      box.id = "proposalWhatsAppBox";
+      box.id = "proposalResultBox";
       box.className =
         "mt-4 rounded-xl border border-primary/20 bg-primary/5 p-4";
 
@@ -127,7 +163,7 @@
       message.textContent = helperText;
 
       link = document.createElement("a");
-      link.id = "proposalWhatsAppLink";
+      link.id = "proposalResultLink";
       link.target = "_blank";
       link.rel = "noopener noreferrer";
       link.className =
@@ -153,7 +189,7 @@
 
     if (!link) {
       link = document.createElement("a");
-      link.id = "proposalWhatsAppLink";
+      link.id = "proposalResultLink";
       link.target = "_blank";
       link.rel = "noopener noreferrer";
       link.className =
@@ -211,18 +247,12 @@
         event.stopImmediatePropagation();
 
         const lang = getLang();
-        const box = document.getElementById("proposalWhatsAppBox");
-        const link = document.getElementById("proposalWhatsAppLink");
-
-        if (box) box.classList.add("hidden");
-        if (link) link.href = "#";
+        hideProposalBox();
 
         const honeypot = valueOf("fWebsite");
         if (honeypot) {
           setStatus(
-            lang === "ar"
-              ? "تم استلام طلبك بنجاح."
-              : "Request received.",
+            lang === "ar" ? "تم استلام طلبك بنجاح." : "Request received.",
             "success",
           );
           return;
@@ -286,9 +316,7 @@
         try {
           setBusy(true);
           setStatus(
-            lang === "ar"
-              ? "جاري إرسال الطلب..."
-              : "Sending request...",
+            lang === "ar" ? "جاري إرسال الطلب..." : "Sending request...",
             "neutral",
           );
 
@@ -310,6 +338,9 @@
                   : "Your request has been submitted successfully.",
               request_id: localId,
               lead_id: localId,
+              proposal_status: "ready",
+              proposal_url: buildLocalProposalUrl(payload, localId, lang),
+              proposal_generated_at: new Date().toISOString(),
             };
 
             console.log("[AquaTech local preview] Contact API skipped:", data);
@@ -343,19 +374,22 @@
           }
 
           const isArabic = lang === "ar";
-          const leadId = data.request_id || data.lead_id || `AQ-${Date.now()}`;
+          const requestId =
+            data.request_id || data.lead_id || `AQ-${Date.now()}`;
+          const proposalUrl = String(data.proposal_url || "").trim();
 
           const proposalLead = {
             ...payload,
-            id: leadId,
-            leadId,
-            proposalId: leadId,
+            id: requestId,
+            leadId: requestId,
+            proposalId: requestId,
             name: payload.full_name,
             service: payload.service_type,
             details: payload.message,
             activity: payload.company_activity,
             company: payload.company_name,
             created_at: new Date().toISOString(),
+            proposal_url: proposalUrl,
           };
 
           try {
@@ -365,12 +399,15 @@
             );
           } catch (_) {}
 
-          const successMessage = isArabic
-            ? "تم تقديم الطلب بنجاح."
-            : "Your request has been submitted successfully.";
+          const successMessage =
+            data.message ||
+            (isArabic
+              ? "تم تقديم الطلب بنجاح."
+              : "Your request has been submitted successfully.");
 
           setStatus(successMessage, "success");
 
+          // نغلق المودال القديم إن وُجد، لأن النتيجة ستظهر أسفل الفورم.
           const modal = document.getElementById("successModal");
           if (modal) {
             modal.classList.remove("is-open");
@@ -380,26 +417,34 @@
             modal.style.opacity = "0";
           }
 
-          const proposalWhatsAppUrl = buildProposalWhatsAppUrl(leadId, lang);
-
-          showWhatsAppBox(proposalWhatsAppUrl, leadId, {
-            proposal_helper_text: isArabic
-              ? "اضغط الزر التالي للحصول على البروبوزل الأولي عبر واتساب."
-              : "Click the button below to get your instant proposal on WhatsApp.",
-            proposal_button_label: isArabic
-              ? "الحصول على البروبوزل"
-              : "Get Proposal",
-          });
+          if (!proposalUrl) {
+            setStatus(
+              isArabic
+                ? "تم تسجيل طلبك، لكن رابط البروبوزل غير جاهز حالياً. حاول مرة أخرى بعد قليل."
+                : "Your request was saved, but the proposal link is not ready yet. Please try again shortly.",
+              "error",
+            );
+          } else {
+            showProposalBox(proposalUrl, requestId, {
+              helperText: isArabic
+                ? "تم تجهيز البروبوزل الأولي الخاص بطلبك. اضغط الزر التالي لفتحه."
+                : "Your initial proposal is ready. Click the button below to open it.",
+              buttonLabel: isArabic
+                ? "الحصول على البروبوزل"
+                : "Get Proposal",
+            });
+          }
 
           window.gtag?.("event", "contact_form_submit", {
             event_category: "lead",
             event_label: "website_intake",
-            request_id: data.request_id || data.lead_id || "",
+            request_id: requestId,
+            proposal_status: data.proposal_status || "",
           });
         } catch (error) {
           console.error("[AquaTech n8n] Contact form error:", error);
           setStatus(
-            error.message ||
+            error?.message ||
               (lang === "ar"
                 ? "حدث خطأ أثناء إرسال الطلب."
                 : "An error occurred while sending the request."),
