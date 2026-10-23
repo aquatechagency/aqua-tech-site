@@ -9,7 +9,7 @@
     النتائج: "Results",
     الأسئلة: "FAQ",
     تواصل: "Contact",
-    whatsapp: "WhatsApp",
+    واتساب: "WhatsApp",
     "ابدأ مشروعك": "Start Project",
     "لماذا نحن": "Why us",
     منهجنا: "Our method",
@@ -20,7 +20,7 @@
     الأسئلة: "FAQ",
     Support: "Support",
     تواصل: "Contact",
-    whatsapp: "WhatsApp",
+    واتساب: "WhatsApp",
     "ابدأ مشروعك": "Start Project",
     "افتح القائمة": "Open menu",
     "شعار Aqua.Tech": "Aqua.Tech logo",
@@ -496,7 +496,7 @@
       "footer.offers": "العروض",
       "footer.support": "الدعم بعد التسليم",
 
-      "footer.whatsapp": "WhatsApp",
+      "footer.whatsapp": "واتساب",
       "footer.email": "Email",
       "footer.faq": "الأسئلة المتكررة",
       "footer.start": "ابدأ مشروعك",
@@ -533,7 +533,7 @@
       "services.landing.desc":
         "صفحات سريعة وواضحة تساعدك تبدأ الإعلان، تجمع الطلبات، وتحول الزوار إلى عملاء محتملين.",
       "services.landing.tag1": "Landing page",
-      "services.landing.tag2": "whatsapp",
+      "services.landing.tag2": "واتساب",
       "services.landing.tag3": "Tracking",
       "services.landing.cta": "اطلب صفحة تسويقية",
 
@@ -693,6 +693,10 @@
       "about.loop.4": "نحسن",
       "nav.support": "الدعم",
       "form.phone": "رقم الواتساب",
+      "form.companyName": "اسم الشركة / المشروع",
+      "form.companyName.placeholder": "مثال: Elite Trading Company",
+      "form.companyActivity": "نشاط الشركة",
+      "form.companyActivity.placeholder": "مثال: تجارة الأجهزة الكهربائية",
 
       "offers.landing.badge": "الأسرع إطلاقًا",
       "offers.landing.title": "صفحات تسويقية",
@@ -1286,6 +1290,10 @@
       "about.loop.4": "Improve",
       "nav.support": "Support",
       "form.phone": "WhatsApp number",
+      "form.companyName": "Company / project name",
+      "form.companyName.placeholder": "e.g. Elite Trading Company",
+      "form.companyActivity": "Company activity",
+      "form.companyActivity.placeholder": "e.g. Electrical appliances trading",
 
       "services.core.kicker": "Core Services",
       "services.core.title": "Project foundation",
@@ -1379,6 +1387,13 @@
       const key = el.getAttribute("data-i18n");
       if (key && dict[key]) {
         el.textContent = dict[key];
+      }
+    });
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-placeholder");
+      if (key && dict[key]) {
+        el.setAttribute("placeholder", dict[key]);
       }
     });
   }
