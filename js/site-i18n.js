@@ -374,6 +374,8 @@
       "trust.card4.desc":
         "تحديثات واضحة أثناء التنفيذ، ومخرجات مرتبة، وتسليم منظم حسب الاتفاق.",
 
+      "trust.titleLead": "لماذا تختار",
+      "trust.titleAccent": "Aqua.Tech",
       "trust.title": "لماذا تختار Aqua.Tech",
       "trust.description":
         "نركز على بناء حلول واضحة، قابلة للتنفيذ، وتخدم هدف المشروع بدل الاكتفاء بواجهة جميلة فقط.",
@@ -895,6 +897,8 @@
         "We follow results and feedback to improve the solution instead of leaving it as a first version.",
 
       "trust.kicker": "Why Aqua.Tech",
+      "trust.titleLead": "Why choose",
+      "trust.titleAccent": "Aqua.Tech",
       "trust.title": "Why choose Aqua.Tech",
       "trust.description":
         "We focus on building clear, executable solutions that serve the project goal instead of only creating a beautiful interface.",
