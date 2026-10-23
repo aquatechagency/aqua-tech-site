@@ -1125,6 +1125,97 @@ html[dir="rtl"] .aqua-section--contact #proposalResultLink {
   }
 }
 
+/* ========================================================== FOOTER ====== */
+
+/* Solid --tf-base under the #contact gradient, a thin glass divider on top
+ * and above the copyright bar. Column headings, links and the copyright are
+ * .tf-mono (Alexandria in RTL). No chamfer, no glow.
+ *
+ * On --tf-base: --aqua-muted links 11.6:1, --tf-ink headings 14.6:1,
+ * --tf-light brand and icons 7.6:1.
+ */
+.aqua-site-footer {
+  border-top: 1px solid var(--tf-glass-border);
+  background: var(--tf-base);
+  box-shadow: none;
+}
+
+.aqua-site-footer__brand-link {
+  color: var(--tf-light);
+  font-family: var(--tf-font-head);
+}
+
+.aqua-site-footer__description {
+  color: var(--aqua-muted);
+}
+
+.aqua-site-footer__social-link {
+  border-color: var(--tf-glass-border-soft);
+  border-radius: var(--tf-btn-radius);
+  color: var(--tf-light);
+  background: transparent;
+}
+
+.aqua-site-footer__social-link:hover,
+.aqua-site-footer__social-link:focus-visible {
+  border-color: var(--tf-glass-border);
+  color: var(--tf-ink);
+  background: var(--tf-glass-bg);
+  transform: none;
+}
+
+.aqua-site-footer__column h4 {
+  margin: 0 0 0.85rem;
+  color: var(--tf-ink);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.aqua-site-footer__column ul {
+  gap: 0.5rem;
+}
+
+.aqua-site-footer__column a {
+  color: var(--aqua-muted);
+  font-size: 0.72rem;
+  line-height: 1.6;
+}
+
+.aqua-site-footer__column a:hover {
+  color: var(--tf-ink);
+}
+
+.aqua-site-footer__column a:focus-visible,
+.aqua-site-footer__social-link:focus-visible,
+.aqua-site-footer__brand-link:focus-visible {
+  outline: 2px solid var(--tf-light);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.aqua-site-footer__bottom {
+  border-top-color: var(--tf-glass-border-soft);
+}
+
+.aqua-site-footer__copyright {
+  color: var(--aqua-muted);
+  font-size: 0.68rem;
+  font-weight: 500;
+}
+
+html[dir="rtl"] .aqua-site-footer__column h4 {
+  font-size: 0.875rem;
+}
+
+html[dir="rtl"] .aqua-site-footer__column a {
+  font-size: 0.82rem;
+}
+
+html[dir="rtl"] .aqua-site-footer__copyright {
+  font-size: 0.75rem;
+}
+
 /* ------------------------------------------------------ Reduced motion */
 
 @media (prefers-reduced-motion: reduce) {
