@@ -520,6 +520,8 @@
 
       "services.kicker": "What we build",
       "services.title": "خدمات رقمية تركز على النمو",
+      "services.titleLead": "خدمات رقمية",
+      "services.titleAccent": "تركز على النمو",
       "services.subtitle":
         "نغطي رحلة مشروعك من الفكرة إلى الإطلاق والنمو المستمر بحلول واضحة قابلة للتنفيذ.",
 
@@ -1064,6 +1066,8 @@
 
       "services.kicker": "What we build",
       "services.title": "Growth-focused digital services",
+      "services.titleLead": "Growth-focused",
+      "services.titleAccent": "digital services",
       "services.subtitle":
         "We cover your project journey from idea to launch and continuous growth with clear, executable solutions.",
 

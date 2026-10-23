@@ -688,6 +688,95 @@ html[dir="rtl"] .aqua-section--trust .aqua-section__title > span {
   }
 }
 
+/* ======================================================== SERVICES ====== */
+
+/* Back to a solid dark band after the #trust gradient: flat --tf-base, no
+   blurred glow, generous vertical spacing. */
+.aqua-service-paths {
+  padding-block: clamp(5rem, 8vw, 8rem);
+  background: var(--tf-base);
+}
+
+.aqua-service-paths__glow {
+  display: none;
+}
+
+.aqua-service-paths__header h2.tf-heading {
+  color: var(--tf-ink);
+}
+
+.aqua-service-paths__header h2 > span {
+  display: block;
+}
+
+html[dir="rtl"] .aqua-service-paths__header h2.tf-heading {
+  line-height: 1.34;
+}
+
+html[dir="rtl"] .aqua-service-paths__header h2 > span {
+  padding-block-end: 0.12em;
+}
+
+/* Cards: gradient cards read better than glass on a flat dark band, since
+   there is nothing behind them to blur. Same 30% --tf-mid cap as #flow. The
+   teal top line, icon, list dots and CTA mark are left as they were. */
+.aqua-service-paths .aqua-service-path.tf-gradient-card {
+  border-color: var(--tf-glass-border-soft);
+  border-radius: var(--tf-radius);
+  background: linear-gradient(180deg, var(--tf-surface), var(--tf-card-end));
+}
+
+.aqua-service-paths .aqua-service-path.tf-gradient-card:hover {
+  border-color: var(--tf-glass-border);
+}
+
+/* Number badges were 80%-alpha primary: 4.28:1 on the card top. Opaque
+   --tf-light clears AA. */
+.aqua-service-paths .aqua-service-path__number {
+  color: var(--tf-light);
+}
+
+/* The kicker pill sits at the topline's inline end, under the cut. */
+.aqua-service-paths .tf-chamfer .aqua-service-path__topline {
+  padding-inline-end: calc(var(--tf-chamfer) * 0.55);
+}
+
+/* Service kickers as gradient pills; .tf-mono handles case and tracking. */
+.aqua-service-paths .aqua-service-path__kicker.tf-pill {
+  min-height: 1.85rem;
+  padding: 0.3rem 0.8rem;
+  color: var(--tf-ink);
+}
+
+/* Decision bar: glass panel with the section's accent CTA. */
+.aqua-service-paths .aqua-service-paths__decision.tf-glass {
+  margin-block-start: clamp(1.25rem, 2vw, 1.75rem);
+  border-radius: var(--tf-radius);
+}
+
+.aqua-service-paths .aqua-service-paths__decision-cta.tf-btn-cta,
+.aqua-service-paths .aqua-service-paths__decision-cta.tf-btn-cta:hover {
+  border-color: transparent;
+  border-radius: var(--tf-btn-radius);
+  color: var(--tf-ink-dark);
+  background: var(--tf-accent);
+  font-family: var(--tf-font-mono);
+  font-weight: 600;
+}
+
+.aqua-service-paths .aqua-service-paths__decision-cta.tf-btn-cta:hover {
+  filter: brightness(1.1);
+}
+
+html[dir="ltr"] .aqua-service-paths .aqua-service-paths__decision-cta.tf-btn-cta {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+html[dir="rtl"] .aqua-service-paths .aqua-service-paths__decision-cta.tf-btn-cta {
+  font-family: var(--tf-font-ar);
+}
+
 /* ------------------------------------------------------ Reduced motion */
 
 @media (prefers-reduced-motion: reduce) {
