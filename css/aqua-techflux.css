@@ -802,17 +802,28 @@ html[dir="rtl"] .aqua-service-paths .aqua-service-paths__decision-cta.tf-btn-cta
 
 /* ======================================================= SOLUTIONS ====== */
 
-/* Gradient band after the solid #services band, with the same dark hold
-   behind the header as #trust so the heading never sits on the light end. */
+/* Gradient band after the solid #services band, reshaped so the cards stay
+ * on the darker part:
+ *   - --tf-base held behind the header (as in #trust),
+ *   - --tf-base -> --tf-mid across the cards and note bar,
+ *   - --tf-mid -> --tf-light only inside the bottom section padding.
+ * Same tokens and order as --tf-gradient; only the stops move. The tail
+ * length is --aqua-section-space because #solutions takes its padding from
+ * that ID rule in src/input.css.
+ *
+ * With the full --tf-gradient the cards needed 80% glass for AA. Here the
+ * stock --tf-glass-bg-strong (72%) is enough; 58% still fails the tags
+ * (4.40:1), CTAs (3.91:1) and note (3.48:1).
+ */
 .aqua-product-showcase {
   --tf-solutions-hold: 22rem;
-  /* Glass for these cards. Measured over the light end: 58% leaves the CTAs
-     at 3.3:1 and the note link at 3.0:1; 72% still leaves them at 4.2:1 and
-     3.9:1; 80% is the lightest that clears AA (CTA 4.83:1, note 4.60:1). */
-  --tf-solutions-glass: color-mix(in srgb, var(--tf-surface) 80%, transparent);
-  padding-block: clamp(5rem, 8vw, 8rem);
   background:
-    var(--tf-gradient) bottom / 100% calc(100% - var(--tf-solutions-hold)) no-repeat,
+    linear-gradient(
+      180deg,
+      var(--tf-base) var(--tf-solutions-hold),
+      var(--tf-mid) calc(100% - var(--aqua-section-space)),
+      var(--tf-light)
+    ),
     var(--tf-base);
 }
 
@@ -842,23 +853,29 @@ html[dir="rtl"] .aqua-product-showcase__title > span {
 .aqua-product-showcase .aqua-product-card.tf-glass,
 .aqua-product-showcase .aqua-product-showcase__note.tf-glass {
   border-radius: var(--tf-radius);
-  background: var(--tf-solutions-glass);
+  background: var(--tf-glass-bg-strong);
 }
 
-@supports not (color: color-mix(in srgb, white, transparent)) {
-  .aqua-product-showcase {
-    --tf-solutions-glass: var(--tf-surface);
-  }
+/* The note link sits lowest, on the full --tf-mid stop: --aqua-primary
+   there is 4.4:1 even at 72% glass; --tf-ink holds AA. */
+.aqua-product-showcase .aqua-product-showcase__note a {
+  color: var(--tf-ink);
 }
 
-/* Product mocks inset as framed visuals. */
+/* Product mocks inset as framed visuals. The top padding opens a status
+ * strip above the mock window for aqua-depth.js's LIVE badge, so the badge
+ * never sits over the window's title bar. Measured: the badge ends 40px
+ * down, and the window's resting perspective/rotateX already lifts its top
+ * edge ~8px above the padding line. 3.75rem keeps a clear gap through the
+ * hover lift and the full card tilt range (checked at every tilt corner).
+ */
 .aqua-product-showcase .aqua-product-card__visual.tf-frame {
   margin: 0.75rem 0.75rem 0;
+  padding-top: 3.75rem;
   background: linear-gradient(180deg, var(--tf-base), var(--tf-surface));
 }
 
-/* The featured frame's cut sits where aqua-depth.js parks its LIVE badge;
-   shift the badge clear of it. */
+/* The featured frame's cut sits where the badge parks; shift it clear. */
 .aqua-product-showcase .tf-chamfer > .aqua-product-card__signal {
   inset-inline-end: calc(var(--tf-chamfer) * 1.1);
 }
@@ -876,6 +893,7 @@ html[dir="rtl"] .aqua-product-showcase__title > span {
 
   .aqua-product-showcase .aqua-product-card__visual.tf-frame {
     margin: 0.6rem 0.6rem 0;
+    padding-top: 3.6rem;
   }
 }
 
