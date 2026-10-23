@@ -42,7 +42,7 @@
         gutter: "24px",
         "margin-mobile": "16px",
         "section-padding": "120px",
-        "section-space": "clamp(4.75rem, 6vw, 6.25rem)",
+        "section-space": "clamp(5.5rem, 8vw, 8rem)",
         "container-max": "1280px",
       },
       fontFamily: {

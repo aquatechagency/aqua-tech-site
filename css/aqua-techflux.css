@@ -597,10 +597,11 @@ html[dir="rtl"] .aqua-complexity-flow .aqua-complexity-flow__cta.tf-btn-cta {
  * only passes AA on the raw gradient down to ~30% of its height (5.05:1;
  * 3.67:1 at 40%), and on desktop the header reaches further than that.
  * --tf-gradient itself is reused unchanged; it is just sized to start at
- * the hold line, so there is no seam.
+ * the hold line, so there is no seam. The hold is the top padding plus a
+ * header allowance, so it follows --aqua-section-space when that changes.
  */
 .aqua-section--trust {
-  --tf-trust-hold: 23.5rem;
+  --tf-trust-hold: calc(var(--aqua-section-space) + 18rem);
   background:
     var(--tf-gradient) bottom / 100% calc(100% - var(--tf-trust-hold)) no-repeat,
     var(--tf-base);
@@ -687,13 +688,13 @@ html[dir="rtl"] .aqua-section--trust .aqua-section__title > span {
 
 @media (max-width: 1023px) {
   .aqua-section--trust {
-    --tf-trust-hold: 20rem;
+    --tf-trust-hold: calc(var(--aqua-section-space) + 15.25rem);
   }
 }
 
 @media (max-width: 767px) {
   .aqua-section--trust {
-    --tf-trust-hold: 24rem;
+    --tf-trust-hold: calc(var(--aqua-section-space) + 20rem);
   }
 }
 
@@ -807,14 +808,15 @@ html[dir="rtl"] .aqua-service-paths .aqua-service-paths__decision-cta.tf-btn-cta
  *   - --tf-mid -> --tf-light only inside the bottom section padding.
  * Same tokens and order as --tf-gradient; only the stops move. The tail
  * length is --aqua-section-space because #solutions takes its padding from
- * that ID rule in src/input.css.
+ * that ID rule in src/input.css; the hold is that padding plus a header
+ * allowance, as in #trust.
  *
  * With the full --tf-gradient the cards needed 80% glass for AA. Here the
  * stock --tf-glass-bg-strong (72%) is enough; 58% still fails the tags
  * (4.40:1), CTAs (3.91:1) and note (3.48:1).
  */
 .aqua-product-showcase {
-  --tf-solutions-hold: 22rem;
+  --tf-solutions-hold: calc(var(--aqua-section-space) + 16.5rem);
   background:
     linear-gradient(
       180deg,
@@ -880,13 +882,13 @@ html[dir="rtl"] .aqua-product-showcase__title > span {
 
 @media (max-width: 980px) {
   .aqua-product-showcase {
-    --tf-solutions-hold: 20rem;
+    --tf-solutions-hold: calc(var(--aqua-section-space) + 15.25rem);
   }
 }
 
 @media (max-width: 640px) {
   .aqua-product-showcase {
-    --tf-solutions-hold: 22rem;
+    --tf-solutions-hold: calc(var(--aqua-section-space) + 18rem);
   }
 
   .aqua-product-showcase .aqua-product-card__visual.tf-frame {

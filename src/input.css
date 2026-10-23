@@ -196,7 +196,7 @@ html[dir="rtl"] .aqua-select-option {
    mirrors borderRadius.xl in tailwind.config.js — that file is the canonical
    scale; keep these numbers in sync with it. */
 :root {
-  --aqua-section-space: clamp(4.75rem, 6vw, 6.25rem);
+  --aqua-section-space: clamp(5.5rem, 8vw, 8rem);
   --aqua-section-title: clamp(2rem, 3.5vw, 3.2rem);
   --aqua-section-border: rgba(138, 168, 194, 0.1);
   --aqua-panel-border: rgba(138, 168, 194, 0.14);
@@ -792,7 +792,7 @@ html[dir="rtl"] .aqua-trust-card__title {
 
 @media (max-width: 767px) {
   :root {
-    --aqua-section-space: 4rem;
+    --aqua-section-space: 4.5rem;
     --aqua-section-title: clamp(2rem, 10vw, 2.65rem);
     --aqua-panel-radius: 1.35rem;
   }
