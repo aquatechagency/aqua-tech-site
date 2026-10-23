@@ -1,0 +1,894 @@
+/* =========================================================================
+   Aqua.Tech - Depth System
+   Spatial foundation for the 3D experience: atmosphere, navigation states,
+   card depth, the process pipeline, and the contact command centre.
+
+   Loaded after every existing stylesheet, so it refines rather than replaces.
+
+   Two rules this file follows deliberately:
+   1. Depth effects use injected child elements, never ::before / ::after,
+      because the existing cards already own both pseudo-elements.
+   2. Directional values use logical properties so RTL and LTR both hold.
+   ========================================================================= */
+
+:root {
+  --aqua-depth-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --aqua-depth-spring: cubic-bezier(0.34, 1.4, 0.42, 1);
+  --aqua-depth-micro: 220ms;
+  --aqua-depth-ui: 420ms;
+  --aqua-depth-scene: 780ms;
+  --aqua-depth-line: rgba(138, 168, 194, 0.14);
+}
+
+/* ------------------------------------------------------- 1. Hero 3D core */
+
+.aqua-core-layer {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 1600ms ease 260ms;
+  -webkit-mask-image: radial-gradient(
+    ellipse at 50% 46%,
+    #000 0%,
+    rgba(0, 0, 0, 0.86) 46%,
+    transparent 76%
+  );
+  mask-image: radial-gradient(
+    ellipse at 50% 46%,
+    #000 0%,
+    rgba(0, 0, 0, 0.86) 46%,
+    transparent 76%
+  );
+}
+
+.aqua-core-layer[data-aqua-core-state="live"] {
+  opacity: 1;
+}
+
+.aqua-core-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* With the core live the SVG flow map steps back to a supporting detail.
+   Without it (no WebGL) the map keeps its original full strength, so the
+   hero still reads as a designed scene. */
+.aqua-signature-hero.has-aqua-core .aqua-hero-flow-map {
+  opacity: 0.42;
+}
+
+.aqua-signature-hero.has-aqua-core .aqua-hero-grid {
+  opacity: 0.2;
+}
+
+.aqua-signature-hero.has-aqua-core .aqua-hero-aura {
+  opacity: 0.72;
+}
+
+/* ---------------------------------------------------- 2. Global atmosphere */
+
+.aqua-atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.aqua-atmosphere__grid {
+  position: absolute;
+  inset: -12% -12% -24%;
+  opacity: 0.5;
+  background-image:
+    linear-gradient(to right, rgba(138, 168, 194, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(138, 168, 194, 0.038) 1px, transparent 1px);
+  background-size: 88px 88px;
+  transform: translate3d(0, calc(var(--aqua-scroll-progress, 0) * -46px), 0);
+  will-change: transform;
+  -webkit-mask-image: radial-gradient(
+    ellipse at 50% 34%,
+    #000 0%,
+    rgba(0, 0, 0, 0.5) 48%,
+    transparent 82%
+  );
+  mask-image: radial-gradient(
+    ellipse at 50% 34%,
+    #000 0%,
+    rgba(0, 0, 0, 0.5) 48%,
+    transparent 82%
+  );
+}
+
+.aqua-atmosphere__horizon {
+  position: absolute;
+  inset-inline: -20%;
+  bottom: -34%;
+  height: 72%;
+  background: radial-gradient(
+    ellipse at 50% 100%,
+    rgba(46, 143, 217, 0.1),
+    transparent 62%
+  );
+  transform: translate3d(0, calc(var(--aqua-scroll-progress, 0) * -70px), 0);
+  will-change: transform;
+}
+
+.aqua-atmosphere__vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 40%,
+    transparent 40%,
+    rgba(1, 9, 21, 0.4) 100%
+  );
+}
+
+/* ----------------------------------------------------- 3. Navigation state */
+
+.aqua-top-pill {
+  position: relative;
+  transition:
+    min-height var(--aqua-depth-ui) var(--aqua-depth-ease),
+    padding var(--aqua-depth-ui) var(--aqua-depth-ease),
+    border-radius var(--aqua-depth-ui) var(--aqua-depth-ease),
+    max-width var(--aqua-depth-ui) var(--aqua-depth-ease),
+    border-color var(--aqua-depth-ui) ease,
+    background var(--aqua-depth-ui) ease,
+    box-shadow var(--aqua-depth-ui) ease;
+}
+
+body > header.is-aqua-header-scrolled .aqua-top-pill {
+  min-height: 62px;
+  padding-block: 0.4rem;
+  border-radius: 22px;
+  max-width: 1120px;
+  border-color: rgba(138, 168, 194, 0.22);
+  background: linear-gradient(
+    180deg,
+    rgba(7, 22, 38, 0.94),
+    rgba(4, 15, 28, 0.92)
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 20px 60px rgba(0, 0, 0, 0.42),
+    0 0 30px rgba(46, 143, 217, 0.09);
+}
+
+/* Reading-progress hairline: a system indicator, not decoration. */
+.aqua-nav-progress {
+  position: absolute;
+  inset-inline: 12%;
+  bottom: -1px;
+  height: 1px;
+  border-radius: 999px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, #8aa8c2, transparent);
+  transform: scaleX(var(--aqua-scroll-progress, 0));
+  transform-origin: center;
+  opacity: 0;
+  transition: opacity var(--aqua-depth-ui) ease;
+}
+
+body > header.is-aqua-header-scrolled .aqua-nav-progress {
+  opacity: 0.6;
+}
+
+/* -------------------------------------------- 4. Full-screen mobile menu */
+
+#mobileMenu {
+  position: fixed;
+  inset: 0;
+  top: 0;
+  /* Below the header (z-index 50) on purpose: the floating pill keeps the
+     close button clickable and visible above the overlay. */
+  z-index: 45;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: max(6.5rem, 15vh) 1.5rem 2.5rem;
+  background:
+    radial-gradient(
+      ellipse at 50% 20%,
+      rgba(46, 143, 217, 0.14),
+      transparent 58%
+    ),
+    linear-gradient(180deg, rgba(3, 14, 26, 0.98), rgba(1, 9, 20, 0.99));
+  backdrop-filter: blur(26px);
+  -webkit-backdrop-filter: blur(26px);
+  box-shadow: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: none;
+  transition:
+    opacity 320ms ease,
+    visibility 320ms ease;
+}
+
+#mobileMenu.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: none;
+}
+
+#mobileMenu .aqua-menu-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(138, 168, 194, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(138, 168, 194, 0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000, transparent 74%);
+  mask-image: radial-gradient(ellipse at 50% 30%, #000, transparent 74%);
+}
+
+#mobileMenu > div {
+  position: relative;
+  gap: 0.3rem;
+  padding: 0;
+  width: min(100%, 30rem);
+  margin-inline: auto;
+}
+
+#mobileMenu a {
+  --aqua-menu-index: 0;
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition:
+    opacity 460ms var(--aqua-depth-ease),
+    transform 460ms var(--aqua-depth-ease),
+    color var(--aqua-depth-micro) ease,
+    background-color var(--aqua-depth-micro) ease,
+    border-color var(--aqua-depth-micro) ease;
+}
+
+#mobileMenu.is-open a {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: calc(80ms + var(--aqua-menu-index) * 52ms);
+}
+
+#mobileMenu .aqua-mobile-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1rem 1.15rem;
+  border-radius: 1rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+/* Index markers come from a counter, not from injected nodes: the i18n
+   layer rewrites these links textContent on every language switch and
+   would delete any child element placed inside them. */
+#mobileMenu > div {
+  counter-reset: aqua-menu;
+}
+
+#mobileMenu .aqua-mobile-nav-link::before {
+  counter-increment: aqua-menu;
+  content: "0" counter(aqua-menu);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: rgba(138, 168, 194, 0.5);
+}
+
+#mobileMenu > div > a:last-child {
+  margin-top: 1.15rem;
+  padding-block: 1rem;
+  border-radius: 1rem;
+}
+
+body.aqua-menu-open {
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  #mobileMenu {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------- 5. Card depth system */
+
+.aqua-depth-card {
+  --aqua-tilt-x: 0deg;
+  --aqua-tilt-y: 0deg;
+  --aqua-lift: 0px;
+  --aqua-spot-x: 50%;
+  --aqua-spot-y: 0%;
+  position: relative;
+  transform: perspective(1200px) rotateX(var(--aqua-tilt-x))
+    rotateY(var(--aqua-tilt-y)) translate3d(0, var(--aqua-lift), 0);
+  transition:
+    transform var(--aqua-depth-ui) var(--aqua-depth-ease),
+    border-color var(--aqua-depth-micro) ease,
+    box-shadow var(--aqua-depth-ui) ease;
+}
+
+/* Beat the entrance-reveal transform, but only once the reveal has settled,
+   so the two systems never fight over the same property. */
+html.aqua-motion-ready
+  [data-aqua-motion].aqua-depth-card.is-aqua-motion-complete {
+  transform: perspective(1200px) rotateX(var(--aqua-tilt-x))
+    rotateY(var(--aqua-tilt-y)) translate3d(0, var(--aqua-lift), 0);
+}
+
+/* Injected decorative layers - no pseudo-elements, nothing overwritten. */
+.aqua-depth-card__spot,
+.aqua-depth-card__edge {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--aqua-depth-ui) ease;
+}
+
+.aqua-depth-card__spot {
+  background: radial-gradient(
+    22rem circle at var(--aqua-spot-x) var(--aqua-spot-y),
+    rgba(138, 168, 194, 0.14),
+    rgba(46, 143, 217, 0.05) 34%,
+    transparent 62%
+  );
+}
+
+.aqua-depth-card__edge {
+  padding: 1px;
+  background: radial-gradient(
+    15rem circle at var(--aqua-spot-x) var(--aqua-spot-y),
+    rgba(138, 168, 194, 0.9),
+    rgba(46, 143, 217, 0.3) 38%,
+    transparent 68%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+.aqua-depth-card.is-aqua-spot .aqua-depth-card__spot {
+  opacity: 1;
+}
+
+.aqua-depth-card.is-aqua-spot .aqua-depth-card__edge {
+  opacity: 0.7;
+}
+
+/* Content sits above the injected light layers. */
+.aqua-depth-card > *:not(.aqua-depth-card__spot):not(.aqua-depth-card__edge) {
+  position: relative;
+  z-index: 1;
+}
+
+/* --------------------------------------------- 6. Services as small systems */
+
+.aqua-service-path__grid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0.3;
+  background-image:
+    linear-gradient(to right, rgba(138, 168, 194, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(138, 168, 194, 0.04) 1px, transparent 1px);
+  background-size: 46px 46px;
+  -webkit-mask-image: linear-gradient(180deg, #000, transparent 64%);
+  mask-image: linear-gradient(180deg, #000, transparent 64%);
+  transition: opacity var(--aqua-depth-ui) ease;
+}
+
+.aqua-service-path.is-aqua-spot .aqua-service-path__grid {
+  opacity: 0.7;
+}
+
+.aqua-service-path__icon {
+  position: relative;
+  transition: transform var(--aqua-depth-ui) var(--aqua-depth-spring);
+}
+
+.aqua-service-path .aqua-service-path__icon-glow {
+  position: absolute;
+  inset: -34%;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  filter: blur(12px);
+  background: radial-gradient(circle, rgba(46, 143, 217, 0.32), transparent 66%);
+  transition: opacity var(--aqua-depth-ui) ease;
+}
+
+.aqua-service-path.is-aqua-spot .aqua-service-path__icon {
+  transform: translate3d(0, -5px, 0) scale(1.06);
+}
+
+.aqua-service-path.is-aqua-spot .aqua-service-path__icon-glow {
+  opacity: 1;
+}
+
+.aqua-service-path__list li {
+  transition:
+    color var(--aqua-depth-micro) ease,
+    transform var(--aqua-depth-ui) var(--aqua-depth-ease);
+}
+
+.aqua-service-path.is-aqua-spot .aqua-service-path__list li {
+  color: #e2effc;
+}
+
+/* ---------------------------------------------------- 7. Process pipeline */
+
+.aqua-flow-method {
+  position: relative;
+  --aqua-pipeline: 0;
+}
+
+.aqua-flow-method__stream {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 1.15rem;
+  width: 2px;
+  border-radius: 999px;
+  pointer-events: none;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    rgba(138, 168, 194, 0.06),
+    rgba(138, 168, 194, 0.02)
+  );
+}
+
+.aqua-flow-method__fill {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 100%;
+  border-radius: 999px;
+  transform-origin: top center;
+  transform: scaleY(var(--aqua-pipeline, 0));
+  background: linear-gradient(180deg, #65e2d8, #8aa8c2 46%, #2e8fd9);
+  box-shadow: 0 0 14px rgba(46, 143, 217, 0.45);
+  transition: transform 560ms var(--aqua-depth-ease);
+}
+
+.aqua-flow-method__packet {
+  position: absolute;
+  inset-inline: -2px;
+  top: 0;
+  height: 20%;
+  border-radius: 999px;
+  filter: blur(1px);
+  opacity: 0;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(201, 230, 255, 0.95),
+    transparent
+  );
+}
+
+.aqua-flow-method.is-aqua-pipeline-live .aqua-flow-method__packet {
+  opacity: 1;
+  animation: aquaPipelinePacket 3.6s var(--aqua-depth-ease) infinite;
+}
+
+@keyframes aquaPipelinePacket {
+  0% {
+    transform: translateY(-140%);
+    opacity: 0;
+  }
+  14% {
+    opacity: 1;
+  }
+  86% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(520%);
+    opacity: 0;
+  }
+}
+
+.aqua-flow-method li {
+  position: relative;
+  transition:
+    transform var(--aqua-depth-ui) var(--aqua-depth-ease),
+    border-color var(--aqua-depth-ui) ease,
+    background-color var(--aqua-depth-ui) ease;
+}
+
+.aqua-flow-method__number {
+  position: relative;
+  transition:
+    color var(--aqua-depth-ui) ease,
+    border-color var(--aqua-depth-ui) ease,
+    background var(--aqua-depth-ui) ease,
+    box-shadow var(--aqua-depth-ui) ease,
+    transform var(--aqua-depth-ui) var(--aqua-depth-spring);
+}
+
+.aqua-flow-method li.is-aqua-node-live .aqua-flow-method__number {
+  color: #001e2f;
+  background: linear-gradient(135deg, #8aa8c2, #2e8fd9);
+  border-color: rgba(255, 255, 255, 0.32);
+  box-shadow:
+    0 0 0 4px rgba(46, 143, 217, 0.1),
+    0 10px 30px rgba(46, 143, 217, 0.26);
+  transform: scale(1.06);
+}
+
+.aqua-flow-method li.is-aqua-node-live h4 {
+  color: #eaf4ff;
+}
+
+/* ------------------------------------------------ 8. Trust step sequence */
+
+.aqua-trust-card__index {
+  transition:
+    color var(--aqua-depth-ui) ease,
+    opacity var(--aqua-depth-ui) ease,
+    transform var(--aqua-depth-ui) var(--aqua-depth-spring);
+}
+
+.aqua-trust-card.is-aqua-step-live .aqua-trust-card__index {
+  color: var(--aqua-primary);
+  opacity: 1;
+  transform: translate3d(0, -2px, 0);
+}
+
+.aqua-trust-card.is-aqua-step-live .aqua-icon-box {
+  border-color: rgba(138, 168, 194, 0.42);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 14px 36px rgba(0, 0, 0, 0.26),
+    0 0 22px rgba(46, 143, 217, 0.14);
+}
+
+/* --------------------------------------------- 9. Solutions: live previews */
+
+.aqua-product-window {
+  transition: transform var(--aqua-depth-ui) var(--aqua-depth-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .aqua-product-card.is-aqua-spot .aqua-product-window {
+    transform: scale(1.02) translateY(-4px);
+  }
+}
+
+.aqua-product-card.is-aqua-spot .aqua-law-ui__rail span,
+.aqua-product-card.is-aqua-spot .aqua-attendance-ui__data span i,
+.aqua-product-card.is-aqua-spot .aqua-university-ui__board span i {
+  animation: aquaDataPulse 2.4s var(--aqua-depth-ease) infinite;
+}
+
+.aqua-product-card.is-aqua-spot .aqua-law-ui__rail span:nth-child(2),
+.aqua-product-card.is-aqua-spot .aqua-attendance-ui__data span:nth-child(3) i {
+  animation-delay: 260ms;
+}
+
+.aqua-product-card.is-aqua-spot .aqua-law-ui__rail span:nth-child(3),
+.aqua-product-card.is-aqua-spot .aqua-attendance-ui__data span:nth-child(4) i {
+  animation-delay: 520ms;
+}
+
+@keyframes aquaDataPulse {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.3);
+  }
+}
+
+/* Technical readout revealed when a product is inspected. */
+.aqua-product-card__signal {
+  position: absolute;
+  inset-block-start: 0.85rem;
+  inset-inline-end: 0.95rem;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.28rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(138, 168, 194, 0.24);
+  background: rgba(2, 13, 24, 0.84);
+  color: var(--aqua-primary);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  opacity: 0;
+  transform: translate3d(0, -6px, 0);
+  pointer-events: none;
+  transition:
+    opacity var(--aqua-depth-ui) ease,
+    transform var(--aqua-depth-ui) var(--aqua-depth-ease);
+}
+
+.aqua-product-card__signal i {
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: #65e2d8;
+  box-shadow: 0 0 8px rgba(101, 226, 216, 0.9);
+}
+
+.aqua-product-card.is-aqua-spot .aqua-product-card__signal {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* ------------------------------------------------------ 10. FAQ accordion */
+
+.faq-item {
+  position: relative;
+}
+
+.faq-q {
+  cursor: pointer;
+  gap: 1rem;
+}
+
+.faq-q .material-symbols-outlined {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(138, 168, 194, 0.2);
+  background: rgba(138, 168, 194, 0.06);
+  transition:
+    transform var(--aqua-depth-ui) var(--aqua-depth-ease),
+    background var(--aqua-depth-micro) ease,
+    border-color var(--aqua-depth-micro) ease,
+    color var(--aqua-depth-micro) ease;
+}
+
+.faq-item[data-aqua-faq-open="true"] .faq-q .material-symbols-outlined {
+  transform: rotate(135deg);
+  color: #001e2f;
+  background: linear-gradient(135deg, #8aa8c2, #2e8fd9);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Height animation with no hard-coded max-height.
+
+   The base rule carries a padding-top and a border-top that used to be
+   hidden by the `hidden` class. Now that the panel is always displayed,
+   both have to collapse with it or every closed item keeps ~15px of dead
+   space and a stray divider line. */
+.faq-a {
+  display: grid;
+  grid-template-rows: 0fr;
+  margin-top: 0;
+  padding-top: 0;
+  border-top-width: 0;
+  border-top-color: transparent;
+  opacity: 0;
+  transition:
+    grid-template-rows var(--aqua-depth-ui) var(--aqua-depth-ease),
+    opacity var(--aqua-depth-ui) ease,
+    margin-top var(--aqua-depth-ui) var(--aqua-depth-ease),
+    padding-top var(--aqua-depth-ui) var(--aqua-depth-ease),
+    border-top-width var(--aqua-depth-ui) var(--aqua-depth-ease),
+    border-top-color var(--aqua-depth-ui) ease;
+}
+
+.faq-a__inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.faq-item[data-aqua-faq-open="true"] .faq-a {
+  grid-template-rows: 1fr;
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top-width: 1px;
+  border-top-color: rgba(138, 168, 194, 0.09);
+  opacity: 1;
+}
+
+.faq-item[data-aqua-faq-open="true"] {
+  border-color: rgba(138, 168, 194, 0.3);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.015),
+    0 22px 70px rgba(0, 0, 0, 0.26),
+    0 0 26px rgba(46, 143, 217, 0.1);
+}
+
+.faq-item__rail {
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block: 14%;
+  width: 2px;
+  border-radius: 999px;
+  pointer-events: none;
+  background: linear-gradient(180deg, #65e2d8, #2e8fd9);
+  opacity: 0;
+  transform: scaleY(0.3);
+  transition:
+    opacity var(--aqua-depth-ui) ease,
+    transform var(--aqua-depth-ui) var(--aqua-depth-ease);
+}
+
+.faq-item[data-aqua-faq-open="true"] .faq-item__rail {
+  opacity: 0.85;
+  transform: scaleY(1);
+}
+
+/* ------------------------------------------- 11. Contact command centre */
+
+.aqua-command-frame {
+  position: relative;
+  --aqua-spot-x: 50%;
+  --aqua-spot-y: 0%;
+}
+
+.aqua-command-frame__light {
+  position: absolute;
+  inset: -1px;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    28rem circle at var(--aqua-spot-x) var(--aqua-spot-y),
+    rgba(46, 143, 217, 0.1),
+    transparent 62%
+  );
+  transition: opacity var(--aqua-depth-scene) ease;
+}
+
+.aqua-command-frame.is-aqua-spot .aqua-command-frame__light {
+  opacity: 1;
+}
+
+.aqua-input:focus,
+.aqua-select-trigger:focus {
+  transform: translate3d(0, -1px, 0);
+}
+
+.aqua-input,
+.aqua-select-trigger {
+  transition:
+    border-color var(--aqua-depth-micro) ease,
+    box-shadow var(--aqua-depth-micro) ease,
+    background var(--aqua-depth-micro) ease,
+    transform var(--aqua-depth-micro) var(--aqua-depth-ease);
+}
+
+/* ----------------------------------------------- 12. Micro-interactions */
+
+.aqua-magnetic {
+  --aqua-magnet-x: 0px;
+  --aqua-magnet-y: 0px;
+  transform: translate3d(var(--aqua-magnet-x), var(--aqua-magnet-y), 0);
+  transition: transform 340ms var(--aqua-depth-ease);
+  will-change: transform;
+}
+
+.aqua-magnetic.is-aqua-magnet-active {
+  transition: transform 90ms linear;
+}
+
+/* --------------------------------------------------- 13. Responsive tiers */
+
+@media (max-width: 1023px) {
+  .aqua-depth-card {
+    --aqua-tilt-x: 0deg !important;
+    --aqua-tilt-y: 0deg !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .aqua-atmosphere__grid {
+    background-size: 62px 62px;
+    opacity: 0.32;
+  }
+
+  .aqua-core-layer {
+    -webkit-mask-image: radial-gradient(
+      ellipse at 50% 40%,
+      #000 0%,
+      rgba(0, 0, 0, 0.8) 42%,
+      transparent 72%
+    );
+    mask-image: radial-gradient(
+      ellipse at 50% 40%,
+      #000 0%,
+      rgba(0, 0, 0, 0.8) 42%,
+      transparent 72%
+    );
+  }
+
+  #mobileMenu .aqua-mobile-nav-link {
+    font-size: 1.05rem;
+    padding: 0.9rem 1rem;
+  }
+
+  .aqua-depth-card__edge {
+    display: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .aqua-depth-card {
+    transform: translate3d(0, var(--aqua-lift), 0);
+  }
+
+  html.aqua-motion-ready
+    [data-aqua-motion].aqua-depth-card.is-aqua-motion-complete {
+    transform: translate3d(0, var(--aqua-lift), 0);
+  }
+}
+
+/* --------------------------------------------------- 14. Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .aqua-core-layer {
+    transition: none;
+  }
+
+  .aqua-atmosphere__grid,
+  .aqua-atmosphere__horizon {
+    transform: none !important;
+  }
+
+  .aqua-flow-method.is-aqua-pipeline-live .aqua-flow-method__packet,
+  .aqua-product-card.is-aqua-spot .aqua-law-ui__rail span,
+  .aqua-product-card.is-aqua-spot .aqua-attendance-ui__data span i,
+  .aqua-product-card.is-aqua-spot .aqua-university-ui__board span i {
+    animation: none !important;
+  }
+
+  .aqua-flow-method__fill {
+    transform: scaleY(1);
+    transition: none;
+  }
+
+  .aqua-depth-card,
+  .aqua-magnetic,
+  html.aqua-motion-ready
+    [data-aqua-motion].aqua-depth-card.is-aqua-motion-complete {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  #mobileMenu a {
+    opacity: 1;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .faq-a,
+  .aqua-top-pill,
+  .aqua-nav-progress,
+  .faq-item__rail,
+  .aqua-service-path__icon {
+    transition: none !important;
+  }
+}

@@ -11,8 +11,8 @@
         "surface-container-highest": "#273647",
         background: "#051424",
         surface: "#051424",
-        primary: "#89ceff",
-        "primary-container": "#00b4ff",
+        primary: "#8aa8c2",
+        "primary-container": "#2e8fd9",
         "primary-fixed": "#c9e6ff",
         "on-primary": "#00344d",
         "on-primary-fixed": "#001e2f",
@@ -24,11 +24,16 @@
         secondary: "#bec6e0",
         "tertiary-fixed-dim": "#bcc7de",
       },
+      // Canonical radius/spacing scale — src/input.css and the :root block in
+      // src/template.html mirror these numbers so there is one source of truth
+      // instead of three independently-set scales.
       borderRadius: {
-        DEFAULT: "0.125rem",
-        lg: "0.25rem",
-        xl: "0.5rem",
-        full: "0.75rem",
+        sm: "0.5rem",
+        DEFAULT: "0.75rem",
+        lg: "1rem",
+        xl: "1.5rem",
+        "2xl": "2rem",
+        full: "999px",
       },
       spacing: {
         "stack-sm": "8px",
@@ -37,6 +42,7 @@
         gutter: "24px",
         "margin-mobile": "16px",
         "section-padding": "120px",
+        "section-space": "clamp(4.75rem, 6vw, 6.25rem)",
         "container-max": "1280px",
       },
       fontFamily: {

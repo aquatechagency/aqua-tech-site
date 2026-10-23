@@ -1,0 +1,431 @@
+/* =========================================================================
+   Aqua.Tech - HP17 Techflux layer
+   Structural style only: glass panels with one chamfered corner, light/bold
+   heading contrast, mono labels, rectangular CTAs, gradient pills and soft
+   edge blobs.
+
+   Loaded after every existing stylesheet, so it refines rather than replaces.
+
+   Colour rule: this file introduces no colour values of its own. Every
+   colour resolves to an existing --aqua-* token from src/template.html
+   (the only extra ingredient is `white` / `transparent` inside color-mix
+   for alpha). The teal/green status accents are deliberately left alone.
+
+   Rollout is section by section; this pass covers the hero only.
+   ========================================================================= */
+
+:root {
+  --tf-base: var(--aqua-deep);
+  --tf-surface: var(--aqua-card-solid);
+  --tf-mid: var(--aqua-action);
+  --tf-light: var(--aqua-primary);
+  --tf-accent: var(--aqua-action);
+  --tf-ink: var(--aqua-text);
+  --tf-ink-dark: var(--aqua-deep);
+
+  /* deep -> action -> primary. White text fails AA past the action stop
+     (3.47:1 on action, 2.48:1 on primary), so anything that sits on the
+     light end opts into .tf-zone--light and switches to dark ink. */
+  --tf-gradient: linear-gradient(
+    180deg,
+    var(--tf-base),
+    var(--tf-mid) 60%,
+    var(--tf-light)
+  );
+
+  --tf-glass-bg: color-mix(in srgb, var(--tf-surface) 58%, transparent);
+  --tf-glass-border: color-mix(in srgb, white 30%, transparent);
+  --tf-glass-border-soft: color-mix(in srgb, white 16%, transparent);
+  --tf-glass-blur: 18px;
+
+  --tf-radius: 28px;
+  --tf-chamfer: 44px;
+  --tf-btn-radius: var(--aqua-radius-sm);
+
+  --tf-font-head: "Space Grotesk", "Alexandria", system-ui, sans-serif;
+  --tf-font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --tf-font-ar: "Alexandria", system-ui, sans-serif;
+}
+
+@supports not (color: color-mix(in srgb, white, transparent)) {
+  :root {
+    --tf-glass-bg: var(--aqua-card);
+    --tf-glass-border: var(--aqua-line-strong);
+    --tf-glass-border-soft: var(--aqua-line);
+  }
+}
+
+/* ------------------------------------------------------------ 1. Zones */
+
+.tf-zone--light {
+  color: var(--tf-ink-dark);
+}
+
+/* ------------------------------------------------------- 2. Glass panel */
+
+.tf-glass {
+  border: 1px solid var(--tf-glass-border);
+  border-radius: var(--tf-radius);
+  background: var(--tf-glass-bg);
+  -webkit-backdrop-filter: blur(var(--tf-glass-blur));
+  backdrop-filter: blur(var(--tf-glass-blur));
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .tf-glass {
+    background: var(--tf-surface);
+  }
+}
+
+/* ---------------------------------------------------- 3. Chamfer motif
+ * One corner cut on the diagonal, top inline-end. clip-path has no logical
+ * keywords, so the polygon is mirrored per document direction. The cut
+ * removes that stretch of border, so .tf-chamfer__edge redraws it as a
+ * hairline across the hypotenuse.
+ */
+
+.tf-chamfer {
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--tf-chamfer)) 0,
+    100% var(--tf-chamfer),
+    100% 100%,
+    0 100%
+  );
+}
+
+html[dir="rtl"] .tf-chamfer {
+  clip-path: polygon(
+    var(--tf-chamfer) 0,
+    100% 0,
+    100% 100%,
+    0 100%,
+    0 var(--tf-chamfer)
+  );
+}
+
+.tf-chamfer__edge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 4;
+  width: var(--tf-chamfer);
+  height: var(--tf-chamfer);
+  pointer-events: none;
+  background: linear-gradient(
+    to top right,
+    transparent calc(50% - 1px),
+    var(--tf-glass-border) calc(50% - 1px),
+    var(--tf-glass-border) calc(50% + 1px),
+    transparent calc(50% + 1px)
+  );
+}
+
+/* Physical left/right on purpose: .aqua-hero-runtime forces direction: ltr,
+   so logical insets would not follow the page direction here. */
+html[dir="rtl"] .tf-chamfer__edge {
+  right: auto;
+  left: 0;
+  background: linear-gradient(
+    to bottom right,
+    transparent calc(50% - 1px),
+    var(--tf-glass-border) calc(50% - 1px),
+    var(--tf-glass-border) calc(50% + 1px),
+    transparent calc(50% + 1px)
+  );
+}
+
+/* --------------------------------------------------- 4. Heading contrast */
+
+.tf-heading {
+  font-family: var(--tf-font-head);
+}
+
+.tf-heading__light {
+  font-weight: 300;
+  letter-spacing: -0.035em;
+}
+
+.tf-heading__bold {
+  font-weight: 700;
+}
+
+html[dir="rtl"] .tf-heading {
+  font-family: var(--tf-font-ar);
+  letter-spacing: 0;
+}
+
+html[dir="rtl"] .tf-heading__light {
+  letter-spacing: 0;
+}
+
+/* ------------------------------------------------- 5. Mono label system
+ * Latin gets mono, uppercase and tracking. Arabic has no mono coverage and
+ * no case, so it falls back to Alexandria with neither.
+ */
+
+.tf-mono {
+  font-family: var(--tf-font-mono);
+}
+
+html[dir="ltr"] .tf-mono {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+html[dir="rtl"] .tf-mono {
+  font-family: var(--tf-font-ar);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* ------------------------------------------------------------ 6. Buttons */
+
+.tf-btn-cta,
+.tf-btn-ghost {
+  border-radius: var(--tf-btn-radius);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+/* Dark ink on the action fill: 5.55:1. White would be 3.47:1. */
+.tf-btn-cta {
+  color: var(--tf-ink-dark);
+  background: var(--tf-accent);
+  border-color: transparent;
+}
+
+.tf-btn-cta:hover {
+  filter: brightness(1.1);
+}
+
+.tf-btn-ghost {
+  color: var(--tf-ink);
+  background: var(--tf-glass-bg);
+  border-color: var(--tf-glass-border-soft);
+}
+
+.tf-btn-ghost:hover {
+  border-color: var(--tf-glass-border);
+}
+
+/* Feature tags. */
+.tf-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.38rem 0.95rem;
+  border: 1px solid var(--tf-glass-border-soft);
+  border-radius: var(--aqua-radius-full);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--tf-mid) 22%, transparent),
+    color-mix(in srgb, var(--tf-base) 45%, transparent)
+  );
+  color: var(--tf-ink);
+  font-size: 0.72rem;
+}
+
+/* -------------------------------------------------------------- 7. Blobs */
+
+.tf-blob {
+  position: absolute;
+  z-index: -2;
+  pointer-events: none;
+  aspect-ratio: 1;
+  border-radius: 42% 58% 63% 37% / 45% 39% 61% 55%;
+  filter: blur(42px);
+  opacity: 0.32;
+  animation: tf-blob-drift 22s ease-in-out infinite alternate;
+}
+
+@keyframes tf-blob-drift {
+  to {
+    border-radius: 58% 42% 38% 62% / 52% 60% 40% 48%;
+    transform: translate3d(0, -3%, 0) rotate(14deg);
+  }
+}
+
+@media (max-width: 767px) {
+  .tf-blob {
+    display: none;
+  }
+}
+
+/* ============================================================ HERO ====== */
+
+/* Light first line, bold second line. Weights are set here rather than via
+   .tf-heading__* alone because .aqua-hero-title carries weight 800. */
+.aqua-signature-hero .aqua-hero-title > .tf-heading__light {
+  font-weight: 300;
+}
+
+.aqua-signature-hero .aqua-hero-title > .tf-heading__bold {
+  font-weight: 700;
+}
+
+html[dir="ltr"] .aqua-signature-hero .aqua-hero-kicker {
+  text-transform: uppercase;
+}
+
+/* Arabic hero: the hamza under "إ" and other descenders paint outside the
+ * span's box, and background-clip: text on the accent only paints inside the
+ * padding box. Give both lines positive bottom padding and drop the negative
+ * block-end margins that used to cancel it.
+ */
+html[dir="rtl"] .aqua-signature-hero .aqua-hero-title {
+  line-height: 1.32;
+}
+
+html[dir="rtl"] .aqua-signature-hero .aqua-hero-title > span {
+  padding-block-end: 0.2em;
+  margin-block-end: 0;
+}
+
+@media (max-width: 560px) {
+  html[dir="rtl"] .aqua-signature-hero .aqua-hero-title {
+    line-height: 1.34;
+  }
+
+  html[dir="rtl"] .aqua-signature-hero .aqua-hero-title > span {
+    padding-block-end: 0.22em;
+    margin-block-end: 0;
+  }
+}
+
+/* Buttons: shape and label only; .aqua-hero-btn keeps its motion and the
+   magnetic hook from aqua-depth.js. */
+.aqua-signature-hero .tf-btn-cta,
+.aqua-signature-hero .tf-btn-ghost {
+  font-family: var(--tf-font-mono);
+  border-radius: var(--tf-btn-radius);
+}
+
+html[dir="ltr"] .aqua-signature-hero .tf-btn-cta,
+html[dir="ltr"] .aqua-signature-hero .tf-btn-ghost {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+html[dir="rtl"] .aqua-signature-hero .tf-btn-cta,
+html[dir="rtl"] .aqua-signature-hero .tf-btn-ghost {
+  font-family: var(--tf-font-ar);
+  font-size: 0.95rem;
+}
+
+.aqua-signature-hero .tf-btn-cta {
+  color: var(--tf-ink-dark);
+  background: var(--tf-accent);
+  border-color: transparent;
+}
+
+.aqua-signature-hero .tf-btn-ghost {
+  color: var(--tf-ink);
+  background: var(--tf-glass-bg);
+  border-color: var(--tf-glass-border-soft);
+}
+
+.aqua-signature-hero .tf-btn-ghost:hover {
+  color: var(--tf-ink);
+  background: var(--tf-glass-bg);
+  border-color: var(--tf-glass-border);
+}
+
+/* Proof row as gradient pills. The existing dot moves inside the pill. */
+.aqua-signature-hero .aqua-hero-proof {
+  gap: 0.6rem;
+}
+
+.aqua-signature-hero .aqua-hero-proof .tf-pill {
+  padding-inline-start: 1.6rem;
+}
+
+.aqua-signature-hero .aqua-hero-proof .tf-pill::before {
+  inset-inline-start: 0.75rem;
+}
+
+html[dir="ltr"] .aqua-signature-hero .aqua-hero-proof .tf-pill {
+  font-family: var(--tf-font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Runtime card as the glass + chamfer centrepiece. The tint keeps the
+   card's original top-corner glow, now on a see-through base. */
+.aqua-signature-hero .aqua-runtime-window.tf-glass {
+  background:
+    radial-gradient(
+      circle at 82% 2%,
+      color-mix(in srgb, var(--tf-accent) 12%, transparent),
+      transparent 28%
+    ),
+    var(--tf-glass-bg);
+}
+
+/* clip-path also clips box-shadow, so the depth shadow lives on a wrapper
+   as drop-shadow, which traces the cut outline. Not on .aqua-hero-runtime:
+   that element's filter is owned by the hero-motion blur reveal. */
+.tf-chamfer-shadow {
+  filter:
+    drop-shadow(0 26px 34px color-mix(in srgb, var(--tf-base) 72%, transparent))
+    drop-shadow(0 0 28px color-mix(in srgb, var(--tf-accent) 10%, transparent));
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .tf-chamfer-shadow {
+    filter: drop-shadow(0 18px 24px var(--tf-base));
+  }
+}
+
+/* Keep the top bar's end items (TLS badge / window dots) clear of the cut.
+   Physical sides for the same forced-ltr reason as .tf-chamfer__edge. */
+.aqua-signature-hero .tf-chamfer .aqua-runtime-topbar {
+  padding-right: calc(var(--tf-chamfer) * 0.8);
+}
+
+html[dir="rtl"] .aqua-signature-hero .tf-chamfer .aqua-runtime-topbar {
+  padding-right: 1rem;
+  padding-left: calc(var(--tf-chamfer) * 0.8);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .aqua-signature-hero .aqua-runtime-window.tf-glass {
+    background: var(--tf-surface);
+  }
+}
+
+.aqua-signature-hero .tf-blob--a {
+  width: min(38vw, 560px);
+  inset-inline-end: -14vw;
+  top: -12%;
+  background: radial-gradient(
+    circle at 40% 40%,
+    var(--tf-mid),
+    transparent 70%
+  );
+}
+
+.aqua-signature-hero .tf-blob--b {
+  width: min(30vw, 440px);
+  inset-inline-start: -12vw;
+  bottom: -18%;
+  opacity: 0.22;
+  animation-delay: -9s;
+  background: radial-gradient(
+    circle at 60% 50%,
+    var(--tf-light),
+    transparent 70%
+  );
+}
+
+/* ------------------------------------------------------ Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .tf-blob {
+    animation: none;
+  }
+
+  .tf-btn-cta:hover {
+    filter: none;
+  }
+}

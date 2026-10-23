@@ -30,8 +30,8 @@ body > header.is-aqua-header-scrolled {
   bottom: 0;
   height: 2px;
   border-radius: 999px;
-  background: linear-gradient(90deg, #65e2d8, #89ceff);
-  box-shadow: 0 0 12px rgba(0, 180, 255, 0.36);
+  background: linear-gradient(90deg, #65e2d8, #8aa8c2);
+  box-shadow: 0 0 12px rgba(46, 143, 217, 0.36);
   opacity: 0;
   transform: scaleX(0.28);
   transition:
@@ -60,8 +60,8 @@ body > header.is-aqua-header-scrolled {
 
 .aqua-mobile-nav-link.is-active {
   color: var(--aqua-primary);
-  border-color: rgba(137, 206, 255, 0.18);
-  background: rgba(0, 180, 255, 0.09);
+  border-color: rgba(138, 168, 194, 0.18);
+  background: rgba(46, 143, 217, 0.09);
 }
 
 .aqua-pointer-glow {
@@ -77,8 +77,8 @@ body > header.is-aqua-header-scrolled {
   pointer-events: none;
   background: radial-gradient(
     circle,
-    rgba(137, 206, 255, 0.13) 0%,
-    rgba(0, 180, 255, 0.055) 34%,
+    rgba(138, 168, 194, 0.13) 0%,
+    rgba(46, 143, 217, 0.055) 34%,
     transparent 70%
   );
   opacity: 0;

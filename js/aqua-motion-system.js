@@ -9,7 +9,13 @@
   ).matches;
   const narrowViewport = window.matchMedia("(max-width: 767px)").matches;
   const saveData = Boolean(navigator.connection?.saveData);
-  const liteMode = reducedMotion || coarsePointer || narrowViewport || saveData;
+
+  /* Two distinct tiers, so a phone is not treated as a reduced-motion
+     device. staticMode: no motion at all (user preference or data saver).
+     liteMode: touch and narrow viewports still animate, just shorter and
+     faster, which is what the mobile design is tuned for. */
+  const staticMode = reducedMotion || saveData;
+  const liteMode = staticMode || coarsePointer || narrowViewport;
 
   document.querySelectorAll(".aqua-reveal").forEach((element) => {
     element.classList.remove("aqua-reveal", "is-visible", "aqua-hover-lift");
@@ -42,7 +48,7 @@
       card.dataset.aquaMotion = "rise";
       card.style.setProperty(
         "--aqua-motion-delay",
-        `${Math.min(index % 4, 3) * 85}ms`,
+        `${Math.min(index % 4, 3) * (liteMode ? 55 : 85)}ms`,
       );
       motionItems.push(card);
     });
@@ -65,7 +71,7 @@
     .querySelectorAll("a, button, input, select, textarea, summary")
     .forEach((element) => element.classList.add("aqua-motion-focus"));
 
-  if (liteMode || !("IntersectionObserver" in window)) {
+  if (staticMode || !("IntersectionObserver" in window)) {
     uniqueItems.forEach((element) => {
       element.classList.add(
         "is-aqua-motion-visible",
@@ -75,6 +81,7 @@
     root.classList.add("aqua-motion-lite");
   } else {
     root.classList.add("aqua-motion-ready");
+    if (liteMode) root.classList.add("aqua-motion-compact");
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -97,11 +104,16 @@
     uniqueItems.forEach((element) => observer.observe(element));
   }
 
-  if (!liteMode) {
-    const progress = document.createElement("div");
-    progress.className = "aqua-motion-progress";
-    progress.setAttribute("aria-hidden", "true");
-    document.body.appendChild(progress);
+  /* The scroll ratio drives the atmosphere parallax and the navigation
+     hairline on every tier, so it is tracked even when the progress bar
+     itself is not drawn. */
+  {
+    if (!liteMode) {
+      const progress = document.createElement("div");
+      progress.className = "aqua-motion-progress";
+      progress.setAttribute("aria-hidden", "true");
+      document.body.appendChild(progress);
+    }
 
     let frameId = 0;
 

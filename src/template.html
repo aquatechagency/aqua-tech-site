@@ -48,7 +48,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link
@@ -68,12 +68,21 @@
         --aqua-deep: #010f1f;
         --aqua-card: rgba(15, 23, 42, 0.6);
         --aqua-card-solid: #122131;
-        --aqua-line: rgba(137, 206, 255, 0.12);
-        --aqua-line-strong: rgba(137, 206, 255, 0.34);
-        --aqua-primary: #89ceff;
-        --aqua-action: #00b4ff;
+        --aqua-line: rgba(138, 168, 194, 0.12);
+        --aqua-line-strong: rgba(138, 168, 194, 0.34);
+        --aqua-primary: #8aa8c2;
+        --aqua-action: #2e8fd9;
         --aqua-text: #d4e4fa;
         --aqua-muted: #bdc8d2;
+
+        /* Mirrors tailwind.config.js theme.extend.borderRadius — that file is
+           the canonical scale; keep these numbers in sync with it. */
+        --aqua-radius-sm: 0.5rem;
+        --aqua-radius: 0.75rem;
+        --aqua-radius-lg: 1rem;
+        --aqua-radius-xl: 1.5rem;
+        --aqua-radius-2xl: 2rem;
+        --aqua-radius-full: 999px;
       }
 
       html {
@@ -83,18 +92,18 @@
         background:
           radial-gradient(
             circle at 50% 0%,
-            rgba(0, 180, 255, 0.16),
+            rgba(46, 143, 217, 0.16),
             transparent 34%
           ),
           radial-gradient(
             circle at 12% 18%,
-            rgba(137, 206, 255, 0.08),
+            rgba(138, 168, 194, 0.08),
             transparent 28%
           ),
           linear-gradient(180deg, #051424 0%, #03101f 52%, #010915 100%);
         color: var(--aqua-text);
         font-family:
-          Inter,
+          "Manrope",
           system-ui,
           -apple-system,
           BlinkMacSystemFont,
@@ -116,7 +125,7 @@
         background: rgba(15, 23, 42, 0.6);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
-        border: 1px solid rgba(137, 206, 255, 0.1);
+        border: 1px solid rgba(138, 168, 194, 0.1);
         box-shadow:
           0 0 0 1px rgba(255, 255, 255, 0.015) inset,
           0 22px 80px rgba(0, 0, 0, 0.24);
@@ -128,15 +137,14 @@
       }
 
       .glass-card:hover {
-        border-color: rgba(137, 206, 255, 0.34);
+        border-color: rgba(138, 168, 194, 0.34);
         box-shadow:
           0 0 0 1px rgba(255, 255, 255, 0.02) inset,
-          0 22px 80px rgba(0, 0, 0, 0.28),
-          0 0 24px rgba(0, 180, 255, 0.13);
+          0 22px 80px rgba(0, 0, 0, 0.28);
       }
 
       .glow-text {
-        text-shadow: 0 0 10px rgba(137, 206, 255, 0.5);
+        text-shadow: 0 0 10px rgba(138, 168, 194, 0.5);
       }
 
       .terminal-cursor::after {
@@ -163,11 +171,11 @@
         background:
           linear-gradient(
             135deg,
-            rgba(137, 206, 255, 0.1),
-            rgba(0, 180, 255, 0.045)
+            rgba(138, 168, 194, 0.1),
+            rgba(46, 143, 217, 0.045)
           ),
-          rgba(137, 206, 255, 0.045);
-        border: 1px solid rgba(137, 206, 255, 0.26);
+          rgba(138, 168, 194, 0.045);
+        border: 1px solid rgba(138, 168, 194, 0.26);
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.05),
           0 10px 26px rgba(0, 0, 0, 0.14);
@@ -184,17 +192,17 @@
 
       .service-cta-btn:hover {
         color: #001e2f;
-        background: linear-gradient(135deg, #89ceff, #00b4ff);
+        background: linear-gradient(135deg, #8aa8c2, #2e8fd9);
         border-color: rgba(255, 255, 255, 0.28);
         transform: translateY(-2px);
         box-shadow:
-          0 14px 34px rgba(0, 180, 255, 0.22),
-          0 0 18px rgba(137, 206, 255, 0.12);
+          0 14px 34px rgba(46, 143, 217, 0.22),
+          0 0 18px rgba(138, 168, 194, 0.12);
       }
 
       .service-cta-btn-primary {
         color: #001e2f;
-        background: linear-gradient(135deg, #89ceff, #00b4ff);
+        background: linear-gradient(135deg, #8aa8c2, #2e8fd9);
         border-color: rgba(255, 255, 255, 0.28);
       }
 
@@ -237,7 +245,7 @@
         right: 8%;
         background: radial-gradient(
           circle,
-          rgba(0, 180, 255, 0.34),
+          rgba(46, 143, 217, 0.34),
           transparent 64%
         );
       }
@@ -248,7 +256,7 @@
         left: 8%;
         background: radial-gradient(
           circle,
-          rgba(137, 206, 255, 0.2),
+          rgba(138, 168, 194, 0.2),
           transparent 68%
         );
         animation-delay: -5s;
@@ -271,27 +279,27 @@
         background-image:
           linear-gradient(
             to right,
-            rgba(137, 206, 255, 0.06) 1px,
+            rgba(138, 168, 194, 0.06) 1px,
             transparent 1px
           ),
           linear-gradient(
             to bottom,
-            rgba(137, 206, 255, 0.045) 1px,
+            rgba(138, 168, 194, 0.045) 1px,
             transparent 1px
           ),
           radial-gradient(
             circle at 20% 30%,
-            rgba(137, 206, 255, 0.18) 0 2px,
+            rgba(138, 168, 194, 0.18) 0 2px,
             transparent 3px
           ),
           radial-gradient(
             circle at 78% 26%,
-            rgba(0, 180, 255, 0.18) 0 2px,
+            rgba(46, 143, 217, 0.18) 0 2px,
             transparent 3px
           ),
           radial-gradient(
             circle at 52% 78%,
-            rgba(137, 206, 255, 0.12) 0 2px,
+            rgba(138, 168, 194, 0.12) 0 2px,
             transparent 3px
           );
         background-size:
@@ -318,7 +326,7 @@
         color: rgba(212, 228, 250, 0.2);
         letter-spacing: 0.1em;
         user-select: none;
-        text-shadow: 0 0 18px rgba(137, 206, 255, 0.12);
+        text-shadow: 0 0 18px rgba(138, 168, 194, 0.12);
       }
 
       .section-kicker {
@@ -342,14 +350,14 @@
         letter-spacing: 0;
         padding: 0.35rem 0.7rem;
         border-radius: 999px;
-        border: 1px solid rgba(137, 206, 255, 0.18);
-        background: rgba(137, 206, 255, 0.055);
+        border: 1px solid rgba(138, 168, 194, 0.18);
+        background: rgba(138, 168, 194, 0.055);
       }
 
       .aqua-input {
         width: 100%;
         border-radius: 0.75rem;
-        border: 1px solid rgba(137, 206, 255, 0.14);
+        border: 1px solid rgba(138, 168, 194, 0.14);
         background: rgba(1, 15, 31, 0.62);
         color: var(--aqua-text);
         padding: 0.9rem 1rem;
@@ -363,10 +371,10 @@
         color: rgba(189, 200, 210, 0.55);
       }
       .aqua-input:focus {
-        border-color: rgba(137, 206, 255, 0.65);
+        border-color: rgba(138, 168, 194, 0.65);
         box-shadow:
-          inset 0 0 10px rgba(137, 206, 255, 0.14),
-          0 0 0 4px rgba(137, 206, 255, 0.06);
+          inset 0 0 10px rgba(138, 168, 194, 0.14),
+          0 0 0 4px rgba(138, 168, 194, 0.06);
         background: rgba(1, 15, 31, 0.86);
       }
       select.aqua-input option {
@@ -397,11 +405,11 @@
         background:
           linear-gradient(
             135deg,
-            rgba(137, 206, 255, 0.12),
-            rgba(0, 180, 255, 0.06)
+            rgba(138, 168, 194, 0.12),
+            rgba(46, 143, 217, 0.06)
           ),
-          rgba(137, 206, 255, 0.055);
-        border: 1px solid rgba(137, 206, 255, 0.32);
+          rgba(138, 168, 194, 0.055);
+        border: 1px solid rgba(138, 168, 194, 0.32);
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.06),
           0 10px 28px rgba(0, 0, 0, 0.18);
@@ -411,12 +419,12 @@
 
       .offer-cta-btn:hover {
         color: #001e2f;
-        background: linear-gradient(135deg, #89ceff, #00b4ff);
+        background: linear-gradient(135deg, #8aa8c2, #2e8fd9);
         border-color: rgba(255, 255, 255, 0.28);
         transform: translateY(-2px);
         box-shadow:
-          0 16px 38px rgba(0, 180, 255, 0.24),
-          0 0 18px rgba(137, 206, 255, 0.16);
+          0 16px 38px rgba(46, 143, 217, 0.24),
+          0 0 18px rgba(138, 168, 194, 0.16);
       }
 
       .offer-cta-btn .btn-icon {
@@ -430,7 +438,7 @@
 
       .offer-cta-btn-primary {
         color: #001e2f;
-        background: linear-gradient(135deg, #89ceff, #00b4ff);
+        background: linear-gradient(135deg, #8aa8c2, #2e8fd9);
         border-color: rgba(255, 255, 255, 0.28);
       }
 
@@ -504,10 +512,10 @@
         display: grid;
         place-items: center;
         color: #001e2f;
-        background: linear-gradient(135deg, #89ceff, #00b4ff);
+        background: linear-gradient(135deg, #8aa8c2, #2e8fd9);
         box-shadow:
           0 16px 42px rgba(0, 0, 0, 0.34),
-          0 0 20px rgba(0, 180, 255, 0.22);
+          0 0 20px rgba(46, 143, 217, 0.22);
         border: 1px solid rgba(255, 255, 255, 0.2);
         opacity: 0.94;
         transition:
@@ -533,7 +541,7 @@
         padding: 1rem;
         border-radius: 1rem;
         background: rgba(1, 15, 31, 0.96);
-        border: 1px solid rgba(137, 206, 255, 0.18);
+        border: 1px solid rgba(138, 168, 194, 0.18);
         box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
       }
       #consent-banner.is-visible {
@@ -560,7 +568,7 @@
         padding: 2rem;
         border-radius: 1.25rem;
         background: #122131;
-        border: 1px solid rgba(137, 206, 255, 0.18);
+        border: 1px solid rgba(138, 168, 194, 0.18);
         box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
       }
       .success-modal-icon {
@@ -570,9 +578,9 @@
         place-items: center;
         margin: 0 auto 1rem;
         border-radius: 999px;
-        background: rgba(137, 206, 255, 0.12);
-        border: 1px solid rgba(137, 206, 255, 0.28);
-        color: #89ceff;
+        background: rgba(138, 168, 194, 0.12);
+        border: 1px solid rgba(138, 168, 194, 0.28);
+        color: #8aa8c2;
         font-size: 28px;
         font-weight: 800;
       }
@@ -640,8 +648,8 @@
         align-items: center;
         justify-content: center;
         border-radius: 16px;
-        border: 1px solid rgba(137, 206, 255, 0.28);
-        background: rgba(137, 206, 255, 0.06);
+        border: 1px solid rgba(138, 168, 194, 0.28);
+        background: rgba(138, 168, 194, 0.06);
         color: var(--aqua-primary);
         text-decoration: none;
         transition:
@@ -686,7 +694,7 @@
         min-height: 3.55rem;
         padding: 0.9rem 1rem;
         border-radius: 0.75rem;
-        border: 1px solid rgba(137, 206, 255, 0.14);
+        border: 1px solid rgba(138, 168, 194, 0.14);
         background: rgba(1, 15, 31, 0.62);
         color: var(--aqua-text);
         display: flex;
@@ -699,10 +707,10 @@
 
       .aqua-select-trigger:focus,
       .aqua-custom-select.is-open .aqua-select-trigger {
-        border-color: rgba(137, 206, 255, 0.65);
+        border-color: rgba(138, 168, 194, 0.65);
         box-shadow:
-          inset 0 0 10px rgba(137, 206, 255, 0.14),
-          0 0 0 4px rgba(137, 206, 255, 0.06);
+          inset 0 0 10px rgba(138, 168, 194, 0.14),
+          0 0 0 4px rgba(138, 168, 194, 0.06);
         background: rgba(1, 15, 31, 0.9);
       }
 
@@ -717,7 +725,7 @@
         overflow-y: auto;
         padding: 0.6rem;
         border-radius: 1rem;
-        border: 1px solid rgba(137, 206, 255, 0.24);
+        border: 1px solid rgba(138, 168, 194, 0.24);
         background: #071827;
         box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
 
@@ -766,7 +774,7 @@
 
       .aqua-select-option:hover,
       .aqua-select-option.is-selected {
-        background: rgba(137, 206, 255, 0.12);
+        background: rgba(138, 168, 194, 0.12);
         color: #ffffff;
       }
 
@@ -792,20 +800,19 @@
         background:
           radial-gradient(
             circle at 35% 20%,
-            rgba(137, 206, 255, 0.18),
+            rgba(138, 168, 194, 0.18),
             transparent 56%
           ),
           linear-gradient(
             135deg,
-            rgba(137, 206, 255, 0.12),
-            rgba(0, 180, 255, 0.045)
+            rgba(138, 168, 194, 0.12),
+            rgba(46, 143, 217, 0.045)
           ),
           rgba(15, 35, 55, 0.72);
-        border: 1px solid rgba(137, 206, 255, 0.24);
+        border: 1px solid rgba(138, 168, 194, 0.24);
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.06),
-          0 14px 35px rgba(0, 0, 0, 0.22),
-          0 0 18px rgba(0, 180, 255, 0.06);
+          0 14px 35px rgba(0, 0, 0, 0.22);
         transition:
           transform 0.22s ease,
           border-color 0.22s ease,
@@ -828,28 +835,27 @@
       .glass-card:hover .aqua-icon-box,
       .aqua-icon-box:hover {
         transform: translateY(-2px);
-        border-color: rgba(137, 206, 255, 0.48);
+        border-color: rgba(138, 168, 194, 0.48);
         background:
           radial-gradient(
             circle at 35% 20%,
-            rgba(137, 206, 255, 0.32),
+            rgba(138, 168, 194, 0.32),
             transparent 58%
           ),
           linear-gradient(
             135deg,
-            rgba(137, 206, 255, 0.18),
-            rgba(0, 180, 255, 0.09)
+            rgba(138, 168, 194, 0.18),
+            rgba(46, 143, 217, 0.09)
           ),
           rgba(18, 42, 64, 0.9);
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.08),
-          0 16px 42px rgba(0, 0, 0, 0.28),
-          0 0 24px rgba(0, 180, 255, 0.13);
+          0 16px 42px rgba(0, 0, 0, 0.28);
       }
 
       .aqua-icon-box.is-primary {
         color: #001e2f;
-        background: linear-gradient(135deg, #89ceff, #00b4ff);
+        background: linear-gradient(135deg, #8aa8c2, #2e8fd9);
         border-color: rgba(255, 255, 255, 0.28);
       }
 
@@ -881,11 +887,11 @@
           rgba(8, 25, 42, 0.92),
           rgba(5, 18, 32, 0.88)
         );
-        border: 1px solid rgba(137, 206, 255, 0.14);
+        border: 1px solid rgba(138, 168, 194, 0.14);
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.045),
           0 18px 55px rgba(0, 0, 0, 0.28),
-          0 0 24px rgba(0, 180, 255, 0.08);
+          0 0 24px rgba(46, 143, 217, 0.08);
         backdrop-filter: blur(18px);
         -webkit-backdrop-filter: blur(18px);
       }
@@ -913,14 +919,14 @@
         background:
           radial-gradient(
             circle at 35% 20%,
-            rgba(137, 206, 255, 0.2),
+            rgba(138, 168, 194, 0.2),
             transparent 58%
           ),
-          rgba(137, 206, 255, 0.055);
-        border: 1px solid rgba(137, 206, 255, 0.24);
+          rgba(138, 168, 194, 0.055);
+        border: 1px solid rgba(138, 168, 194, 0.24);
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.06),
-          0 0 18px rgba(0, 180, 255, 0.08);
+          0 0 18px rgba(46, 143, 217, 0.08);
       }
 
       .aqua-nav-links {
@@ -947,7 +953,7 @@
 
       .aqua-nav-link:hover {
         color: var(--aqua-primary);
-        background: rgba(137, 206, 255, 0.07);
+        background: rgba(138, 168, 194, 0.07);
       }
 
       .aqua-nav-link.is-active {
@@ -955,11 +961,11 @@
         background:
           linear-gradient(
             135deg,
-            rgba(137, 206, 255, 0.18),
-            rgba(0, 180, 255, 0.08)
+            rgba(138, 168, 194, 0.18),
+            rgba(46, 143, 217, 0.08)
           ),
-          rgba(137, 206, 255, 0.08);
-        border: 1px solid rgba(137, 206, 255, 0.18);
+          rgba(138, 168, 194, 0.08);
+        border: 1px solid rgba(138, 168, 194, 0.18);
       }
 
       .aqua-nav-action {
@@ -971,8 +977,8 @@
         justify-content: center;
         gap: 0.55rem;
         color: #d4e4fa;
-        background: rgba(137, 206, 255, 0.045);
-        border: 1px solid rgba(137, 206, 255, 0.16);
+        background: rgba(138, 168, 194, 0.045);
+        border: 1px solid rgba(138, 168, 194, 0.16);
         font-weight: 700;
         text-decoration: none;
         transition:
@@ -984,8 +990,8 @@
 
       .aqua-nav-action:hover {
         color: var(--aqua-primary);
-        background: rgba(137, 206, 255, 0.09);
-        border-color: rgba(137, 206, 255, 0.32);
+        background: rgba(138, 168, 194, 0.09);
+        border-color: rgba(138, 168, 194, 0.32);
         transform: translateY(-1px);
       }
 
@@ -997,10 +1003,9 @@
         align-items: center;
         justify-content: center;
         color: #001e2f;
-        background: linear-gradient(135deg, #89ceff, #00b4ff);
+        background: linear-gradient(135deg, #8aa8c2, #2e8fd9);
         border: 1px solid rgba(255, 255, 255, 0.28);
         font-weight: 900;
-        box-shadow: 0 14px 32px rgba(0, 180, 255, 0.22);
         transition:
           transform 0.2s ease,
           filter 0.2s ease,
@@ -1010,7 +1015,7 @@
       .aqua-nav-primary:hover {
         transform: translateY(-1px);
         filter: saturate(1.08);
-        box-shadow: 0 18px 40px rgba(0, 180, 255, 0.3);
+        box-shadow: 0 18px 40px rgba(46, 143, 217, 0.3);
       }
 
       .aqua-nav-menu-btn {
@@ -1021,8 +1026,8 @@
         align-items: center;
         justify-content: center;
         color: var(--aqua-primary);
-        background: rgba(137, 206, 255, 0.06);
-        border: 1px solid rgba(137, 206, 255, 0.22);
+        background: rgba(138, 168, 194, 0.06);
+        border: 1px solid rgba(138, 168, 194, 0.22);
       }
 
       .aqua-mobile-link {
@@ -1036,7 +1041,7 @@
       }
 
       .aqua-mobile-link:hover {
-        background: rgba(137, 206, 255, 0.08);
+        background: rgba(138, 168, 194, 0.08);
         color: var(--aqua-primary);
       }
 
@@ -1054,20 +1059,19 @@
         background:
           radial-gradient(
             circle at 14% 0%,
-            rgba(137, 206, 255, 0.16),
+            rgba(138, 168, 194, 0.16),
             transparent 36%
           ),
           radial-gradient(
             circle at 88% 0%,
-            rgba(0, 180, 255, 0.1),
+            rgba(46, 143, 217, 0.1),
             transparent 34%
           ),
           linear-gradient(180deg, rgba(7, 24, 41, 0.94), rgba(4, 17, 31, 0.88));
-        border: 1px solid rgba(137, 206, 255, 0.18);
+        border: 1px solid rgba(138, 168, 194, 0.18);
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.055),
-          0 18px 48px rgba(0, 0, 0, 0.34),
-          0 0 34px rgba(0, 180, 255, 0.1);
+          0 18px 48px rgba(0, 0, 0, 0.34);
         backdrop-filter: blur(22px);
         -webkit-backdrop-filter: blur(22px);
       }
@@ -1089,8 +1093,8 @@
       .aqua-top-pill .nav-link.is-active {
         background: linear-gradient(
           135deg,
-          rgba(137, 206, 255, 0.12),
-          rgba(0, 180, 255, 0.04)
+          rgba(138, 168, 194, 0.12),
+          rgba(46, 143, 217, 0.04)
         );
         color: var(--aqua-primary);
       }
@@ -1401,7 +1405,7 @@
         align-items: center;
         overflow: hidden;
         padding: 7.6rem 1.25rem 2rem;
-        border-bottom: 1px solid rgba(137, 206, 255, 0.08);
+        border-bottom: 1px solid rgba(138, 168, 194, 0.08);
       }
 
       .aqua-signature-hero::before {
@@ -1410,8 +1414,8 @@
         inset: 0;
         z-index: -4;
         background:
-          radial-gradient(circle at 72% 32%, rgba(0, 180, 255, 0.15), transparent 28%),
-          radial-gradient(circle at 21% 63%, rgba(137, 206, 255, 0.09), transparent 26%),
+          radial-gradient(circle at 72% 32%, rgba(46, 143, 217, 0.15), transparent 28%),
+          radial-gradient(circle at 21% 63%, rgba(138, 168, 194, 0.09), transparent 26%),
           linear-gradient(180deg, rgba(5, 20, 36, 0.18), rgba(1, 9, 21, 0.5));
       }
 
@@ -1422,8 +1426,8 @@
         pointer-events: none;
         opacity: 0.34;
         background-image:
-          linear-gradient(to right, rgba(137, 206, 255, 0.055) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(137, 206, 255, 0.045) 1px, transparent 1px);
+          linear-gradient(to right, rgba(138, 168, 194, 0.055) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(138, 168, 194, 0.045) 1px, transparent 1px);
         background-size: 72px 72px;
         -webkit-mask-image: radial-gradient(ellipse at 50% 44%, #000 0%, rgba(0, 0, 0, 0.72) 42%, transparent 78%);
         mask-image: radial-gradient(ellipse at 50% 44%, #000 0%, rgba(0, 0, 0, 0.72) 42%, transparent 78%);
@@ -1442,7 +1446,7 @@
         aspect-ratio: 1;
         inset-inline-start: -12vw;
         top: 18%;
-        background: radial-gradient(circle, rgba(137, 206, 255, 0.12), transparent 68%);
+        background: radial-gradient(circle, rgba(138, 168, 194, 0.12), transparent 68%);
       }
 
       .aqua-hero-aura-two {
@@ -1450,7 +1454,7 @@
         aspect-ratio: 1;
         inset-inline-end: -8vw;
         bottom: -16%;
-        background: radial-gradient(circle, rgba(0, 180, 255, 0.14), transparent 68%);
+        background: radial-gradient(circle, rgba(46, 143, 217, 0.14), transparent 68%);
       }
 
       .aqua-hero-flow-map {
@@ -1476,9 +1480,9 @@
       }
 
       .aqua-flow-node {
-        fill: #89ceff;
+        fill: #8aa8c2;
         opacity: 0.66;
-        filter: drop-shadow(0 0 7px rgba(137, 206, 255, 0.8));
+        filter: drop-shadow(0 0 7px rgba(138, 168, 194, 0.8));
       }
 
       .aqua-hero-shell {
@@ -1529,9 +1533,9 @@
         gap: 0.7rem;
         margin-bottom: 1.25rem;
         padding: 0.52rem 0.9rem;
-        border: 1px solid rgba(137, 206, 255, 0.2);
+        border: 1px solid rgba(138, 168, 194, 0.2);
         border-radius: 999px;
-        background: linear-gradient(135deg, rgba(137, 206, 255, 0.09), rgba(0, 180, 255, 0.025));
+        background: linear-gradient(135deg, rgba(138, 168, 194, 0.09), rgba(46, 143, 217, 0.025));
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
         color: var(--aqua-primary);
         font-family: "JetBrains Mono", monospace;
@@ -1572,10 +1576,10 @@
       .aqua-hero-title-accent {
         margin-top: 0.12em;
         color: transparent;
-        background: linear-gradient(92deg, #d8efff 0%, #89ceff 44%, #00b4ff 100%);
+        background: linear-gradient(92deg, #d8efff 0%, #8aa8c2 44%, #2e8fd9 100%);
         -webkit-background-clip: text;
         background-clip: text;
-        text-shadow: 0 0 34px rgba(0, 180, 255, 0.16);
+        text-shadow: 0 0 34px rgba(46, 143, 217, 0.16);
       }
 
       @media (min-width: 561px) {
@@ -1625,26 +1629,25 @@
 
       .aqua-hero-btn-primary {
         color: #001e2f;
-        background: linear-gradient(135deg, #a4dcff 0%, #57c8ff 48%, #00b4ff 100%);
+        background: linear-gradient(135deg, #a4dcff 0%, #57c8ff 48%, #2e8fd9 100%);
         border-color: rgba(255, 255, 255, 0.2);
-        box-shadow: 0 16px 36px rgba(0, 180, 255, 0.2), 0 0 24px rgba(137, 206, 255, 0.12);
       }
 
       .aqua-hero-btn-primary:hover {
-        box-shadow: 0 20px 44px rgba(0, 180, 255, 0.27), 0 0 30px rgba(137, 206, 255, 0.15);
+        box-shadow: 0 20px 44px rgba(46, 143, 217, 0.27), 0 0 30px rgba(138, 168, 194, 0.15);
       }
 
       .aqua-hero-btn-secondary {
         color: #d4e4fa;
         background: rgba(7, 24, 41, 0.54);
-        border-color: rgba(137, 206, 255, 0.22);
+        border-color: rgba(138, 168, 194, 0.22);
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
       }
 
       .aqua-hero-btn-secondary:hover {
         color: #a9ddff;
-        background: rgba(137, 206, 255, 0.075);
-        border-color: rgba(137, 206, 255, 0.4);
+        background: rgba(138, 168, 194, 0.075);
+        border-color: rgba(138, 168, 194, 0.4);
       }
 
       .aqua-hero-proof {
@@ -1654,7 +1657,7 @@
         gap: 0.7rem 1.2rem;
         margin-top: 1.45rem;
         padding-top: 1rem;
-        border-top: 1px solid rgba(137, 206, 255, 0.1);
+        border-top: 1px solid rgba(138, 168, 194, 0.1);
         color: rgba(189, 200, 210, 0.68);
         font-size: 0.78rem;
         font-weight: 600;
@@ -1673,9 +1676,9 @@
         width: 0.3rem;
         height: 0.3rem;
         border-radius: 999px;
-        background: rgba(137, 206, 255, 0.72);
+        background: rgba(138, 168, 194, 0.72);
         transform: translateY(-50%);
-        box-shadow: 0 0 8px rgba(137, 206, 255, 0.36);
+        box-shadow: 0 0 8px rgba(138, 168, 194, 0.36);
       }
 
       .aqua-hero-runtime {
@@ -1691,7 +1694,7 @@
         inset: 12% 8% -7%;
         z-index: -1;
         border-radius: 2rem;
-        background: radial-gradient(circle at 50% 50%, rgba(0, 180, 255, 0.2), transparent 67%);
+        background: radial-gradient(circle at 50% 50%, rgba(46, 143, 217, 0.2), transparent 67%);
         filter: blur(30px);
         opacity: 0.72;
       }
@@ -1699,15 +1702,15 @@
       .aqua-runtime-window {
         position: relative;
         overflow: hidden;
-        border: 1px solid rgba(137, 206, 255, 0.23);
+        border: 1px solid rgba(138, 168, 194, 0.23);
         border-radius: 1.25rem;
         background:
-          radial-gradient(circle at 82% 2%, rgba(0, 180, 255, 0.11), transparent 28%),
+          radial-gradient(circle at 82% 2%, rgba(46, 143, 217, 0.11), transparent 28%),
           linear-gradient(180deg, rgba(9, 27, 46, 0.94), rgba(2, 14, 27, 0.97));
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.055),
           0 34px 90px rgba(0, 0, 0, 0.42),
-          0 0 50px rgba(0, 180, 255, 0.08);
+          0 0 50px rgba(46, 143, 217, 0.08);
       }
 
       .aqua-runtime-window::before {
@@ -1715,7 +1718,7 @@
         position: absolute;
         inset: 0;
         pointer-events: none;
-        background: linear-gradient(112deg, rgba(255, 255, 255, 0.055), transparent 23%, transparent 72%, rgba(137, 206, 255, 0.04));
+        background: linear-gradient(112deg, rgba(255, 255, 255, 0.055), transparent 23%, transparent 72%, rgba(138, 168, 194, 0.04));
       }
 
       .aqua-runtime-topbar {
@@ -1725,7 +1728,7 @@
         align-items: center;
         gap: 1rem;
         padding: 0.78rem 1rem;
-        border-bottom: 1px solid rgba(137, 206, 255, 0.1);
+        border-bottom: 1px solid rgba(138, 168, 194, 0.1);
         background: rgba(14, 34, 53, 0.62);
         font-family: "JetBrains Mono", monospace;
         font-size: 0.68rem;
@@ -1741,7 +1744,7 @@
         width: 0.56rem;
         height: 0.56rem;
         border-radius: 999px;
-        background: rgba(137, 206, 255, 0.24);
+        background: rgba(138, 168, 194, 0.24);
       }
 
       .aqua-runtime-dots span:first-child { background: rgba(255, 110, 110, 0.72); }
@@ -1772,8 +1775,8 @@
       }
 
       .aqua-runtime-prompt {
-        color: #89ceff;
-        text-shadow: 0 0 12px rgba(137, 206, 255, 0.46);
+        color: #8aa8c2;
+        text-shadow: 0 0 12px rgba(138, 168, 194, 0.46);
       }
 
       .aqua-flow-stack {
@@ -1790,8 +1793,8 @@
         top: 1.65rem;
         bottom: 1.65rem;
         width: 1px;
-        background: linear-gradient(180deg, rgba(137, 206, 255, 0.1), rgba(0, 180, 255, 0.6), rgba(137, 206, 255, 0.12));
-        box-shadow: 0 0 10px rgba(0, 180, 255, 0.2);
+        background: linear-gradient(180deg, rgba(138, 168, 194, 0.1), rgba(46, 143, 217, 0.6), rgba(138, 168, 194, 0.12));
+        box-shadow: 0 0 10px rgba(46, 143, 217, 0.2);
       }
 
       .aqua-flow-stack li {
@@ -1802,7 +1805,7 @@
         gap: 0.8rem;
         min-height: 2.9rem;
         padding: 0.35rem 0.72rem 0.35rem 0;
-        border-bottom: 1px solid rgba(137, 206, 255, 0.07);
+        border-bottom: 1px solid rgba(138, 168, 194, 0.07);
         color: rgba(212, 228, 250, 0.76);
         font-size: clamp(0.7rem, 0.92vw, 0.82rem);
       }
@@ -1819,9 +1822,9 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid rgba(137, 206, 255, 0.22);
+        border: 1px solid rgba(138, 168, 194, 0.22);
         border-radius: 0.62rem;
-        color: #89ceff;
+        color: #8aa8c2;
         background: #071a2d;
         box-shadow: 0 0 0 4px rgba(5, 20, 36, 0.7);
       }
@@ -1884,7 +1887,7 @@
       }
 
       .aqua-runtime-caption span:first-child {
-        color: rgba(137, 206, 255, 0.86);
+        color: rgba(138, 168, 194, 0.86);
         font-family: "JetBrains Mono", monospace;
       }
 
@@ -2099,6 +2102,11 @@
         }
       }
     </style>
+    <!-- Loaded last so it can refine the inline styles above rather than
+         losing to them on equal specificity. -->
+    <link rel="stylesheet" href="./css/aqua-depth.css?v=hp15" />
+    <link rel="stylesheet" href="./css/aqua-refine.css?v=hp16" />
+    <link rel="stylesheet" href="./css/aqua-techflux.css?v=hp17" />
   </head>
   <body class="dark bg-background text-on-background selection:bg-primary/30">
     <!-- AquaTech background animation layer -->
@@ -2106,6 +2114,12 @@
       <span class="aqua-bg-blob-1"></span>
       <span class="aqua-bg-blob-2"></span>
       <span class="aqua-bg-blob-3"></span>
+    </div>
+    <!-- Layered depth field: technical grid, horizon glow, vignette -->
+    <div class="aqua-atmosphere" aria-hidden="true">
+      <span class="aqua-atmosphere__grid"></span>
+      <span class="aqua-atmosphere__horizon"></span>
+      <span class="aqua-atmosphere__vignette"></span>
     </div>
     <header
       class="fixed top-7 left-0 right-0 z-50 px-3 md:px-6 pointer-events-none"
@@ -2228,7 +2242,7 @@
           >
 
           <a
-            class="hidden md:inline-flex h-11 items-center justify-center bg-primary text-on-primary font-bold px-6 rounded-full hover:scale-95 transition-transform no-underline shadow-[0_0_20px_rgba(0,180,255,0.22)]"
+            class="hidden md:inline-flex h-11 items-center justify-center bg-primary text-on-primary font-bold px-6 rounded-full hover:scale-95 transition-transform no-underline shadow-[0_0_20px_rgba(46,143,217,0.22)]"
             href="#contact"
             data-i18n="nav.start"
           >
@@ -2356,10 +2370,13 @@
         class="aqua-signature-hero"
         aria-labelledby="hero-title"
       >
+        <div class="aqua-core-layer" data-aqua-core aria-hidden="true"></div>
         <div class="aqua-hero-grid" aria-hidden="true"></div>
         <div class="aqua-hero-aura aqua-hero-aura-one" aria-hidden="true"></div>
         <div class="aqua-hero-aura aqua-hero-aura-two" aria-hidden="true"></div>
         <div class="aqua-hero-pointer-light" aria-hidden="true"></div>
+        <div class="tf-blob tf-blob--a" aria-hidden="true"></div>
+        <div class="tf-blob tf-blob--b" aria-hidden="true"></div>
 
         <svg
           class="aqua-hero-flow-map"
@@ -2369,10 +2386,10 @@
         >
           <defs>
             <linearGradient id="aquaHeroFlowGradient" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#89ceff" stop-opacity="0" />
-              <stop offset="42%" stop-color="#89ceff" stop-opacity="0.36" />
-              <stop offset="72%" stop-color="#00b4ff" stop-opacity="0.66" />
-              <stop offset="100%" stop-color="#00b4ff" stop-opacity="0" />
+              <stop offset="0%" stop-color="#8aa8c2" stop-opacity="0" />
+              <stop offset="42%" stop-color="#8aa8c2" stop-opacity="0.36" />
+              <stop offset="72%" stop-color="#2e8fd9" stop-opacity="0.66" />
+              <stop offset="100%" stop-color="#2e8fd9" stop-opacity="0" />
             </linearGradient>
           </defs>
           <path
@@ -2403,10 +2420,10 @@
               <span data-i18n="hero.kicker">برمجيات • أتمتة • ذكاء اصطناعي</span>
             </div>
 
-            <h1 id="hero-title" class="aqua-hero-title">
-              <span data-i18n="hero.title">نحول التعقيد</span>
+            <h1 id="hero-title" class="aqua-hero-title tf-heading">
+              <span class="tf-heading__light" data-i18n="hero.title">نحول التعقيد</span>
               <span
-                class="aqua-hero-title-accent"
+                class="aqua-hero-title-accent tf-heading__bold"
                 data-i18n="hero.titleAccent"
                 >إلى تدفق.</span
               >
@@ -2420,28 +2437,30 @@
             <div class="aqua-hero-actions">
               <a
                 href="#contact"
-                class="aqua-hero-btn aqua-hero-btn-primary"
+                class="aqua-hero-btn aqua-hero-btn-primary tf-btn-cta"
                 data-i18n="hero.ctaPrimary"
                 >ابدأ مشروعك</a
               >
               <a
                 href="#trust"
-                class="aqua-hero-btn aqua-hero-btn-secondary"
+                class="aqua-hero-btn aqua-hero-btn-secondary tf-btn-ghost"
                 data-i18n="hero.ctaSecondary"
                 >استكشف كيف نعمل</a
               >
             </div>
 
             <div class="aqua-hero-proof" aria-label="Aqua.Tech capabilities">
-              <span data-i18n="hero.proof1">مواقع ومنصات</span>
-              <span data-i18n="hero.proof2">أنظمة مخصصة</span>
-              <span data-i18n="hero.proof3">أتمتة وذكاء اصطناعي</span>
+              <span class="tf-pill" data-i18n="hero.proof1">مواقع ومنصات</span>
+              <span class="tf-pill" data-i18n="hero.proof2">أنظمة مخصصة</span>
+              <span class="tf-pill" data-i18n="hero.proof3">أتمتة وذكاء اصطناعي</span>
             </div>
           </div>
 
           <div class="aqua-hero-runtime" aria-label="Aqua Flow Engine">
             <div class="aqua-runtime-glow" aria-hidden="true"></div>
-            <div class="aqua-runtime-window">
+            <div class="tf-chamfer-shadow">
+            <div class="aqua-runtime-window tf-glass tf-chamfer">
+              <span class="tf-chamfer__edge" aria-hidden="true"></span>
               <div class="aqua-runtime-topbar">
                 <div class="aqua-runtime-dots" aria-hidden="true">
                   <span></span><span></span><span></span>
@@ -2490,6 +2509,7 @@
                   <span class="aqua-runtime-status-meta">5/5 systems connected</span>
                 </div>
               </div>
+            </div>
             </div>
 
             <div class="aqua-runtime-caption">
@@ -2819,7 +2839,7 @@
               class="glass-card p-7 rounded-2xl relative overflow-hidden group flex flex-col h-full border-primary/25"
             >
               <div
-                class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_70%_20%,rgba(0,180,255,.45),transparent_34%)]"
+                class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_70%_20%,rgba(46, 143, 217,.45),transparent_34%)]"
                 aria-hidden="true"
               ></div>
 
@@ -4750,7 +4770,7 @@
                   <button
                     id="sendLead"
                     type="submit"
-                    class="quote-submit mt-gutter w-full bg-primary text-on-primary px-8 py-4 rounded-lg font-bold hover:scale-[.99] transition-all shadow-[0_0_20px_rgba(0,180,255,.25)]"
+                    class="quote-submit mt-gutter w-full bg-primary text-on-primary px-8 py-4 rounded-lg font-bold hover:scale-[.99] transition-all shadow-[0_0_20px_rgba(46,143,217,.25)]"
                   >
 <span class="quote-title" data-i18n="form.submit">
   ابدأ مشروعك بخطة واضحة
@@ -5104,21 +5124,8 @@
             .forEach((a) => a.addEventListener("click", closeMenu));
         }
 
-        document.querySelectorAll(".faq-q").forEach((btn) => {
-          btn.addEventListener("click", () => {
-            const item = btn.closest(".faq-item");
-            const answer = item ? item.querySelector(".faq-a") : null;
-            const icon = btn.querySelector(".material-symbols-outlined");
-
-            if (!answer) return;
-
-            answer.classList.toggle("hidden");
-            if (icon)
-              icon.textContent = answer.classList.contains("hidden")
-                ? "add"
-                : "remove";
-          });
-        });
+        /* The FAQ accordion is owned by js/aqua-depth.js, which adds the
+           aria wiring and the animated height transition. */
 
         function initAquaCustomSelect() {
           document.querySelectorAll("[data-aqua-select]").forEach((root) => {
@@ -5284,6 +5291,8 @@ label.textContent = option.textContent.trim();
     <script src="./js/aqua-hero-motion.js?v=hp02b"></script>
     <script src="./js/aqua-navigation.js?v=hp09"></script>
     <script src="./js/aqua-motion-system.js?v=hp09"></script>
+    <script src="./js/aqua-core.js?v=hp15"></script>
+    <script src="./js/aqua-depth.js?v=hp15"></script>
     <script defer src="./js/site-i18n.js"></script>
     <script defer src="./js/form.js"></script>
     <script src="./js/aquatech-contact-client.js?v=n8n-1" defer></script>
