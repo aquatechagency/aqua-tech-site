@@ -1102,14 +1102,15 @@ html[dir="rtl"] .aqua-section--contact #sendLead.tf-btn-cta {
   font-size: 0.95rem;
 }
 
-/* Success-state proposal link. aquatech-contact-client.js paints it inline
-   as white on a light-blue gradient (2.0:1 at the light end), so only
-   !important can reach it. Same accent fill and dark ink as the submit. */
-.aqua-section--contact #proposalResultLink {
-  border-radius: var(--tf-btn-radius) !important;
-  color: var(--tf-ink-dark) !important;
-  background: var(--tf-accent) !important;
-  box-shadow: none !important;
+/* Success-state proposal link: aquatech-contact-client.js builds it as
+   .tf-btn-cta, so it takes the submit's accent fill and dark ink. */
+html[dir="rtl"] .aqua-section--contact #proposalResultLink {
+  font-size: 0.95rem;
+}
+
+.aqua-section--contact #proposalResultLink:focus-visible {
+  outline: 2px solid var(--tf-light);
+  outline-offset: 3px;
 }
 
 @media (max-width: 1023px) {

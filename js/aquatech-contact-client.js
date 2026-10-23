@@ -167,7 +167,7 @@
       link.target = "_blank";
       link.rel = "noopener noreferrer";
       link.className =
-        "inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 font-bold text-on-primary no-underline hover:scale-[.99] transition-all";
+        "inline-flex w-full min-h-12 items-center justify-center gap-2 px-5 py-3 no-underline transition-all tf-btn-cta tf-mono";
       link.textContent = buttonLabel;
 
       box.appendChild(message);
@@ -193,24 +193,12 @@
       link.target = "_blank";
       link.rel = "noopener noreferrer";
       link.className =
-        "inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 font-bold text-on-primary no-underline hover:scale-[.99] transition-all";
+        "inline-flex w-full min-h-12 items-center justify-center gap-2 px-5 py-3 no-underline transition-all tf-btn-cta tf-mono";
       box.appendChild(link);
     }
 
     link.href = url;
     link.textContent = buttonLabel;
-    link.style.display = "inline-flex";
-    link.style.width = "100%";
-    link.style.alignItems = "center";
-    link.style.justifyContent = "center";
-    link.style.minHeight = "48px";
-    link.style.padding = "0 22px";
-    link.style.borderRadius = "14px";
-    link.style.color = "#ffffff";
-    link.style.fontWeight = "900";
-    link.style.textDecoration = "none";
-    link.style.background = "linear-gradient(135deg, #0f7fd8, #18c7e8)";
-    link.style.boxShadow = "0 14px 30px rgba(15, 127, 216, 0.28)";
 
     if (requestId) {
       link.setAttribute("data-request-id", requestId);
