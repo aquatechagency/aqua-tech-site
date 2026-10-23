@@ -629,6 +629,8 @@
 
       "faq.kicker": "FAQ",
       "faq.title": "أسئلة متكررة",
+      "faq.titleLead": "أسئلة",
+      "faq.titleAccent": "متكررة",
       "faq.subtitle":
         "إجابات واضحة تساعدك تعرف كيف نبدأ، كيف نحدد السعر، وما الذي يحدث أثناء التنفيذ وبعد التسليم.",
 
@@ -1215,6 +1217,8 @@
       "offers.discovery.cta": "discovery session",
       "faq.kicker": "FAQ",
       "faq.title": "Frequently asked questions",
+      "faq.titleLead": "Frequently asked",
+      "faq.titleAccent": "questions",
       "faq.subtitle":
         "Clear answers to help you understand how we start, how pricing is defined, and what happens during execution and after delivery.",
 
