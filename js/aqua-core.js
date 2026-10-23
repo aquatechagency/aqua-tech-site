@@ -12,6 +12,15 @@
   var host = document.querySelector("[data-aqua-core]");
   if (!host) return;
 
+  /* Off switch: a host hidden with display:none (aqua-techflux.css does this
+     for the hero) never gets a WebGL context. This classic script runs after
+     the <head> stylesheets apply, so the computed value is already final.
+     Remove that CSS rule to bring the core back. */
+  if (window.getComputedStyle(host).display === "none") {
+    host.setAttribute("data-aqua-core-state", "disabled");
+    return;
+  }
+
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var saveData = Boolean(navigator.connection && navigator.connection.saveData);
 
