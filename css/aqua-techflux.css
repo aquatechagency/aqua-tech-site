@@ -400,6 +400,57 @@ html[dir="rtl"] .aqua-signature-hero .tf-chamfer .aqua-runtime-topbar {
   }
 }
 
+/* ------------------------------------------------------- Hero polish */
+
+/* The flow map stretches with the viewport (preserveAspectRatio="none"), so
+   its two static nodes drift onto copy as the width changes: beside the
+   subtitle's last line (1440 RTL), on the title or pills in LTR, and on the
+   secondary button in the stacked tablet layout. No single nudge clears text
+   at every width, so both are hidden; the line and its moving tracer stay.
+   Below 768px the whole map is hidden. */
+@media (min-width: 768px) {
+  .aqua-signature-hero .tf-flow-node--near-copy {
+    display: none;
+  }
+}
+
+/* Phones: the map's line and nodes ran behind the pills and held open a
+   tall empty band before the runtime card. Hidden, with the gap tightened. */
+@media (max-width: 767px) {
+  .aqua-signature-hero .aqua-hero-flow-map {
+    display: none;
+  }
+
+  .aqua-signature-hero .aqua-hero-shell {
+    gap: 2.25rem;
+  }
+}
+
+/* Proof pills flow as centred rows (2 + 1 at phone widths) instead of a
+   left-aligned single-column stack of uneven widths. */
+@media (max-width: 560px) {
+  .aqua-signature-hero .aqua-hero-proof {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+  }
+}
+
+/* Uppercase mono English labels run ~5% too wide to pair up at 360-375px;
+   tighter tracking and padding let them form rows like the Arabic set. */
+@media (max-width: 480px) {
+  html[dir="ltr"] .aqua-signature-hero .aqua-hero-proof .tf-pill {
+    padding-inline: 1.35rem 0.75rem;
+    letter-spacing: 0.02em;
+  }
+
+  html[dir="ltr"] .aqua-signature-hero .aqua-hero-proof .tf-pill::before {
+    inset-inline-start: 0.6rem;
+  }
+}
+
 /* ------------------------------------------------------ Reduced motion */
 
 @media (prefers-reduced-motion: reduce) {

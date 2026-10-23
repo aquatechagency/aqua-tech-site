@@ -518,9 +518,13 @@
           0 0 20px rgba(46, 143, 217, 0.22);
         border: 1px solid rgba(255, 255, 255, 0.2);
         opacity: 0.94;
+        /* Lifted clear of the consent banner while it is showing; the
+           offset is set by the consent script below. */
+        translate: 0 calc(-1 * var(--aqua-consent-offset, 0px));
         transition:
           transform 0.2s ease,
-          filter 0.2s ease;
+          filter 0.2s ease,
+          translate 0.3s ease;
       }
       #wa-float:hover {
         transform: translateY(-2px) scale(1.05);
@@ -2383,8 +2387,8 @@
               path="M-80 610 C 220 590, 270 270, 560 330 S 940 610, 1510 180"
             />
           </circle>
-          <circle cx="560" cy="330" r="4" class="aqua-flow-node" />
-          <circle cx="1004" cy="520" r="4" class="aqua-flow-node" />
+          <circle cx="560" cy="330" r="4" class="aqua-flow-node tf-flow-node--near-copy" />
+          <circle cx="1004" cy="520" r="4" class="aqua-flow-node tf-flow-node--near-copy" />
         </svg>
 
         <div class="aqua-hero-shell">
@@ -4673,14 +4677,34 @@ label.textContent = option.textContent.trim();
         const consent = localStorage.getItem("aqua_analytics_consent");
         const banner = document.getElementById("consent-banner");
 
+        // Keep the floating WhatsApp button above the banner while it shows.
+        // The observer fires when the banner appears, hides or reflows.
+        const syncConsentOffset = () => {
+          const offset = banner?.classList.contains("is-visible")
+            ? banner.offsetHeight + 12
+            : 0;
+          document.documentElement.style.setProperty(
+            "--aqua-consent-offset",
+            offset + "px",
+          );
+        };
+
+        if (banner && "ResizeObserver" in window) {
+          new ResizeObserver(syncConsentOffset).observe(banner);
+        }
+
         if (banner && consent === null) {
-          setTimeout(() => banner.classList.add("is-visible"), 900);
+          setTimeout(() => {
+            banner.classList.add("is-visible");
+            syncConsentOffset();
+          }, 900);
         }
 
         document
           .getElementById("consentAccept")
           ?.addEventListener("click", () => {
             banner?.classList.remove("is-visible");
+            syncConsentOffset();
             window.__aquaEnableAnalytics?.();
           });
 
@@ -4688,6 +4712,7 @@ label.textContent = option.textContent.trim();
           .getElementById("consentDecline")
           ?.addEventListener("click", () => {
             banner?.classList.remove("is-visible");
+            syncConsentOffset();
             window.__aquaDeclineAnalytics?.();
           });
 
