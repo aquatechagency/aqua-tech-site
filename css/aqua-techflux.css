@@ -945,6 +945,185 @@ html[dir="rtl"] .aqua-section--faq .aqua-section__title > span {
   border-color: var(--tf-glass-border);
 }
 
+/* ========================================================= CONTACT ====== */
+
+/* Gradient band after the solid #faq band, shaped like #solutions: --tf-base
+ * held behind the header, --tf-base -> --tf-mid across the form and aside,
+ * --tf-mid -> --tf-light only inside the bottom section padding.
+ *
+ * On the full --tf-gradient the panels sit over the light end and need the
+ * 72% glass (muted copy 4.88:1 at 65%, red-300 select error 5.06:1 only at
+ * 72%). Reshaped, every panel stays between --tf-base and --tf-mid, so the
+ * stock 58% --tf-glass-bg is enough: muted 5.05:1, red-300 4.52:1, large
+ * --aqua-primary headings 3.46:1 at the darkest-case --tf-mid stop.
+ */
+.aqua-section--contact {
+  --tf-contact-hold: calc(var(--aqua-section-space) + 18rem);
+  /* 40% white: 3.6:1 against the field fill at --tf-mid, 3.8:1 at base. */
+  --tf-contact-field-border: color-mix(in srgb, white 40%, transparent);
+  background:
+    linear-gradient(
+      180deg,
+      var(--tf-base) var(--tf-contact-hold),
+      var(--tf-mid) calc(100% - var(--aqua-section-space)),
+      var(--tf-light)
+    ),
+    var(--tf-base);
+}
+
+.aqua-section--contact::before,
+.aqua-section--contact > .aqua-liquid-bg {
+  display: none;
+}
+
+.aqua-section--contact .aqua-section__title.tf-heading {
+  color: var(--tf-ink);
+}
+
+.aqua-section--contact .aqua-section__title > span {
+  display: block;
+}
+
+html[dir="rtl"] .aqua-section--contact .aqua-section__title.tf-heading {
+  line-height: 1.34;
+}
+
+html[dir="rtl"] .aqua-section--contact .aqua-section__title > span {
+  padding-block-end: 0.12em;
+}
+
+/* Panels: the form is the featured glass + chamfer panel; the two aside
+   cards are plain glass. .glass-card and .aqua-system-card(--emphasis) set
+   opaque fills at equal specificity, so the glass is restated. */
+.aqua-section--contact .aqua-system-card.tf-glass {
+  border-color: var(--tf-glass-border-soft);
+  border-radius: var(--tf-radius);
+  background: var(--tf-glass-bg);
+}
+
+.aqua-section--contact #contactForm.tf-glass {
+  border-color: var(--tf-glass-border);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .aqua-section--contact .aqua-system-card.tf-glass {
+    background: var(--tf-surface);
+  }
+}
+
+/* The faint rocket glyph sat at the physical top-left, which is under the
+   cut in RTL. Decorative only. */
+.aqua-section--contact #contactForm > div[aria-hidden="true"] {
+  display: none;
+}
+
+/* Field labels and the step numbers were --aqua-primary: 3.46:1 on glass
+   at the --tf-mid stop. --aqua-muted holds 5.05:1 there. */
+.aqua-section--contact .font-label-sm.text-primary {
+  color: var(--aqua-muted);
+}
+
+/* Contact details: mono for Latin (via .tf-mono), Alexandria in RTL. Values
+   keep their case; an uppercased address reads as a different address. */
+.aqua-section--contact .aqua-contact-detail {
+  margin-block-start: 0.15rem;
+  color: var(--aqua-muted);
+  font-size: 0.78rem;
+  overflow-wrap: anywhere;
+}
+
+html[dir="ltr"] .aqua-section--contact .aqua-contact-detail {
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+/* Fields: thin glass border, dark well kept. The placeholder was 55% muted
+   (4.06:1 even on base); 80% holds 6.2:1 or better at every stop. */
+.aqua-section--contact .aqua-input,
+.aqua-section--contact .aqua-select-trigger {
+  border: 1px solid var(--tf-contact-field-border);
+  border-radius: var(--tf-btn-radius);
+  box-shadow: none;
+}
+
+.aqua-section--contact .aqua-input::placeholder {
+  color: color-mix(in srgb, var(--aqua-muted) 80%, transparent);
+}
+
+/* Focus: border and a 2px ring in --tf-light (6.1:1 against the field,
+   3.46:1 against the glass at --tf-mid). Replaces the 6%-alpha glow. */
+.aqua-section--contact .aqua-input:focus,
+.aqua-section--contact .aqua-select-trigger:focus,
+.aqua-section--contact .aqua-custom-select.is-open .aqua-select-trigger {
+  border-color: var(--tf-light);
+  box-shadow: none;
+}
+
+.aqua-section--contact .aqua-input:focus-visible,
+.aqua-section--contact .aqua-select-trigger:focus-visible {
+  outline: 2px solid var(--tf-light);
+  outline-offset: 2px;
+  border-radius: var(--tf-btn-radius);
+}
+
+/* Status line: the client script colours it red-400 (error) or
+   --aqua-primary (success), which drop to 3.1:1 and 3.46:1 on glass at the
+   --tf-mid stop. A solid --tf-surface backing keeps them at 5.9:1 and 6.6:1
+   wherever the line lands. */
+.aqua-section--contact [data-contact-status]:not(:empty) {
+  padding: 0.6rem 0.85rem;
+  border: 1px solid var(--tf-glass-border-soft);
+  border-radius: var(--tf-btn-radius);
+  background: var(--tf-surface);
+}
+
+/* Submit. aqua-refine.css styles #sendLead by ID with a gradient, so the
+   section scope and ID are both needed to put the accent fill back. */
+.aqua-section--contact #sendLead.tf-btn-cta,
+.aqua-section--contact #sendLead.tf-btn-cta:hover {
+  border-color: transparent;
+  border-radius: var(--tf-btn-radius);
+  color: var(--tf-ink-dark);
+  background: var(--tf-accent);
+  box-shadow: none;
+  font-weight: 600;
+}
+
+.aqua-section--contact #sendLead.tf-btn-cta:hover {
+  filter: brightness(1.1);
+}
+
+.aqua-section--contact #sendLead.tf-btn-cta:focus-visible {
+  outline: 2px solid var(--tf-light);
+  outline-offset: 3px;
+}
+
+html[dir="rtl"] .aqua-section--contact #sendLead.tf-btn-cta {
+  font-size: 0.95rem;
+}
+
+/* Success-state proposal link. aquatech-contact-client.js paints it inline
+   as white on a light-blue gradient (2.0:1 at the light end), so only
+   !important can reach it. Same accent fill and dark ink as the submit. */
+.aqua-section--contact #proposalResultLink {
+  border-radius: var(--tf-btn-radius) !important;
+  color: var(--tf-ink-dark) !important;
+  background: var(--tf-accent) !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 1023px) {
+  .aqua-section--contact {
+    --tf-contact-hold: calc(var(--aqua-section-space) + 15.25rem);
+  }
+}
+
+@media (max-width: 767px) {
+  .aqua-section--contact {
+    --tf-contact-hold: calc(var(--aqua-section-space) + 18rem);
+  }
+}
+
 /* ------------------------------------------------------ Reduced motion */
 
 @media (prefers-reduced-motion: reduce) {

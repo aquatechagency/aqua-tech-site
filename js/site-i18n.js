@@ -516,6 +516,8 @@
       "form.service.placeholder": "اختر الخدمة",
       "contact.kicker": "Start Project",
       "contact.title": "ابدأ رحلتك الرقمية الآن",
+      "contact.titleLead": "ابدأ رحلتك",
+      "contact.titleAccent": "الرقمية الآن",
       "contact.subtitle":
         "احكِ لنا عن هدفك الحالي، وسنقترح عليك خطوة البداية، القناة الأنسب للتواصل، وما الذي يجب بناؤه أولًا.",
       "contact.socials": "حسابات التواصل",
@@ -1066,6 +1068,8 @@
 
       "contact.kicker": "Start Project",
       "contact.title": "Start your digital journey now",
+      "contact.titleLead": "Start your digital",
+      "contact.titleAccent": "journey now",
       "contact.subtitle":
         "Tell us about your current goal, and we will suggest the best starting step, the right contact channel, and what should be built first.",
       "contact.socials": "Social accounts",
