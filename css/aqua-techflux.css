@@ -1125,6 +1125,78 @@ html[dir="rtl"] .aqua-section--contact #proposalResultLink {
   }
 }
 
+/* ========================================================== HEADER ====== */
+
+/* Floating pill as .tf-glass with the thin glass border. The pill floats
+ * over every band, down to --tf-light at the bottom of #contact; there the
+ * stock 58% glass leaves --tf-ink links at 4.3:1, the 72% glass holds 7.5:1.
+ * Width is not touched: the 100%-of-header rules in aqua-navigation.css
+ * (the 768px overflow fix) still size it. .tf-glass would set the 28px
+ * panel radius, so the pill radii are restated, scrolled state included.
+ */
+/* #mobileMenu (z-index 45) lives inside the header, so it painted over the
+   pill and a tap on the close button landed on the overlay. 46 keeps the
+   pill, and its close button, above it as aqua-depth.css intends. */
+.aqua-site-header .aqua-top-pill.tf-glass {
+  z-index: 46;
+  border: 1px solid var(--tf-glass-border);
+  border-radius: 999px;
+  background: var(--tf-glass-bg-strong);
+  box-shadow: none;
+}
+
+@media (max-width: 1023px) {
+  .aqua-site-header .aqua-top-pill.tf-glass {
+    border-radius: 2rem;
+  }
+}
+
+/* The scrolled pill shrank to 1120px, narrower than the English row needs
+   (about 1205px with the CTA), so the CTA spilled past the inline-end edge
+   at 1280 and up. 1220px is the unscrolled cap below 1280. */
+body > header.is-aqua-header-scrolled .aqua-top-pill.tf-glass {
+  max-width: 1220px;
+  border-radius: 22px;
+  background: var(--tf-glass-bg-strong);
+  box-shadow: none;
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .aqua-site-header .aqua-top-pill.tf-glass {
+    background: var(--tf-surface);
+  }
+}
+
+/* Links, language toggle and WhatsApp were --aqua-muted / --aqua-primary
+   (3.9:1 for primary over the 72% glass at --tf-light); --tf-ink is 7.5:1. */
+.aqua-site-header .aqua-top-pill .nav-link,
+.aqua-site-header #langToggle,
+.aqua-site-header .aqua-top-pill a[href^="https://wa.me"] {
+  color: var(--tf-ink);
+}
+
+.aqua-site-header #langToggle,
+.aqua-site-header .aqua-top-pill a[href^="https://wa.me"] {
+  border-color: var(--tf-glass-border-soft);
+}
+
+.aqua-site-header .aqua-top-pill .nav-link:hover,
+.aqua-site-header .aqua-top-pill .nav-link.is-active {
+  color: var(--tf-ink);
+  background: color-mix(in srgb, white 9%, transparent);
+}
+
+.aqua-site-header .aqua-top-pill a:focus-visible,
+.aqua-site-header .aqua-top-pill button:focus-visible {
+  outline: 2px solid var(--tf-light);
+  outline-offset: 2px;
+}
+
+/* "Start project": the hero CTA shape - rectangular, accent fill, dark ink. */
+html[dir="rtl"] .aqua-site-header .tf-btn-cta {
+  font-size: 0.95rem;
+}
+
 /* ========================================================== FOOTER ====== */
 
 /* Solid --tf-base under the #contact gradient, a thin glass divider on top
