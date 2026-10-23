@@ -18,6 +18,39 @@ body > header.is-aqua-header-scrolled {
   box-shadow: none;
 }
 
+/* The pill used to size itself from 100vw, which counts the scrollbar and
+   ignores the header's own px-3 / md:px-6 gutter, so below ~1300px it was
+   wider than its container and mx-auto spilled it past the inline-end edge
+   (up to ~23px at tablet widths). It now fills the header's content box;
+   the header padding carries the gutters the old calc() values intended. */
+.aqua-site-header {
+  padding-inline: 1rem;
+}
+
+.aqua-site-header .aqua-top-pill {
+  width: 100%;
+}
+
+@media (max-width: 1280px) {
+  .aqua-site-header {
+    padding-inline: 0.625rem;
+  }
+
+  .aqua-site-header .aqua-top-pill {
+    width: min(100%, 1220px);
+  }
+}
+
+@media (max-width: 1023px) {
+  .aqua-site-header {
+    padding-inline: 0.5rem;
+  }
+
+  .aqua-site-header .aqua-top-pill {
+    width: 100%;
+  }
+}
+
 .nav-link {
   position: relative;
   padding-block: 0.45rem;
