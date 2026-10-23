@@ -482,9 +482,9 @@ html[dir="rtl"] .aqua-signature-hero .tf-chamfer .aqua-runtime-topbar {
 /* ============================================================ FLOW ====== */
 
 /* Solid dark band after the hero gradient: flat --tf-base, no grid texture
-   and no blurred glow, with generous vertical spacing. */
+   and no blurred glow. Vertical padding comes from the shared
+   --aqua-section-space (ID rule in src/input.css). */
 .aqua-complexity-flow {
-  padding-block: clamp(5rem, 8vw, 8rem);
   background: var(--tf-base);
 }
 
@@ -601,7 +601,6 @@ html[dir="rtl"] .aqua-complexity-flow .aqua-complexity-flow__cta.tf-btn-cta {
  */
 .aqua-section--trust {
   --tf-trust-hold: 23.5rem;
-  padding-block: clamp(5rem, 8vw, 8rem);
   background:
     var(--tf-gradient) bottom / 100% calc(100% - var(--tf-trust-hold)) no-repeat,
     var(--tf-base);
@@ -701,9 +700,8 @@ html[dir="rtl"] .aqua-section--trust .aqua-section__title > span {
 /* ======================================================== SERVICES ====== */
 
 /* Back to a solid dark band after the #trust gradient: flat --tf-base, no
-   blurred glow, generous vertical spacing. */
+   blurred glow. Padding comes from --aqua-section-space. */
 .aqua-service-paths {
-  padding-block: clamp(5rem, 8vw, 8rem);
   background: var(--tf-base);
 }
 
