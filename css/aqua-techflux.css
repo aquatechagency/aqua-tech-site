@@ -37,6 +37,11 @@
   --tf-glass-border-soft: color-mix(in srgb, white 16%, transparent);
   --tf-glass-blur: 18px;
 
+  /* Gradient-card end stop. 30% action over base keeps every existing card
+     text colour at AA (72%-alpha muted copy: 4.6:1). A full --tf-mid end
+     would drop light text to 2.7:1 and need .tf-zone--light. */
+  --tf-card-end: color-mix(in srgb, var(--tf-mid) 30%, var(--tf-base));
+
   --tf-radius: 28px;
   --tf-chamfer: 44px;
   --tf-btn-radius: var(--aqua-radius-sm);
@@ -51,6 +56,7 @@
     --tf-glass-bg: var(--aqua-card);
     --tf-glass-border: var(--aqua-line-strong);
     --tf-glass-border-soft: var(--aqua-line);
+    --tf-card-end: var(--tf-surface);
   }
 }
 
@@ -74,6 +80,14 @@
   .tf-glass {
     background: var(--tf-surface);
   }
+}
+
+/* Feature / problem cards: inner vertical gradient, dark top to a brand
+   tint at the bottom, with a thin glass border. */
+.tf-gradient-card {
+  border: 1px solid var(--tf-glass-border-soft);
+  border-radius: var(--tf-radius);
+  background: linear-gradient(180deg, var(--tf-surface), var(--tf-card-end));
 }
 
 /* ---------------------------------------------------- 3. Chamfer motif
@@ -449,6 +463,117 @@ html[dir="rtl"] .aqua-signature-hero .tf-chamfer .aqua-runtime-topbar {
   html[dir="ltr"] .aqua-signature-hero .aqua-hero-proof .tf-pill::before {
     inset-inline-start: 0.6rem;
   }
+}
+
+/* ============================================================ FLOW ====== */
+
+/* Solid dark band after the hero gradient: flat --tf-base, no grid texture
+   and no blurred glow, with generous vertical spacing. */
+.aqua-complexity-flow {
+  padding-block: clamp(5rem, 8vw, 8rem);
+  background: var(--tf-base);
+}
+
+.aqua-complexity-flow::before,
+.aqua-complexity-flow__glow {
+  display: none;
+}
+
+/* Two-line heading: light lead, bold accent. */
+.aqua-complexity-flow__header h2.tf-heading {
+  color: var(--tf-ink);
+  line-height: 1.16;
+}
+
+.aqua-complexity-flow__header h2 > span {
+  display: block;
+}
+
+html[dir="rtl"] .aqua-complexity-flow__header h2.tf-heading {
+  line-height: 1.34;
+}
+
+html[dir="rtl"] .aqua-complexity-flow__header h2 > span {
+  padding-block-end: 0.12em;
+}
+
+/* Cards. The zone rules set their own tinted backgrounds and borders at
+   equal specificity; scoping here keeps the gradient card in charge. The
+   engine card's ::before border sheen is clipped by the chamfer anyway. */
+.aqua-complexity-flow .aqua-flow-zone.tf-gradient-card {
+  border-color: var(--tf-glass-border-soft);
+  border-radius: var(--tf-radius);
+  background: linear-gradient(180deg, var(--tf-surface), var(--tf-card-end));
+}
+
+.aqua-complexity-flow .aqua-flow-zone--engine.tf-gradient-card {
+  border-color: var(--tf-glass-border);
+}
+
+.aqua-complexity-flow .aqua-flow-zone--engine::before {
+  display: none;
+}
+
+/* The status pill sits at the header's inline end, under the cut. */
+.aqua-complexity-flow .tf-chamfer .aqua-flow-engine__header {
+  padding-inline-end: calc(var(--tf-chamfer) * 0.55);
+}
+
+/* Steps stay dark panels over the gradient so their copy keeps its
+   contrast; the border picks up the glass hairline. */
+.aqua-complexity-flow .aqua-flow-method li {
+  border-color: var(--tf-glass-border-soft);
+  border-radius: calc(var(--tf-radius) * 0.6);
+}
+
+/* Measurement bar: glass panel, gradient metric pills, accent CTA. */
+.aqua-complexity-flow .aqua-flow-measurement.tf-glass {
+  margin-block-start: clamp(1.25rem, 2vw, 1.75rem);
+  border-radius: var(--tf-radius);
+}
+
+.aqua-complexity-flow .aqua-flow-measurement li.tf-pill {
+  border-color: var(--tf-glass-border-soft);
+  border-radius: var(--aqua-radius-full);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--tf-mid) 22%, transparent),
+    color-mix(in srgb, var(--tf-base) 45%, transparent)
+  );
+  color: var(--tf-ink);
+}
+
+.aqua-complexity-flow .aqua-complexity-flow__cta.tf-btn-cta {
+  border-color: transparent;
+  border-radius: var(--tf-btn-radius);
+  color: var(--tf-ink-dark);
+  background: var(--tf-accent);
+  font-family: var(--tf-font-mono);
+  font-weight: 600;
+}
+
+.aqua-complexity-flow .aqua-complexity-flow__cta.tf-btn-cta:hover,
+.aqua-complexity-flow .aqua-complexity-flow__cta.tf-btn-cta:focus-visible {
+  color: var(--tf-ink-dark);
+  background: var(--tf-accent);
+  border-color: transparent;
+  filter: brightness(1.1);
+}
+
+/* The base rule drops the outline on focus and relied on the colour swap,
+   which no longer happens. */
+.aqua-complexity-flow .aqua-complexity-flow__cta.tf-btn-cta:focus-visible {
+  outline: 2px solid var(--tf-light);
+  outline-offset: 3px;
+}
+
+html[dir="ltr"] .aqua-complexity-flow .aqua-complexity-flow__cta.tf-btn-cta {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+html[dir="rtl"] .aqua-complexity-flow .aqua-complexity-flow__cta.tf-btn-cta {
+  font-family: var(--tf-font-ar);
 }
 
 /* ------------------------------------------------------ Reduced motion */

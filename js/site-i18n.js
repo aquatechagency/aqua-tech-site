@@ -291,6 +291,8 @@
       "hero.runtimeMeta": "مترابط • مؤتمت • قابل للقياس",
       "flow.kicker": "Aqua.Tech Method",
       "flow.title": "كيف نحول التعقيد إلى تدفق قابل للقياس",
+      "flow.titleLead": "كيف نحول التعقيد",
+      "flow.titleAccent": "إلى تدفق قابل للقياس",
       "flow.description":
         "Aqua.Tech وكالة برمجية تبني مواقع وأنظمة وأتمتة تبدأ من مشكلة العمل الفعلية، ثم تربط التجربة والبيانات والتنفيذ في مسار واحد قابل للمتابعة والتحسين.",
       "flow.before.kicker": "قبل بناء الحل",
@@ -828,6 +830,8 @@
       "hero.runtimeMeta": "Connected • Automated • Measurable",
       "flow.kicker": "Aqua.Tech Method",
       "flow.title": "How we turn complexity into measurable flow",
+      "flow.titleLead": "How we turn complexity",
+      "flow.titleAccent": "into measurable flow",
       "flow.description":
         "Aqua.Tech is a software agency that builds websites, systems, and automation around the real operational problem, then connects experience, data, and execution in one flow that can be tracked and improved.",
       "flow.before.kicker": "Before the solution",
