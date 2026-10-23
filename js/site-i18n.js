@@ -389,6 +389,8 @@
 
       "solutions.kicker": "Deployment ready",
       "solutions.title": "حلول جاهزة للانطلاق",
+      "solutions.titleLead": "حلول جاهزة",
+      "solutions.titleAccent": "للانطلاق",
       "solutions.subtitle":
         "أنظمة ومنصات جاهزة يمكن تخصيصها بحسب نوع النشاط والمرحلة الحالية لمشروعك.",
 
@@ -933,6 +935,8 @@
 
       "solutions.kicker": "Deployment ready",
       "solutions.title": "Ready solutions to launch",
+      "solutions.titleLead": "Ready solutions",
+      "solutions.titleAccent": "to launch",
       "solutions.subtitle":
         "Ready systems and platforms that can be customized based on your business type and current project stage.",
 
