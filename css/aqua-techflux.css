@@ -1,8 +1,7 @@
 /* =========================================================================
    Aqua.Tech - HP17 Techflux layer
    Structural style only: glass panels with one chamfered corner, light/bold
-   heading contrast, mono labels, rectangular CTAs, gradient pills and soft
-   edge blobs.
+   heading contrast, mono labels, rectangular CTAs and gradient pills.
 
    Loaded after every existing stylesheet, so it refines rather than replaces.
 
@@ -226,33 +225,40 @@ html[dir="rtl"] .tf-mono {
   font-size: 0.72rem;
 }
 
-/* -------------------------------------------------------------- 7. Blobs */
-
-.tf-blob {
-  position: absolute;
-  z-index: -2;
-  pointer-events: none;
-  aspect-ratio: 1;
-  border-radius: 42% 58% 63% 37% / 45% 39% 61% 55%;
-  filter: blur(42px);
-  opacity: 0.32;
-  animation: tf-blob-drift 22s ease-in-out infinite alternate;
-}
-
-@keyframes tf-blob-drift {
-  to {
-    border-radius: 58% 42% 38% 62% / 52% 60% 40% 48%;
-    transform: translate3d(0, -3%, 0) rotate(14deg);
-  }
-}
-
-@media (max-width: 767px) {
-  .tf-blob {
-    display: none;
-  }
-}
-
 /* ============================================================ HERO ====== */
+
+/* Background: one dark -> brand gradient, no glow. Opaque so the body's own
+ * top-centre radial glow cannot show through.
+ *
+ * The bright orb was the HP15 WebGL particle core (.aqua-core-layer, drawn by
+ * js/aqua-core.js). It is hidden, not deleted: with its host at display:none
+ * the script's IntersectionObserver reports it off-screen and stops the render
+ * loop, and resize() bails on the zero-size rect, so nothing throws. The
+ * auras and the runtime card's halo are pre-HP17 glows hidden the same way.
+ */
+.aqua-signature-hero::before {
+  background: linear-gradient(
+    180deg,
+    var(--tf-base),
+    color-mix(in srgb, var(--tf-base) 80%, var(--tf-mid))
+  );
+}
+
+.aqua-signature-hero .aqua-core-layer,
+.aqua-signature-hero .aqua-hero-aura,
+.aqua-signature-hero .aqua-runtime-glow {
+  display: none;
+}
+
+/* aqua-depth.js dims these while the core is live; with the core hidden they
+   return to their pre-core strength. */
+.aqua-signature-hero.has-aqua-core .aqua-hero-flow-map {
+  opacity: 0.92;
+}
+
+.aqua-signature-hero.has-aqua-core .aqua-hero-grid {
+  opacity: 0.34;
+}
 
 /* Light first line, bold second line. Weights are set here rather than via
    .tf-heading__* alone because .aqua-hero-title carries weight 800. */
@@ -394,37 +400,9 @@ html[dir="rtl"] .aqua-signature-hero .tf-chamfer .aqua-runtime-topbar {
   }
 }
 
-.aqua-signature-hero .tf-blob--a {
-  width: min(38vw, 560px);
-  inset-inline-end: -14vw;
-  top: -12%;
-  background: radial-gradient(
-    circle at 40% 40%,
-    var(--tf-mid),
-    transparent 70%
-  );
-}
-
-.aqua-signature-hero .tf-blob--b {
-  width: min(30vw, 440px);
-  inset-inline-start: -12vw;
-  bottom: -18%;
-  opacity: 0.22;
-  animation-delay: -9s;
-  background: radial-gradient(
-    circle at 60% 50%,
-    var(--tf-light),
-    transparent 70%
-  );
-}
-
 /* ------------------------------------------------------ Reduced motion */
 
 @media (prefers-reduced-motion: reduce) {
-  .tf-blob {
-    animation: none;
-  }
-
   .tf-btn-cta:hover {
     filter: none;
   }
