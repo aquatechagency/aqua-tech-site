@@ -21,10 +21,23 @@ const path = require("path");
 const crypto = require("crypto");
 const esbuild = require("esbuild");
 
-const htmlPath = "index.html";
-const cssOut = "dist/site.min.css";
+// BUILD_OUT_DIR lets check-build.js build into a scratch folder; sources are
+// always read from the repo, build outputs (index.html, dist/) from OUT.
+const OUT = process.env.BUILD_OUT_DIR || ".";
+const htmlPath = path.join(OUT, "index.html");
+const cssOut = path.join(OUT, "dist/site.min.css");
 const jsOutDir = "dist/js";
 const criticalPath = "src/critical.css";
+
+// Below this the file is not a real critical extract (a failed or partial
+// build-critical.js run); building with it would ship an unstyled first paint.
+const MIN_CRITICAL_BYTES = 10 * 1024;
+
+// Checkouts with core.autocrlf have CRLF sources; outputs and hashes must not
+// depend on that.
+const readText = (file) => fs.readFileSync(file, "utf8").replace(/\r\n/g, "\n");
+const readSource = (file) =>
+  readText(file.startsWith("dist/") ? path.join(OUT, file) : file);
 
 const hash = (text) =>
   crypto.createHash("sha256").update(text).digest("hex").slice(0, 10);
@@ -51,7 +64,7 @@ const JS_OPTIONS = {
 const localPath = (href) => href.replace(/^\.?\//, "").split("?")[0];
 const isLocal = (href) => !/^https?:\/\//.test(href);
 
-let html = fs.readFileSync(htmlPath, "utf8");
+let html = readText(htmlPath);
 
 const headEnd = html.indexOf("</head>");
 if (headEnd === -1) throw new Error("index.html has no </head>");
@@ -82,7 +95,7 @@ head = head.replace(
     if (firstCssIndex === -1) firstCssIndex = offset;
     cssParts.push({
       source: localPath(href),
-      css: fs.readFileSync(localPath(href), "utf8"),
+      css: readSource(localPath(href)),
     });
     return "";
   },
@@ -100,25 +113,42 @@ fs.mkdirSync(path.dirname(cssOut), { recursive: true });
 fs.writeFileSync(cssOut, minifiedCss);
 
 // Unminified copy for build-critical.js, which filters it rule by rule.
-fs.mkdirSync(".cache", { recursive: true });
-fs.writeFileSync(".cache/site.merged.css", mergedCss);
+fs.mkdirSync(path.join(OUT, ".cache"), { recursive: true });
+fs.writeFileSync(path.join(OUT, ".cache/site.merged.css"), mergedCss);
 const cssHref = `dist/site.min.css?v=${hash(minifiedCss)}`;
 
 /* ------------------------------------------------- 2. Critical CSS */
 
 const mergedHash = hash(mergedCss);
-let criticalTag = "";
 
-if (fs.existsSync(criticalPath)) {
-  const critical = fs.readFileSync(criticalPath, "utf8");
+/* This script only reads src/critical.css, never writes it. A missing or
+   tiny file stops the build instead of silently shipping a page with no (or
+   a broken) first paint; ALLOW_NO_CRITICAL=1 builds with a plain blocking
+   stylesheet instead. A stale file is reported here and fails
+   `npm run check:build`. */
+let criticalTag = "";
+const criticalSize = fs.existsSync(criticalPath)
+  ? fs.statSync(criticalPath).size
+  : 0;
+
+if (criticalSize < MIN_CRITICAL_BYTES) {
+  if (process.env.ALLOW_NO_CRITICAL !== "1") {
+    console.error(
+      `[build-assets] ${criticalPath} is ${criticalSize ? `only ${criticalSize} bytes` : "missing"}. ` +
+        "Run `npm run build:critical` (needs Chrome), or set ALLOW_NO_CRITICAL=1 " +
+        "to build with a render-blocking stylesheet instead.",
+    );
+    process.exit(1);
+  }
+} else {
+  const critical = readText(criticalPath);
   const builtFrom = (critical.match(/built from merged CSS ([0-9a-f]{10})/) ||
     [])[1];
 
   if (builtFrom !== mergedHash) {
     console.warn(
-      `[build-assets] src/critical.css was built from CSS ${builtFrom || "?"}, ` +
-        `current CSS is ${mergedHash}. Run \`npm run build:critical\`. ` +
-        "The page still renders correctly once the full stylesheet loads.",
+      `[build-assets] ${criticalPath} was built from CSS ${builtFrom || "?"}, ` +
+        `current CSS is ${mergedHash}. Run \`npm run build:critical\`.`,
     );
   }
 
@@ -158,7 +188,7 @@ html = head + rest;
 
 /* ---------------------------------------------------------------- 4. JS */
 
-fs.mkdirSync(jsOutDir, { recursive: true });
+fs.mkdirSync(path.join(OUT, jsOutDir), { recursive: true });
 
 html = html.replace(
   /<script\b([^>]*)\bsrc="([^"]+)"([^>]*)><\/script>/g,
@@ -168,13 +198,10 @@ html = html.replace(
     const file = localPath(src);
     if (!fs.existsSync(file) || !file.startsWith("js/")) return tag;
 
-    const code = esbuild.transformSync(
-      fs.readFileSync(file, "utf8"),
-      JS_OPTIONS,
-    ).code;
+    const code = esbuild.transformSync(readText(file), JS_OPTIONS).code;
 
     const outName = path.basename(file, ".js") + ".min.js";
-    fs.writeFileSync(path.join(jsOutDir, outName), code);
+    fs.writeFileSync(path.join(OUT, jsOutDir, outName), code);
 
     return `<script${before}src="./${jsOutDir}/${outName}?v=${hash(code)}"${after}></script>`;
   },

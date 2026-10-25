@@ -3,7 +3,9 @@
     "build": "node ./scripts/build-html.js && tailwindcss -i ./src/input.css -o ./dist/output.css --minify && node ./scripts/build-assets.js",
     "dev": "node ./scripts/build-html.js && tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
     "html": "node ./scripts/build-html.js",
-    "build:critical": "npm run build && node ./scripts/build-critical.js && npm run build"
+    "build:critical": "npm run build && node ./scripts/build-critical.js && npm run build",
+    "check:build": "node ./scripts/check-build.js",
+    "prepare": "node ./scripts/install-hooks.js"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.11",

@@ -1,0 +1,8 @@
+#!/bin/sh
+# Vercel serves the committed files as they are, so a commit that changes
+# sources without regenerated outputs would ship stale CSS/JS/HTML.
+# Enabled by `npm install` (prepare -> scripts/install-hooks.js). See BUILD.md.
+
+if git diff --cached --name-only | grep -qE '^(src/|css/|js/|scripts/|dist/|index\.html$|tailwind\.config\.js$|package\.json$)'; then
+  npm run --silent check:build -- --staged || exit 1
+fi
