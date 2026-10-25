@@ -4,7 +4,7 @@
   --aqua-motion-fast: 220ms;
   --aqua-motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --aqua-motion-distance: 24px;
-  --aqua-motion-glow: rgba(0, 180, 255, 0.14);
+  --aqua-motion-glow: rgba(46, 143, 217, 0.14);
 }
 
 .aqua-motion-progress {
@@ -15,8 +15,8 @@
   pointer-events: none;
   transform: scaleX(var(--aqua-scroll-progress, 0));
   transform-origin: left center;
-  background: linear-gradient(90deg, #65e2d8, #89ceff 58%, #00b4ff);
-  box-shadow: 0 0 14px rgba(0, 180, 255, 0.52);
+  background: linear-gradient(90deg, #65e2d8, #8aa8c2 58%, #2e8fd9);
+  box-shadow: 0 0 14px rgba(46, 143, 217, 0.52);
   will-change: transform;
 }
 
@@ -118,7 +118,7 @@ html.aqua-motion-ready [data-aqua-motion].is-aqua-motion-complete {
 }
 
 .aqua-motion-focus:focus-visible {
-  outline: 3px solid rgba(137, 206, 255, 0.58);
+  outline: 3px solid rgba(138, 168, 194, 0.58);
   outline-offset: 4px;
 }
 
@@ -156,4 +156,25 @@ html.aqua-motion-ready [data-aqua-motion].is-aqua-motion-complete {
   .aqua-liquid-bg::after {
     animation: none !important;
   }
+}
+
+/* Compact tier - touch and narrow viewports still animate, but with a
+   shorter travel, a faster curve and no blur, which is cheap on mobile
+   GPUs and keeps the page feeling deliberate rather than static. */
+html.aqua-motion-compact {
+  --aqua-motion-duration: 620ms;
+  --aqua-motion-fade: 420ms;
+  --aqua-motion-distance: 14px;
+}
+
+html.aqua-motion-compact [data-aqua-motion] {
+  filter: none;
+}
+
+html.aqua-motion-compact [data-aqua-motion="from-start"] {
+  --aqua-motion-inline-start: -12px;
+}
+
+html[dir="rtl"].aqua-motion-compact [data-aqua-motion="from-start"] {
+  --aqua-motion-inline-start: 12px;
 }

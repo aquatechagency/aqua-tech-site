@@ -1,0 +1,220 @@
+/* Aqua.Tech — refinement layer.
+ *
+ * Loads last, after dist/output.css and the per-section aqua-*.css files, because
+ * the defects it corrects are precisely the ones those later layers introduced by
+ * overriding the shared system. Scope: the measurable craft floor — one content
+ * grid, one mobile gutter, a legible text floor, real tap targets, visible focus,
+ * and correct Arabic typography.
+ *
+ * Deliberately NOT changed: the dark futuristic world, the glow language, section
+ * eyebrows, and every string of copy. Those are the committed brief.
+ */
+
+:root {
+  /* One gutter, one content column. Everything below consumes these. */
+  --aqua-gutter: clamp(1rem, 4vw, 3rem);
+  --aqua-content: min(100% - 2 * var(--aqua-gutter), 1280px);
+}
+
+/* ------------------------------------------------------------------ grid
+ * Was: 1280 / 1216 / 1328 / 1120 across five bands — a 208px spread, and a
+ * 104px-per-side jump between #services and #trust. Nothing held a vertical
+ * line. All five now resolve to the same 1280px content column.
+ */
+
+.aqua-complexity-flow__container,
+.aqua-service-paths__container,
+.aqua-product-showcase__shell {
+  width: var(--aqua-content);
+  margin-inline: auto;
+}
+
+/* The Tailwind-built sections reach 1280px via max-w-container-max, then lose
+   160px to md:px-20. Widen the box by the gutter so the content column matches. */
+:is(#trust, #faq, #contact) > .max-w-container-max {
+  max-width: calc(1280px + 2 * var(--aqua-gutter));
+  padding-inline: var(--aqua-gutter);
+}
+
+/* ------------------------------------------------------------- mobile gutter
+ * Was: 10px (#flow, #services), 12px (#solutions), 16px (rest) — edges visibly
+ * sliding between sections, and 10px reads as a rendering fault. Also: only the
+ * hero respected the safe-area inset, so notched devices clipped in landscape.
+ */
+
+@media (max-width: 767px) {
+  :root {
+    --aqua-gutter: max(1rem, env(safe-area-inset-left), env(safe-area-inset-right));
+  }
+
+  .aqua-complexity-flow__container,
+  .aqua-service-paths__container,
+  .aqua-product-showcase__shell {
+    width: var(--aqua-content);
+  }
+}
+
+/* ------------------------------------------------------------------- type
+ * Arabic is the default language. These labels carried Arabic strings in
+ * JetBrains Mono — which has no Arabic coverage, so they fell through to
+ * Courier — with letter-spacing forcing gaps into cursive joins and an
+ * uppercase transform that means nothing in Arabic. The project already
+ * proved the fix on .aqua-hero-kicker; this generalises it.
+ */
+
+html[dir="rtl"] body {
+  font-family: "Alexandria", "Manrope", system-ui, sans-serif;
+}
+
+html[dir="rtl"] :is(
+    .aqua-flow-zone__eyebrow,
+    .aqua-product-card__type,
+    .aqua-flow-state,
+    .aqua-flow-command,
+    .aqua-runtime-status,
+    .aqua-runtime-title,
+    .section-kicker
+  ),
+html[dir="rtl"] .aqua-flow-measurement__heading span:not(.material-symbols-outlined) {
+  font-family: "Alexandria", system-ui, sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* Functional text floor. Real labels sat at 9.9–10.9px; below ~11px a label
+   stops being readable at arm's length on a phone. Nudged, not resized — the
+   hierarchy these sit in is unchanged.
+ *
+ * Prefixed with html[dir] to clear the html[dir="rtl"]-scoped rules already in
+ * the product-showcase and complexity-flow layers, which otherwise win on
+ * specificity regardless of load order.
+ *
+ * Deliberately excluded: text inside the aria-hidden product mockups
+ * (.aqua-product-window__bar, .aqua-product-card__signal). Those simulate a
+ * scaled-down app screen — enlarging them breaks the illusion they exist for,
+ * and no screen reader reaches them. Small is correct there.
+ */
+html[dir] .aqua-runtime-status-meta,
+html[dir] .aqua-depth-card__meta {
+  font-size: 0.72rem;
+}
+
+html[dir] .aqua-flow-state,
+html[dir] .aqua-flow-command,
+html[dir] .aqua-flow-index,
+html[dir] .aqua-flow-measurement__heading span,
+html[dir] .aqua-flow-engine__status,
+html[dir] .aqua-flow-engine__status > span,
+html[dir] .aqua-flow-zone__eyebrow,
+html[dir] .aqua-product-card__type,
+html[dir] .aqua-product-card__features li {
+  font-size: 0.74rem;
+}
+
+html[dir] .aqua-runtime-title,
+html[dir] .aqua-runtime-secure {
+  font-size: 0.75rem;
+}
+
+/* --------------------------------------------------------------- targets
+ * 60 of 114 interactive elements measured under 44x44 at 390px. These are the
+ * ones a visitor actually aims at; the inline text links keep their type size
+ * and gain height through padding, so nothing reflows.
+ */
+
+@media (max-width: 767px) {
+  .faq-q {
+    min-height: 3rem;
+  }
+
+  .aqua-service-path__cta,
+  .aqua-product-card__cta {
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .aqua-site-footer__social a {
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* The floating WhatsApp control: was 46px wide (under the 48px floor), pinned
+   with a physical `left` so it never mirrored into English, and sitting below
+   the consent banner's z-index on a first visit. */
+@media (max-width: 767px) {
+  #wa-float {
+    width: 56px;
+    height: 56px;
+    inset-inline-start: auto;
+    inset-inline-end: 16px;
+    left: auto;
+    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    z-index: 110;
+  }
+
+  html[dir="rtl"] #wa-float {
+    right: auto;
+    left: 16px;
+  }
+}
+
+/* ---------------------------------------------------------------- focus
+ * There was no :focus-visible rule anywhere in the page, the depth layer, or
+ * the product showcase. The replacement ring on inputs was 6% alpha over a
+ * near-black field — effectively invisible across a ten-field form.
+ */
+
+:is(a, button, input, select, textarea, [tabindex]):focus-visible,
+.aqua-input:focus-visible,
+.aqua-select-trigger:focus-visible,
+.faq-q:focus-visible,
+#langToggle:focus-visible {
+  outline: 2px solid #2e8fd9;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ----------------------------------------------------------------- action
+ * tailwind.config names primary:#8aa8c2 — a muted steel — while the real brand
+ * action colour #2e8fd9 sits under primary-container. Hand-authored CTAs took
+ * the vivid gradient; the two Tailwind-built ones (header CTA, form submit)
+ * took the muted flat fill, so emphasis decayed as the visitor approached
+ * converting. These two now read as the same species as the hero button.
+ */
+
+#sendLead,
+header a[href="#contact"].bg-primary {
+  background-image: linear-gradient(135deg, #57c8ff 0%, #2e8fd9 100%);
+  background-color: #2e8fd9;
+  color: #04121f;
+}
+
+#sendLead:hover,
+header a[href="#contact"].bg-primary:hover {
+  background-image: linear-gradient(135deg, #7ad6ff 0%, #3b9ee6 100%);
+}
+
+/* ------------------------------------------------------------ browser chrome
+ * Defaults that ship with no design system attached.
+ */
+
+::selection {
+  background: rgba(46, 143, 217, 0.32);
+  color: #eef8ff;
+}
+
+:root {
+  accent-color: #2e8fd9;
+  caret-color: #57c8ff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #sendLead,
+  header a[href="#contact"].bg-primary {
+    transition: none;
+  }
+}

@@ -9,7 +9,7 @@
     النتائج: "Results",
     الأسئلة: "FAQ",
     تواصل: "Contact",
-    whatsapp: "WhatsApp",
+    واتساب: "WhatsApp",
     "ابدأ مشروعك": "Start Project",
     "لماذا نحن": "Why us",
     منهجنا: "Our method",
@@ -20,7 +20,7 @@
     الأسئلة: "FAQ",
     Support: "Support",
     تواصل: "Contact",
-    whatsapp: "WhatsApp",
+    واتساب: "WhatsApp",
     "ابدأ مشروعك": "Start Project",
     "افتح القائمة": "Open menu",
     "شعار Aqua.Tech": "Aqua.Tech logo",
@@ -290,7 +290,8 @@
       "hero.runtimeLabel": "Aqua Flow Engine",
       "hero.runtimeMeta": "مترابط • مؤتمت • قابل للقياس",
       "flow.kicker": "Aqua.Tech Method",
-      "flow.title": "كيف نحول التعقيد إلى تدفق قابل للقياس",
+      "flow.titleLead": "كيف نحول التعقيد",
+      "flow.titleAccent": "إلى تدفق قابل للقياس",
       "flow.description":
         "Aqua.Tech وكالة برمجية تبني مواقع وأنظمة وأتمتة تبدأ من مشكلة العمل الفعلية، ثم تربط التجربة والبيانات والتنفيذ في مسار واحد قابل للمتابعة والتحسين.",
       "flow.before.kicker": "قبل بناء الحل",
@@ -350,7 +351,6 @@
         "نتابع النتائج والملاحظات لنطور الحل بدل أن يبقى مجرد نسخة أولى.",
 
       "trust.kicker": "Why Aqua.Tech",
-      "trust.title": "لماذا تختار Aqua.Tech",
       "form.submit": "ابدأ مشروعك بخطة واضحة",
 
       "trust.description":
@@ -372,7 +372,8 @@
       "trust.card4.desc":
         "تحديثات واضحة أثناء التنفيذ، ومخرجات مرتبة، وتسليم منظم حسب الاتفاق.",
 
-      "trust.title": "لماذا تختار Aqua.Tech",
+      "trust.titleLead": "لماذا تختار",
+      "trust.titleAccent": "Aqua.Tech",
       "trust.description":
         "نركز على بناء حلول واضحة، قابلة للتنفيذ، وتخدم هدف المشروع بدل الاكتفاء بواجهة جميلة فقط.",
       "trust.card1.desc":
@@ -384,7 +385,8 @@
         "تحديثات واضحة أثناء التنفيذ، ومخرجات مرتبة، وتسليم منظم حسب الاتفاق.",
 
       "solutions.kicker": "Deployment ready",
-      "solutions.title": "حلول جاهزة للانطلاق",
+      "solutions.titleLead": "حلول جاهزة",
+      "solutions.titleAccent": "للانطلاق",
       "solutions.subtitle":
         "أنظمة ومنصات جاهزة يمكن تخصيصها بحسب نوع النشاط والمرحلة الحالية لمشروعك.",
 
@@ -490,7 +492,7 @@
       "footer.offers": "العروض",
       "footer.support": "الدعم بعد التسليم",
 
-      "footer.whatsapp": "WhatsApp",
+      "footer.whatsapp": "واتساب",
       "footer.email": "Email",
       "footer.faq": "الأسئلة المتكررة",
       "footer.start": "ابدأ مشروعك",
@@ -509,13 +511,15 @@
       "form.timeline.exploring": "ما زلت أستكشف",
       "form.service.placeholder": "اختر الخدمة",
       "contact.kicker": "Start Project",
-      "contact.title": "ابدأ رحلتك الرقمية الآن",
+      "contact.titleLead": "ابدأ رحلتك",
+      "contact.titleAccent": "الرقمية الآن",
       "contact.subtitle":
         "احكِ لنا عن هدفك الحالي، وسنقترح عليك خطوة البداية، القناة الأنسب للتواصل، وما الذي يجب بناؤه أولًا.",
       "contact.socials": "حسابات التواصل",
 
       "services.kicker": "What we build",
-      "services.title": "خدمات رقمية تركز على النمو",
+      "services.titleLead": "خدمات رقمية",
+      "services.titleAccent": "تركز على النمو",
       "services.subtitle":
         "نغطي رحلة مشروعك من الفكرة إلى الإطلاق والنمو المستمر بحلول واضحة قابلة للتنفيذ.",
 
@@ -523,7 +527,7 @@
       "services.landing.desc":
         "صفحات سريعة وواضحة تساعدك تبدأ الإعلان، تجمع الطلبات، وتحول الزوار إلى عملاء محتملين.",
       "services.landing.tag1": "Landing page",
-      "services.landing.tag2": "whatsapp",
+      "services.landing.tag2": "واتساب",
       "services.landing.tag3": "Tracking",
       "services.landing.cta": "اطلب صفحة تسويقية",
 
@@ -620,7 +624,8 @@
       "offers.discovery.cta": "احجز جلسة تحليل",
 
       "faq.kicker": "FAQ",
-      "faq.title": "أسئلة متكررة",
+      "faq.titleLead": "أسئلة",
+      "faq.titleAccent": "متكررة",
       "faq.subtitle":
         "إجابات واضحة تساعدك تعرف كيف نبدأ، كيف نحدد السعر، وما الذي يحدث أثناء التنفيذ وبعد التسليم.",
 
@@ -681,6 +686,10 @@
       "about.loop.4": "نحسن",
       "nav.support": "الدعم",
       "form.phone": "رقم الواتساب",
+      "form.companyName": "اسم الشركة / المشروع",
+      "form.companyName.placeholder": "مثال: Elite Trading Company",
+      "form.companyActivity": "نشاط الشركة",
+      "form.companyActivity.placeholder": "مثال: تجارة الأجهزة الكهربائية",
 
       "offers.landing.badge": "الأسرع إطلاقًا",
       "offers.landing.title": "صفحات تسويقية",
@@ -827,7 +836,8 @@
       "hero.runtimeLabel": "Aqua Flow Engine",
       "hero.runtimeMeta": "Connected • Automated • Measurable",
       "flow.kicker": "Aqua.Tech Method",
-      "flow.title": "How we turn complexity into measurable flow",
+      "flow.titleLead": "How we turn complexity",
+      "flow.titleAccent": "into measurable flow",
       "flow.description":
         "Aqua.Tech is a software agency that builds websites, systems, and automation around the real operational problem, then connects experience, data, and execution in one flow that can be tracked and improved.",
       "flow.before.kicker": "Before the solution",
@@ -891,7 +901,8 @@
         "We follow results and feedback to improve the solution instead of leaving it as a first version.",
 
       "trust.kicker": "Why Aqua.Tech",
-      "trust.title": "Why choose Aqua.Tech",
+      "trust.titleLead": "Why choose",
+      "trust.titleAccent": "Aqua.Tech",
       "trust.description":
         "We focus on building clear, executable solutions that serve the project goal instead of only creating a beautiful interface.",
       "trust.card1.kicker": "First step",
@@ -910,7 +921,6 @@
       "trust.card4.title": "Clearer communication",
       "trust.card4.desc":
         "Clear updates during execution, organized outputs, and structured delivery based on the agreement.",
-      "trust.title": "Why choose Aqua.Tech",
       "trust.description":
         "We focus on building clear, executable solutions that serve the project goal instead of only creating a beautiful interface.",
       "trust.card1.desc":
@@ -922,7 +932,8 @@
         "Clear updates during execution, organized outputs, and structured delivery based on the agreement.",
 
       "solutions.kicker": "Deployment ready",
-      "solutions.title": "Ready solutions to launch",
+      "solutions.titleLead": "Ready solutions",
+      "solutions.titleAccent": "to launch",
       "solutions.subtitle":
         "Ready systems and platforms that can be customized based on your business type and current project stage.",
 
@@ -1049,13 +1060,15 @@
       "form.service.placeholder": "Select a service",
 
       "contact.kicker": "Start Project",
-      "contact.title": "Start your digital journey now",
+      "contact.titleLead": "Start your digital",
+      "contact.titleAccent": "journey now",
       "contact.subtitle":
         "Tell us about your current goal, and we will suggest the best starting step, the right contact channel, and what should be built first.",
       "contact.socials": "Social accounts",
 
       "services.kicker": "What we build",
-      "services.title": "Growth-focused digital services",
+      "services.titleLead": "Growth-focused",
+      "services.titleAccent": "digital services",
       "services.subtitle":
         "We cover your project journey from idea to launch and continuous growth with clear, executable solutions.",
 
@@ -1198,7 +1211,8 @@
       "offers.discovery.type": "Clear scope",
       "offers.discovery.cta": "discovery session",
       "faq.kicker": "FAQ",
-      "faq.title": "Frequently asked questions",
+      "faq.titleLead": "Frequently asked",
+      "faq.titleAccent": "questions",
       "faq.subtitle":
         "Clear answers to help you understand how we start, how pricing is defined, and what happens during execution and after delivery.",
 
@@ -1262,6 +1276,10 @@
       "about.loop.4": "Improve",
       "nav.support": "Support",
       "form.phone": "WhatsApp number",
+      "form.companyName": "Company / project name",
+      "form.companyName.placeholder": "e.g. Elite Trading Company",
+      "form.companyActivity": "Company activity",
+      "form.companyActivity.placeholder": "e.g. Electrical appliances trading",
 
       "services.core.kicker": "Core Services",
       "services.core.title": "Project foundation",
@@ -1355,6 +1373,13 @@
       const key = el.getAttribute("data-i18n");
       if (key && dict[key]) {
         el.textContent = dict[key];
+      }
+    });
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-placeholder");
+      if (key && dict[key]) {
+        el.setAttribute("placeholder", dict[key]);
       }
     });
   }
@@ -1460,14 +1485,17 @@
     const btn = document.getElementById("langToggle");
     if (!btn) return;
 
+    /* The accessible name starts with the visible label (WCAG 2.5.3), and
+       lang matches the language the button switches to. */
     btn.textContent = lang === "en" ? "AR" : "EN";
+    btn.setAttribute("lang", lang === "en" ? "ar" : "en");
     btn.setAttribute(
       "aria-label",
-      lang === "en" ? "Switch to Arabic" : "Switch to English",
+      lang === "en" ? "AR – التبديل للعربية" : "EN – Switch to English",
     );
     btn.setAttribute(
       "title",
-      lang === "en" ? "Switch to Arabic" : "Switch to English",
+      lang === "en" ? "التبديل للعربية" : "Switch to English",
     );
   }
 

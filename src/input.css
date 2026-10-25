@@ -51,7 +51,7 @@
   background:
     radial-gradient(
       circle at 50% 20%,
-      rgba(0, 180, 255, 0.28),
+      rgba(46, 143, 217, 0.28),
       transparent 45%
     ),
     linear-gradient(135deg, #061827 0%, #08263a 45%, #020b14 100%);
@@ -69,7 +69,7 @@
   z-index: 1;
   pointer-events: none;
   background:
-    linear-gradient(135deg, rgba(0, 180, 255, 0.34), rgba(3, 15, 28, 0.72)),
+    linear-gradient(135deg, rgba(46, 143, 217, 0.34), rgba(3, 15, 28, 0.72)),
     radial-gradient(
       circle at 70% 20%,
       rgba(126, 211, 255, 0.25),
@@ -191,12 +191,15 @@ html[dir="rtl"] .aqua-select-option {
   display: block;
 }
 
-/* HP-11: one visual system from the first content section to the footer. */
+/* HP-11: one visual system from the first content section to the footer.
+   --aqua-section-space mirrors spacing["section-space"] and --aqua-panel-radius
+   mirrors borderRadius.xl in tailwind.config.js — that file is the canonical
+   scale; keep these numbers in sync with it. */
 :root {
-  --aqua-section-space: clamp(4.75rem, 6vw, 6.25rem);
+  --aqua-section-space: clamp(5.5rem, 8vw, 8rem);
   --aqua-section-title: clamp(2rem, 3.5vw, 3.2rem);
-  --aqua-section-border: rgba(137, 206, 255, 0.1);
-  --aqua-panel-border: rgba(137, 206, 255, 0.14);
+  --aqua-section-border: rgba(138, 168, 194, 0.1);
+  --aqua-panel-border: rgba(138, 168, 194, 0.14);
   --aqua-panel-bg: rgba(5, 22, 36, 0.76);
   --aqua-panel-bg-strong: rgba(8, 34, 54, 0.86);
   --aqua-panel-radius: 1.5rem;
@@ -233,7 +236,7 @@ main > section + section {
   border-radius: 999px;
   background: radial-gradient(
     circle,
-    rgba(0, 180, 255, 0.09),
+    rgba(46, 143, 217, 0.09),
     transparent 70%
   );
   content: "";
@@ -244,12 +247,12 @@ main > section + section {
   background:
     radial-gradient(
       circle at 18% 18%,
-      rgba(0, 180, 255, 0.11),
+      rgba(46, 143, 217, 0.11),
       transparent 30rem
     ),
     radial-gradient(
       circle at 86% 88%,
-      rgba(137, 206, 255, 0.075),
+      rgba(138, 168, 194, 0.075),
       transparent 26rem
     ),
     linear-gradient(180deg, #031426 0%, #061b2e 52%, #041526 100%);
@@ -261,8 +264,8 @@ main > section + section {
   height: auto;
   border-radius: 0;
   background-image:
-    linear-gradient(rgba(137, 206, 255, 0.026) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(137, 206, 255, 0.026) 1px, transparent 1px);
+    linear-gradient(rgba(138, 168, 194, 0.026) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(138, 168, 194, 0.026) 1px, transparent 1px);
   background-size: 3.5rem 3.5rem;
   -webkit-mask-image: linear-gradient(
     to bottom,
@@ -360,15 +363,15 @@ html[dir="rtl"] .aqua-product-showcase__title {
   gap: 0;
   overflow: hidden;
   padding: 0.65rem;
-  border: 1px solid rgba(137, 206, 255, 0.2);
+  border: 1px solid rgba(138, 168, 194, 0.2);
   border-radius: 2rem;
   background:
-    linear-gradient(135deg, rgba(137, 206, 255, 0.07), transparent 34%),
+    linear-gradient(135deg, rgba(138, 168, 194, 0.07), transparent 34%),
     rgba(3, 17, 31, 0.74);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.04),
     0 28px 80px rgba(0, 0, 0, 0.24),
-    0 0 60px rgba(0, 180, 255, 0.035);
+    0 0 60px rgba(46, 143, 217, 0.035);
   backdrop-filter: blur(18px);
 }
 
@@ -381,8 +384,8 @@ html[dir="rtl"] .aqua-product-showcase__title {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(137, 206, 255, 0.32) 12%,
-    rgba(137, 206, 255, 0.32) 88%,
+    rgba(138, 168, 194, 0.32) 12%,
+    rgba(138, 168, 194, 0.32) 88%,
     transparent
   );
   content: "";
@@ -410,8 +413,8 @@ html[dir="rtl"] .aqua-product-showcase__title {
   background: linear-gradient(
     to bottom,
     transparent,
-    rgba(137, 206, 255, 0.15) 18%,
-    rgba(137, 206, 255, 0.15) 82%,
+    rgba(138, 168, 194, 0.15) 18%,
+    rgba(138, 168, 194, 0.15) 82%,
     transparent
   );
   content: "";
@@ -430,14 +433,14 @@ html[dir="rtl"] .aqua-product-showcase__title {
   height: 3.55rem;
   flex: 0 0 3.55rem;
   margin: 0;
-  border: 1px solid rgba(137, 206, 255, 0.24);
+  border: 1px solid rgba(138, 168, 194, 0.24);
   border-radius: 1.1rem;
   background:
-    linear-gradient(145deg, rgba(137, 206, 255, 0.18), rgba(0, 180, 255, 0.045)),
+    linear-gradient(145deg, rgba(138, 168, 194, 0.18), rgba(46, 143, 217, 0.045)),
     rgba(7, 31, 50, 0.84);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.045),
-    0 0 28px rgba(0, 180, 255, 0.07);
+    0 0 28px rgba(46, 143, 217, 0.07);
 }
 
 .aqua-trust-card .aqua-icon-box .material-symbols-outlined {
@@ -451,11 +454,11 @@ html[dir="rtl"] .aqua-product-showcase__title {
   align-items: center;
   justify-content: center;
   padding-inline: 0.35rem;
-  border: 1px solid rgba(137, 206, 255, 0.18);
+  border: 1px solid rgba(138, 168, 194, 0.18);
   border-radius: 999px;
   background: rgba(3, 17, 31, 0.92);
-  box-shadow: 0 0 20px rgba(0, 180, 255, 0.055);
-  color: rgba(137, 206, 255, 0.62);
+  box-shadow: 0 0 20px rgba(46, 143, 217, 0.055);
+  color: rgba(138, 168, 194, 0.62);
   font-family: "Space Grotesk", monospace;
   font-size: 0.72rem;
   font-weight: 700;
@@ -501,7 +504,7 @@ html[dir="rtl"] .aqua-trust-card__title {
   border: 1px solid var(--aqua-panel-border);
   border-radius: var(--aqua-panel-radius);
   background:
-    linear-gradient(145deg, rgba(137, 206, 255, 0.045), transparent 42%),
+    linear-gradient(145deg, rgba(138, 168, 194, 0.045), transparent 42%),
     var(--aqua-panel-bg);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.025),
@@ -509,18 +512,18 @@ html[dir="rtl"] .aqua-trust-card__title {
 }
 
 .aqua-system-card--emphasis {
-  border-color: rgba(137, 206, 255, 0.28);
+  border-color: rgba(138, 168, 194, 0.28);
   background:
-    linear-gradient(145deg, rgba(137, 206, 255, 0.1), transparent 48%),
+    linear-gradient(145deg, rgba(138, 168, 194, 0.1), transparent 48%),
     var(--aqua-panel-bg-strong);
 }
 
 .aqua-system-card .aqua-icon-box {
-  border: 1px solid rgba(137, 206, 255, 0.14);
+  border: 1px solid rgba(138, 168, 194, 0.14);
   background: linear-gradient(
     145deg,
-    rgba(137, 206, 255, 0.14),
-    rgba(0, 180, 255, 0.04)
+    rgba(138, 168, 194, 0.14),
+    rgba(46, 143, 217, 0.04)
   );
 }
 
@@ -533,9 +536,9 @@ html[dir="rtl"] .aqua-trust-card__title {
 }
 
 .faq-item:focus-within {
-  border-color: rgba(137, 206, 255, 0.34);
+  border-color: rgba(138, 168, 194, 0.34);
   background:
-    linear-gradient(145deg, rgba(137, 206, 255, 0.09), transparent 48%),
+    linear-gradient(145deg, rgba(138, 168, 194, 0.09), transparent 48%),
     var(--aqua-panel-bg-strong);
 }
 
@@ -547,7 +550,7 @@ html[dir="rtl"] .aqua-trust-card__title {
 
 .faq-a {
   padding-top: 0.85rem;
-  border-top: 1px solid rgba(137, 206, 255, 0.09);
+  border-top: 1px solid rgba(138, 168, 194, 0.09);
 }
 
 .aqua-site-footer {
@@ -557,7 +560,7 @@ html[dir="rtl"] .aqua-trust-card__title {
   background:
     linear-gradient(180deg, rgba(1, 15, 31, 0.98), #010b16),
     #010f1f;
-  box-shadow: inset 0 1px 0 rgba(137, 206, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(138, 168, 194, 0.12);
 }
 
 .aqua-site-footer__inner {
@@ -580,7 +583,7 @@ html[dir="rtl"] .aqua-trust-card__title {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  color: #89ceff;
+  color: #8aa8c2;
   font-family: "Space Grotesk", "Alexandria", system-ui, sans-serif;
   font-size: 1.35rem;
   font-weight: 700;
@@ -617,10 +620,10 @@ html[dir="rtl"] .aqua-trust-card__title {
   height: 2.25rem;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(137, 206, 255, 0.2);
+  border: 1px solid rgba(138, 168, 194, 0.2);
   border-radius: 0.65rem;
-  color: #89ceff;
-  background: rgba(137, 206, 255, 0.055);
+  color: #8aa8c2;
+  background: rgba(138, 168, 194, 0.055);
   text-decoration: none;
   transition:
     color 180ms ease,
@@ -631,9 +634,9 @@ html[dir="rtl"] .aqua-trust-card__title {
 
 .aqua-site-footer__social-link:hover,
 .aqua-site-footer__social-link:focus-visible {
-  border-color: rgba(137, 206, 255, 0.52);
+  border-color: rgba(138, 168, 194, 0.52);
   color: #d9f2ff;
-  background: rgba(137, 206, 255, 0.13);
+  background: rgba(138, 168, 194, 0.13);
   transform: translateY(-2px);
   outline: none;
 }
@@ -687,7 +690,7 @@ html[dir="rtl"] .aqua-trust-card__title {
 
 .aqua-site-footer__column a:hover,
 .aqua-site-footer__column a:focus-visible {
-  color: #89ceff;
+  color: #8aa8c2;
   outline: none;
 }
 
@@ -696,7 +699,7 @@ html[dir="rtl"] .aqua-trust-card__title {
   justify-content: center;
   margin-top: 1.25rem;
   padding-top: 0.8rem;
-  border-top: 1px solid rgba(137, 206, 255, 0.1);
+  border-top: 1px solid rgba(138, 168, 194, 0.1);
 }
 
 .aqua-site-footer__copyright {
@@ -749,19 +752,19 @@ html[dir="rtl"] .aqua-trust-card__title {
 
 @media (min-width: 768px) {
   .aqua-trust-card:hover {
-    border-color: rgba(137, 206, 255, 0.23);
+    border-color: rgba(138, 168, 194, 0.23);
     background:
-      linear-gradient(145deg, rgba(137, 206, 255, 0.085), transparent 48%),
+      linear-gradient(145deg, rgba(138, 168, 194, 0.085), transparent 48%),
       rgba(8, 34, 54, 0.55);
     transform: translateY(-3px);
   }
 
   .aqua-system-card:hover {
-    border-color: rgba(137, 206, 255, 0.3);
+    border-color: rgba(138, 168, 194, 0.3);
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.035),
       0 22px 62px rgba(0, 0, 0, 0.22),
-      0 0 24px rgba(0, 180, 255, 0.06);
+      0 0 24px rgba(46, 143, 217, 0.06);
   }
 }
 
@@ -779,17 +782,17 @@ html[dir="rtl"] .aqua-trust-card__title {
   }
 
   .aqua-trust-card:nth-child(2n) {
-    border-inline-start: 1px solid rgba(137, 206, 255, 0.1);
+    border-inline-start: 1px solid rgba(138, 168, 194, 0.1);
   }
 
   .aqua-trust-card:nth-child(n + 3) {
-    border-top: 1px solid rgba(137, 206, 255, 0.1);
+    border-top: 1px solid rgba(138, 168, 194, 0.1);
   }
 }
 
 @media (max-width: 767px) {
   :root {
-    --aqua-section-space: 4rem;
+    --aqua-section-space: 4.5rem;
     --aqua-section-title: clamp(2rem, 10vw, 2.65rem);
     --aqua-panel-radius: 1.35rem;
   }
@@ -820,7 +823,7 @@ html[dir="rtl"] .aqua-trust-card__title {
   .aqua-trust-card:nth-child(2n),
   .aqua-trust-card:nth-child(n + 3) {
     padding: 1.35rem;
-    border: 1px solid rgba(137, 206, 255, 0.1);
+    border: 1px solid rgba(138, 168, 194, 0.1);
     border-radius: 1.2rem;
     background: rgba(8, 34, 54, 0.5);
   }

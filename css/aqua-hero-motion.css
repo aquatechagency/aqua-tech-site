@@ -26,8 +26,8 @@
   pointer-events: none;
   background: radial-gradient(
     circle,
-    rgba(137, 206, 255, 0.13) 0%,
-    rgba(0, 180, 255, 0.055) 36%,
+    rgba(138, 168, 194, 0.13) 0%,
+    rgba(46, 143, 217, 0.055) 36%,
     transparent 70%
   );
   opacity: 0;
@@ -78,7 +78,7 @@
 }
 
 .aqua-hero-btn:focus-visible {
-  outline: 2px solid rgba(137, 206, 255, 0.9);
+  outline: 2px solid rgba(138, 168, 194, 0.9);
   outline-offset: 4px;
 }
 
@@ -133,7 +133,7 @@ html[dir="rtl"] .aqua-hero-kicker {
   border-radius: inherit;
   background: radial-gradient(
     230px circle at var(--aqua-runtime-pointer-x) var(--aqua-runtime-pointer-y),
-    rgba(137, 206, 255, 0.1),
+    rgba(138, 168, 194, 0.1),
     transparent 68%
   );
   opacity: 0;
@@ -145,11 +145,11 @@ html[dir="rtl"] .aqua-hero-kicker {
 }
 
 .aqua-hero-runtime:hover .aqua-runtime-window {
-  border-color: rgba(137, 206, 255, 0.38);
+  border-color: rgba(138, 168, 194, 0.38);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.075),
     0 38px 96px rgba(0, 0, 0, 0.46),
-    0 0 64px rgba(0, 180, 255, 0.13);
+    0 0 64px rgba(46, 143, 217, 0.13);
 }
 
 html.aqua-hero-motion .aqua-hero-kicker,
@@ -256,16 +256,16 @@ html.aqua-hero-motion .aqua-runtime-status.is-terminal-visible {
 }
 
 .aqua-flow-stack li.is-flow-active {
-  border-color: rgba(137, 206, 255, 0.18);
-  background: linear-gradient(90deg, rgba(0, 180, 255, 0.085), transparent 74%);
-  box-shadow: inset 3px 0 0 rgba(0, 180, 255, 0.55);
+  border-color: rgba(138, 168, 194, 0.18);
+  background: linear-gradient(90deg, rgba(46, 143, 217, 0.085), transparent 74%);
+  box-shadow: inset 3px 0 0 rgba(46, 143, 217, 0.55);
 }
 
 .aqua-flow-stack li.is-flow-active .aqua-flow-index {
-  border-color: rgba(137, 206, 255, 0.65);
+  border-color: rgba(138, 168, 194, 0.65);
   box-shadow:
     0 0 0 4px rgba(5, 20, 36, 0.7),
-    0 0 22px rgba(0, 180, 255, 0.28);
+    0 0 22px rgba(46, 143, 217, 0.28);
 }
 
 .aqua-flow-stack li.is-flow-active .aqua-flow-state {
@@ -274,12 +274,12 @@ html.aqua-hero-motion .aqua-runtime-status.is-terminal-visible {
 }
 
 .aqua-flow-stack li:hover {
-  border-color: rgba(137, 206, 255, 0.14);
-  background: linear-gradient(90deg, rgba(0, 180, 255, 0.06), transparent 76%);
+  border-color: rgba(138, 168, 194, 0.14);
+  background: linear-gradient(90deg, rgba(46, 143, 217, 0.06), transparent 76%);
 }
 
 .aqua-flow-stack li:hover .aqua-flow-index {
-  border-color: rgba(137, 206, 255, 0.48);
+  border-color: rgba(138, 168, 194, 0.48);
 }
 
 .aqua-flow-tracer {
@@ -287,7 +287,7 @@ html.aqua-hero-motion .aqua-runtime-status.is-terminal-visible {
   opacity: 0;
   filter:
     drop-shadow(0 0 4px rgba(223, 245, 255, 0.95))
-    drop-shadow(0 0 11px rgba(0, 180, 255, 0.9));
+    drop-shadow(0 0 11px rgba(46, 143, 217, 0.9));
   transition: opacity 420ms ease;
 }
 

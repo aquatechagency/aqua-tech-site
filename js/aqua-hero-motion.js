@@ -43,7 +43,12 @@
     path.style.strokeDashoffset = `${length}`;
   });
 
+  let heroEntered = false;
+
   const enterHero = () => {
+    if (heroEntered) return;
+    heroEntered = true;
+
     root.classList.add("is-hero-entered");
 
     flowPaths.forEach((path, index) => {
@@ -107,6 +112,12 @@
   window.requestAnimationFrame(() => {
     window.requestAnimationFrame(enterHero);
   });
+
+  /* requestAnimationFrame is frozen — not merely throttled — while a tab is
+     hidden, so a page opened in a background tab would hold the headline at
+     opacity 0 until it is focused. setTimeout still fires when hidden, so it
+     backs the reveal up; enterHero is idempotent, whichever wins. */
+  window.setTimeout(enterHero, 1200);
 
   const supportsFinePointer = window.matchMedia(
     "(hover: hover) and (pointer: fine)",

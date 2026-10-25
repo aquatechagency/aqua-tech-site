@@ -3,15 +3,13 @@
 
   <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
     <div class="aqua-section__header">
-      <span class="section-kicker" data-i18n="contact.kicker"
+      <span class="section-kicker tf-mono" data-i18n="contact.kicker"
         >Start Project</span
       >
 
-      <h2
-        class="aqua-section__title"
-        data-i18n="contact.title"
-      >
-        ابدأ رحلتك الرقمية الآن
+      <h2 class="aqua-section__title tf-heading">
+        <span class="tf-heading__light" data-i18n="contact.titleLead">ابدأ رحلتك</span>
+        <span class="tf-heading__bold" data-i18n="contact.titleAccent">الرقمية الآن</span>
       </h2>
 
       <p
@@ -27,7 +25,7 @@
       <aside
         class="order-2 lg:order-1 lg:col-span-4 flex flex-col gap-stack-md"
       >
-        <div class="order-2 lg:order-1 glass-card aqua-system-card p-stack-md rounded-xl">
+        <div class="order-2 lg:order-1 glass-card aqua-system-card p-stack-md rounded-xl tf-glass">
           <h3
             class="font-headline-md text-headline-md text-primary mb-stack-sm"
           >
@@ -40,7 +38,7 @@
               href="https://wa.me/962780932199"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="WhatsApp"
+              aria-label="WhatsApp +962 78 093 2199"
               onclick="
                 if (typeof gtag === 'function') {
                   gtag('event', 'whatsapp_click', {
@@ -60,18 +58,21 @@
                   />
                 </svg>
               </span>
-              <span
-                class="font-bold text-on-surface group-hover:text-primary transition-colors"
-                dir="ltr"
-              >
-                WhatsApp
+              <span class="flex min-w-0 flex-col items-start">
+                <span
+                  class="font-bold text-on-surface group-hover:text-primary transition-colors tf-mono"
+                  dir="ltr"
+                >
+                  WhatsApp
+                </span>
+                <span class="aqua-contact-detail tf-mono" dir="ltr">+962 78 093 2199</span>
               </span>
             </a>
 
             <a
               class="group flex items-center gap-3 p-3 rounded-lg bg-surface-container-high hover:bg-primary/10 transition-all border border-outline-variant/20 hover:border-primary/40 no-underline"
               href="mailto:info.aquatech.jo@gmail.com"
-              aria-label="Email"
+              aria-label="Email info.aquatech.jo@gmail.com"
             >
               <span
                 class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
@@ -83,11 +84,14 @@
                   />
                 </svg>
               </span>
-              <span
-                class="font-bold text-on-surface group-hover:text-primary transition-colors"
-                dir="ltr"
-              >
-                Email
+              <span class="flex min-w-0 flex-col items-start">
+                <span
+                  class="font-bold text-on-surface group-hover:text-primary transition-colors tf-mono"
+                  dir="ltr"
+                >
+                  Email
+                </span>
+                <span class="aqua-contact-detail tf-mono" dir="ltr">info.aquatech.jo@gmail.com</span>
               </span>
             </a>
 
@@ -194,7 +198,7 @@
         </div>
 
         <div
-          class="order-1 lg:order-2 glass-card aqua-system-card aqua-system-card--emphasis p-stack-md rounded-xl"
+          class="order-1 lg:order-2 glass-card aqua-system-card aqua-system-card--emphasis p-stack-md rounded-xl tf-glass"
         >
           <h3 class="font-headline-md text-headline-md text-primary mb-4">
             ماذا يحدث بعد ذلك؟
@@ -236,11 +240,12 @@
 
       <div class="order-1 lg:order-2 lg:col-span-8">
         <form
-          class="glass-card aqua-system-card p-stack-lg rounded-xl flex flex-col gap-stack-md relative overflow-hidden"
+          class="glass-card aqua-system-card p-stack-lg rounded-xl flex flex-col gap-stack-md relative overflow-hidden tf-glass tf-chamfer"
           id="contactForm"
           data-aquatech-contact-form
           novalidate
         >
+          <span class="tf-chamfer__edge" aria-hidden="true"></span>
           <div class="absolute top-0 left-0 p-8 opacity-10" aria-hidden="true">
             <span
               class="material-symbols-outlined text-[120px]"
@@ -291,7 +296,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter mt-gutter">
               <label class="block">
-                <span class="block font-label-sm text-primary mb-2">
+                <span class="block font-label-sm text-primary mb-2" data-i18n="form.companyName">
                   اسم الشركة / المشروع
                 </span>
                 <input
@@ -301,12 +306,13 @@
                   class="aqua-input form-field"
                   maxlength="120"
                   autocomplete="organization"
+                  data-i18n-placeholder="form.companyName.placeholder"
                   placeholder="مثال: Elite Trading Company"
                 />
               </label>
 
               <label class="block">
-                <span class="block font-label-sm text-primary mb-2">
+                <span class="block font-label-sm text-primary mb-2" data-i18n="form.companyActivity">
                   نشاط الشركة
                 </span>
                 <input
@@ -315,6 +321,7 @@
                   type="text"
                   class="aqua-input form-field"
                   maxlength="160"
+                  data-i18n-placeholder="form.companyActivity.placeholder"
                   placeholder="مثال: تجارة الأجهزة الكهربائية"
                 />
               </label>
@@ -776,7 +783,7 @@
             <button
               id="sendLead"
               type="submit"
-              class="quote-submit mt-gutter w-full bg-primary text-on-primary px-8 py-4 rounded-lg font-bold hover:scale-[.99] transition-all shadow-[0_0_20px_rgba(0,180,255,.25)]"
+              class="quote-submit mt-gutter w-full bg-primary text-on-primary px-8 py-4 rounded-lg font-bold hover:scale-[.99] transition-all shadow-[0_0_20px_rgba(46,143,217,.25)] tf-btn-cta tf-mono"
             >
               <span class="quote-title" data-i18n="form.submit">
                 ابدأ مشروعك بخطة واضحة

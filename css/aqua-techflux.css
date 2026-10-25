@@ -1,0 +1,1345 @@
+/* =========================================================================
+   Aqua.Tech - HP17 Techflux layer
+   Structural style only: glass panels with one chamfered corner, light/bold
+   heading contrast, mono labels, rectangular CTAs and gradient pills.
+
+   Loaded after every existing stylesheet, so it refines rather than replaces.
+
+   Colour rule: this file introduces no colour values of its own. Every
+   colour resolves to an existing --aqua-* token from src/template.html
+   (the only extra ingredient is `white` / `transparent` inside color-mix
+   for alpha). The teal/green status accents are deliberately left alone.
+
+   Rollout is section by section; this pass covers the hero only.
+   ========================================================================= */
+
+:root {
+  --tf-base: var(--aqua-deep);
+  --tf-surface: var(--aqua-card-solid);
+  --tf-mid: var(--aqua-action);
+  --tf-light: var(--aqua-primary);
+  --tf-accent: var(--aqua-action);
+  --tf-ink: var(--aqua-text);
+  --tf-ink-dark: var(--aqua-deep);
+
+  /* deep -> action -> primary. White text fails AA past the action stop
+     (3.47:1 on action, 2.48:1 on primary), so anything that sits on the
+     light end opts into .tf-zone--light and switches to dark ink. */
+  --tf-gradient: linear-gradient(
+    180deg,
+    var(--tf-base),
+    var(--tf-mid) 60%,
+    var(--tf-light)
+  );
+
+  --tf-glass-bg: color-mix(in srgb, var(--tf-surface) 58%, transparent);
+  /* For glass over the light end of --tf-gradient: at 58% the muted card
+     copy falls to 3.7:1 over --tf-light; at 72% it holds 5.0:1. */
+  --tf-glass-bg-strong: color-mix(in srgb, var(--tf-surface) 72%, transparent);
+  --tf-glass-border: color-mix(in srgb, white 30%, transparent);
+  --tf-glass-border-soft: color-mix(in srgb, white 16%, transparent);
+  --tf-glass-blur: 18px;
+
+  /* Gradient-card end stop. 30% action over base keeps every existing card
+     text colour at AA (72%-alpha muted copy: 4.6:1). A full --tf-mid end
+     would drop light text to 2.7:1 and need .tf-zone--light. */
+  --tf-card-end: color-mix(in srgb, var(--tf-mid) 30%, var(--tf-base));
+
+  --tf-radius: 28px;
+  --tf-chamfer: 44px;
+  --tf-btn-radius: var(--aqua-radius-sm);
+
+  --tf-font-head: "Space Grotesk", "Alexandria", system-ui, sans-serif;
+  --tf-font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --tf-font-ar: "Alexandria", system-ui, sans-serif;
+}
+
+@supports not (color: color-mix(in srgb, white, transparent)) {
+  :root {
+    --tf-glass-bg: var(--aqua-card);
+    --tf-glass-border: var(--aqua-line-strong);
+    --tf-glass-border-soft: var(--aqua-line);
+    --tf-card-end: var(--tf-surface);
+    --tf-glass-bg-strong: var(--aqua-card-solid);
+  }
+}
+
+/* ------------------------------------------------------------ 1. Zones */
+
+.tf-zone--light {
+  color: var(--tf-ink-dark);
+}
+
+/* ------------------------------------------------------- 2. Glass panel */
+
+.tf-glass {
+  border: 1px solid var(--tf-glass-border);
+  border-radius: var(--tf-radius);
+  background: var(--tf-glass-bg);
+  -webkit-backdrop-filter: blur(var(--tf-glass-blur));
+  backdrop-filter: blur(var(--tf-glass-blur));
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .tf-glass {
+    background: var(--tf-surface);
+  }
+}
+
+/* Feature / problem cards: inner vertical gradient, dark top to a brand
+   tint at the bottom, with a thin glass border. */
+.tf-gradient-card {
+  border: 1px solid var(--tf-glass-border-soft);
+  border-radius: var(--tf-radius);
+  background: linear-gradient(180deg, var(--tf-surface), var(--tf-card-end));
+}
+
+/* Image / visual frame: rounded, thin hairline, dark moody fill. Pair with
+   .tf-chamfer on the one featured frame. */
+.tf-frame {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--tf-glass-border-soft);
+  border-radius: calc(var(--tf-radius) * 0.75);
+  background: linear-gradient(180deg, var(--tf-base), var(--tf-surface));
+}
+
+/* ---------------------------------------------------- 3. Chamfer motif
+ * One corner cut on the diagonal, top inline-end. clip-path has no logical
+ * keywords, so the polygon is mirrored per document direction. The cut
+ * removes that stretch of border, so .tf-chamfer__edge redraws it as a
+ * hairline across the hypotenuse.
+ */
+
+.tf-chamfer {
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--tf-chamfer)) 0,
+    100% var(--tf-chamfer),
+    100% 100%,
+    0 100%
+  );
+}
+
+html[dir="rtl"] .tf-chamfer {
+  clip-path: polygon(
+    var(--tf-chamfer) 0,
+    100% 0,
+    100% 100%,
+    0 100%,
+    0 var(--tf-chamfer)
+  );
+}
+
+.tf-chamfer__edge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 4;
+  width: var(--tf-chamfer);
+  height: var(--tf-chamfer);
+  pointer-events: none;
+  background: linear-gradient(
+    to top right,
+    transparent calc(50% - 1px),
+    var(--tf-glass-border) calc(50% - 1px),
+    var(--tf-glass-border) calc(50% + 1px),
+    transparent calc(50% + 1px)
+  );
+}
+
+/* Physical left/right on purpose: .aqua-hero-runtime forces direction: ltr,
+   so logical insets would not follow the page direction here. */
+html[dir="rtl"] .tf-chamfer__edge {
+  right: auto;
+  left: 0;
+  background: linear-gradient(
+    to bottom right,
+    transparent calc(50% - 1px),
+    var(--tf-glass-border) calc(50% - 1px),
+    var(--tf-glass-border) calc(50% + 1px),
+    transparent calc(50% + 1px)
+  );
+}
+
+/* --------------------------------------------------- 4. Heading contrast */
+
+.tf-heading {
+  font-family: var(--tf-font-head);
+}
+
+.tf-heading__light {
+  font-weight: 300;
+  letter-spacing: -0.035em;
+}
+
+.tf-heading__bold {
+  font-weight: 700;
+}
+
+html[dir="rtl"] .tf-heading {
+  font-family: var(--tf-font-ar);
+  letter-spacing: 0;
+}
+
+html[dir="rtl"] .tf-heading__light {
+  letter-spacing: 0;
+}
+
+/* ------------------------------------------------- 5. Mono label system
+ * Latin gets mono, uppercase and tracking. Arabic has no mono coverage and
+ * no case, so it falls back to Alexandria with neither.
+ */
+
+.tf-mono {
+  font-family: var(--tf-font-mono);
+}
+
+html[dir="ltr"] .tf-mono {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+html[dir="rtl"] .tf-mono {
+  font-family: var(--tf-font-ar);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* ------------------------------------------------------------ 6. Buttons */
+
+.tf-btn-cta,
+.tf-btn-ghost {
+  border-radius: var(--tf-btn-radius);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+/* Dark ink on the action fill: 5.55:1. White would be 3.47:1. */
+.tf-btn-cta {
+  color: var(--tf-ink-dark);
+  background: var(--tf-accent);
+  border-color: transparent;
+}
+
+.tf-btn-cta:hover {
+  filter: brightness(1.1);
+}
+
+.tf-btn-ghost {
+  color: var(--tf-ink);
+  background: var(--tf-glass-bg);
+  border-color: var(--tf-glass-border-soft);
+}
+
+.tf-btn-ghost:hover {
+  border-color: var(--tf-glass-border);
+}
+
+/* Feature tags. */
+.tf-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.38rem 0.95rem;
+  border: 1px solid var(--tf-glass-border-soft);
+  border-radius: var(--aqua-radius-full);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--tf-mid) 22%, transparent),
+    color-mix(in srgb, var(--tf-base) 45%, transparent)
+  );
+  color: var(--tf-ink);
+  font-size: 0.72rem;
+}
+
+/* ============================================================ HERO ====== */
+
+/* Background: one dark -> brand gradient, no glow. Opaque so the body's own
+ * top-centre radial glow cannot show through.
+ *
+ * The bright orb was the HP15 WebGL particle core (.aqua-core-layer, drawn by
+ * js/aqua-core.js). It is hidden, not deleted: with its host at display:none
+ * the script's IntersectionObserver reports it off-screen and stops the render
+ * loop, and resize() bails on the zero-size rect, so nothing throws. The
+ * auras and the runtime card's halo are pre-HP17 glows hidden the same way.
+ */
+.aqua-signature-hero::before {
+  background: linear-gradient(
+    180deg,
+    var(--tf-base),
+    color-mix(in srgb, var(--tf-base) 80%, var(--tf-mid))
+  );
+}
+
+.aqua-signature-hero .aqua-core-layer,
+.aqua-signature-hero .aqua-hero-aura,
+.aqua-signature-hero .aqua-runtime-glow {
+  display: none;
+}
+
+/* aqua-depth.js dims these while the core is live; with the core hidden they
+   return to their pre-core strength. */
+.aqua-signature-hero.has-aqua-core .aqua-hero-flow-map {
+  opacity: 0.92;
+}
+
+.aqua-signature-hero.has-aqua-core .aqua-hero-grid {
+  opacity: 0.34;
+}
+
+/* Light first line, bold second line. Weights are set here rather than via
+   .tf-heading__* alone because .aqua-hero-title carries weight 800. */
+.aqua-signature-hero .aqua-hero-title > .tf-heading__light {
+  font-weight: 300;
+}
+
+.aqua-signature-hero .aqua-hero-title > .tf-heading__bold {
+  font-weight: 700;
+}
+
+html[dir="ltr"] .aqua-signature-hero .aqua-hero-kicker {
+  text-transform: uppercase;
+}
+
+/* Arabic hero: the hamza under "إ" and other descenders paint outside the
+ * span's box, and background-clip: text on the accent only paints inside the
+ * padding box. Give both lines positive bottom padding and drop the negative
+ * block-end margins that used to cancel it.
+ */
+html[dir="rtl"] .aqua-signature-hero .aqua-hero-title {
+  line-height: 1.32;
+}
+
+html[dir="rtl"] .aqua-signature-hero .aqua-hero-title > span {
+  padding-block-end: 0.2em;
+  margin-block-end: 0;
+}
+
+@media (max-width: 560px) {
+  html[dir="rtl"] .aqua-signature-hero .aqua-hero-title {
+    line-height: 1.34;
+  }
+
+  html[dir="rtl"] .aqua-signature-hero .aqua-hero-title > span {
+    padding-block-end: 0.22em;
+    margin-block-end: 0;
+  }
+}
+
+/* Buttons: shape and label only; .aqua-hero-btn keeps its motion and the
+   magnetic hook from aqua-depth.js. */
+.aqua-signature-hero .tf-btn-cta,
+.aqua-signature-hero .tf-btn-ghost {
+  font-family: var(--tf-font-mono);
+  border-radius: var(--tf-btn-radius);
+}
+
+html[dir="ltr"] .aqua-signature-hero .tf-btn-cta,
+html[dir="ltr"] .aqua-signature-hero .tf-btn-ghost {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+html[dir="rtl"] .aqua-signature-hero .tf-btn-cta,
+html[dir="rtl"] .aqua-signature-hero .tf-btn-ghost {
+  font-family: var(--tf-font-ar);
+  font-size: 0.95rem;
+}
+
+.aqua-signature-hero .tf-btn-cta {
+  color: var(--tf-ink-dark);
+  background: var(--tf-accent);
+  border-color: transparent;
+}
+
+.aqua-signature-hero .tf-btn-ghost {
+  color: var(--tf-ink);
+  background: var(--tf-glass-bg);
+  border-color: var(--tf-glass-border-soft);
+}
+
+.aqua-signature-hero .tf-btn-ghost:hover {
+  color: var(--tf-ink);
+  background: var(--tf-glass-bg);
+  border-color: var(--tf-glass-border);
+}
+
+/* Proof row as gradient pills. The existing dot moves inside the pill. */
+.aqua-signature-hero .aqua-hero-proof {
+  gap: 0.6rem;
+}
+
+.aqua-signature-hero .aqua-hero-proof .tf-pill {
+  padding-inline-start: 1.6rem;
+}
+
+.aqua-signature-hero .aqua-hero-proof .tf-pill::before {
+  inset-inline-start: 0.75rem;
+}
+
+html[dir="ltr"] .aqua-signature-hero .aqua-hero-proof .tf-pill {
+  font-family: var(--tf-font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Runtime card as the glass + chamfer centrepiece. The tint keeps the
+   card's original top-corner glow, now on a see-through base. */
+.aqua-signature-hero .aqua-runtime-window.tf-glass {
+  background:
+    radial-gradient(
+      circle at 82% 2%,
+      color-mix(in srgb, var(--tf-accent) 12%, transparent),
+      transparent 28%
+    ),
+    var(--tf-glass-bg);
+}
+
+/* clip-path also clips box-shadow, so the depth shadow lives on a wrapper
+   as drop-shadow, which traces the cut outline. Not on .aqua-hero-runtime:
+   that element's filter is owned by the hero-motion blur reveal. */
+.tf-chamfer-shadow {
+  filter:
+    drop-shadow(0 26px 34px color-mix(in srgb, var(--tf-base) 72%, transparent))
+    drop-shadow(0 0 28px color-mix(in srgb, var(--tf-accent) 10%, transparent));
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .tf-chamfer-shadow {
+    filter: drop-shadow(0 18px 24px var(--tf-base));
+  }
+}
+
+/* Keep the top bar's end items (TLS badge / window dots) clear of the cut.
+   Physical sides for the same forced-ltr reason as .tf-chamfer__edge. */
+.aqua-signature-hero .tf-chamfer .aqua-runtime-topbar {
+  padding-right: calc(var(--tf-chamfer) * 0.8);
+}
+
+html[dir="rtl"] .aqua-signature-hero .tf-chamfer .aqua-runtime-topbar {
+  padding-right: 1rem;
+  padding-left: calc(var(--tf-chamfer) * 0.8);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .aqua-signature-hero .aqua-runtime-window.tf-glass {
+    background: var(--tf-surface);
+  }
+}
+
+/* ------------------------------------------------------- Hero polish */
+
+/* The flow map stretches with the viewport (preserveAspectRatio="none"), so
+   its two static nodes drift onto copy as the width changes: beside the
+   subtitle's last line (1440 RTL), on the title or pills in LTR, and on the
+   secondary button in the stacked tablet layout. No single nudge clears text
+   at every width, so both are hidden; the line and its moving tracer stay.
+   Below 768px the whole map is hidden. */
+@media (min-width: 768px) {
+  .aqua-signature-hero .tf-flow-node--near-copy {
+    display: none;
+  }
+}
+
+/* Phones: the map's line and nodes ran behind the pills and held open a
+   tall empty band before the runtime card. Hidden, with the gap tightened. */
+@media (max-width: 767px) {
+  .aqua-signature-hero .aqua-hero-flow-map {
+    display: none;
+  }
+
+  .aqua-signature-hero .aqua-hero-shell {
+    gap: 2.25rem;
+  }
+}
+
+/* Proof pills flow as centred rows (2 + 1 at phone widths) instead of a
+   left-aligned single-column stack of uneven widths. */
+@media (max-width: 560px) {
+  .aqua-signature-hero .aqua-hero-proof {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+  }
+}
+
+/* Uppercase mono English labels run ~5% too wide to pair up at 360-375px;
+   tighter tracking and padding let them form rows like the Arabic set. */
+@media (max-width: 480px) {
+  html[dir="ltr"] .aqua-signature-hero .aqua-hero-proof .tf-pill {
+    padding-inline: 1.35rem 0.75rem;
+    letter-spacing: 0.02em;
+  }
+
+  html[dir="ltr"] .aqua-signature-hero .aqua-hero-proof .tf-pill::before {
+    inset-inline-start: 0.6rem;
+  }
+}
+
+/* ============================================================ FLOW ====== */
+
+/* Solid dark band after the hero gradient: flat --tf-base, no grid texture
+   and no blurred glow. Vertical padding comes from the shared
+   --aqua-section-space (ID rule in src/input.css). */
+.aqua-complexity-flow {
+  background: var(--tf-base);
+}
+
+.aqua-complexity-flow::before,
+.aqua-complexity-flow__glow {
+  display: none;
+}
+
+/* Two-line heading: light lead, bold accent. */
+.aqua-complexity-flow__header h2.tf-heading {
+  color: var(--tf-ink);
+  line-height: 1.16;
+}
+
+.aqua-complexity-flow__header h2 > span {
+  display: block;
+}
+
+html[dir="rtl"] .aqua-complexity-flow__header h2.tf-heading {
+  line-height: 1.34;
+}
+
+html[dir="rtl"] .aqua-complexity-flow__header h2 > span {
+  padding-block-end: 0.12em;
+}
+
+/* Cards. The zone rules set their own tinted backgrounds and borders at
+   equal specificity; scoping here keeps the gradient card in charge. The
+   engine card's ::before border sheen is clipped by the chamfer anyway. */
+.aqua-complexity-flow .aqua-flow-zone.tf-gradient-card {
+  border-color: var(--tf-glass-border-soft);
+  border-radius: var(--tf-radius);
+  background: linear-gradient(180deg, var(--tf-surface), var(--tf-card-end));
+}
+
+.aqua-complexity-flow .aqua-flow-zone--engine.tf-gradient-card {
+  border-color: var(--tf-glass-border);
+}
+
+.aqua-complexity-flow .aqua-flow-zone--engine::before {
+  display: none;
+}
+
+/* The status pill sits at the header's inline end, under the cut. */
+.aqua-complexity-flow .tf-chamfer .aqua-flow-engine__header {
+  padding-inline-end: calc(var(--tf-chamfer) * 0.55);
+}
+
+/* Steps stay dark panels over the gradient so their copy keeps its
+   contrast; the border picks up the glass hairline. */
+.aqua-complexity-flow .aqua-flow-method li {
+  border-color: var(--tf-glass-border-soft);
+  border-radius: calc(var(--tf-radius) * 0.6);
+}
+
+/* Measurement bar: glass panel, gradient metric pills, accent CTA. */
+.aqua-complexity-flow .aqua-flow-measurement.tf-glass {
+  margin-block-start: clamp(1.25rem, 2vw, 1.75rem);
+  border-radius: var(--tf-radius);
+}
+
+.aqua-complexity-flow .aqua-flow-measurement li.tf-pill {
+  border-color: var(--tf-glass-border-soft);
+  border-radius: var(--aqua-radius-full);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--tf-mid) 22%, transparent),
+    color-mix(in srgb, var(--tf-base) 45%, transparent)
+  );
+  color: var(--tf-ink);
+}
+
+.aqua-complexity-flow .aqua-complexity-flow__cta.tf-btn-cta {
+  border-color: transparent;
+  border-radius: var(--tf-btn-radius);
+  color: var(--tf-ink-dark);
+  background: var(--tf-accent);
+  font-family: var(--tf-font-mono);
+  font-weight: 600;
+}
+
+.aqua-complexity-flow .aqua-complexity-flow__cta.tf-btn-cta:hover,
+.aqua-complexity-flow .aqua-complexity-flow__cta.tf-btn-cta:focus-visible {
+  color: var(--tf-ink-dark);
+  background: var(--tf-accent);
+  border-color: transparent;
+  filter: brightness(1.1);
+}
+
+/* The base rule drops the outline on focus and relied on the colour swap,
+   which no longer happens. */
+.aqua-complexity-flow .aqua-complexity-flow__cta.tf-btn-cta:focus-visible {
+  outline: 2px solid var(--tf-light);
+  outline-offset: 3px;
+}
+
+html[dir="ltr"] .aqua-complexity-flow .aqua-complexity-flow__cta.tf-btn-cta {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+html[dir="rtl"] .aqua-complexity-flow .aqua-complexity-flow__cta.tf-btn-cta {
+  font-family: var(--tf-font-ar);
+}
+
+/* =========================================================== TRUST ====== */
+
+/* The full-gradient band (deep -> action -> primary). The gradient is held
+ * at --tf-base behind the header and runs over the cards: the intro copy
+ * only passes AA on the raw gradient down to ~30% of its height (5.05:1;
+ * 3.67:1 at 40%), and on desktop the header reaches further than that.
+ * --tf-gradient itself is reused unchanged; it is just sized to start at
+ * the hold line, so there is no seam. The hold is the top padding plus a
+ * header allowance, so it follows --aqua-section-space when that changes.
+ */
+.aqua-section--trust {
+  --tf-trust-hold: calc(var(--aqua-section-space) + 18rem);
+  background:
+    var(--tf-gradient) bottom / 100% calc(100% - var(--tf-trust-hold)) no-repeat,
+    var(--tf-base);
+}
+
+.aqua-section--trust::before {
+  display: none;
+}
+
+/* Heading: light lead, bold accent. */
+.aqua-section--trust .aqua-section__title.tf-heading {
+  color: var(--tf-ink);
+}
+
+.aqua-section--trust .aqua-section__title > span {
+  display: block;
+}
+
+html[dir="rtl"] .aqua-section--trust .aqua-section__title.tf-heading {
+  line-height: 1.34;
+}
+
+html[dir="rtl"] .aqua-section--trust .aqua-section__title > span {
+  padding-block-end: 0.12em;
+}
+
+/* The stage was one dark glass panel with hairline dividers; it becomes a
+   plain grid so each card is its own glass panel over the gradient. The
+   .glass-card class stays for the motion system's reveal. */
+.aqua-section--trust .aqua-trust-stage {
+  gap: clamp(0.75rem, 1.4vw, 1.25rem);
+  overflow: visible;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.aqua-section--trust .aqua-trust-stage.glass-card:hover {
+  border-color: transparent;
+  background: none;
+  box-shadow: none;
+  transform: none;
+}
+
+.aqua-section--trust .aqua-trust-stage::before,
+.aqua-section--trust .aqua-trust-card + .aqua-trust-card::before {
+  display: none;
+}
+
+/* Cards: stronger glass so light copy holds AA down to the light end. The
+   base layer swaps the background on hover and per breakpoint; these keep
+   the glass in charge without touching the tilt transform. */
+.aqua-section--trust .aqua-trust-card.tf-glass,
+.aqua-section--trust .aqua-trust-card.tf-glass:hover {
+  border: 1px solid var(--tf-glass-border);
+  border-radius: var(--tf-radius);
+  background: var(--tf-glass-bg-strong);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .aqua-section--trust .aqua-trust-card.tf-glass,
+  .aqua-section--trust .aqua-trust-card.tf-glass:hover {
+    background: var(--tf-surface);
+  }
+}
+
+/* Card kickers are --aqua-primary, 3.87:1 on glass over the light end where
+   the stacked cards land on phones and tablets; --aqua-muted holds 5.65:1. */
+.aqua-section--trust .aqua-trust-card > .section-kicker {
+  color: var(--aqua-muted);
+}
+
+/* aqua-depth.js makes every other direct child of a depth card
+   position: relative (0,3,0); the chamfer hairline must stay absolute. */
+.aqua-depth-card
+  > .tf-chamfer__edge:not(.aqua-depth-card__spot):not(.aqua-depth-card__edge) {
+  position: absolute;
+  z-index: 4;
+}
+
+@media (max-width: 1023px) {
+  .aqua-section--trust {
+    --tf-trust-hold: calc(var(--aqua-section-space) + 15.25rem);
+  }
+}
+
+@media (max-width: 767px) {
+  .aqua-section--trust {
+    --tf-trust-hold: calc(var(--aqua-section-space) + 20rem);
+  }
+}
+
+/* ======================================================== SERVICES ====== */
+
+/* Back to a solid dark band after the #trust gradient: flat --tf-base, no
+   blurred glow. Padding comes from --aqua-section-space. */
+.aqua-service-paths {
+  background: var(--tf-base);
+}
+
+.aqua-service-paths__glow {
+  display: none;
+}
+
+.aqua-service-paths__header h2.tf-heading {
+  color: var(--tf-ink);
+}
+
+.aqua-service-paths__header h2 > span {
+  display: block;
+}
+
+html[dir="rtl"] .aqua-service-paths__header h2.tf-heading {
+  line-height: 1.34;
+}
+
+html[dir="rtl"] .aqua-service-paths__header h2 > span {
+  padding-block-end: 0.12em;
+}
+
+/* Cards: gradient cards read better than glass on a flat dark band, since
+   there is nothing behind them to blur. Same 30% --tf-mid cap as #flow. The
+   teal top line, icon, list dots and CTA mark are left as they were. */
+.aqua-service-paths .aqua-service-path.tf-gradient-card {
+  border-color: var(--tf-glass-border-soft);
+  border-radius: var(--tf-radius);
+  background: linear-gradient(180deg, var(--tf-surface), var(--tf-card-end));
+}
+
+.aqua-service-paths .aqua-service-path.tf-gradient-card:hover {
+  border-color: var(--tf-glass-border);
+}
+
+/* Number badges were 80%-alpha primary: 4.28:1 on the card top. Opaque
+   --tf-light clears AA. */
+.aqua-service-paths .aqua-service-path__number {
+  color: var(--tf-light);
+}
+
+/* Tablets: the legacy 1120px breakpoint stacked all three cards in one tall
+   column. Two columns instead, with the third card spanning the second row
+   so the visual order still matches the DOM (core, growth, care). */
+@media (min-width: 768px) and (max-width: 1120px) {
+  .aqua-service-paths .aqua-service-paths__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .aqua-service-paths .aqua-service-path--care {
+    grid-column: 1 / -1;
+  }
+}
+
+/* The kicker pill sits at the topline's inline end, under the cut. */
+.aqua-service-paths .tf-chamfer .aqua-service-path__topline {
+  padding-inline-end: calc(var(--tf-chamfer) * 0.55);
+}
+
+/* Service kickers as gradient pills; .tf-mono handles case and tracking. */
+.aqua-service-paths .aqua-service-path__kicker.tf-pill {
+  min-height: 1.85rem;
+  padding: 0.3rem 0.8rem;
+  color: var(--tf-ink);
+}
+
+/* Decision bar: glass panel with the section's accent CTA. */
+.aqua-service-paths .aqua-service-paths__decision.tf-glass {
+  margin-block-start: clamp(1.25rem, 2vw, 1.75rem);
+  border-radius: var(--tf-radius);
+}
+
+.aqua-service-paths .aqua-service-paths__decision-cta.tf-btn-cta,
+.aqua-service-paths .aqua-service-paths__decision-cta.tf-btn-cta:hover {
+  border-color: transparent;
+  border-radius: var(--tf-btn-radius);
+  color: var(--tf-ink-dark);
+  background: var(--tf-accent);
+  font-family: var(--tf-font-mono);
+  font-weight: 600;
+}
+
+.aqua-service-paths .aqua-service-paths__decision-cta.tf-btn-cta:hover {
+  filter: brightness(1.1);
+}
+
+html[dir="ltr"] .aqua-service-paths .aqua-service-paths__decision-cta.tf-btn-cta {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+html[dir="rtl"] .aqua-service-paths .aqua-service-paths__decision-cta.tf-btn-cta {
+  font-family: var(--tf-font-ar);
+}
+
+/* ======================================================= SOLUTIONS ====== */
+
+/* Gradient band after the solid #services band, reshaped so the cards stay
+ * on the darker part:
+ *   - --tf-base held behind the header (as in #trust),
+ *   - --tf-base -> --tf-mid across the cards and note bar,
+ *   - --tf-mid -> --tf-light only inside the bottom section padding.
+ * Same tokens and order as --tf-gradient; only the stops move. The tail
+ * length is --aqua-section-space because #solutions takes its padding from
+ * that ID rule in src/input.css; the hold is that padding plus a header
+ * allowance, as in #trust.
+ *
+ * With the full --tf-gradient the cards needed 80% glass for AA. Here the
+ * stock --tf-glass-bg-strong (72%) is enough; 58% still fails the tags
+ * (4.40:1), CTAs (3.91:1) and note (3.48:1).
+ */
+.aqua-product-showcase {
+  --tf-solutions-hold: calc(var(--aqua-section-space) + 16.5rem);
+  background:
+    linear-gradient(
+      180deg,
+      var(--tf-base) var(--tf-solutions-hold),
+      var(--tf-mid) calc(100% - var(--aqua-section-space)),
+      var(--tf-light)
+    ),
+    var(--tf-base);
+}
+
+.aqua-product-showcase::before {
+  display: none;
+}
+
+.aqua-product-showcase__title.tf-heading {
+  color: var(--tf-ink);
+}
+
+.aqua-product-showcase__title > span {
+  display: block;
+}
+
+html[dir="rtl"] .aqua-product-showcase__title.tf-heading {
+  line-height: 1.34;
+}
+
+html[dir="rtl"] .aqua-product-showcase__title > span {
+  padding-block-end: 0.12em;
+}
+
+/* Cards: glass over the gradient. The base card rules set an opaque dark
+   fill at equal specificity, so the glass is restated here. Hover keeps the
+   accent border from the base layer. */
+.aqua-product-showcase .aqua-product-card.tf-glass,
+.aqua-product-showcase .aqua-product-showcase__note.tf-glass {
+  border-radius: var(--tf-radius);
+  background: var(--tf-glass-bg-strong);
+}
+
+/* The note link sits lowest, on the full --tf-mid stop: --aqua-primary
+   there is 4.4:1 even at 72% glass; --tf-ink holds AA. */
+.aqua-product-showcase .aqua-product-showcase__note a {
+  color: var(--tf-ink);
+}
+
+/* Product mocks inset as framed visuals. The top padding opens a status
+ * strip above the mock window for aqua-depth.js's LIVE badge, so the badge
+ * never sits over the window's title bar. Measured: the badge ends 40px
+ * down, and the window's resting perspective/rotateX already lifts its top
+ * edge ~8px above the padding line. 3.75rem keeps a clear gap through the
+ * hover lift and the full card tilt range (checked at every tilt corner).
+ */
+.aqua-product-showcase .aqua-product-card__visual.tf-frame {
+  margin: 0.75rem 0.75rem 0;
+  padding-top: 3.75rem;
+  background: linear-gradient(180deg, var(--tf-base), var(--tf-surface));
+}
+
+/* The featured frame's cut sits where the badge parks; shift it clear. */
+.aqua-product-showcase .tf-chamfer > .aqua-product-card__signal {
+  inset-inline-end: calc(var(--tf-chamfer) * 1.1);
+}
+
+@media (max-width: 980px) {
+  .aqua-product-showcase {
+    --tf-solutions-hold: calc(var(--aqua-section-space) + 15.25rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .aqua-product-showcase {
+    --tf-solutions-hold: calc(var(--aqua-section-space) + 18rem);
+  }
+
+  .aqua-product-showcase .aqua-product-card__visual.tf-frame {
+    margin: 0.6rem 0.6rem 0;
+    padding-top: 3.6rem;
+  }
+}
+
+/* ============================================================= FAQ ====== */
+
+/* Solid dark band after the #solutions gradient. Twelve rows of full-depth
+   gradient cards read heavy, so this section softens the card end stop to
+   14% --tf-mid (local override of --tf-card-end; still under the 30% cap). */
+.aqua-section--faq {
+  --tf-card-end: color-mix(in srgb, var(--tf-mid) 14%, var(--tf-base));
+  background: var(--tf-base);
+}
+
+.aqua-section--faq::before {
+  display: none;
+}
+
+.aqua-section--faq .aqua-section__title.tf-heading {
+  color: var(--tf-ink);
+}
+
+.aqua-section--faq .aqua-section__title > span {
+  display: block;
+}
+
+html[dir="rtl"] .aqua-section--faq .aqua-section__title.tf-heading {
+  line-height: 1.34;
+}
+
+html[dir="rtl"] .aqua-section--faq .aqua-section__title > span {
+  padding-block-end: 0.12em;
+}
+
+/* Rows. .glass-card, .aqua-system-card and the Tailwind radius all style
+   these at equal or lower specificity; the focus-within and open states
+   (0,2,0) swap the background and border, so they are restated here with
+   the gradient kept and only the border brightening. */
+.aqua-section--faq .faq-item.tf-gradient-card,
+.aqua-section--faq .faq-item.tf-gradient-card:focus-within {
+  border-color: var(--tf-glass-border-soft);
+  border-radius: var(--tf-radius);
+  background: linear-gradient(180deg, var(--tf-surface), var(--tf-card-end));
+}
+
+.aqua-section--faq .faq-item.tf-gradient-card:hover,
+.aqua-section--faq .faq-item.tf-gradient-card:focus-within,
+.aqua-section--faq .faq-item.tf-gradient-card[data-aqua-faq-open="true"],
+.aqua-section--faq .faq-item.aqua-system-card--emphasis.tf-gradient-card {
+  border-color: var(--tf-glass-border);
+}
+
+/* ========================================================= CONTACT ====== */
+
+/* Gradient band after the solid #faq band, shaped like #solutions: --tf-base
+ * held behind the header, --tf-base -> --tf-mid across the form and aside,
+ * --tf-mid -> --tf-light only inside the bottom section padding.
+ *
+ * On the full --tf-gradient the panels sit over the light end and need the
+ * 72% glass (muted copy 4.88:1 at 65%, red-300 select error 5.06:1 only at
+ * 72%). Reshaped, every panel stays between --tf-base and --tf-mid, so the
+ * stock 58% --tf-glass-bg is enough: muted 5.05:1, red-300 4.52:1, large
+ * --aqua-primary headings 3.46:1 at the darkest-case --tf-mid stop.
+ */
+.aqua-section--contact {
+  --tf-contact-hold: calc(var(--aqua-section-space) + 18rem);
+  /* 40% white: 3.6:1 against the field fill at --tf-mid, 3.8:1 at base. */
+  --tf-contact-field-border: color-mix(in srgb, white 40%, transparent);
+  background:
+    linear-gradient(
+      180deg,
+      var(--tf-base) var(--tf-contact-hold),
+      var(--tf-mid) calc(100% - var(--aqua-section-space)),
+      var(--tf-light)
+    ),
+    var(--tf-base);
+}
+
+.aqua-section--contact::before,
+.aqua-section--contact > .aqua-liquid-bg {
+  display: none;
+}
+
+.aqua-section--contact .aqua-section__title.tf-heading {
+  color: var(--tf-ink);
+}
+
+.aqua-section--contact .aqua-section__title > span {
+  display: block;
+}
+
+html[dir="rtl"] .aqua-section--contact .aqua-section__title.tf-heading {
+  line-height: 1.34;
+}
+
+html[dir="rtl"] .aqua-section--contact .aqua-section__title > span {
+  padding-block-end: 0.12em;
+}
+
+/* Panels: the form is the featured glass + chamfer panel; the two aside
+   cards are plain glass. .glass-card and .aqua-system-card(--emphasis) set
+   opaque fills at equal specificity, so the glass is restated. */
+.aqua-section--contact .aqua-system-card.tf-glass {
+  border-color: var(--tf-glass-border-soft);
+  border-radius: var(--tf-radius);
+  background: var(--tf-glass-bg);
+}
+
+.aqua-section--contact #contactForm.tf-glass {
+  border-color: var(--tf-glass-border);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .aqua-section--contact .aqua-system-card.tf-glass {
+    background: var(--tf-surface);
+  }
+}
+
+/* The faint rocket glyph sat at the physical top-left, which is under the
+   cut in RTL. Decorative only. */
+.aqua-section--contact #contactForm > div[aria-hidden="true"] {
+  display: none;
+}
+
+/* Field labels and the step numbers were --aqua-primary: 3.46:1 on glass
+   at the --tf-mid stop. --aqua-muted holds 5.05:1 there. */
+.aqua-section--contact .font-label-sm.text-primary {
+  color: var(--aqua-muted);
+}
+
+/* Contact details: mono for Latin (via .tf-mono), Alexandria in RTL. Values
+   keep their case; an uppercased address reads as a different address. */
+.aqua-section--contact .aqua-contact-detail {
+  margin-block-start: 0.15rem;
+  color: var(--aqua-muted);
+  font-size: 0.78rem;
+  overflow-wrap: anywhere;
+}
+
+html[dir="ltr"] .aqua-section--contact .aqua-contact-detail {
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+/* Fields: thin glass border, dark well kept. The placeholder was 55% muted
+   (4.06:1 even on base); 80% holds 6.2:1 or better at every stop. */
+.aqua-section--contact .aqua-input,
+.aqua-section--contact .aqua-select-trigger {
+  border: 1px solid var(--tf-contact-field-border);
+  border-radius: var(--tf-btn-radius);
+  box-shadow: none;
+}
+
+.aqua-section--contact .aqua-input::placeholder {
+  color: color-mix(in srgb, var(--aqua-muted) 80%, transparent);
+}
+
+/* Focus: border and a 2px ring in --tf-light (6.1:1 against the field,
+   3.46:1 against the glass at --tf-mid). Replaces the 6%-alpha glow. */
+.aqua-section--contact .aqua-input:focus,
+.aqua-section--contact .aqua-select-trigger:focus,
+.aqua-section--contact .aqua-custom-select.is-open .aqua-select-trigger {
+  border-color: var(--tf-light);
+  box-shadow: none;
+}
+
+.aqua-section--contact .aqua-input:focus-visible,
+.aqua-section--contact .aqua-select-trigger:focus-visible {
+  outline: 2px solid var(--tf-light);
+  outline-offset: 2px;
+  border-radius: var(--tf-btn-radius);
+}
+
+/* Status line: the client script colours it red-400 (error) or
+   --aqua-primary (success), which drop to 3.1:1 and 3.46:1 on glass at the
+   --tf-mid stop. A solid --tf-surface backing keeps them at 5.9:1 and 6.6:1
+   wherever the line lands. */
+.aqua-section--contact [data-contact-status]:not(:empty) {
+  padding: 0.6rem 0.85rem;
+  border: 1px solid var(--tf-glass-border-soft);
+  border-radius: var(--tf-btn-radius);
+  background: var(--tf-surface);
+}
+
+/* Submit. aqua-refine.css styles #sendLead by ID with a gradient, so the
+   section scope and ID are both needed to put the accent fill back. */
+.aqua-section--contact #sendLead.tf-btn-cta,
+.aqua-section--contact #sendLead.tf-btn-cta:hover {
+  border-color: transparent;
+  border-radius: var(--tf-btn-radius);
+  color: var(--tf-ink-dark);
+  background: var(--tf-accent);
+  box-shadow: none;
+  font-weight: 600;
+}
+
+.aqua-section--contact #sendLead.tf-btn-cta:hover {
+  filter: brightness(1.1);
+}
+
+.aqua-section--contact #sendLead.tf-btn-cta:focus-visible {
+  outline: 2px solid var(--tf-light);
+  outline-offset: 3px;
+}
+
+html[dir="rtl"] .aqua-section--contact #sendLead.tf-btn-cta {
+  font-size: 0.95rem;
+}
+
+/* Success-state proposal link: aquatech-contact-client.js builds it as
+   .tf-btn-cta, so it takes the submit's accent fill and dark ink. */
+html[dir="rtl"] .aqua-section--contact #proposalResultLink {
+  font-size: 0.95rem;
+}
+
+.aqua-section--contact #proposalResultLink:focus-visible {
+  outline: 2px solid var(--tf-light);
+  outline-offset: 3px;
+}
+
+@media (max-width: 1023px) {
+  .aqua-section--contact {
+    --tf-contact-hold: calc(var(--aqua-section-space) + 15.25rem);
+  }
+}
+
+@media (max-width: 767px) {
+  .aqua-section--contact {
+    --tf-contact-hold: calc(var(--aqua-section-space) + 18rem);
+  }
+}
+
+/* ========================================================== HEADER ====== */
+
+/* Floating pill as .tf-glass with the thin glass border. The pill floats
+ * over every band, down to --tf-light at the bottom of #contact; there the
+ * stock 58% glass leaves --tf-ink links at 4.3:1, the 72% glass holds 7.5:1.
+ * Width is not touched: the 100%-of-header rules in aqua-navigation.css
+ * (the 768px overflow fix) still size it. .tf-glass would set the 28px
+ * panel radius, so the pill radii are restated, scrolled state included.
+ */
+/* #mobileMenu (z-index 45) lives inside the header, so it painted over the
+   pill and a tap on the close button landed on the overlay. 46 keeps the
+   pill, and its close button, above it as aqua-depth.css intends. */
+.aqua-site-header .aqua-top-pill.tf-glass {
+  z-index: 46;
+  border: 1px solid var(--tf-glass-border);
+  border-radius: 999px;
+  background: var(--tf-glass-bg-strong);
+  box-shadow: none;
+}
+
+@media (max-width: 1023px) {
+  .aqua-site-header .aqua-top-pill.tf-glass {
+    border-radius: 2rem;
+  }
+}
+
+/* The scrolled pill shrank to 1120px, narrower than the English row needs
+   (about 1205px with the CTA), so the CTA spilled past the inline-end edge
+   at 1280 and up. 1220px is the unscrolled cap below 1280. */
+body > header.is-aqua-header-scrolled .aqua-top-pill.tf-glass {
+  max-width: 1220px;
+  border-radius: 22px;
+  background: var(--tf-glass-bg-strong);
+  box-shadow: none;
+}
+
+/* Above 1280 the links use the wide 0.8rem padding, sized for the full
+   1280px pill. Scrolled, the pill drops to 1220px and English left only
+   6px between logo and links; unscrolled, the pill only reaches 1280px
+   at ~1312px, so 1281 left 13px. The 0.55rem padding the 1280 layout
+   already uses gives back ~48px: English clearance is now 30px or more
+   at every width from 1280 up, Arabic 76px or more. */
+@media (min-width: 1280.02px) {
+  body > header.is-aqua-header-scrolled .aqua-top-pill .nav-link {
+    padding-inline: 0.55rem;
+  }
+}
+
+@media (min-width: 1280.02px) and (max-width: 1365.98px) {
+  .aqua-site-header .aqua-top-pill .nav-link {
+    padding-inline: 0.55rem;
+  }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .aqua-site-header .aqua-top-pill.tf-glass {
+    background: var(--tf-surface);
+  }
+}
+
+/* 1024-1279: the desktop row is on but the pill is under 1220px. The
+   English row needed ~1103px at 1024 against a 989px pill, so the CTA
+   spilled ~100px past the edge (Arabic ~10px). Here the WhatsApp button
+   is icon-only (its aria-label keeps the name; the label returns at 1280
+   and in the 768 layout), link gaps and padding are tighter, and the
+   three groups get a 1rem gap so they no longer touch. */
+@media (min-width: 1024px) and (max-width: 1279.98px) {
+  .aqua-site-header .aqua-top-pill {
+    column-gap: 1rem;
+  }
+
+  .aqua-site-header .aqua-top-pill__links {
+    gap: 0.5rem;
+  }
+
+  .aqua-site-header .aqua-top-pill .nav-link {
+    padding-inline: 0.4rem;
+  }
+
+  .aqua-site-header .aqua-top-pill__wa {
+    width: 2.75rem;
+    justify-content: center;
+    padding-inline: 0;
+  }
+
+  .aqua-site-header .aqua-top-pill__wa-label {
+    display: none;
+  }
+}
+
+/* Links, language toggle and WhatsApp were --aqua-muted / --aqua-primary
+   (3.9:1 for primary over the 72% glass at --tf-light); --tf-ink is 7.5:1. */
+.aqua-site-header .aqua-top-pill .nav-link,
+.aqua-site-header #langToggle,
+.aqua-site-header .aqua-top-pill a[href^="https://wa.me"] {
+  color: var(--tf-ink);
+}
+
+.aqua-site-header #langToggle,
+.aqua-site-header .aqua-top-pill a[href^="https://wa.me"] {
+  border-color: var(--tf-glass-border-soft);
+}
+
+.aqua-site-header .aqua-top-pill .nav-link:hover,
+.aqua-site-header .aqua-top-pill .nav-link.is-active {
+  color: var(--tf-ink);
+  background: color-mix(in srgb, white 9%, transparent);
+}
+
+.aqua-site-header .aqua-top-pill a:focus-visible,
+.aqua-site-header .aqua-top-pill button:focus-visible {
+  outline: 2px solid var(--tf-light);
+  outline-offset: 2px;
+}
+
+/* "Start project": the hero CTA shape - rectangular, accent fill, dark ink. */
+html[dir="rtl"] .aqua-site-header .tf-btn-cta {
+  font-size: 0.95rem;
+}
+
+/* ========================================================== FOOTER ====== */
+
+/* Solid --tf-base under the #contact gradient, a thin glass divider on top
+ * and above the copyright bar. Column headings, links and the copyright are
+ * .tf-mono (Alexandria in RTL). No chamfer, no glow.
+ *
+ * On --tf-base: --aqua-muted links 11.6:1, --tf-ink headings 14.6:1,
+ * --tf-light brand and icons 7.6:1.
+ */
+.aqua-site-footer {
+  border-top: 1px solid var(--tf-glass-border);
+  background: var(--tf-base);
+  box-shadow: none;
+}
+
+.aqua-site-footer__brand-link {
+  color: var(--tf-light);
+  font-family: var(--tf-font-head);
+}
+
+.aqua-site-footer__description {
+  color: var(--aqua-muted);
+}
+
+.aqua-site-footer__social-link {
+  border-color: var(--tf-glass-border-soft);
+  border-radius: var(--tf-btn-radius);
+  color: var(--tf-light);
+  background: transparent;
+}
+
+.aqua-site-footer__social-link:hover,
+.aqua-site-footer__social-link:focus-visible {
+  border-color: var(--tf-glass-border);
+  color: var(--tf-ink);
+  background: var(--tf-glass-bg);
+  transform: none;
+}
+
+.aqua-site-footer__column h4 {
+  margin: 0 0 0.85rem;
+  color: var(--tf-ink);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.aqua-site-footer__column ul {
+  gap: 0.5rem;
+}
+
+.aqua-site-footer__column a {
+  color: var(--aqua-muted);
+  font-size: 0.72rem;
+  line-height: 1.6;
+}
+
+.aqua-site-footer__column a:hover {
+  color: var(--tf-ink);
+}
+
+.aqua-site-footer__column a:focus-visible,
+.aqua-site-footer__social-link:focus-visible,
+.aqua-site-footer__brand-link:focus-visible {
+  outline: 2px solid var(--tf-light);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.aqua-site-footer__bottom {
+  border-top-color: var(--tf-glass-border-soft);
+}
+
+.aqua-site-footer__copyright {
+  color: var(--aqua-muted);
+  font-size: 0.68rem;
+  font-weight: 500;
+}
+
+html[dir="rtl"] .aqua-site-footer__column h4 {
+  font-size: 0.875rem;
+}
+
+html[dir="rtl"] .aqua-site-footer__column a {
+  font-size: 0.82rem;
+}
+
+html[dir="rtl"] .aqua-site-footer__copyright {
+  font-size: 0.75rem;
+}
+
+/* ------------------------------------------------------ Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .tf-btn-cta:hover {
+    filter: none;
+  }
+}

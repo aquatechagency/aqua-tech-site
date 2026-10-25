@@ -1,8 +1,8 @@
 :root {
-  --aqua-product-cyan: #89ceff;
+  --aqua-product-cyan: #8aa8c2;
   --aqua-product-mint: #65e2d8;
-  --aqua-product-blue: #00b4ff;
-  --aqua-product-line: rgba(137, 206, 255, 0.16);
+  --aqua-product-blue: #2e8fd9;
+  --aqua-product-line: rgba(138, 168, 194, 0.16);
   --aqua-product-surface: rgba(8, 25, 43, 0.88);
 }
 
@@ -25,8 +25,8 @@
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(0, 180, 255, 0.09),
-    rgba(0, 180, 255, 0.02) 46%,
+    rgba(46, 143, 217, 0.09),
+    rgba(46, 143, 217, 0.02) 46%,
     transparent 70%
   );
   pointer-events: none;
@@ -73,7 +73,7 @@
   border: 1px solid var(--aqua-product-line);
   border-radius: 1.45rem;
   background:
-    linear-gradient(145deg, rgba(137, 206, 255, 0.045), transparent 46%),
+    linear-gradient(145deg, rgba(138, 168, 194, 0.045), transparent 46%),
     rgba(5, 20, 36, 0.82);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.045),
@@ -94,8 +94,8 @@
 }
 
 .aqua-product-card--law {
-  --aqua-product-accent: #89ceff;
-  --aqua-product-glow: rgba(0, 180, 255, 0.42);
+  --aqua-product-accent: #8aa8c2;
+  --aqua-product-glow: rgba(46, 143, 217, 0.42);
 }
 
 .aqua-product-card--resume {
@@ -118,13 +118,13 @@
   min-height: 13.25rem;
   padding: 1rem 1rem 0;
   background:
-    linear-gradient(180deg, rgba(137, 206, 255, 0.055), transparent),
+    linear-gradient(180deg, rgba(138, 168, 194, 0.055), transparent),
     repeating-linear-gradient(
       90deg,
       transparent 0,
       transparent 3.1rem,
-      rgba(137, 206, 255, 0.025) 3.1rem,
-      rgba(137, 206, 255, 0.025) calc(3.1rem + 1px)
+      rgba(138, 168, 194, 0.025) 3.1rem,
+      rgba(138, 168, 194, 0.025) calc(3.1rem + 1px)
     );
   overflow: hidden;
 }
@@ -135,7 +135,7 @@
   height: 12.6rem;
   margin-inline: auto;
   overflow: hidden;
-  border: 1px solid rgba(137, 206, 255, 0.17);
+  border: 1px solid rgba(138, 168, 194, 0.17);
   border-bottom: 0;
   border-radius: 1rem 1rem 0 0;
   background: rgba(3, 15, 28, 0.88);
@@ -153,15 +153,15 @@
   display: flex;
   align-items: center;
   gap: 0.35rem;
-  border-bottom: 1px solid rgba(137, 206, 255, 0.11);
-  background: rgba(137, 206, 255, 0.035);
+  border-bottom: 1px solid rgba(138, 168, 194, 0.11);
+  background: rgba(138, 168, 194, 0.035);
 }
 
 .aqua-product-window__bar > span {
   width: 0.42rem;
   height: 0.42rem;
   border-radius: 50%;
-  background: rgba(137, 206, 255, 0.28);
+  background: rgba(138, 168, 194, 0.28);
 }
 
 .aqua-product-window__bar > span:first-child {
@@ -178,7 +178,7 @@
 
 .aqua-product-card__content {
   padding: 1.15rem clamp(1.15rem, 2.2vw, 1.55rem) 1.35rem;
-  border-top: 1px solid rgba(137, 206, 255, 0.1);
+  border-top: 1px solid rgba(138, 168, 194, 0.1);
 }
 
 .aqua-product-card__heading {
@@ -245,10 +245,10 @@ html[dir="rtl"] .aqua-product-card__description {
 .aqua-product-card__features li {
   position: relative;
   padding: 0.32rem 0.58rem 0.32rem 1.08rem;
-  border: 1px solid rgba(137, 206, 255, 0.13);
+  border: 1px solid rgba(138, 168, 194, 0.13);
   border-radius: 999px;
   color: rgba(212, 228, 250, 0.72);
-  background: rgba(137, 206, 255, 0.035);
+  background: rgba(138, 168, 194, 0.035);
   font-size: 0.68rem;
   white-space: nowrap;
 }
@@ -306,9 +306,9 @@ html[dir="rtl"] .aqua-product-card__features li::before {
   align-items: center;
   justify-content: center;
   gap: 0.8rem;
-  border: 1px solid rgba(137, 206, 255, 0.12);
+  border: 1px solid rgba(138, 168, 194, 0.12);
   border-radius: 1rem;
-  background: rgba(137, 206, 255, 0.035);
+  background: rgba(138, 168, 194, 0.035);
 }
 
 .aqua-product-showcase__note .material-symbols-outlined {
@@ -349,19 +349,19 @@ html[dir="rtl"] .aqua-product-card__features li::before {
   flex-direction: column;
   align-items: center;
   gap: 0.6rem;
-  border-inline-end: 1px solid rgba(137, 206, 255, 0.09);
+  border-inline-end: 1px solid rgba(138, 168, 194, 0.09);
 }
 
 .aqua-law-ui__rail span {
   width: 1rem;
   height: 1rem;
   border-radius: 0.35rem;
-  background: rgba(137, 206, 255, 0.1);
+  background: rgba(138, 168, 194, 0.1);
 }
 
 .aqua-law-ui__rail span.is-active {
   background: var(--aqua-product-accent);
-  box-shadow: 0 0 13px rgba(137, 206, 255, 0.4);
+  box-shadow: 0 0 13px rgba(138, 168, 194, 0.4);
 }
 
 .aqua-law-ui__body {
@@ -377,9 +377,9 @@ html[dir="rtl"] .aqua-product-card__features li::before {
 .aqua-law-ui__stats span {
   height: 2.75rem;
   padding: 0.58rem;
-  border: 1px solid rgba(137, 206, 255, 0.1);
+  border: 1px solid rgba(138, 168, 194, 0.1);
   border-radius: 0.55rem;
-  background: rgba(137, 206, 255, 0.035);
+  background: rgba(138, 168, 194, 0.035);
 }
 
 .aqua-law-ui__stats b {
@@ -394,7 +394,7 @@ html[dir="rtl"] .aqua-product-card__features li::before {
   margin-top: 0.6rem;
   display: block;
   border-radius: 999px;
-  background: rgba(137, 206, 255, 0.17);
+  background: rgba(138, 168, 194, 0.17);
 }
 
 .aqua-law-ui__rows {
@@ -410,7 +410,7 @@ html[dir="rtl"] .aqua-product-card__features li::before {
   grid-template-columns: 1rem 1fr 25%;
   align-items: center;
   gap: 0.6rem;
-  border: 1px solid rgba(137, 206, 255, 0.075);
+  border: 1px solid rgba(138, 168, 194, 0.075);
   border-radius: 0.45rem;
 }
 
@@ -418,14 +418,14 @@ html[dir="rtl"] .aqua-product-card__features li::before {
   width: 0.8rem;
   height: 0.8rem;
   border-radius: 50%;
-  background: rgba(137, 206, 255, 0.2);
+  background: rgba(138, 168, 194, 0.2);
 }
 
 .aqua-law-ui__rows b,
 .aqua-law-ui__rows em {
   height: 0.25rem;
   border-radius: 999px;
-  background: rgba(137, 206, 255, 0.13);
+  background: rgba(138, 168, 194, 0.13);
 }
 
 .aqua-law-ui__rows em {
@@ -637,7 +637,7 @@ html[dir="rtl"] .aqua-resume-ui__score {
 }
 
 .aqua-university-ui__team span:nth-child(2) {
-  background: #89ceff;
+  background: #8aa8c2;
 }
 
 .aqua-university-ui__team span:nth-child(3) {
@@ -669,7 +669,7 @@ html[dir="rtl"] .aqua-resume-ui__score {
   border-radius: 0.35rem;
   background:
     linear-gradient(90deg, rgba(145, 230, 200, 0.08), transparent),
-    rgba(137, 206, 255, 0.035);
+    rgba(138, 168, 194, 0.035);
 }
 
 .aqua-university-ui__board > span:nth-child(2) i:last-child {

@@ -48,7 +48,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link
@@ -61,19 +61,28 @@
     <link rel="stylesheet" href="./css/aqua-service-paths.css?v=hp04a" />
     <link rel="stylesheet" href="./css/aqua-motion-system.css?v=hp09" />
     <link rel="stylesheet" href="./css/aqua-product-showcase.css?v=hp06a" />
-    <link rel="stylesheet" href="./css/aqua-navigation.css?v=hp09" />
+    <link rel="stylesheet" href="./css/aqua-navigation.css?v=hp17" />
     <style>
       :root {
         --aqua-bg: #051424;
         --aqua-deep: #010f1f;
         --aqua-card: rgba(15, 23, 42, 0.6);
         --aqua-card-solid: #122131;
-        --aqua-line: rgba(137, 206, 255, 0.12);
-        --aqua-line-strong: rgba(137, 206, 255, 0.34);
-        --aqua-primary: #89ceff;
-        --aqua-action: #00b4ff;
+        --aqua-line: rgba(138, 168, 194, 0.12);
+        --aqua-line-strong: rgba(138, 168, 194, 0.34);
+        --aqua-primary: #8aa8c2;
+        --aqua-action: #2e8fd9;
         --aqua-text: #d4e4fa;
         --aqua-muted: #bdc8d2;
+
+        /* Mirrors tailwind.config.js theme.extend.borderRadius — that file is
+           the canonical scale; keep these numbers in sync with it. */
+        --aqua-radius-sm: 0.5rem;
+        --aqua-radius: 0.75rem;
+        --aqua-radius-lg: 1rem;
+        --aqua-radius-xl: 1.5rem;
+        --aqua-radius-2xl: 2rem;
+        --aqua-radius-full: 999px;
       }
 
       html {
@@ -83,18 +92,18 @@
         background:
           radial-gradient(
             circle at 50% 0%,
-            rgba(0, 180, 255, 0.16),
+            rgba(46, 143, 217, 0.16),
             transparent 34%
           ),
           radial-gradient(
             circle at 12% 18%,
-            rgba(137, 206, 255, 0.08),
+            rgba(138, 168, 194, 0.08),
             transparent 28%
           ),
           linear-gradient(180deg, #051424 0%, #03101f 52%, #010915 100%);
         color: var(--aqua-text);
         font-family:
-          Inter,
+          "Manrope",
           system-ui,
           -apple-system,
           BlinkMacSystemFont,
@@ -116,7 +125,7 @@
         background: rgba(15, 23, 42, 0.6);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
-        border: 1px solid rgba(137, 206, 255, 0.1);
+        border: 1px solid rgba(138, 168, 194, 0.1);
         box-shadow:
           0 0 0 1px rgba(255, 255, 255, 0.015) inset,
           0 22px 80px rgba(0, 0, 0, 0.24);
@@ -128,15 +137,14 @@
       }
 
       .glass-card:hover {
-        border-color: rgba(137, 206, 255, 0.34);
+        border-color: rgba(138, 168, 194, 0.34);
         box-shadow:
           0 0 0 1px rgba(255, 255, 255, 0.02) inset,
-          0 22px 80px rgba(0, 0, 0, 0.28),
-          0 0 24px rgba(0, 180, 255, 0.13);
+          0 22px 80px rgba(0, 0, 0, 0.28);
       }
 
       .glow-text {
-        text-shadow: 0 0 10px rgba(137, 206, 255, 0.5);
+        text-shadow: 0 0 10px rgba(138, 168, 194, 0.5);
       }
 
       .terminal-cursor::after {
@@ -163,11 +171,11 @@
         background:
           linear-gradient(
             135deg,
-            rgba(137, 206, 255, 0.1),
-            rgba(0, 180, 255, 0.045)
+            rgba(138, 168, 194, 0.1),
+            rgba(46, 143, 217, 0.045)
           ),
-          rgba(137, 206, 255, 0.045);
-        border: 1px solid rgba(137, 206, 255, 0.26);
+          rgba(138, 168, 194, 0.045);
+        border: 1px solid rgba(138, 168, 194, 0.26);
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.05),
           0 10px 26px rgba(0, 0, 0, 0.14);
@@ -184,17 +192,17 @@
 
       .service-cta-btn:hover {
         color: #001e2f;
-        background: linear-gradient(135deg, #89ceff, #00b4ff);
+        background: linear-gradient(135deg, #8aa8c2, #2e8fd9);
         border-color: rgba(255, 255, 255, 0.28);
         transform: translateY(-2px);
         box-shadow:
-          0 14px 34px rgba(0, 180, 255, 0.22),
-          0 0 18px rgba(137, 206, 255, 0.12);
+          0 14px 34px rgba(46, 143, 217, 0.22),
+          0 0 18px rgba(138, 168, 194, 0.12);
       }
 
       .service-cta-btn-primary {
         color: #001e2f;
-        background: linear-gradient(135deg, #89ceff, #00b4ff);
+        background: linear-gradient(135deg, #8aa8c2, #2e8fd9);
         border-color: rgba(255, 255, 255, 0.28);
       }
 
@@ -237,7 +245,7 @@
         right: 8%;
         background: radial-gradient(
           circle,
-          rgba(0, 180, 255, 0.34),
+          rgba(46, 143, 217, 0.34),
           transparent 64%
         );
       }
@@ -248,7 +256,7 @@
         left: 8%;
         background: radial-gradient(
           circle,
-          rgba(137, 206, 255, 0.2),
+          rgba(138, 168, 194, 0.2),
           transparent 68%
         );
         animation-delay: -5s;
@@ -271,27 +279,27 @@
         background-image:
           linear-gradient(
             to right,
-            rgba(137, 206, 255, 0.06) 1px,
+            rgba(138, 168, 194, 0.06) 1px,
             transparent 1px
           ),
           linear-gradient(
             to bottom,
-            rgba(137, 206, 255, 0.045) 1px,
+            rgba(138, 168, 194, 0.045) 1px,
             transparent 1px
           ),
           radial-gradient(
             circle at 20% 30%,
-            rgba(137, 206, 255, 0.18) 0 2px,
+            rgba(138, 168, 194, 0.18) 0 2px,
             transparent 3px
           ),
           radial-gradient(
             circle at 78% 26%,
-            rgba(0, 180, 255, 0.18) 0 2px,
+            rgba(46, 143, 217, 0.18) 0 2px,
             transparent 3px
           ),
           radial-gradient(
             circle at 52% 78%,
-            rgba(137, 206, 255, 0.12) 0 2px,
+            rgba(138, 168, 194, 0.12) 0 2px,
             transparent 3px
           );
         background-size:
@@ -318,7 +326,7 @@
         color: rgba(212, 228, 250, 0.2);
         letter-spacing: 0.1em;
         user-select: none;
-        text-shadow: 0 0 18px rgba(137, 206, 255, 0.12);
+        text-shadow: 0 0 18px rgba(138, 168, 194, 0.12);
       }
 
       .section-kicker {
@@ -342,14 +350,14 @@
         letter-spacing: 0;
         padding: 0.35rem 0.7rem;
         border-radius: 999px;
-        border: 1px solid rgba(137, 206, 255, 0.18);
-        background: rgba(137, 206, 255, 0.055);
+        border: 1px solid rgba(138, 168, 194, 0.18);
+        background: rgba(138, 168, 194, 0.055);
       }
 
       .aqua-input {
         width: 100%;
         border-radius: 0.75rem;
-        border: 1px solid rgba(137, 206, 255, 0.14);
+        border: 1px solid rgba(138, 168, 194, 0.14);
         background: rgba(1, 15, 31, 0.62);
         color: var(--aqua-text);
         padding: 0.9rem 1rem;
@@ -363,10 +371,10 @@
         color: rgba(189, 200, 210, 0.55);
       }
       .aqua-input:focus {
-        border-color: rgba(137, 206, 255, 0.65);
+        border-color: rgba(138, 168, 194, 0.65);
         box-shadow:
-          inset 0 0 10px rgba(137, 206, 255, 0.14),
-          0 0 0 4px rgba(137, 206, 255, 0.06);
+          inset 0 0 10px rgba(138, 168, 194, 0.14),
+          0 0 0 4px rgba(138, 168, 194, 0.06);
         background: rgba(1, 15, 31, 0.86);
       }
       select.aqua-input option {
@@ -397,11 +405,11 @@
         background:
           linear-gradient(
             135deg,
-            rgba(137, 206, 255, 0.12),
-            rgba(0, 180, 255, 0.06)
+            rgba(138, 168, 194, 0.12),
+            rgba(46, 143, 217, 0.06)
           ),
-          rgba(137, 206, 255, 0.055);
-        border: 1px solid rgba(137, 206, 255, 0.32);
+          rgba(138, 168, 194, 0.055);
+        border: 1px solid rgba(138, 168, 194, 0.32);
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.06),
           0 10px 28px rgba(0, 0, 0, 0.18);
@@ -411,12 +419,12 @@
 
       .offer-cta-btn:hover {
         color: #001e2f;
-        background: linear-gradient(135deg, #89ceff, #00b4ff);
+        background: linear-gradient(135deg, #8aa8c2, #2e8fd9);
         border-color: rgba(255, 255, 255, 0.28);
         transform: translateY(-2px);
         box-shadow:
-          0 16px 38px rgba(0, 180, 255, 0.24),
-          0 0 18px rgba(137, 206, 255, 0.16);
+          0 16px 38px rgba(46, 143, 217, 0.24),
+          0 0 18px rgba(138, 168, 194, 0.16);
       }
 
       .offer-cta-btn .btn-icon {
@@ -430,7 +438,7 @@
 
       .offer-cta-btn-primary {
         color: #001e2f;
-        background: linear-gradient(135deg, #89ceff, #00b4ff);
+        background: linear-gradient(135deg, #8aa8c2, #2e8fd9);
         border-color: rgba(255, 255, 255, 0.28);
       }
 
@@ -504,15 +512,19 @@
         display: grid;
         place-items: center;
         color: #001e2f;
-        background: linear-gradient(135deg, #89ceff, #00b4ff);
+        background: linear-gradient(135deg, #8aa8c2, #2e8fd9);
         box-shadow:
           0 16px 42px rgba(0, 0, 0, 0.34),
-          0 0 20px rgba(0, 180, 255, 0.22);
+          0 0 20px rgba(46, 143, 217, 0.22);
         border: 1px solid rgba(255, 255, 255, 0.2);
         opacity: 0.94;
+        /* Lifted clear of the consent banner while it is showing; the
+           offset is set by the consent script below. */
+        translate: 0 calc(-1 * var(--aqua-consent-offset, 0px));
         transition:
           transform 0.2s ease,
-          filter 0.2s ease;
+          filter 0.2s ease,
+          translate 0.3s ease;
       }
       #wa-float:hover {
         transform: translateY(-2px) scale(1.05);
@@ -533,7 +545,7 @@
         padding: 1rem;
         border-radius: 1rem;
         background: rgba(1, 15, 31, 0.96);
-        border: 1px solid rgba(137, 206, 255, 0.18);
+        border: 1px solid rgba(138, 168, 194, 0.18);
         box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
       }
       #consent-banner.is-visible {
@@ -560,7 +572,7 @@
         padding: 2rem;
         border-radius: 1.25rem;
         background: #122131;
-        border: 1px solid rgba(137, 206, 255, 0.18);
+        border: 1px solid rgba(138, 168, 194, 0.18);
         box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
       }
       .success-modal-icon {
@@ -570,9 +582,9 @@
         place-items: center;
         margin: 0 auto 1rem;
         border-radius: 999px;
-        background: rgba(137, 206, 255, 0.12);
-        border: 1px solid rgba(137, 206, 255, 0.28);
-        color: #89ceff;
+        background: rgba(138, 168, 194, 0.12);
+        border: 1px solid rgba(138, 168, 194, 0.28);
+        color: #8aa8c2;
         font-size: 28px;
         font-weight: 800;
       }
@@ -640,8 +652,8 @@
         align-items: center;
         justify-content: center;
         border-radius: 16px;
-        border: 1px solid rgba(137, 206, 255, 0.28);
-        background: rgba(137, 206, 255, 0.06);
+        border: 1px solid rgba(138, 168, 194, 0.28);
+        background: rgba(138, 168, 194, 0.06);
         color: var(--aqua-primary);
         text-decoration: none;
         transition:
@@ -686,7 +698,7 @@
         min-height: 3.55rem;
         padding: 0.9rem 1rem;
         border-radius: 0.75rem;
-        border: 1px solid rgba(137, 206, 255, 0.14);
+        border: 1px solid rgba(138, 168, 194, 0.14);
         background: rgba(1, 15, 31, 0.62);
         color: var(--aqua-text);
         display: flex;
@@ -699,10 +711,10 @@
 
       .aqua-select-trigger:focus,
       .aqua-custom-select.is-open .aqua-select-trigger {
-        border-color: rgba(137, 206, 255, 0.65);
+        border-color: rgba(138, 168, 194, 0.65);
         box-shadow:
-          inset 0 0 10px rgba(137, 206, 255, 0.14),
-          0 0 0 4px rgba(137, 206, 255, 0.06);
+          inset 0 0 10px rgba(138, 168, 194, 0.14),
+          0 0 0 4px rgba(138, 168, 194, 0.06);
         background: rgba(1, 15, 31, 0.9);
       }
 
@@ -717,7 +729,7 @@
         overflow-y: auto;
         padding: 0.6rem;
         border-radius: 1rem;
-        border: 1px solid rgba(137, 206, 255, 0.24);
+        border: 1px solid rgba(138, 168, 194, 0.24);
         background: #071827;
         box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
 
@@ -766,7 +778,7 @@
 
       .aqua-select-option:hover,
       .aqua-select-option.is-selected {
-        background: rgba(137, 206, 255, 0.12);
+        background: rgba(138, 168, 194, 0.12);
         color: #ffffff;
       }
 
@@ -792,20 +804,19 @@
         background:
           radial-gradient(
             circle at 35% 20%,
-            rgba(137, 206, 255, 0.18),
+            rgba(138, 168, 194, 0.18),
             transparent 56%
           ),
           linear-gradient(
             135deg,
-            rgba(137, 206, 255, 0.12),
-            rgba(0, 180, 255, 0.045)
+            rgba(138, 168, 194, 0.12),
+            rgba(46, 143, 217, 0.045)
           ),
           rgba(15, 35, 55, 0.72);
-        border: 1px solid rgba(137, 206, 255, 0.24);
+        border: 1px solid rgba(138, 168, 194, 0.24);
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.06),
-          0 14px 35px rgba(0, 0, 0, 0.22),
-          0 0 18px rgba(0, 180, 255, 0.06);
+          0 14px 35px rgba(0, 0, 0, 0.22);
         transition:
           transform 0.22s ease,
           border-color 0.22s ease,
@@ -828,28 +839,27 @@
       .glass-card:hover .aqua-icon-box,
       .aqua-icon-box:hover {
         transform: translateY(-2px);
-        border-color: rgba(137, 206, 255, 0.48);
+        border-color: rgba(138, 168, 194, 0.48);
         background:
           radial-gradient(
             circle at 35% 20%,
-            rgba(137, 206, 255, 0.32),
+            rgba(138, 168, 194, 0.32),
             transparent 58%
           ),
           linear-gradient(
             135deg,
-            rgba(137, 206, 255, 0.18),
-            rgba(0, 180, 255, 0.09)
+            rgba(138, 168, 194, 0.18),
+            rgba(46, 143, 217, 0.09)
           ),
           rgba(18, 42, 64, 0.9);
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.08),
-          0 16px 42px rgba(0, 0, 0, 0.28),
-          0 0 24px rgba(0, 180, 255, 0.13);
+          0 16px 42px rgba(0, 0, 0, 0.28);
       }
 
       .aqua-icon-box.is-primary {
         color: #001e2f;
-        background: linear-gradient(135deg, #89ceff, #00b4ff);
+        background: linear-gradient(135deg, #8aa8c2, #2e8fd9);
         border-color: rgba(255, 255, 255, 0.28);
       }
 
@@ -881,11 +891,11 @@
           rgba(8, 25, 42, 0.92),
           rgba(5, 18, 32, 0.88)
         );
-        border: 1px solid rgba(137, 206, 255, 0.14);
+        border: 1px solid rgba(138, 168, 194, 0.14);
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.045),
           0 18px 55px rgba(0, 0, 0, 0.28),
-          0 0 24px rgba(0, 180, 255, 0.08);
+          0 0 24px rgba(46, 143, 217, 0.08);
         backdrop-filter: blur(18px);
         -webkit-backdrop-filter: blur(18px);
       }
@@ -913,14 +923,14 @@
         background:
           radial-gradient(
             circle at 35% 20%,
-            rgba(137, 206, 255, 0.2),
+            rgba(138, 168, 194, 0.2),
             transparent 58%
           ),
-          rgba(137, 206, 255, 0.055);
-        border: 1px solid rgba(137, 206, 255, 0.24);
+          rgba(138, 168, 194, 0.055);
+        border: 1px solid rgba(138, 168, 194, 0.24);
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.06),
-          0 0 18px rgba(0, 180, 255, 0.08);
+          0 0 18px rgba(46, 143, 217, 0.08);
       }
 
       .aqua-nav-links {
@@ -947,7 +957,7 @@
 
       .aqua-nav-link:hover {
         color: var(--aqua-primary);
-        background: rgba(137, 206, 255, 0.07);
+        background: rgba(138, 168, 194, 0.07);
       }
 
       .aqua-nav-link.is-active {
@@ -955,11 +965,11 @@
         background:
           linear-gradient(
             135deg,
-            rgba(137, 206, 255, 0.18),
-            rgba(0, 180, 255, 0.08)
+            rgba(138, 168, 194, 0.18),
+            rgba(46, 143, 217, 0.08)
           ),
-          rgba(137, 206, 255, 0.08);
-        border: 1px solid rgba(137, 206, 255, 0.18);
+          rgba(138, 168, 194, 0.08);
+        border: 1px solid rgba(138, 168, 194, 0.18);
       }
 
       .aqua-nav-action {
@@ -971,8 +981,8 @@
         justify-content: center;
         gap: 0.55rem;
         color: #d4e4fa;
-        background: rgba(137, 206, 255, 0.045);
-        border: 1px solid rgba(137, 206, 255, 0.16);
+        background: rgba(138, 168, 194, 0.045);
+        border: 1px solid rgba(138, 168, 194, 0.16);
         font-weight: 700;
         text-decoration: none;
         transition:
@@ -984,8 +994,8 @@
 
       .aqua-nav-action:hover {
         color: var(--aqua-primary);
-        background: rgba(137, 206, 255, 0.09);
-        border-color: rgba(137, 206, 255, 0.32);
+        background: rgba(138, 168, 194, 0.09);
+        border-color: rgba(138, 168, 194, 0.32);
         transform: translateY(-1px);
       }
 
@@ -997,10 +1007,9 @@
         align-items: center;
         justify-content: center;
         color: #001e2f;
-        background: linear-gradient(135deg, #89ceff, #00b4ff);
+        background: linear-gradient(135deg, #8aa8c2, #2e8fd9);
         border: 1px solid rgba(255, 255, 255, 0.28);
         font-weight: 900;
-        box-shadow: 0 14px 32px rgba(0, 180, 255, 0.22);
         transition:
           transform 0.2s ease,
           filter 0.2s ease,
@@ -1010,7 +1019,7 @@
       .aqua-nav-primary:hover {
         transform: translateY(-1px);
         filter: saturate(1.08);
-        box-shadow: 0 18px 40px rgba(0, 180, 255, 0.3);
+        box-shadow: 0 18px 40px rgba(46, 143, 217, 0.3);
       }
 
       .aqua-nav-menu-btn {
@@ -1021,8 +1030,8 @@
         align-items: center;
         justify-content: center;
         color: var(--aqua-primary);
-        background: rgba(137, 206, 255, 0.06);
-        border: 1px solid rgba(137, 206, 255, 0.22);
+        background: rgba(138, 168, 194, 0.06);
+        border: 1px solid rgba(138, 168, 194, 0.22);
       }
 
       .aqua-mobile-link {
@@ -1036,7 +1045,7 @@
       }
 
       .aqua-mobile-link:hover {
-        background: rgba(137, 206, 255, 0.08);
+        background: rgba(138, 168, 194, 0.08);
         color: var(--aqua-primary);
       }
 
@@ -1054,20 +1063,19 @@
         background:
           radial-gradient(
             circle at 14% 0%,
-            rgba(137, 206, 255, 0.16),
+            rgba(138, 168, 194, 0.16),
             transparent 36%
           ),
           radial-gradient(
             circle at 88% 0%,
-            rgba(0, 180, 255, 0.1),
+            rgba(46, 143, 217, 0.1),
             transparent 34%
           ),
           linear-gradient(180deg, rgba(7, 24, 41, 0.94), rgba(4, 17, 31, 0.88));
-        border: 1px solid rgba(137, 206, 255, 0.18);
+        border: 1px solid rgba(138, 168, 194, 0.18);
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.055),
-          0 18px 48px rgba(0, 0, 0, 0.34),
-          0 0 34px rgba(0, 180, 255, 0.1);
+          0 18px 48px rgba(0, 0, 0, 0.34);
         backdrop-filter: blur(22px);
         -webkit-backdrop-filter: blur(22px);
       }
@@ -1089,8 +1097,8 @@
       .aqua-top-pill .nav-link.is-active {
         background: linear-gradient(
           135deg,
-          rgba(137, 206, 255, 0.12),
-          rgba(0, 180, 255, 0.04)
+          rgba(138, 168, 194, 0.12),
+          rgba(46, 143, 217, 0.04)
         );
         color: var(--aqua-primary);
       }
@@ -1401,7 +1409,7 @@
         align-items: center;
         overflow: hidden;
         padding: 7.6rem 1.25rem 2rem;
-        border-bottom: 1px solid rgba(137, 206, 255, 0.08);
+        border-bottom: 1px solid rgba(138, 168, 194, 0.08);
       }
 
       .aqua-signature-hero::before {
@@ -1410,8 +1418,8 @@
         inset: 0;
         z-index: -4;
         background:
-          radial-gradient(circle at 72% 32%, rgba(0, 180, 255, 0.15), transparent 28%),
-          radial-gradient(circle at 21% 63%, rgba(137, 206, 255, 0.09), transparent 26%),
+          radial-gradient(circle at 72% 32%, rgba(46, 143, 217, 0.15), transparent 28%),
+          radial-gradient(circle at 21% 63%, rgba(138, 168, 194, 0.09), transparent 26%),
           linear-gradient(180deg, rgba(5, 20, 36, 0.18), rgba(1, 9, 21, 0.5));
       }
 
@@ -1422,8 +1430,8 @@
         pointer-events: none;
         opacity: 0.34;
         background-image:
-          linear-gradient(to right, rgba(137, 206, 255, 0.055) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(137, 206, 255, 0.045) 1px, transparent 1px);
+          linear-gradient(to right, rgba(138, 168, 194, 0.055) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(138, 168, 194, 0.045) 1px, transparent 1px);
         background-size: 72px 72px;
         -webkit-mask-image: radial-gradient(ellipse at 50% 44%, #000 0%, rgba(0, 0, 0, 0.72) 42%, transparent 78%);
         mask-image: radial-gradient(ellipse at 50% 44%, #000 0%, rgba(0, 0, 0, 0.72) 42%, transparent 78%);
@@ -1442,7 +1450,7 @@
         aspect-ratio: 1;
         inset-inline-start: -12vw;
         top: 18%;
-        background: radial-gradient(circle, rgba(137, 206, 255, 0.12), transparent 68%);
+        background: radial-gradient(circle, rgba(138, 168, 194, 0.12), transparent 68%);
       }
 
       .aqua-hero-aura-two {
@@ -1450,7 +1458,7 @@
         aspect-ratio: 1;
         inset-inline-end: -8vw;
         bottom: -16%;
-        background: radial-gradient(circle, rgba(0, 180, 255, 0.14), transparent 68%);
+        background: radial-gradient(circle, rgba(46, 143, 217, 0.14), transparent 68%);
       }
 
       .aqua-hero-flow-map {
@@ -1476,9 +1484,9 @@
       }
 
       .aqua-flow-node {
-        fill: #89ceff;
+        fill: #8aa8c2;
         opacity: 0.66;
-        filter: drop-shadow(0 0 7px rgba(137, 206, 255, 0.8));
+        filter: drop-shadow(0 0 7px rgba(138, 168, 194, 0.8));
       }
 
       .aqua-hero-shell {
@@ -1529,9 +1537,9 @@
         gap: 0.7rem;
         margin-bottom: 1.25rem;
         padding: 0.52rem 0.9rem;
-        border: 1px solid rgba(137, 206, 255, 0.2);
+        border: 1px solid rgba(138, 168, 194, 0.2);
         border-radius: 999px;
-        background: linear-gradient(135deg, rgba(137, 206, 255, 0.09), rgba(0, 180, 255, 0.025));
+        background: linear-gradient(135deg, rgba(138, 168, 194, 0.09), rgba(46, 143, 217, 0.025));
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
         color: var(--aqua-primary);
         font-family: "JetBrains Mono", monospace;
@@ -1572,10 +1580,10 @@
       .aqua-hero-title-accent {
         margin-top: 0.12em;
         color: transparent;
-        background: linear-gradient(92deg, #d8efff 0%, #89ceff 44%, #00b4ff 100%);
+        background: linear-gradient(92deg, #d8efff 0%, #8aa8c2 44%, #2e8fd9 100%);
         -webkit-background-clip: text;
         background-clip: text;
-        text-shadow: 0 0 34px rgba(0, 180, 255, 0.16);
+        text-shadow: 0 0 34px rgba(46, 143, 217, 0.16);
       }
 
       @media (min-width: 561px) {
@@ -1625,26 +1633,25 @@
 
       .aqua-hero-btn-primary {
         color: #001e2f;
-        background: linear-gradient(135deg, #a4dcff 0%, #57c8ff 48%, #00b4ff 100%);
+        background: linear-gradient(135deg, #a4dcff 0%, #57c8ff 48%, #2e8fd9 100%);
         border-color: rgba(255, 255, 255, 0.2);
-        box-shadow: 0 16px 36px rgba(0, 180, 255, 0.2), 0 0 24px rgba(137, 206, 255, 0.12);
       }
 
       .aqua-hero-btn-primary:hover {
-        box-shadow: 0 20px 44px rgba(0, 180, 255, 0.27), 0 0 30px rgba(137, 206, 255, 0.15);
+        box-shadow: 0 20px 44px rgba(46, 143, 217, 0.27), 0 0 30px rgba(138, 168, 194, 0.15);
       }
 
       .aqua-hero-btn-secondary {
         color: #d4e4fa;
         background: rgba(7, 24, 41, 0.54);
-        border-color: rgba(137, 206, 255, 0.22);
+        border-color: rgba(138, 168, 194, 0.22);
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
       }
 
       .aqua-hero-btn-secondary:hover {
         color: #a9ddff;
-        background: rgba(137, 206, 255, 0.075);
-        border-color: rgba(137, 206, 255, 0.4);
+        background: rgba(138, 168, 194, 0.075);
+        border-color: rgba(138, 168, 194, 0.4);
       }
 
       .aqua-hero-proof {
@@ -1654,7 +1661,7 @@
         gap: 0.7rem 1.2rem;
         margin-top: 1.45rem;
         padding-top: 1rem;
-        border-top: 1px solid rgba(137, 206, 255, 0.1);
+        border-top: 1px solid rgba(138, 168, 194, 0.1);
         color: rgba(189, 200, 210, 0.68);
         font-size: 0.78rem;
         font-weight: 600;
@@ -1673,9 +1680,9 @@
         width: 0.3rem;
         height: 0.3rem;
         border-radius: 999px;
-        background: rgba(137, 206, 255, 0.72);
+        background: rgba(138, 168, 194, 0.72);
         transform: translateY(-50%);
-        box-shadow: 0 0 8px rgba(137, 206, 255, 0.36);
+        box-shadow: 0 0 8px rgba(138, 168, 194, 0.36);
       }
 
       .aqua-hero-runtime {
@@ -1691,7 +1698,7 @@
         inset: 12% 8% -7%;
         z-index: -1;
         border-radius: 2rem;
-        background: radial-gradient(circle at 50% 50%, rgba(0, 180, 255, 0.2), transparent 67%);
+        background: radial-gradient(circle at 50% 50%, rgba(46, 143, 217, 0.2), transparent 67%);
         filter: blur(30px);
         opacity: 0.72;
       }
@@ -1699,15 +1706,15 @@
       .aqua-runtime-window {
         position: relative;
         overflow: hidden;
-        border: 1px solid rgba(137, 206, 255, 0.23);
+        border: 1px solid rgba(138, 168, 194, 0.23);
         border-radius: 1.25rem;
         background:
-          radial-gradient(circle at 82% 2%, rgba(0, 180, 255, 0.11), transparent 28%),
+          radial-gradient(circle at 82% 2%, rgba(46, 143, 217, 0.11), transparent 28%),
           linear-gradient(180deg, rgba(9, 27, 46, 0.94), rgba(2, 14, 27, 0.97));
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.055),
           0 34px 90px rgba(0, 0, 0, 0.42),
-          0 0 50px rgba(0, 180, 255, 0.08);
+          0 0 50px rgba(46, 143, 217, 0.08);
       }
 
       .aqua-runtime-window::before {
@@ -1715,7 +1722,7 @@
         position: absolute;
         inset: 0;
         pointer-events: none;
-        background: linear-gradient(112deg, rgba(255, 255, 255, 0.055), transparent 23%, transparent 72%, rgba(137, 206, 255, 0.04));
+        background: linear-gradient(112deg, rgba(255, 255, 255, 0.055), transparent 23%, transparent 72%, rgba(138, 168, 194, 0.04));
       }
 
       .aqua-runtime-topbar {
@@ -1725,7 +1732,7 @@
         align-items: center;
         gap: 1rem;
         padding: 0.78rem 1rem;
-        border-bottom: 1px solid rgba(137, 206, 255, 0.1);
+        border-bottom: 1px solid rgba(138, 168, 194, 0.1);
         background: rgba(14, 34, 53, 0.62);
         font-family: "JetBrains Mono", monospace;
         font-size: 0.68rem;
@@ -1741,7 +1748,7 @@
         width: 0.56rem;
         height: 0.56rem;
         border-radius: 999px;
-        background: rgba(137, 206, 255, 0.24);
+        background: rgba(138, 168, 194, 0.24);
       }
 
       .aqua-runtime-dots span:first-child { background: rgba(255, 110, 110, 0.72); }
@@ -1772,8 +1779,8 @@
       }
 
       .aqua-runtime-prompt {
-        color: #89ceff;
-        text-shadow: 0 0 12px rgba(137, 206, 255, 0.46);
+        color: #8aa8c2;
+        text-shadow: 0 0 12px rgba(138, 168, 194, 0.46);
       }
 
       .aqua-flow-stack {
@@ -1790,8 +1797,8 @@
         top: 1.65rem;
         bottom: 1.65rem;
         width: 1px;
-        background: linear-gradient(180deg, rgba(137, 206, 255, 0.1), rgba(0, 180, 255, 0.6), rgba(137, 206, 255, 0.12));
-        box-shadow: 0 0 10px rgba(0, 180, 255, 0.2);
+        background: linear-gradient(180deg, rgba(138, 168, 194, 0.1), rgba(46, 143, 217, 0.6), rgba(138, 168, 194, 0.12));
+        box-shadow: 0 0 10px rgba(46, 143, 217, 0.2);
       }
 
       .aqua-flow-stack li {
@@ -1802,7 +1809,7 @@
         gap: 0.8rem;
         min-height: 2.9rem;
         padding: 0.35rem 0.72rem 0.35rem 0;
-        border-bottom: 1px solid rgba(137, 206, 255, 0.07);
+        border-bottom: 1px solid rgba(138, 168, 194, 0.07);
         color: rgba(212, 228, 250, 0.76);
         font-size: clamp(0.7rem, 0.92vw, 0.82rem);
       }
@@ -1819,9 +1826,9 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid rgba(137, 206, 255, 0.22);
+        border: 1px solid rgba(138, 168, 194, 0.22);
         border-radius: 0.62rem;
-        color: #89ceff;
+        color: #8aa8c2;
         background: #071a2d;
         box-shadow: 0 0 0 4px rgba(5, 20, 36, 0.7);
       }
@@ -1884,7 +1891,7 @@
       }
 
       .aqua-runtime-caption span:first-child {
-        color: rgba(137, 206, 255, 0.86);
+        color: rgba(138, 168, 194, 0.86);
         font-family: "JetBrains Mono", monospace;
       }
 
@@ -2099,6 +2106,11 @@
         }
       }
     </style>
+    <!-- Loaded last so it can refine the inline styles above rather than
+         losing to them on equal specificity. -->
+    <link rel="stylesheet" href="./css/aqua-depth.css?v=hp15" />
+    <link rel="stylesheet" href="./css/aqua-refine.css?v=hp16" />
+    <link rel="stylesheet" href="./css/aqua-techflux.css?v=hp17" />
   </head>
   <body class="dark bg-background text-on-background selection:bg-primary/30">
     <!-- AquaTech background animation layer -->
@@ -2107,11 +2119,17 @@
       <span class="aqua-bg-blob-2"></span>
       <span class="aqua-bg-blob-3"></span>
     </div>
+    <!-- Layered depth field: technical grid, horizon glow, vignette -->
+    <div class="aqua-atmosphere" aria-hidden="true">
+      <span class="aqua-atmosphere__grid"></span>
+      <span class="aqua-atmosphere__horizon"></span>
+      <span class="aqua-atmosphere__vignette"></span>
+    </div>
     <header
-  class="fixed top-7 left-0 right-0 z-50 px-3 md:px-6 pointer-events-none"
+  class="aqua-site-header fixed top-7 left-0 right-0 z-50 px-3 md:px-6 pointer-events-none"
 >
   <nav
-    class="aqua-top-pill pointer-events-auto flex justify-between items-center h-16 px-4 md:px-5 max-w-container-max mx-auto"
+    class="aqua-top-pill tf-glass pointer-events-auto flex justify-between items-center h-16 px-4 md:px-5 max-w-container-max mx-auto"
   >
     <a
       href="#top"
@@ -2130,7 +2148,7 @@
       <span>Aqua.Tech</span>
     </a>
 
-    <div class="hidden lg:flex items-center gap-5 xl:gap-6 font-body-md text-body-md">
+    <div class="aqua-top-pill__links hidden lg:flex items-center gap-5 xl:gap-6 font-body-md text-body-md">
       <a
         class="nav-link text-on-surface-variant hover:text-primary transition-colors"
         href="#flow"
@@ -2180,15 +2198,17 @@
         id="langToggle"
         type="button"
         class="inline-flex h-11 min-w-12 items-center justify-center rounded-full border border-primary/20 text-primary px-4 font-label-sm text-label-sm hover:bg-primary/10 transition-all"
-        aria-label="Switch to English"
+        lang="en"
+        aria-label="EN – Switch to English"
         title="Switch to English"
       >
         EN
       </button>
 
       <a
-        class="hidden sm:inline-flex h-11 items-center gap-2 border border-primary/20 text-primary px-4 rounded-full hover:bg-primary/10 transition-all no-underline"
+        class="aqua-top-pill__wa hidden sm:inline-flex h-11 items-center gap-2 border border-primary/20 text-primary px-4 rounded-full hover:bg-primary/10 transition-all no-underline"
         href="https://wa.me/962780932199"
+        aria-label="WhatsApp"
         target="_blank"
         rel="noopener noreferrer"
         onclick="
@@ -2213,11 +2233,11 @@
             />
           </svg>
         </span>
-        WhatsApp
+        <span class="aqua-top-pill__wa-label">WhatsApp</span>
       </a>
 
       <a
-        class="hidden md:inline-flex h-11 items-center justify-center bg-primary text-on-primary font-bold px-6 rounded-full hover:scale-95 transition-transform no-underline shadow-[0_0_20px_rgba(0,180,255,0.22)]"
+        class="hidden md:inline-flex h-11 items-center justify-center px-6 no-underline tf-btn-cta tf-mono"
         href="#contact"
         data-i18n="nav.start"
       >
@@ -2332,6 +2352,7 @@
         class="aqua-signature-hero"
         aria-labelledby="hero-title"
       >
+        <div class="aqua-core-layer" data-aqua-core aria-hidden="true"></div>
         <div class="aqua-hero-grid" aria-hidden="true"></div>
         <div class="aqua-hero-aura aqua-hero-aura-one" aria-hidden="true"></div>
         <div class="aqua-hero-aura aqua-hero-aura-two" aria-hidden="true"></div>
@@ -2345,10 +2366,10 @@
         >
           <defs>
             <linearGradient id="aquaHeroFlowGradient" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#89ceff" stop-opacity="0" />
-              <stop offset="42%" stop-color="#89ceff" stop-opacity="0.36" />
-              <stop offset="72%" stop-color="#00b4ff" stop-opacity="0.66" />
-              <stop offset="100%" stop-color="#00b4ff" stop-opacity="0" />
+              <stop offset="0%" stop-color="#8aa8c2" stop-opacity="0" />
+              <stop offset="42%" stop-color="#8aa8c2" stop-opacity="0.36" />
+              <stop offset="72%" stop-color="#2e8fd9" stop-opacity="0.66" />
+              <stop offset="100%" stop-color="#2e8fd9" stop-opacity="0" />
             </linearGradient>
           </defs>
           <path
@@ -2368,8 +2389,8 @@
               path="M-80 610 C 220 590, 270 270, 560 330 S 940 610, 1510 180"
             />
           </circle>
-          <circle cx="560" cy="330" r="4" class="aqua-flow-node" />
-          <circle cx="1004" cy="520" r="4" class="aqua-flow-node" />
+          <circle cx="560" cy="330" r="4" class="aqua-flow-node tf-flow-node--near-copy" />
+          <circle cx="1004" cy="520" r="4" class="aqua-flow-node tf-flow-node--near-copy" />
         </svg>
 
         <div class="aqua-hero-shell">
@@ -2379,10 +2400,10 @@
               <span data-i18n="hero.kicker">برمجيات • أتمتة • ذكاء اصطناعي</span>
             </div>
 
-            <h1 id="hero-title" class="aqua-hero-title">
-              <span data-i18n="hero.title">نحول التعقيد</span>
+            <h1 id="hero-title" class="aqua-hero-title tf-heading">
+              <span class="tf-heading__light" data-i18n="hero.title">نحول التعقيد</span>
               <span
-                class="aqua-hero-title-accent"
+                class="aqua-hero-title-accent tf-heading__bold"
                 data-i18n="hero.titleAccent"
                 >إلى تدفق.</span
               >
@@ -2396,28 +2417,30 @@
             <div class="aqua-hero-actions">
               <a
                 href="#contact"
-                class="aqua-hero-btn aqua-hero-btn-primary"
+                class="aqua-hero-btn aqua-hero-btn-primary tf-btn-cta"
                 data-i18n="hero.ctaPrimary"
                 >ابدأ مشروعك</a
               >
               <a
                 href="#trust"
-                class="aqua-hero-btn aqua-hero-btn-secondary"
+                class="aqua-hero-btn aqua-hero-btn-secondary tf-btn-ghost"
                 data-i18n="hero.ctaSecondary"
                 >استكشف كيف نعمل</a
               >
             </div>
 
             <div class="aqua-hero-proof" aria-label="Aqua.Tech capabilities">
-              <span data-i18n="hero.proof1">مواقع ومنصات</span>
-              <span data-i18n="hero.proof2">أنظمة مخصصة</span>
-              <span data-i18n="hero.proof3">أتمتة وذكاء اصطناعي</span>
+              <span class="tf-pill" data-i18n="hero.proof1">مواقع ومنصات</span>
+              <span class="tf-pill" data-i18n="hero.proof2">أنظمة مخصصة</span>
+              <span class="tf-pill" data-i18n="hero.proof3">أتمتة وذكاء اصطناعي</span>
             </div>
           </div>
 
           <div class="aqua-hero-runtime" aria-label="Aqua Flow Engine">
             <div class="aqua-runtime-glow" aria-hidden="true"></div>
-            <div class="aqua-runtime-window">
+            <div class="tf-chamfer-shadow">
+            <div class="aqua-runtime-window tf-glass tf-chamfer">
+              <span class="tf-chamfer__edge" aria-hidden="true"></span>
               <div class="aqua-runtime-topbar">
                 <div class="aqua-runtime-dots" aria-hidden="true">
                   <span></span><span></span><span></span>
@@ -2467,6 +2490,7 @@
                 </div>
               </div>
             </div>
+            </div>
 
             <div class="aqua-runtime-caption">
               <span data-i18n="hero.runtimeLabel">Aqua Flow Engine</span>
@@ -2488,12 +2512,13 @@
 
   <div class="aqua-complexity-flow__container">
     <header class="aqua-complexity-flow__header">
-      <span class="section-kicker" data-i18n="flow.kicker">
+      <span class="section-kicker tf-mono" data-i18n="flow.kicker">
         Aqua.Tech Method
       </span>
 
-      <h2 id="complexityFlowTitle" data-i18n="flow.title">
-        كيف نحول التعقيد إلى تدفق قابل للقياس
+      <h2 id="complexityFlowTitle" class="tf-heading">
+        <span class="tf-heading__light" data-i18n="flow.titleLead">كيف نحول التعقيد</span>
+        <span class="tf-heading__bold" data-i18n="flow.titleAccent">إلى تدفق قابل للقياس</span>
       </h2>
 
       <p data-i18n="flow.description">
@@ -2504,13 +2529,13 @@
     </header>
 
     <div class="aqua-flow-architecture">
-      <article class="aqua-flow-zone aqua-flow-zone--complexity">
+      <article class="aqua-flow-zone aqua-flow-zone--complexity tf-gradient-card">
         <header class="aqua-flow-zone__header">
           <span class="aqua-flow-zone__icon material-symbols-outlined" aria-hidden="true">
             scatter_plot
           </span>
           <div>
-            <span class="aqua-flow-zone__eyebrow" data-i18n="flow.before.kicker">
+            <span class="aqua-flow-zone__eyebrow tf-mono" data-i18n="flow.before.kicker">
               قبل بناء الحل
             </span>
             <h3 data-i18n="flow.before.title">تعقيد يستهلك الوقت</h3>
@@ -2537,16 +2562,17 @@
         </ul>
       </article>
 
-      <article class="aqua-flow-zone aqua-flow-zone--engine">
+      <article class="aqua-flow-zone aqua-flow-zone--engine tf-gradient-card tf-chamfer">
+        <span class="tf-chamfer__edge" aria-hidden="true"></span>
         <header class="aqua-flow-engine__header">
           <div>
-            <span class="aqua-flow-zone__eyebrow" data-i18n="flow.engine.kicker">
+            <span class="aqua-flow-zone__eyebrow tf-mono" data-i18n="flow.engine.kicker">
               Aqua Flow Method
             </span>
             <h3 data-i18n="flow.engine.title">نحول المشكلة إلى نظام مترابط</h3>
           </div>
 
-          <span class="aqua-flow-engine__status">
+          <span class="aqua-flow-engine__status tf-mono">
             <span aria-hidden="true"></span>
             <span data-i18n="flow.engine.status">مسار واضح</span>
           </span>
@@ -2584,13 +2610,13 @@
         </ol>
       </article>
 
-      <article class="aqua-flow-zone aqua-flow-zone--outcome">
+      <article class="aqua-flow-zone aqua-flow-zone--outcome tf-gradient-card">
         <header class="aqua-flow-zone__header">
           <span class="aqua-flow-zone__icon material-symbols-outlined" aria-hidden="true">
             verified
           </span>
           <div>
-            <span class="aqua-flow-zone__eyebrow" data-i18n="flow.after.kicker">
+            <span class="aqua-flow-zone__eyebrow tf-mono" data-i18n="flow.after.kicker">
               الأثر المتوقع
             </span>
             <h3 data-i18n="flow.after.title">نتائج نعمل على تحقيقها معك</h3>
@@ -2623,11 +2649,11 @@
       </article>
     </div>
 
-    <aside class="aqua-flow-measurement" aria-labelledby="flowMeasurementTitle">
+    <aside class="aqua-flow-measurement tf-glass" aria-labelledby="flowMeasurementTitle">
       <div class="aqua-flow-measurement__heading">
         <span class="material-symbols-outlined" aria-hidden="true">query_stats</span>
         <div>
-          <span data-i18n="flow.measurement.kicker">ما نتابعه بعد الإطلاق</span>
+          <span class="tf-mono" data-i18n="flow.measurement.kicker">ما نتابعه بعد الإطلاق</span>
           <strong id="flowMeasurementTitle" data-i18n="flow.measurement.title">
             مؤشرات مرتبطة بهدف مشروعك، لا أرقام عامة
           </strong>
@@ -2638,12 +2664,12 @@
       </div>
 
       <ul>
-        <li data-i18n="flow.measurement.item1">اكتمال الطلبات</li>
-        <li data-i18n="flow.measurement.item2">وقت الرد الأولي</li>
-        <li data-i18n="flow.measurement.item3">وضوح المتابعة</li>
+        <li class="tf-pill" data-i18n="flow.measurement.item1">اكتمال الطلبات</li>
+        <li class="tf-pill" data-i18n="flow.measurement.item2">وقت الرد الأولي</li>
+        <li class="tf-pill" data-i18n="flow.measurement.item3">وضوح المتابعة</li>
       </ul>
 
-      <a class="aqua-complexity-flow__cta" href="#services">
+      <a class="aqua-complexity-flow__cta tf-btn-cta" href="#services">
         <span class="material-symbols-outlined" aria-hidden="true">grid_view</span>
         <span data-i18n="flow.cta">استكشف ما نبنيه</span>
       </a>
@@ -2654,12 +2680,13 @@
       <section class="aqua-section aqua-section--trust" id="trust">
   <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
     <div class="aqua-section__header aqua-trust-header">
-      <span class="section-kicker" data-i18n="trust.kicker">
+      <span class="section-kicker tf-mono" data-i18n="trust.kicker">
         Why Aqua.Tech
       </span>
 
-      <h2 class="aqua-section__title" data-i18n="trust.title">
-        Why choose Aqua.Tech
+      <h2 class="aqua-section__title tf-heading">
+        <span class="tf-heading__light" data-i18n="trust.titleLead">Why choose</span>
+        <span class="tf-heading__bold" data-i18n="trust.titleAccent">Aqua.Tech</span>
       </h2>
 
       <p class="aqua-section__intro" data-i18n="trust.description">
@@ -2667,8 +2694,9 @@
       </p>
     </div>
 
-    <div class="aqua-trust-stage glass-card" role="list">
-      <article class="aqua-trust-card" role="listitem">
+    <ul class="aqua-trust-stage glass-card">
+      <li class="aqua-trust-card tf-glass tf-chamfer">
+        <span class="tf-chamfer__edge" aria-hidden="true"></span>
         <div class="aqua-trust-card__top">
           <div class="aqua-icon-box">
             <span class="material-symbols-outlined" aria-hidden="true">route</span>
@@ -2676,7 +2704,7 @@
           <span class="aqua-trust-card__index" aria-hidden="true">01</span>
         </div>
 
-        <span class="section-kicker" data-i18n="trust.card1.kicker">
+        <span class="section-kicker tf-mono" data-i18n="trust.card1.kicker">
           First step
         </span>
 
@@ -2687,9 +2715,9 @@
         <p class="aqua-trust-card__description" data-i18n="trust.card1.desc">
           We quickly understand your goal, then define what should be built first and what can be delayed.
         </p>
-      </article>
+      </li>
 
-      <article class="aqua-trust-card" role="listitem">
+      <li class="aqua-trust-card tf-glass">
         <div class="aqua-trust-card__top">
           <div class="aqua-icon-box">
             <span class="material-symbols-outlined" aria-hidden="true">rocket_launch</span>
@@ -2697,7 +2725,7 @@
           <span class="aqua-trust-card__index" aria-hidden="true">02</span>
         </div>
 
-        <span class="section-kicker" data-i18n="trust.card2.kicker">
+        <span class="section-kicker tf-mono" data-i18n="trust.card2.kicker">
           Delivery
         </span>
 
@@ -2708,9 +2736,9 @@
         <p class="aqua-trust-card__description" data-i18n="trust.card2.desc">
           We build a useful version now that remains ready for future development without rebuilding from scratch.
         </p>
-      </article>
+      </li>
 
-      <article class="aqua-trust-card" role="listitem">
+      <li class="aqua-trust-card tf-glass">
         <div class="aqua-trust-card__top">
           <div class="aqua-icon-box">
             <span class="material-symbols-outlined" aria-hidden="true">support_agent</span>
@@ -2718,7 +2746,7 @@
           <span class="aqua-trust-card__index" aria-hidden="true">03</span>
         </div>
 
-        <span class="section-kicker" data-i18n="trust.card3.kicker">
+        <span class="section-kicker tf-mono" data-i18n="trust.card3.kicker">
           Support
         </span>
 
@@ -2729,9 +2757,9 @@
         <p class="aqua-trust-card__description" data-i18n="trust.card3.desc">
           We help with improvements, adjustments, and feedback handling so the solution stays effective.
         </p>
-      </article>
+      </li>
 
-      <article class="aqua-trust-card" role="listitem">
+      <li class="aqua-trust-card tf-glass">
         <div class="aqua-trust-card__top">
           <div class="aqua-icon-box">
             <span class="material-symbols-outlined" aria-hidden="true">forum</span>
@@ -2739,7 +2767,7 @@
           <span class="aqua-trust-card__index" aria-hidden="true">04</span>
         </div>
 
-        <span class="section-kicker" data-i18n="trust.card4.kicker">
+        <span class="section-kicker tf-mono" data-i18n="trust.card4.kicker">
           Clarity
         </span>
 
@@ -2750,8 +2778,8 @@
         <p class="aqua-trust-card__description" data-i18n="trust.card4.desc">
           Clear updates during execution, organized outputs, and structured delivery based on the agreement.
         </p>
-      </article>
-    </div>
+      </li>
+    </ul>
   </div>
 </section>
       <section class="aqua-service-paths" id="services" aria-labelledby="services-title">
@@ -2759,9 +2787,10 @@
 
   <div class="aqua-service-paths__container">
     <header class="aqua-service-paths__header">
-      <span class="section-kicker" data-i18n="services.kicker">What we build</span>
-      <h2 id="services-title" data-i18n="services.title">
-        خدمات رقمية تركز على النمو
+      <span class="section-kicker tf-mono" data-i18n="services.kicker">What we build</span>
+      <h2 id="services-title" class="tf-heading">
+        <span class="tf-heading__light" data-i18n="services.titleLead">خدمات رقمية</span>
+        <span class="tf-heading__bold" data-i18n="services.titleAccent">تركز على النمو</span>
       </h2>
       <p data-i18n="services.subtitle">
         نغطي رحلة مشروعك من الفكرة إلى الإطلاق والنمو المستمر بحلول واضحة قابلة للتنفيذ.
@@ -2769,10 +2798,10 @@
     </header>
 
     <div class="aqua-service-paths__grid">
-      <article class="aqua-service-path aqua-service-path--core">
+      <article class="aqua-service-path aqua-service-path--core tf-gradient-card">
         <div class="aqua-service-path__topline">
           <span class="aqua-service-path__number">01</span>
-          <span class="aqua-service-path__kicker" data-i18n="services.core.kicker">
+          <span class="aqua-service-path__kicker tf-pill tf-mono" data-i18n="services.core.kicker">
             Core Services
           </span>
         </div>
@@ -2802,11 +2831,12 @@
         </a>
       </article>
 
-      <article class="aqua-service-path aqua-service-path--growth">
+      <article class="aqua-service-path aqua-service-path--growth tf-gradient-card tf-chamfer">
+        <span class="tf-chamfer__edge" aria-hidden="true"></span>
         <div class="aqua-service-path__topline">
           <span class="aqua-service-path__number">02</span>
           <span
-            class="aqua-service-path__kicker"
+            class="aqua-service-path__kicker tf-pill tf-mono"
             data-i18n="services.growthGroup.kicker"
           >
             Growth Services
@@ -2841,10 +2871,10 @@
         </a>
       </article>
 
-      <article class="aqua-service-path aqua-service-path--care">
+      <article class="aqua-service-path aqua-service-path--care tf-gradient-card">
         <div class="aqua-service-path__topline">
           <span class="aqua-service-path__number">03</span>
-          <span class="aqua-service-path__kicker" data-i18n="services.care.kicker">
+          <span class="aqua-service-path__kicker tf-pill tf-mono" data-i18n="services.care.kicker">
             Care Services
           </span>
         </div>
@@ -2875,14 +2905,14 @@
       </article>
     </div>
 
-    <div class="aqua-service-paths__decision">
+    <div class="aqua-service-paths__decision tf-glass">
       <div>
         <strong data-i18n="faq.q12">كيف أعرف أي خدمة مناسبة لي؟</strong>
         <p data-i18n="faq.a12">
           شاركنا هدفك الحالي، وسنحدد لك أسرع بداية مناسبة، وما الذي يجب بناؤه أولًا، وما الذي يمكن تأجيله بدون تكلفة غير ضرورية.
         </p>
       </div>
-      <a class="aqua-service-paths__decision-cta" href="#contact">
+      <a class="aqua-service-paths__decision-cta tf-btn-cta" href="#contact">
         <span data-i18n="hero.ctaPrimary">ابدأ مشروعك</span>
       </a>
     </div>
@@ -2893,15 +2923,13 @@
       <section class="aqua-product-showcase" id="solutions">
   <div class="aqua-product-showcase__shell">
     <header class="aqua-product-showcase__header">
-      <span class="section-kicker" data-i18n="solutions.kicker">
+      <span class="section-kicker tf-mono" data-i18n="solutions.kicker">
         Deployment ready
       </span>
 
-      <h2
-        class="aqua-product-showcase__title"
-        data-i18n="solutions.title"
-      >
-        Ready solutions to launch
+      <h2 class="aqua-product-showcase__title tf-heading">
+        <span class="tf-heading__light" data-i18n="solutions.titleLead">Ready solutions</span>
+        <span class="tf-heading__bold" data-i18n="solutions.titleAccent">to launch</span>
       </h2>
 
       <p
@@ -2915,10 +2943,11 @@
 
     <div class="aqua-product-grid">
       <article
-        class="solution-card aqua-product-card aqua-product-card--law"
+        class="solution-card aqua-product-card aqua-product-card--law tf-glass"
         data-product="viresto"
       >
-        <div class="aqua-product-card__visual" aria-hidden="true">
+        <div class="aqua-product-card__visual tf-frame tf-chamfer" aria-hidden="true">
+          <span class="tf-chamfer__edge"></span>
           <div class="aqua-product-window">
             <div class="aqua-product-window__bar">
               <span></span><span></span><span></span>
@@ -2952,7 +2981,7 @@
             <span class="aqua-product-card__number">01</span>
             <div>
               <p
-                class="aqua-product-card__type"
+                class="aqua-product-card__type tf-mono"
                 data-i18n="solutions.law.type"
               >
                 Legal operations
@@ -2987,10 +3016,10 @@
       </article>
 
       <article
-        class="solution-card aqua-product-card aqua-product-card--resume"
+        class="solution-card aqua-product-card aqua-product-card--resume tf-glass"
         data-product="resumeiq"
       >
-        <div class="aqua-product-card__visual" aria-hidden="true">
+        <div class="aqua-product-card__visual tf-frame" aria-hidden="true">
           <div class="aqua-product-window">
             <div class="aqua-product-window__bar">
               <span></span><span></span><span></span>
@@ -3017,7 +3046,7 @@
             <span class="aqua-product-card__number">02</span>
             <div>
               <p
-                class="aqua-product-card__type"
+                class="aqua-product-card__type tf-mono"
                 data-i18n="solutions.resume.type"
               >
                 Career intelligence
@@ -3056,10 +3085,10 @@
       </article>
 
       <article
-        class="solution-card aqua-product-card aqua-product-card--attendance"
+        class="solution-card aqua-product-card aqua-product-card--attendance tf-glass"
         data-product="smart-attendance"
       >
-        <div class="aqua-product-card__visual" aria-hidden="true">
+        <div class="aqua-product-card__visual tf-frame" aria-hidden="true">
           <div class="aqua-product-window">
             <div class="aqua-product-window__bar">
               <span></span><span></span><span></span>
@@ -3085,7 +3114,7 @@
             <span class="aqua-product-card__number">03</span>
             <div>
               <p
-                class="aqua-product-card__type"
+                class="aqua-product-card__type tf-mono"
                 data-i18n="solutions.attendance.type"
               >
                 Workforce automation
@@ -3124,10 +3153,10 @@
       </article>
 
       <article
-        class="solution-card aqua-product-card aqua-product-card--university"
+        class="solution-card aqua-product-card aqua-product-card--university tf-glass"
         data-product="university-projects"
       >
-        <div class="aqua-product-card__visual" aria-hidden="true">
+        <div class="aqua-product-card__visual tf-frame" aria-hidden="true">
           <div class="aqua-product-window">
             <div class="aqua-product-window__bar">
               <span></span><span></span><span></span>
@@ -3151,7 +3180,7 @@
             <span class="aqua-product-card__number">04</span>
             <div>
               <p
-                class="aqua-product-card__type"
+                class="aqua-product-card__type tf-mono"
                 data-i18n="solutions.university.type"
               >
                 Academic workflow
@@ -3192,7 +3221,7 @@
       </article>
     </div>
 
-    <div class="aqua-product-showcase__note">
+    <div class="aqua-product-showcase__note tf-glass">
       <span class="material-symbols-outlined" aria-hidden="true">tune</span>
       <p data-i18n="solutions.note">
         Every product can be adapted to your workflow, brand, and operating
@@ -3209,10 +3238,11 @@
       <section class="aqua-section aqua-section--faq" id="faq">
   <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
     <div class="aqua-section__header">
-      <span class="section-kicker" data-i18n="faq.kicker">FAQ</span>
+      <span class="section-kicker tf-mono" data-i18n="faq.kicker">FAQ</span>
 
-      <h2 class="aqua-section__title" data-i18n="faq.title">
-        أسئلة متكررة
+      <h2 class="aqua-section__title tf-heading">
+        <span class="tf-heading__light" data-i18n="faq.titleLead">أسئلة</span>
+        <span class="tf-heading__bold" data-i18n="faq.titleAccent">متكررة</span>
       </h2>
 
       <p class="aqua-section__intro" data-i18n="faq.subtitle">
@@ -3222,186 +3252,258 @@
     </div>
 
     <div class="aqua-faq-grid">
-      <div class="faq-item glass-card aqua-system-card p-6 rounded-2xl">
+      <div class="faq-item glass-card aqua-system-card p-6 rounded-2xl tf-gradient-card">
         <button
           class="faq-q w-full flex justify-between items-center gap-4 text-start font-bold"
           type="button"
+          aria-expanded="false"
         >
           <span data-i18n="faq.q1">كم يستغرق تنفيذ صفحة تسويقية أو موقع أو نظام مخصص؟</span>
           <span class="material-symbols-outlined text-primary">add</span>
         </button>
 
-        <div class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed" data-i18n="faq.a1">
-          يعتمد ذلك على نوع الخدمة ونطاقها. الصفحات التسويقية أو الشات بوت يمكن
-          إطلاقها خلال وقت قصير، بينما تحتاج المشاريع الأكبر إلى تحليل أوضح
-          وجدول زمني أدق.
+        <div class="faq-a">
+          <div
+            class="faq-a__inner text-on-surface-variant leading-relaxed"
+            data-i18n="faq.a1"
+          >
+            يعتمد ذلك على نوع الخدمة ونطاقها. الصفحات التسويقية أو الشات بوت يمكن
+            إطلاقها خلال وقت قصير، بينما تحتاج المشاريع الأكبر إلى تحليل أوضح
+            وجدول زمني أدق.
+          </div>
         </div>
       </div>
 
-      <div class="faq-item glass-card aqua-system-card p-6 rounded-2xl">
+      <div class="faq-item glass-card aqua-system-card p-6 rounded-2xl tf-gradient-card">
         <button
           class="faq-q w-full flex justify-between items-center gap-4 text-start font-bold"
           type="button"
+          aria-expanded="false"
         >
           <span data-i18n="faq.q2">كيف يتم تحديد سعر الخدمة أو المشروع؟</span>
           <span class="material-symbols-outlined text-primary">add</span>
         </button>
 
-        <div class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed" data-i18n="faq.a2">
-          يتم التسعير حسب نوع الخدمة، نطاق العمل، عدد الصفحات أو الخصائص،
-          التكاملات المطلوبة، وسرعة التنفيذ. بعد فهم هدفك نرسل عرضًا واضحًا
-          بالمراحل والمخرجات.
+        <div class="faq-a">
+          <div
+            class="faq-a__inner text-on-surface-variant leading-relaxed"
+            data-i18n="faq.a2"
+          >
+            يتم التسعير حسب نوع الخدمة، نطاق العمل، عدد الصفحات أو الخصائص،
+            التكاملات المطلوبة، وسرعة التنفيذ. بعد فهم هدفك نرسل عرضًا واضحًا
+            بالمراحل والمخرجات.
+          </div>
         </div>
       </div>
 
-      <div class="faq-item glass-card aqua-system-card p-6 rounded-2xl">
+      <div class="faq-item glass-card aqua-system-card p-6 rounded-2xl tf-gradient-card">
         <button
           class="faq-q w-full flex justify-between items-center gap-4 text-start font-bold"
           type="button"
+          aria-expanded="false"
         >
           <span data-i18n="faq.q3">هل توفرون خدمات سريعة وحلولًا مخصصة بالكامل؟</span>
           <span class="material-symbols-outlined text-primary">add</span>
         </button>
 
-        <div class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed" data-i18n="faq.a3">
-          نعم. نوفر خدمات سريعة مثل الصفحات التسويقية والبوتات، ونبني أيضًا
-          مواقع وأنظمة مخصصة بالكامل حسب احتياج المشروع وطريقة تشغيله.
+        <div class="faq-a">
+          <div
+            class="faq-a__inner text-on-surface-variant leading-relaxed"
+            data-i18n="faq.a3"
+          >
+            نعم. نوفر خدمات سريعة مثل الصفحات التسويقية والبوتات، ونبني أيضًا
+            مواقع وأنظمة مخصصة بالكامل حسب احتياج المشروع وطريقة تشغيله.
+          </div>
         </div>
       </div>
 
-      <div class="faq-item glass-card aqua-system-card p-6 rounded-2xl">
+      <div class="faq-item glass-card aqua-system-card p-6 rounded-2xl tf-gradient-card">
         <button
           class="faq-q w-full flex justify-between items-center gap-4 text-start font-bold"
           type="button"
+          aria-expanded="false"
         >
           <span data-i18n="faq.q4">هل يمكنكم بناء شات بوت أو أتمتة للعملاء والعمليات؟</span>
           <span class="material-symbols-outlined text-primary">add</span>
         </button>
 
-        <div class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed" data-i18n="faq.a4">
-          نعم، نبني شات بوتات وأتمتة تساعد في الرد على العملاء، استقبال الطلبات،
-          تنظيم البيانات، وربط النماذج والأدوات لتقليل العمل اليدوي.
+        <div class="faq-a">
+          <div
+            class="faq-a__inner text-on-surface-variant leading-relaxed"
+            data-i18n="faq.a4"
+          >
+            نعم، نبني شات بوتات وأتمتة تساعد في الرد على العملاء، استقبال الطلبات،
+            تنظيم البيانات، وربط النماذج والأدوات لتقليل العمل اليدوي.
+          </div>
         </div>
       </div>
 
-      <div class="faq-item glass-card aqua-system-card p-6 rounded-2xl">
+      <div class="faq-item glass-card aqua-system-card p-6 rounded-2xl tf-gradient-card">
         <button
           class="faq-q w-full flex justify-between items-center gap-4 text-start font-bold"
           type="button"
+          aria-expanded="false"
         >
           <span data-i18n="faq.q5">هل توفرون الاستضافة والدومين ورفع الموقع؟</span>
           <span class="material-symbols-outlined text-primary">add</span>
         </button>
 
-        <div class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed" data-i18n="faq.a5">
-          نعم عند الطلب. يمكننا مساعدتك في رفع الموقع، ربط الدومين، تفعيل SSL،
-          وتجهيز الإعدادات الأساسية للتشغيل.
+        <div class="faq-a">
+          <div
+            class="faq-a__inner text-on-surface-variant leading-relaxed"
+            data-i18n="faq.a5"
+          >
+            نعم عند الطلب. يمكننا مساعدتك في رفع الموقع، ربط الدومين، تفعيل SSL،
+            وتجهيز الإعدادات الأساسية للتشغيل.
+          </div>
         </div>
       </div>
 
-      <div class="faq-item glass-card aqua-system-card p-6 rounded-2xl">
+      <div class="faq-item glass-card aqua-system-card p-6 rounded-2xl tf-gradient-card">
         <button
           class="faq-q w-full flex justify-between items-center gap-4 text-start font-bold"
           type="button"
+          aria-expanded="false"
         >
           <span data-i18n="faq.q6">هل توجد صيانة بعد التسليم؟</span>
           <span class="material-symbols-outlined text-primary">add</span>
         </button>
 
-        <div class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed" data-i18n="faq.a6">
-          نعم، تتوفر باقات دعم وتحسينات وتحديثات حسب الحاجة، حتى يبقى المشروع
-          مستقرًا وقابلًا للتطوير بعد الإطلاق.
+        <div class="faq-a">
+          <div
+            class="faq-a__inner text-on-surface-variant leading-relaxed"
+            data-i18n="faq.a6"
+          >
+            نعم، تتوفر باقات دعم وتحسينات وتحديثات حسب الحاجة، حتى يبقى المشروع
+            مستقرًا وقابلًا للتطوير بعد الإطلاق.
+          </div>
         </div>
       </div>
 
-      <div class="faq-item glass-card aqua-system-card p-6 rounded-2xl">
+      <div class="faq-item glass-card aqua-system-card p-6 rounded-2xl tf-gradient-card">
         <button
           class="faq-q w-full flex justify-between items-center gap-4 text-start font-bold"
           type="button"
+          aria-expanded="false"
         >
           <span data-i18n="faq.q7">هل يشمل التسليم شرح تشغيل وإدارة الموقع؟</span>
           <span class="material-symbols-outlined text-primary">add</span>
         </button>
 
-        <div class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed" data-i18n="faq.a7">
-          نعم، نسلم الموقع أو النظام جاهزًا للاستخدام، مع شرح واضح لطريقة
-          الإدارة والتحديثات الأساسية حسب طبيعة المشروع.
+        <div class="faq-a">
+          <div
+            class="faq-a__inner text-on-surface-variant leading-relaxed"
+            data-i18n="faq.a7"
+          >
+            نعم، نسلم الموقع أو النظام جاهزًا للاستخدام، مع شرح واضح لطريقة
+            الإدارة والتحديثات الأساسية حسب طبيعة المشروع.
+          </div>
         </div>
       </div>
 
-      <div class="faq-item glass-card aqua-system-card p-6 rounded-2xl">
+      <div class="faq-item glass-card aqua-system-card p-6 rounded-2xl tf-gradient-card">
         <button
           class="faq-q w-full flex justify-between items-center gap-4 text-start font-bold"
           type="button"
+          aria-expanded="false"
         >
           <span data-i18n="faq.q8">كيف تكون المتابعة أثناء التنفيذ؟</span>
           <span class="material-symbols-outlined text-primary">add</span>
         </button>
 
-        <div class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed" data-i18n="faq.a8">
-          نتفق على قناة تواصل واضحة، ونشاركك التحديثات حسب مراحل التنفيذ، مع
-          توثيق أي تعديل أو قرار مهم حتى تبقى الصورة واضحة.
+        <div class="faq-a">
+          <div
+            class="faq-a__inner text-on-surface-variant leading-relaxed"
+            data-i18n="faq.a8"
+          >
+            نتفق على قناة تواصل واضحة، ونشاركك التحديثات حسب مراحل التنفيذ، مع
+            توثيق أي تعديل أو قرار مهم حتى تبقى الصورة واضحة.
+          </div>
         </div>
       </div>
 
-      <div class="faq-item glass-card aqua-system-card p-6 rounded-2xl">
+      <div class="faq-item glass-card aqua-system-card p-6 rounded-2xl tf-gradient-card">
         <button
           class="faq-q w-full flex justify-between items-center gap-4 text-start font-bold"
           type="button"
+          aria-expanded="false"
         >
           <span data-i18n="faq.q9">هل تقدمون باقات نمو وتسويق مع التنفيذ التقني؟</span>
           <span class="material-symbols-outlined text-primary">add</span>
         </button>
 
-        <div class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed" data-i18n="faq.a9">
-          نعم، يمكن دعم المشروع بباقات نمو تشمل المحتوى، التصميم، الإعلانات،
-          والتحسين المستمر حتى لا يتوقف دورنا عند التسليم فقط.
+        <div class="faq-a">
+          <div
+            class="faq-a__inner text-on-surface-variant leading-relaxed"
+            data-i18n="faq.a9"
+          >
+            نعم، يمكن دعم المشروع بباقات نمو تشمل المحتوى، التصميم، الإعلانات،
+            والتحسين المستمر حتى لا يتوقف دورنا عند التسليم فقط.
+          </div>
         </div>
       </div>
 
-      <div class="faq-item glass-card aqua-system-card p-6 rounded-2xl">
+      <div class="faq-item glass-card aqua-system-card p-6 rounded-2xl tf-gradient-card">
         <button
           class="faq-q w-full flex justify-between items-center gap-4 text-start font-bold"
           type="button"
+          aria-expanded="false"
         >
           <span data-i18n="faq.q10">هل يمكن توقيع NDA وحماية بيانات المشروع؟</span>
           <span class="material-symbols-outlined text-primary">add</span>
         </button>
 
-        <div class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed" data-i18n="faq.a10">
-          نعم، يمكن توقيع اتفاقية سرية عند الحاجة، ونتعامل مع بيانات المشروع
-          بحذر وفق أفضل الممارسات الممكنة أثناء التطوير والتشغيل.
+        <div class="faq-a">
+          <div
+            class="faq-a__inner text-on-surface-variant leading-relaxed"
+            data-i18n="faq.a10"
+          >
+            نعم، يمكن توقيع اتفاقية سرية عند الحاجة، ونتعامل مع بيانات المشروع
+            بحذر وفق أفضل الممارسات الممكنة أثناء التطوير والتشغيل.
+          </div>
         </div>
       </div>
 
-      <div class="faq-item glass-card aqua-system-card p-6 rounded-2xl">
+      <div class="faq-item glass-card aqua-system-card p-6 rounded-2xl tf-gradient-card">
         <button
           class="faq-q w-full flex justify-between items-center gap-4 text-start font-bold"
           type="button"
+          aria-expanded="false"
         >
           <span data-i18n="faq.q11">هل أحتاج موقعًا كاملًا أم صفحة تسويقية فقط؟</span>
           <span class="material-symbols-outlined text-primary">add</span>
         </button>
 
-        <div class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed" data-i18n="faq.a11">
-          إذا كان هدفك حملة أو خدمة محددة وجمع طلبات بسرعة، فغالبًا الصفحة
-          التسويقية تكفي كبداية. أما إذا كنت تريد حضورًا أوسع وثقة أعلى ومحتوى
-          أكثر، فالموقع الكامل أنسب.
+        <div class="faq-a">
+          <div
+            class="faq-a__inner text-on-surface-variant leading-relaxed"
+            data-i18n="faq.a11"
+          >
+            إذا كان هدفك حملة أو خدمة محددة وجمع طلبات بسرعة، فغالبًا الصفحة
+            التسويقية تكفي كبداية. أما إذا كنت تريد حضورًا أوسع وثقة أعلى ومحتوى
+            أكثر، فالموقع الكامل أنسب.
+          </div>
         </div>
       </div>
 
-      <div class="faq-item glass-card aqua-system-card aqua-system-card--emphasis p-6 rounded-2xl">
+      <div class="faq-item glass-card aqua-system-card aqua-system-card--emphasis p-6 rounded-2xl tf-gradient-card">
         <button
           class="faq-q w-full flex justify-between items-center gap-4 text-start font-bold"
           type="button"
+          aria-expanded="false"
         >
           <span data-i18n="faq.q12">كيف أعرف أي خدمة مناسبة لي؟</span>
           <span class="material-symbols-outlined text-primary">add</span>
         </button>
 
-        <div class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed" data-i18n="faq.a12">
-          شاركنا هدفك الحالي، وسنحدد لك أسرع بداية مناسبة، وما الذي يجب بناؤه
-          أولًا، وما الذي يمكن تأجيله بدون تكلفة غير ضرورية.
+        <div class="faq-a">
+          <div
+            class="faq-a__inner text-on-surface-variant leading-relaxed"
+            data-i18n="faq.a12"
+          >
+            شاركنا هدفك الحالي، وسنحدد لك أسرع بداية مناسبة، وما الذي يجب بناؤه
+            أولًا، وما الذي يمكن تأجيله بدون تكلفة غير ضرورية.
+          </div>
         </div>
       </div>
     </div>
@@ -3412,15 +3514,13 @@
 
   <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
     <div class="aqua-section__header">
-      <span class="section-kicker" data-i18n="contact.kicker"
+      <span class="section-kicker tf-mono" data-i18n="contact.kicker"
         >Start Project</span
       >
 
-      <h2
-        class="aqua-section__title"
-        data-i18n="contact.title"
-      >
-        ابدأ رحلتك الرقمية الآن
+      <h2 class="aqua-section__title tf-heading">
+        <span class="tf-heading__light" data-i18n="contact.titleLead">ابدأ رحلتك</span>
+        <span class="tf-heading__bold" data-i18n="contact.titleAccent">الرقمية الآن</span>
       </h2>
 
       <p
@@ -3436,7 +3536,7 @@
       <aside
         class="order-2 lg:order-1 lg:col-span-4 flex flex-col gap-stack-md"
       >
-        <div class="order-2 lg:order-1 glass-card aqua-system-card p-stack-md rounded-xl">
+        <div class="order-2 lg:order-1 glass-card aqua-system-card p-stack-md rounded-xl tf-glass">
           <h3
             class="font-headline-md text-headline-md text-primary mb-stack-sm"
           >
@@ -3449,7 +3549,7 @@
               href="https://wa.me/962780932199"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="WhatsApp"
+              aria-label="WhatsApp +962 78 093 2199"
               onclick="
                 if (typeof gtag === 'function') {
                   gtag('event', 'whatsapp_click', {
@@ -3469,18 +3569,21 @@
                   />
                 </svg>
               </span>
-              <span
-                class="font-bold text-on-surface group-hover:text-primary transition-colors"
-                dir="ltr"
-              >
-                WhatsApp
+              <span class="flex min-w-0 flex-col items-start">
+                <span
+                  class="font-bold text-on-surface group-hover:text-primary transition-colors tf-mono"
+                  dir="ltr"
+                >
+                  WhatsApp
+                </span>
+                <span class="aqua-contact-detail tf-mono" dir="ltr">+962 78 093 2199</span>
               </span>
             </a>
 
             <a
               class="group flex items-center gap-3 p-3 rounded-lg bg-surface-container-high hover:bg-primary/10 transition-all border border-outline-variant/20 hover:border-primary/40 no-underline"
               href="mailto:info.aquatech.jo@gmail.com"
-              aria-label="Email"
+              aria-label="Email info.aquatech.jo@gmail.com"
             >
               <span
                 class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
@@ -3492,11 +3595,14 @@
                   />
                 </svg>
               </span>
-              <span
-                class="font-bold text-on-surface group-hover:text-primary transition-colors"
-                dir="ltr"
-              >
-                Email
+              <span class="flex min-w-0 flex-col items-start">
+                <span
+                  class="font-bold text-on-surface group-hover:text-primary transition-colors tf-mono"
+                  dir="ltr"
+                >
+                  Email
+                </span>
+                <span class="aqua-contact-detail tf-mono" dir="ltr">info.aquatech.jo@gmail.com</span>
               </span>
             </a>
 
@@ -3603,7 +3709,7 @@
         </div>
 
         <div
-          class="order-1 lg:order-2 glass-card aqua-system-card aqua-system-card--emphasis p-stack-md rounded-xl"
+          class="order-1 lg:order-2 glass-card aqua-system-card aqua-system-card--emphasis p-stack-md rounded-xl tf-glass"
         >
           <h3 class="font-headline-md text-headline-md text-primary mb-4">
             ماذا يحدث بعد ذلك؟
@@ -3645,11 +3751,12 @@
 
       <div class="order-1 lg:order-2 lg:col-span-8">
         <form
-          class="glass-card aqua-system-card p-stack-lg rounded-xl flex flex-col gap-stack-md relative overflow-hidden"
+          class="glass-card aqua-system-card p-stack-lg rounded-xl flex flex-col gap-stack-md relative overflow-hidden tf-glass tf-chamfer"
           id="contactForm"
           data-aquatech-contact-form
           novalidate
         >
+          <span class="tf-chamfer__edge" aria-hidden="true"></span>
           <div class="absolute top-0 left-0 p-8 opacity-10" aria-hidden="true">
             <span
               class="material-symbols-outlined text-[120px]"
@@ -3700,7 +3807,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter mt-gutter">
               <label class="block">
-                <span class="block font-label-sm text-primary mb-2">
+                <span class="block font-label-sm text-primary mb-2" data-i18n="form.companyName">
                   اسم الشركة / المشروع
                 </span>
                 <input
@@ -3710,12 +3817,13 @@
                   class="aqua-input form-field"
                   maxlength="120"
                   autocomplete="organization"
+                  data-i18n-placeholder="form.companyName.placeholder"
                   placeholder="مثال: Elite Trading Company"
                 />
               </label>
 
               <label class="block">
-                <span class="block font-label-sm text-primary mb-2">
+                <span class="block font-label-sm text-primary mb-2" data-i18n="form.companyActivity">
                   نشاط الشركة
                 </span>
                 <input
@@ -3724,6 +3832,7 @@
                   type="text"
                   class="aqua-input form-field"
                   maxlength="160"
+                  data-i18n-placeholder="form.companyActivity.placeholder"
                   placeholder="مثال: تجارة الأجهزة الكهربائية"
                 />
               </label>
@@ -4185,7 +4294,7 @@
             <button
               id="sendLead"
               type="submit"
-              class="quote-submit mt-gutter w-full bg-primary text-on-primary px-8 py-4 rounded-lg font-bold hover:scale-[.99] transition-all shadow-[0_0_20px_rgba(0,180,255,.25)]"
+              class="quote-submit mt-gutter w-full bg-primary text-on-primary px-8 py-4 rounded-lg font-bold hover:scale-[.99] transition-all shadow-[0_0_20px_rgba(46,143,217,.25)] tf-btn-cta tf-mono"
             >
               <span class="quote-title" data-i18n="form.submit">
                 ابدأ مشروعك بخطة واضحة
@@ -4251,7 +4360,7 @@
         <a class="aqua-site-footer__brand-link" href="#top">
           <img
             src="assets/logoo.webp"
-            alt="Aqua.Tech"
+            alt=""
             class="aqua-site-footer__logo"
           />
           <span>Aqua.Tech</span>
@@ -4322,31 +4431,32 @@
 
       <div class="aqua-site-footer__links">
         <div class="aqua-site-footer__column">
-          <h5 data-i18n="footer.companyH">الشركة</h5>
+          <h4 class="tf-mono" data-i18n="footer.companyH">الشركة</h4>
           <ul>
-            <li><a href="#flow" data-i18n="footer.method">منهجنا</a></li>
-            <li><a href="#trust" data-i18n="footer.about">من نحن</a></li>
-            <li><a href="#trust" data-i18n="footer.why">لماذا نحن</a></li>
-            <li><a href="#solutions" data-i18n="footer.results">النتائج</a></li>
-            <li><a href="#trust" data-i18n="footer.security">الأمان</a></li>
+            <li><a class="tf-mono" href="#flow" data-i18n="footer.method">منهجنا</a></li>
+            <li><a class="tf-mono" href="#trust" data-i18n="footer.about">من نحن</a></li>
+            <li><a class="tf-mono" href="#trust" data-i18n="footer.why">لماذا نحن</a></li>
+            <li><a class="tf-mono" href="#solutions" data-i18n="footer.results">النتائج</a></li>
+            <li><a class="tf-mono" href="#trust" data-i18n="footer.security">الأمان</a></li>
           </ul>
         </div>
 
         <div class="aqua-site-footer__column">
-          <h5 data-i18n="footer.servicesH">الخدمات</h5>
+          <h4 class="tf-mono" data-i18n="footer.servicesH">الخدمات</h4>
           <ul>
-            <li><a href="#services" data-i18n="footer.services">الخدمات</a></li>
-            <li><a href="#solutions" data-i18n="footer.solutions">الحلول الجاهزة</a></li>
-            <li><a href="#solutions" data-i18n="footer.offers">العروض</a></li>
-            <li><a href="#trust" data-i18n="footer.support">الدعم بعد التسليم</a></li>
+            <li><a class="tf-mono" href="#services" data-i18n="footer.services">الخدمات</a></li>
+            <li><a class="tf-mono" href="#solutions" data-i18n="footer.solutions">الحلول الجاهزة</a></li>
+            <li><a class="tf-mono" href="#solutions" data-i18n="footer.offers">العروض</a></li>
+            <li><a class="tf-mono" href="#trust" data-i18n="footer.support">الدعم بعد التسليم</a></li>
           </ul>
         </div>
 
         <div class="aqua-site-footer__column aqua-site-footer__column--contact">
-          <h5 data-i18n="footer.contactH">تواصل</h5>
+          <h4 class="tf-mono" data-i18n="footer.contactH">تواصل</h4>
           <ul>
             <li>
               <a
+                class="tf-mono"
                 href="https://wa.me/962780932199"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -4354,17 +4464,17 @@
               >WhatsApp</a>
             </li>
             <li>
-              <a href="mailto:info.aquatech.jo@gmail.com" data-i18n="footer.email">Email</a>
+              <a class="tf-mono" href="mailto:info.aquatech.jo@gmail.com" data-i18n="footer.email">Email</a>
             </li>
-            <li><a href="#faq" data-i18n="footer.faq">الأسئلة المتكررة</a></li>
-            <li><a href="#contact" data-i18n="footer.start">ابدأ مشروعك</a></li>
+            <li><a class="tf-mono" href="#faq" data-i18n="footer.faq">الأسئلة المتكررة</a></li>
+            <li><a class="tf-mono" href="#contact" data-i18n="footer.start">ابدأ مشروعك</a></li>
           </ul>
         </div>
       </div>
     </div>
 
     <div class="aqua-site-footer__bottom">
-      <p class="aqua-site-footer__copyright" data-i18n="footer.copy">
+      <p class="aqua-site-footer__copyright tf-mono" data-i18n="footer.copy">
         © Aqua.Tech — جميع الحقوق محفوظة.
       </p>
     </div>
@@ -4447,21 +4557,8 @@
             .forEach((a) => a.addEventListener("click", closeMenu));
         }
 
-        document.querySelectorAll(".faq-q").forEach((btn) => {
-          btn.addEventListener("click", () => {
-            const item = btn.closest(".faq-item");
-            const answer = item ? item.querySelector(".faq-a") : null;
-            const icon = btn.querySelector(".material-symbols-outlined");
-
-            if (!answer) return;
-
-            answer.classList.toggle("hidden");
-            if (icon)
-              icon.textContent = answer.classList.contains("hidden")
-                ? "add"
-                : "remove";
-          });
-        });
+        /* The FAQ accordion is owned by js/aqua-depth.js, which adds the
+           aria wiring and the animated height transition. */
 
         function initAquaCustomSelect() {
           document.querySelectorAll("[data-aqua-select]").forEach((root) => {
@@ -4596,14 +4693,34 @@ label.textContent = option.textContent.trim();
         const consent = localStorage.getItem("aqua_analytics_consent");
         const banner = document.getElementById("consent-banner");
 
+        // Keep the floating WhatsApp button above the banner while it shows.
+        // The observer fires when the banner appears, hides or reflows.
+        const syncConsentOffset = () => {
+          const offset = banner?.classList.contains("is-visible")
+            ? banner.offsetHeight + 12
+            : 0;
+          document.documentElement.style.setProperty(
+            "--aqua-consent-offset",
+            offset + "px",
+          );
+        };
+
+        if (banner && "ResizeObserver" in window) {
+          new ResizeObserver(syncConsentOffset).observe(banner);
+        }
+
         if (banner && consent === null) {
-          setTimeout(() => banner.classList.add("is-visible"), 900);
+          setTimeout(() => {
+            banner.classList.add("is-visible");
+            syncConsentOffset();
+          }, 900);
         }
 
         document
           .getElementById("consentAccept")
           ?.addEventListener("click", () => {
             banner?.classList.remove("is-visible");
+            syncConsentOffset();
             window.__aquaEnableAnalytics?.();
           });
 
@@ -4611,6 +4728,7 @@ label.textContent = option.textContent.trim();
           .getElementById("consentDecline")
           ?.addEventListener("click", () => {
             banner?.classList.remove("is-visible");
+            syncConsentOffset();
             window.__aquaDeclineAnalytics?.();
           });
 
@@ -4627,6 +4745,8 @@ label.textContent = option.textContent.trim();
     <script src="./js/aqua-hero-motion.js?v=hp02b"></script>
     <script src="./js/aqua-navigation.js?v=hp09"></script>
     <script src="./js/aqua-motion-system.js?v=hp09"></script>
+    <script src="./js/aqua-core.js?v=hp17"></script>
+    <script src="./js/aqua-depth.js?v=hp15"></script>
     <script defer src="./js/site-i18n.js"></script>
     <script defer src="./js/form.js"></script>
     <script src="./js/aquatech-contact-client.js?v=n8n-1" defer></script>
