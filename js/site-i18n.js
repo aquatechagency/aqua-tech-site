@@ -290,7 +290,6 @@
       "hero.runtimeLabel": "Aqua Flow Engine",
       "hero.runtimeMeta": "مترابط • مؤتمت • قابل للقياس",
       "flow.kicker": "Aqua.Tech Method",
-      "flow.title": "كيف نحول التعقيد إلى تدفق قابل للقياس",
       "flow.titleLead": "كيف نحول التعقيد",
       "flow.titleAccent": "إلى تدفق قابل للقياس",
       "flow.description":
@@ -352,7 +351,6 @@
         "نتابع النتائج والملاحظات لنطور الحل بدل أن يبقى مجرد نسخة أولى.",
 
       "trust.kicker": "Why Aqua.Tech",
-      "trust.title": "لماذا تختار Aqua.Tech",
       "form.submit": "ابدأ مشروعك بخطة واضحة",
 
       "trust.description":
@@ -376,7 +374,6 @@
 
       "trust.titleLead": "لماذا تختار",
       "trust.titleAccent": "Aqua.Tech",
-      "trust.title": "لماذا تختار Aqua.Tech",
       "trust.description":
         "نركز على بناء حلول واضحة، قابلة للتنفيذ، وتخدم هدف المشروع بدل الاكتفاء بواجهة جميلة فقط.",
       "trust.card1.desc":
@@ -388,7 +385,6 @@
         "تحديثات واضحة أثناء التنفيذ، ومخرجات مرتبة، وتسليم منظم حسب الاتفاق.",
 
       "solutions.kicker": "Deployment ready",
-      "solutions.title": "حلول جاهزة للانطلاق",
       "solutions.titleLead": "حلول جاهزة",
       "solutions.titleAccent": "للانطلاق",
       "solutions.subtitle":
@@ -515,7 +511,6 @@
       "form.timeline.exploring": "ما زلت أستكشف",
       "form.service.placeholder": "اختر الخدمة",
       "contact.kicker": "Start Project",
-      "contact.title": "ابدأ رحلتك الرقمية الآن",
       "contact.titleLead": "ابدأ رحلتك",
       "contact.titleAccent": "الرقمية الآن",
       "contact.subtitle":
@@ -523,7 +518,6 @@
       "contact.socials": "حسابات التواصل",
 
       "services.kicker": "What we build",
-      "services.title": "خدمات رقمية تركز على النمو",
       "services.titleLead": "خدمات رقمية",
       "services.titleAccent": "تركز على النمو",
       "services.subtitle":
@@ -630,7 +624,6 @@
       "offers.discovery.cta": "احجز جلسة تحليل",
 
       "faq.kicker": "FAQ",
-      "faq.title": "أسئلة متكررة",
       "faq.titleLead": "أسئلة",
       "faq.titleAccent": "متكررة",
       "faq.subtitle":
@@ -843,7 +836,6 @@
       "hero.runtimeLabel": "Aqua Flow Engine",
       "hero.runtimeMeta": "Connected • Automated • Measurable",
       "flow.kicker": "Aqua.Tech Method",
-      "flow.title": "How we turn complexity into measurable flow",
       "flow.titleLead": "How we turn complexity",
       "flow.titleAccent": "into measurable flow",
       "flow.description":
@@ -911,7 +903,6 @@
       "trust.kicker": "Why Aqua.Tech",
       "trust.titleLead": "Why choose",
       "trust.titleAccent": "Aqua.Tech",
-      "trust.title": "Why choose Aqua.Tech",
       "trust.description":
         "We focus on building clear, executable solutions that serve the project goal instead of only creating a beautiful interface.",
       "trust.card1.kicker": "First step",
@@ -930,7 +921,6 @@
       "trust.card4.title": "Clearer communication",
       "trust.card4.desc":
         "Clear updates during execution, organized outputs, and structured delivery based on the agreement.",
-      "trust.title": "Why choose Aqua.Tech",
       "trust.description":
         "We focus on building clear, executable solutions that serve the project goal instead of only creating a beautiful interface.",
       "trust.card1.desc":
@@ -942,7 +932,6 @@
         "Clear updates during execution, organized outputs, and structured delivery based on the agreement.",
 
       "solutions.kicker": "Deployment ready",
-      "solutions.title": "Ready solutions to launch",
       "solutions.titleLead": "Ready solutions",
       "solutions.titleAccent": "to launch",
       "solutions.subtitle":
@@ -1071,7 +1060,6 @@
       "form.service.placeholder": "Select a service",
 
       "contact.kicker": "Start Project",
-      "contact.title": "Start your digital journey now",
       "contact.titleLead": "Start your digital",
       "contact.titleAccent": "journey now",
       "contact.subtitle":
@@ -1079,7 +1067,6 @@
       "contact.socials": "Social accounts",
 
       "services.kicker": "What we build",
-      "services.title": "Growth-focused digital services",
       "services.titleLead": "Growth-focused",
       "services.titleAccent": "digital services",
       "services.subtitle":
@@ -1224,7 +1211,6 @@
       "offers.discovery.type": "Clear scope",
       "offers.discovery.cta": "discovery session",
       "faq.kicker": "FAQ",
-      "faq.title": "Frequently asked questions",
       "faq.titleLead": "Frequently asked",
       "faq.titleAccent": "questions",
       "faq.subtitle":
