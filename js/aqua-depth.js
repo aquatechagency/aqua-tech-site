@@ -22,6 +22,16 @@
     return node;
   }
 
+  /* Decoration that nothing reads during load runs when the main thread is
+     idle, so it stays out of the tasks that count toward blocking time. */
+  function whenIdle(task) {
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(task, { timeout: 1500 });
+    } else {
+      window.setTimeout(task, 200);
+    }
+  }
+
   /* ------------------------------------------------- 1. Hero core flagging */
 
   var hero = document.querySelector(".aqua-signature-hero");
@@ -172,43 +182,53 @@
 
   depthCards.forEach(function (card) {
     card.classList.add("aqua-depth-card");
-
-    if (!card.querySelector(":scope > .aqua-depth-card__spot")) {
-      card.insertBefore(el("span", "aqua-depth-card__spot"), card.firstChild);
-    }
-
-    if (!card.querySelector(":scope > .aqua-depth-card__edge")) {
-      card.insertBefore(el("span", "aqua-depth-card__edge"), card.firstChild);
-    }
   });
 
-  /* Services get an internal technical grid and an icon glow, so each card
-     reads as a small system rather than a styled box. */
-  document.querySelectorAll(".aqua-service-path").forEach(function (card) {
-    if (!card.querySelector(".aqua-service-path__grid")) {
-      card.insertBefore(el("span", "aqua-service-path__grid"), card.firstChild);
-    }
+  /* The cursor spotlight and its edge only exist for a hovering pointer.
+     Touch and no-hover devices get neither the spans nor any listener. */
+  if (finePointer) {
+    whenIdle(function () {
+      depthCards.forEach(function (card) {
+        if (!card.querySelector(":scope > .aqua-depth-card__spot")) {
+          card.insertBefore(el("span", "aqua-depth-card__spot"), card.firstChild);
+        }
 
-    var icon = card.querySelector(".aqua-service-path__icon");
-    if (icon && !icon.querySelector(".aqua-service-path__icon-glow")) {
-      icon.appendChild(el("span", "aqua-service-path__icon-glow"));
-    }
-  });
+        if (!card.querySelector(":scope > .aqua-depth-card__edge")) {
+          card.insertBefore(el("span", "aqua-depth-card__edge"), card.firstChild);
+        }
+      });
+    });
+  }
 
-  /* Products get a live readout badge on their preview window. */
-  document.querySelectorAll(".aqua-product-card").forEach(function (card) {
-    var visual = card.querySelector(".aqua-product-card__visual");
-    if (!visual || visual.querySelector(".aqua-product-card__signal")) return;
+  whenIdle(function () {
+    /* Services get an internal technical grid and an icon glow, so each card
+       reads as a small system rather than a styled box. */
+    document.querySelectorAll(".aqua-service-path").forEach(function (card) {
+      if (!card.querySelector(".aqua-service-path__grid")) {
+        card.insertBefore(el("span", "aqua-service-path__grid"), card.firstChild);
+      }
 
-    var signal = el("span", "aqua-product-card__signal");
-    var dot = document.createElement("i");
-    var label = document.createElement("b");
+      var icon = card.querySelector(".aqua-service-path__icon");
+      if (icon && !icon.querySelector(".aqua-service-path__icon-glow")) {
+        icon.appendChild(el("span", "aqua-service-path__icon-glow"));
+      }
+    });
 
-    /* Deliberately not translatable: a status readout, not body copy. */
-    label.textContent = "LIVE";
-    signal.appendChild(dot);
-    signal.appendChild(label);
-    visual.appendChild(signal);
+    /* Products get a live readout badge on their preview window. */
+    document.querySelectorAll(".aqua-product-card").forEach(function (card) {
+      var visual = card.querySelector(".aqua-product-card__visual");
+      if (!visual || visual.querySelector(".aqua-product-card__signal")) return;
+
+      var signal = el("span", "aqua-product-card__signal");
+      var dot = document.createElement("i");
+      var label = document.createElement("b");
+
+      /* Deliberately not translatable: a status readout, not body copy. */
+      label.textContent = "LIVE";
+      signal.appendChild(dot);
+      signal.appendChild(label);
+      visual.appendChild(signal);
+    });
   });
 
   var spotFrame = 0;
@@ -280,26 +300,6 @@
         { passive: true }
       );
     });
-  } else if (depthCards.length && "IntersectionObserver" in window) {
-    /* Touch devices: the card nearest the centre of the viewport is the one
-       being read, so that is the one that lights up. No hover required. */
-    var touchSpotObserver = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          entry.target.classList.toggle("is-aqua-spot", entry.isIntersecting);
-
-          if (entry.isIntersecting) {
-            entry.target.style.setProperty("--aqua-spot-x", "50%");
-            entry.target.style.setProperty("--aqua-spot-y", "18%");
-          }
-        });
-      },
-      { rootMargin: "-38% 0px -38% 0px", threshold: 0 }
-    );
-
-    depthCards.forEach(function (card) {
-      touchSpotObserver.observe(card);
-    });
   }
 
   /* --------------------------------------------- 5. Contact command centre */
@@ -312,14 +312,14 @@
   if (commandFrame) {
     commandFrame.classList.add("aqua-command-frame");
 
-    if (!commandFrame.querySelector(".aqua-command-frame__light")) {
-      commandFrame.insertBefore(
-        el("span", "aqua-command-frame__light"),
-        commandFrame.firstChild
-      );
-    }
-
     if (finePointer && !reduceMotion) {
+      if (!commandFrame.querySelector(".aqua-command-frame__light")) {
+        commandFrame.insertBefore(
+          el("span", "aqua-command-frame__light"),
+          commandFrame.firstChild
+        );
+      }
+
       var commandFrameId = 0;
       var commandEvent = null;
 
@@ -434,7 +434,9 @@
         pipeline.classList.add("is-aqua-pipeline-live");
       }
 
-      updatePipeline();
+      /* First measurement on the next frame: called inline it forced a
+         ~100ms layout while the page was still parsing. */
+      requestPipelineUpdate();
       window.addEventListener("scroll", requestPipelineUpdate, { passive: true });
       window.addEventListener("resize", requestPipelineUpdate, { passive: true });
     }

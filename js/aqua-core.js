@@ -6,16 +6,25 @@
  * No external dependency. Device tiered, pauses off-screen, disposes cleanly,
  * and leaves the CSS hero intact as the fallback when WebGL is unavailable.
  */
-(function () {
+/* Boot once the main thread is idle. The core is decoration, and the
+   display check below forces a full style recalc if it runs while the page
+   is still parsing (87-169ms tasks in mobile Lighthouse runs). */
+(function (boot) {
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(boot, { timeout: 2000 });
+  } else {
+    window.setTimeout(boot, 200);
+  }
+})(function () {
   "use strict";
 
   var host = document.querySelector("[data-aqua-core]");
   if (!host) return;
 
   /* Off switch: a host hidden with display:none (aqua-techflux.css does this
-     for the hero) never gets a WebGL context. This classic script runs after
-     the <head> stylesheets apply, so the computed value is already final.
-     Remove that CSS rule to bring the core back. */
+     for the hero) never gets a WebGL context. By idle time the stylesheets
+     have long applied, so the computed value is final. Remove that CSS rule
+     to bring the core back. */
   if (window.getComputedStyle(host).display === "none") {
     host.setAttribute("data-aqua-core-state", "disabled");
     return;
@@ -739,4 +748,4 @@
   } else {
     start();
   }
-})();
+});
