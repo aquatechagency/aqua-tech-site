@@ -1485,14 +1485,17 @@
     const btn = document.getElementById("langToggle");
     if (!btn) return;
 
+    /* The accessible name starts with the visible label (WCAG 2.5.3), and
+       lang matches the language the button switches to. */
     btn.textContent = lang === "en" ? "AR" : "EN";
+    btn.setAttribute("lang", lang === "en" ? "ar" : "en");
     btn.setAttribute(
       "aria-label",
-      lang === "en" ? "Switch to Arabic" : "Switch to English",
+      lang === "en" ? "AR – التبديل للعربية" : "EN – Switch to English",
     );
     btn.setAttribute(
       "title",
-      lang === "en" ? "Switch to Arabic" : "Switch to English",
+      lang === "en" ? "التبديل للعربية" : "Switch to English",
     );
   }
 
