@@ -31,23 +31,47 @@
 
   root.classList.add("aqua-hero-motion");
 
-  const flowPaths = Array.from(
-    hero.querySelectorAll(".aqua-hero-flow-path"),
-  );
+  /* The draw-in needs each path's length, and getTotalLength() forces a full
+     style + layout pass. Read here, during parse, it pulled the page's first
+     layout into this script (~500ms on a throttled phone). Phones hide the
+     flow map (aqua-techflux.css, max-width: 767px), so nothing is measured
+     there. Elsewhere each path is hidden with a zero-length dash now (a
+     write, no read) and measured in the first frame, whose layout happens
+     anyway; the dash values are the same as before. */
+  const flowMapHidden = window.matchMedia("(max-width: 767px)").matches;
+  const flowPaths = flowMapHidden
+    ? []
+    : Array.from(hero.querySelectorAll(".aqua-hero-flow-path")).filter(
+        (path) => typeof path.getTotalLength === "function",
+      );
 
   flowPaths.forEach((path) => {
-    if (typeof path.getTotalLength !== "function") return;
-
-    const length = path.getTotalLength();
-    path.style.strokeDasharray = `${length}`;
-    path.style.strokeDashoffset = `${length}`;
+    path.style.strokeDasharray = "0 100000";
   });
+
+  let flowPathsMeasured = false;
+
+  const measureFlowPaths = () => {
+    if (flowPathsMeasured) return;
+    flowPathsMeasured = true;
+
+    const lengths = flowPaths.map((path) => path.getTotalLength());
+
+    flowPaths.forEach((path, index) => {
+      path.style.strokeDasharray = `${lengths[index]}`;
+      path.style.strokeDashoffset = `${lengths[index]}`;
+    });
+  };
 
   let heroEntered = false;
 
   const enterHero = () => {
     if (heroEntered) return;
     heroEntered = true;
+
+    /* Normally done in the first frame; the setTimeout fallback below can
+       get here first in a background tab. */
+    measureFlowPaths();
 
     root.classList.add("is-hero-entered");
 
@@ -110,6 +134,7 @@
   };
 
   window.requestAnimationFrame(() => {
+    measureFlowPaths();
     window.requestAnimationFrame(enterHero);
   });
 

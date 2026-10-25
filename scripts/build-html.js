@@ -3,7 +3,8 @@ const path = require("path");
 
 const templatePath = "src/template.html";
 const partialsDir = "src/partials";
-const outputPath = "index.html";
+// BUILD_OUT_DIR lets check-build.js build into a scratch folder.
+const outputPath = path.join(process.env.BUILD_OUT_DIR || ".", "index.html");
 
 function renderPartials(input) {
   let html = input;

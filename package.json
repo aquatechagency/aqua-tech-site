@@ -1,11 +1,17 @@
 {
   "scripts": {
-    "build": "node ./scripts/build-html.js && tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "build": "node ./scripts/build-html.js && tailwindcss -i ./src/input.css -o ./dist/output.css --minify && node ./scripts/build-assets.js",
     "dev": "node ./scripts/build-html.js && tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
-    "html": "node ./scripts/build-html.js"
+    "html": "node ./scripts/build-html.js",
+    "build:critical": "npm run build && node ./scripts/build-critical.js && npm run build",
+    "check:build": "node ./scripts/check-build.js",
+    "prepare": "node ./scripts/install-hooks.js"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.11",
+    "esbuild": "^0.25.10",
+    "postcss": "^8.5.6",
+    "puppeteer-core": "^24.22.3",
     "tailwindcss": "^3.4.17"
   }
 }

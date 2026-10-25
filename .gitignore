@@ -5,3 +5,4 @@ node_modules/
 .claude/
 .impeccable/
 tools/
+.cache/
