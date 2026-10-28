@@ -21,13 +21,6 @@
     return Math.ceil(barHeight + 16);
   };
 
-  const updateHeaderOffset = () => {
-    document.documentElement.style.setProperty(
-      "--aqua-header-offset",
-      `${getHeaderOffset()}px`,
-    );
-  };
-
   const setActiveSection = (id) => {
     navLinks.forEach((link) => {
       const isActive = link.getAttribute("href") === `#${id}`;
@@ -41,32 +34,60 @@
     });
   };
 
-  let scrollFrame = 0;
+  /* Offsets are measured by the shared scroll scheduler (js/aqua-scroll.js)
+     when the page size changes, not on every scroll frame. */
+  let headerOffset = 80 + 16;
+  let sectionTops = [];
+  /* --aqua-header-offset (scroll-padding) is written on first load and on
+     resize, as before; the live offset below also follows the bar shrinking
+     once the page is scrolled, which the active-section marker depends on. */
+  let writeOffsetVar = true;
+  let activeId = null;
+  let scrolled = null;
 
-  const updateNavigationState = () => {
-    scrollFrame = 0;
-    const marker = window.scrollY + getHeaderOffset() + window.innerHeight * 0.2;
-    let activeId = "";
-
-    sections.forEach((section) => {
-      if (section.offsetTop <= marker) activeId = section.id;
-    });
-
-    const documentBottom =
-      window.scrollY + window.innerHeight >=
-      document.documentElement.scrollHeight - 4;
-
-    if (documentBottom && sections.length) {
-      activeId = sections[sections.length - 1].id;
-    }
-
-    setActiveSection(activeId);
-    header?.classList.toggle("is-aqua-header-scrolled", window.scrollY > 12);
+  const measureNavigation = () => {
+    headerOffset = getHeaderOffset();
+    sectionTops = sections.map((section) => section.offsetTop);
   };
 
-  const requestNavigationUpdate = () => {
-    if (scrollFrame) return;
-    scrollFrame = window.requestAnimationFrame(updateNavigationState);
+  const updateNavigationState = (metrics) => {
+    if (writeOffsetVar) {
+      writeOffsetVar = false;
+      document.documentElement.style.setProperty(
+        "--aqua-header-offset",
+        `${headerOffset}px`,
+      );
+    }
+
+    const marker = metrics.y + headerOffset + metrics.vh * 0.2;
+    let nextId = "";
+
+    sections.forEach((section, index) => {
+      if (sectionTops[index] <= marker) nextId = section.id;
+    });
+
+    const documentBottom = metrics.y + metrics.vh >= metrics.docH - 4;
+
+    if (documentBottom && sections.length) {
+      nextId = sections[sections.length - 1].id;
+    }
+
+    if (nextId !== activeId) {
+      activeId = nextId;
+      setActiveSection(nextId);
+    }
+
+    const nextScrolled = metrics.y > 12;
+
+    if (nextScrolled !== scrolled) {
+      scrolled = nextScrolled;
+      header?.classList.toggle("is-aqua-header-scrolled", nextScrolled);
+
+      /* The bar changes size with this class (and while it transitions), so
+         the cached header offset is measured again once it has settled. */
+      window.AquaScroll.requestMeasure();
+      window.setTimeout(window.AquaScroll.requestMeasure, 450);
+    }
   };
 
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -96,18 +117,16 @@
     });
   });
 
-  updateHeaderOffset();
-  updateNavigationState();
-
-  window.addEventListener("scroll", requestNavigationUpdate, {
-    passive: true,
-  });
   window.addEventListener(
     "resize",
     () => {
-      updateHeaderOffset();
-      requestNavigationUpdate();
+      writeOffsetVar = true;
     },
     { passive: true },
   );
+
+  window.AquaScroll.add({
+    measure: measureNavigation,
+    update: updateNavigationState,
+  });
 })();

@@ -106,35 +106,44 @@
 
   /* The scroll ratio drives the atmosphere parallax and the navigation
      hairline on every tier, so it is tracked even when the progress bar
-     itself is not drawn. */
+     itself is not drawn. It is written on the few elements that read it
+     rather than on <html>, where every change restyled the whole document. */
   {
+    let progressBar = null;
+
     if (!liteMode) {
-      const progress = document.createElement("div");
-      progress.className = "aqua-motion-progress";
-      progress.setAttribute("aria-hidden", "true");
-      document.body.appendChild(progress);
+      progressBar = document.createElement("div");
+      progressBar.className = "aqua-motion-progress";
+      progressBar.setAttribute("aria-hidden", "true");
+      document.body.appendChild(progressBar);
     }
 
-    let frameId = 0;
+    let targets = [];
+    let lastValue = "";
 
-    const updateProgress = () => {
-      frameId = 0;
-      const maxScroll = Math.max(
-        document.documentElement.scrollHeight - window.innerHeight,
-        1,
-      );
-      const value = Math.min(Math.max(window.scrollY / maxScroll, 0), 1);
-      root.style.setProperty("--aqua-scroll-progress", value.toFixed(4));
+    const findTargets = () => {
+      targets = [
+        progressBar,
+        document.querySelector(".aqua-atmosphere"),
+        document.querySelector(".aqua-nav-progress"),
+      ].filter(Boolean);
+      lastValue = "";
     };
 
-    const requestProgressUpdate = () => {
-      if (frameId) return;
-      frameId = window.requestAnimationFrame(updateProgress);
-    };
+    window.AquaScroll.add({
+      measure: findTargets,
+      update: (metrics) => {
+        const maxScroll = Math.max(metrics.docH - metrics.vh, 1);
+        const value = Math.min(Math.max(metrics.y / maxScroll, 0), 1).toFixed(4);
 
-    updateProgress();
-    window.addEventListener("scroll", requestProgressUpdate, { passive: true });
-    window.addEventListener("resize", requestProgressUpdate, { passive: true });
+        if (value === lastValue) return;
+        lastValue = value;
+
+        targets.forEach((target) => {
+          target.style.setProperty("--aqua-scroll-progress", value);
+        });
+      },
+    });
   }
 
   if (!liteMode && finePointer) {

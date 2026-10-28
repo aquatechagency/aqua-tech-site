@@ -383,33 +383,54 @@
       pipeline.querySelectorAll(":scope > li")
     );
 
-    var pipelineFrame = 0;
+    var pipelineTop = 0;
+    var pipelineHeight = 0;
+    var pipelineNearViewport = false;
+    var pipelineSettle = true;
+    var lastLiveCount = -1;
 
-    var updatePipeline = function () {
-      pipelineFrame = 0;
+    /* Offsets are measured by the shared scroll scheduler when the page size
+       changes; per frame only arithmetic and writes run, and only while the
+       list is near the viewport (plus one last pass after it leaves, so the
+       progress settles at 0 or 1 instead of freezing mid-way). */
+    var measurePipeline = function () {
+      /* Layout offsets, not getBoundingClientRect: the entrance reveal
+         transforms the list while it is first measured, and the rect would
+         bake that transient shift into the cached position. */
+      var top = 0;
+      for (var node = pipeline; node; node = node.offsetParent) {
+        top += node.offsetTop;
+      }
 
-      var rect = pipeline.getBoundingClientRect();
-      var viewport = window.innerHeight || 1;
+      pipelineTop = top;
+      pipelineHeight = pipeline.offsetHeight;
+      pipelineSettle = true;
+    };
+
+    var updatePipeline = function (metrics) {
+      if (!pipelineNearViewport && !pipelineSettle) return;
+      pipelineSettle = false;
+
+      var top = pipelineTop - metrics.y;
+      var viewport = metrics.vh;
 
       /* Progress runs from the moment the list enters the lower third of the
          viewport to the moment its end passes the upper third. */
       var start = viewport * 0.82;
       var end = viewport * 0.26;
-      var travelled = start - rect.top;
-      var span = Math.max(rect.height + (start - end), 1);
+      var travelled = start - top;
+      var span = Math.max(pipelineHeight + (start - end), 1);
       var progress = Math.min(Math.max(travelled / span, 0), 1);
 
       pipeline.style.setProperty("--aqua-pipeline", progress.toFixed(4));
 
       var liveCount = Math.round(progress * pipelineSteps.length);
+      if (liveCount === lastLiveCount) return;
+      lastLiveCount = liveCount;
+
       pipelineSteps.forEach(function (step, index) {
         step.classList.toggle("is-aqua-node-live", index < liveCount);
       });
-    };
-
-    var requestPipelineUpdate = function () {
-      if (pipelineFrame) return;
-      pipelineFrame = window.requestAnimationFrame(updatePipeline);
     };
 
     if (reduceMotion) {
@@ -426,19 +447,21 @@
                 "is-aqua-pipeline-live",
                 entry.isIntersecting
               );
+
+              pipelineNearViewport = entry.isIntersecting;
+              pipelineSettle = true;
             });
+
+            window.AquaScroll.request();
           },
           { threshold: 0 }
         ).observe(pipeline);
       } else {
         pipeline.classList.add("is-aqua-pipeline-live");
+        pipelineNearViewport = true;
       }
 
-      /* First measurement on the next frame: called inline it forced a
-         ~100ms layout while the page was still parsing. */
-      requestPipelineUpdate();
-      window.addEventListener("scroll", requestPipelineUpdate, { passive: true });
-      window.addEventListener("resize", requestPipelineUpdate, { passive: true });
+      window.AquaScroll.add({ measure: measurePipeline, update: updatePipeline });
     }
   }
 
