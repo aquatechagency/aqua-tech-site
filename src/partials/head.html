@@ -4,6 +4,16 @@
     name="viewport"
     content="width=device-width, initial-scale=1, viewport-fit=cover"
   />
+  <script>
+    /* Saved English: set lang and dir before first paint so the page is not
+       laid out right-to-left first. site-i18n.js translates the text. */
+    try {
+      if (localStorage.getItem("aqua_lang") === "en") {
+        document.documentElement.lang = "en";
+        document.documentElement.dir = "ltr";
+      }
+    } catch (e) {}
+  </script>
   <title>Aqua.Tech | حلول رقمية ونمو فعلي</title>
   <meta
     name="description"

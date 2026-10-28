@@ -1575,7 +1575,13 @@
 
   window.applyAquaLanguage = applyAquaLanguage;
 
-  if (document.readyState === "loading") {
+  /* Loaded as a plain script at the end of <body>, everything it translates is
+     already parsed, so it runs now instead of waiting for DOMContentLoaded
+     (which comes after every later script has run). */
+  const script = document.currentScript;
+  const parsedAhead = Boolean(script && !script.defer && !script.async);
+
+  if (document.readyState === "loading" && !parsedAhead) {
     document.addEventListener("DOMContentLoaded", initLanguageToggle);
   } else {
     initLanguageToggle();

@@ -26,6 +26,17 @@
     />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
 
+    <script>
+      /* Saved English: set lang and dir before first paint so the page is not
+         laid out right-to-left first. site-i18n.js translates the text. */
+      try {
+        if (localStorage.getItem("aqua_lang") === "en") {
+          document.documentElement.lang = "en";
+          document.documentElement.dir = "ltr";
+        }
+      } catch (e) {}
+    </script>
+
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://aquatechagency.com/" />
     <meta property="og:site_name" content="Aqua.Tech" />
@@ -2742,12 +2753,12 @@ label.textContent = option.textContent.trim();
       })();
     </script>
 
+    <script src="./dist/js/site-i18n.min.js?v=059f3fb091"></script>
     <script src="./dist/js/aqua-hero-motion.min.js?v=d74ed8f1eb"></script>
     <script src="./dist/js/aqua-navigation.min.js?v=1b2df01a3a"></script>
     <script src="./dist/js/aqua-motion-system.min.js?v=cd60c47862"></script>
     <script src="./dist/js/aqua-core.min.js?v=69f6a25e5f"></script>
     <script src="./dist/js/aqua-depth.min.js?v=8f34d32967"></script>
-    <script defer src="./dist/js/site-i18n.min.js?v=a0acc7242a"></script>
     <script defer src="./dist/js/form.min.js?v=442fb3d73c"></script>
     <script src="./dist/js/aquatech-contact-client.min.js?v=2fcf893ad0" defer></script>
 
