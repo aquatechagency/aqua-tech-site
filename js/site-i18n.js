@@ -1393,16 +1393,30 @@
     return Boolean(parent.closest("script, style, noscript, svg, code, pre"));
   }
 
+  /* Longest phrase first, so a long phrase is replaced before any shorter
+     phrase it contains. Sorted once per map, not once per text node. */
+  const sortedEntries = new WeakMap();
+
+  function getSortedEntries(map) {
+    let entries = sortedEntries.get(map);
+    if (!entries) {
+      entries = Object.entries(map)
+        .filter(([from]) => from)
+        .sort((a, b) => b[0].length - a[0].length);
+      sortedEntries.set(map, entries);
+    }
+    return entries;
+  }
+
   function replaceInlineKnownPhrases(text, map) {
     let output = text;
+    const entries = getSortedEntries(map);
 
-    Object.entries(map)
-      .sort((a, b) => b[0].length - a[0].length)
-      .forEach(([from, to]) => {
-        if (from && output.includes(from)) {
-          output = output.split(from).join(to);
-        }
-      });
+    for (let i = 0; i < entries.length; i++) {
+      if (output.includes(entries[i][0])) {
+        output = output.split(entries[i][0]).join(entries[i][1]);
+      }
+    }
 
     return output;
   }
@@ -1426,13 +1440,43 @@
     }
   }
 
+  /* A text node can only change if it contains one of the map's phrases. Nearly
+     every node holds only the target language already (Arabic text under the
+     Arabic map), so one regex test rules it out before the per-phrase loop.
+     The pattern is the script the phrases are written in, plus any phrase
+     that has none of it, so a node it rejects can never contain a phrase. */
+  const nodeFilters = new WeakMap();
+
+  function getNodeFilter(map) {
+    let cached = nodeFilters.get(map);
+    if (!cached) {
+      const keys = Object.keys(map).filter(Boolean);
+      const arabic = /[؀-ۿ]/;
+      const script =
+        keys.filter((key) => arabic.test(key)).length > keys.length / 2
+          ? arabic
+          : /[A-Za-z]/;
+      const loose = keys
+        .filter((key) => !script.test(key))
+        .map((key) => key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+      cached = new RegExp(
+        script.source + (loose.length ? "|" + loose.join("|") : ""),
+      );
+      nodeFilters.set(map, cached);
+    }
+    return cached;
+  }
+
   function translateTextNodes(lang) {
     const map = getMap(lang);
+    const mayChange = getNodeFilter(map);
     const walker = document.createTreeWalker(
       document.body,
       NodeFilter.SHOW_TEXT,
       {
         acceptNode(node) {
+          if (!mayChange.test(node.nodeValue)) return NodeFilter.FILTER_REJECT;
+
           return shouldSkipTextNode(node)
             ? NodeFilter.FILTER_REJECT
             : NodeFilter.FILTER_ACCEPT;
