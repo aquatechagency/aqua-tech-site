@@ -1,0 +1,70 @@
+/*
+ * Aqua.Tech - rendering cost
+ * Sections below the first screen are skipped by layout, style and paint until
+ * they are near the viewport (content-visibility: auto), so the first layout,
+ * a web-font swap and class changes only touch what is on screen.
+ *
+ * contain-intrinsic-size stands in for a skipped section's content height
+ * (its padding is added on top). The values are the content heights measured
+ * per breakpoint in Arabic, the default; English runs within ~10% of them.
+ * "auto" replaces the estimate with the real height once a section has been
+ * rendered, so the page does not jump when it is scrolled into view again.
+ *
+ * #flow stays out: it sits right under the hero and holds the scroll-driven
+ * pipeline that is measured at load.
+ */
+main > section:is(#trust, #services, #solutions, #faq, #contact) {
+  content-visibility: auto;
+}
+
+main > #trust {
+  contain-intrinsic-size: auto 1290px;
+}
+main > #services {
+  contain-intrinsic-size: auto 1860px;
+}
+main > #solutions {
+  contain-intrinsic-size: auto 2460px;
+}
+main > #faq {
+  contain-intrinsic-size: auto 1660px;
+}
+main > #contact {
+  contain-intrinsic-size: auto 2900px;
+}
+
+@media (min-width: 768px) {
+  main > #trust {
+    contain-intrinsic-size: auto 800px;
+  }
+  main > #services {
+    contain-intrinsic-size: auto 1260px;
+  }
+  main > #solutions {
+    contain-intrinsic-size: auto 1700px;
+  }
+  main > #faq {
+    contain-intrinsic-size: auto 900px;
+  }
+  main > #contact {
+    contain-intrinsic-size: auto 2200px;
+  }
+}
+
+@media (min-width: 1024px) {
+  main > #trust {
+    contain-intrinsic-size: auto 600px;
+  }
+  main > #services {
+    contain-intrinsic-size: auto 1100px;
+  }
+  main > #solutions {
+    contain-intrinsic-size: auto 1300px;
+  }
+  main > #faq {
+    contain-intrinsic-size: auto 880px;
+  }
+  main > #contact {
+    contain-intrinsic-size: auto 1380px;
+  }
+}

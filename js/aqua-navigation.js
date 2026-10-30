@@ -90,6 +90,34 @@
     }
   };
 
+  /* Sections below the first screen are skipped by layout until they are near
+     the viewport (css/aqua-perf.css), so a target far down is first computed
+     from estimated heights. Once the scroll ends the sections along the way
+     have been laid out; land exactly on the target then. */
+  const settleOnTarget = (target) => {
+    let settled = false;
+
+    const settle = () => {
+      if (settled) return;
+      settled = true;
+      window.removeEventListener("scrollend", settle);
+
+      const delta = target.getBoundingClientRect().top - getHeaderOffset();
+      if (Math.abs(delta) > 2) window.scrollBy({ top: delta, behavior: "auto" });
+    };
+
+    if ("onscrollend" in window) {
+      window.addEventListener("scrollend", settle);
+      /* No scroll happened (already there): drop the listener. */
+      window.setTimeout(() => {
+        settled = true;
+        window.removeEventListener("scrollend", settle);
+      }, 2500);
+    } else {
+      window.setTimeout(settle, 1200);
+    }
+  };
+
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", (event) => {
       const href = anchor.getAttribute("href");
@@ -114,6 +142,8 @@
         top: targetTop,
         behavior: reducedMotion ? "auto" : "smooth",
       });
+
+      if (href !== "#top") settleOnTarget(target);
     });
   });
 
