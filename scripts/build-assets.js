@@ -207,6 +207,20 @@ html = html.replace(
   },
 );
 
+/* HP20: the English dictionary is not a <script> tag; js/site-i18n.js and the
+   <head> loader read its address from <meta name="aqua-i18n-dict">. Minify it
+   to dist/js with a content hash like every other script. */
+html = html.replace(
+  /(<meta\s+name="aqua-i18n-dict"\s+content=")(\.\/js\/[^"]+)(")/,
+  (_tag, before, src, after) => {
+    const file = localPath(src);
+    const code = esbuild.transformSync(readText(file), JS_OPTIONS).code;
+    const outName = path.basename(file, ".js") + ".min.js";
+    fs.writeFileSync(path.join(OUT, jsOutDir, outName), code);
+    return `${before}./${jsOutDir}/${outName}?v=${hash(code)}${after}`;
+  },
+);
+
 fs.writeFileSync(htmlPath, html);
 
 const kb = (n) => `${(n / 1024).toFixed(1)}KB`;

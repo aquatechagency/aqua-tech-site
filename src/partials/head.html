@@ -4,6 +4,8 @@
     name="viewport"
     content="width=device-width, initial-scale=1, viewport-fit=cover"
   />
+  <meta name="aqua-i18n-dict" content="./js/site-i18n-dict.js" />
+
   <script>
     /* Saved English: set lang and dir before first paint so the page is not
        laid out right-to-left first. site-i18n.js translates the text. */
@@ -11,13 +13,19 @@
       if (localStorage.getItem("aqua_lang") === "en") {
         document.documentElement.lang = "en";
         document.documentElement.dir = "ltr";
+        /* HP20: start the English dictionary now so it is ready when site-i18n.js runs. */
+        var d = document.createElement("script");
+        d.id = "aqua-i18n-dict";
+        d.async = true;
+        d.src = document.querySelector('meta[name="aqua-i18n-dict"]').content;
+        document.head.appendChild(d);
       }
     } catch (e) {}
   </script>
   <title>Aqua.Tech | حلول رقمية ونمو فعلي</title>
   <meta
     name="description"
-    content="Aqua.Tech تبني مواقع احترافية وأنظمة مخصصة وأتمتة بالذكاء الاصطناعي وحلول نمو رقمية للشركات ورواد الأعمال."
+    content="Aqua.Tech تبني صفحات تسويقية ومواقع وأنظمة وأتمتة تساعد الشركات ورواد الأعمال على النمو."
   />
   <meta
     name="keywords"
