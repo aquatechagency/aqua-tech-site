@@ -509,7 +509,7 @@
       "form.timeline.oneMonth": "خلال شهر",
       "form.timeline.exploring": "ما زلت أستكشف",
       "form.service.placeholder": "اختر الخدمة",
-      "contact.kicker": "Start Project",
+      "contact.kicker": "ابدأ مشروعك",
       "contact.titleLead": "ابدأ رحلتك",
       "contact.titleAccent": "الرقمية الآن",
       "contact.subtitle":
@@ -783,7 +783,7 @@
       "form.service.group.core": "Core Services",
       "form.service.group.growth": "Growth Services ",
       "form.service.group.care": "Care Services ",
-      "form.service.group.ready": "Ready Solutions ",
+      "form.service.group.ready": "حلول جاهزة",
 
       "form.service.landing": "صفحة تسويقية",
       "form.service.companyWebsite": "موقع شركة أو متجر",
