@@ -1184,28 +1184,39 @@
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
+      /* HP20: gtag.js is injected once, and with a stored consent only after the
+         load event plus an idle moment, so it never competes with first paint or
+         the page's own scripts. A fresh Accept loads it at once. */
+      var aquaGtagLoaded = false;
+      function aquaLoadGtag() {
+        if (aquaGtagLoaded) return;
+        aquaGtagLoaded = true;
+        var s = document.createElement("script");
+        s.async = true;
+        s.src = "https://www.googletagmanager.com/gtag/js?id=G-N7T2EVFD6J";
+        document.head.appendChild(s);
+        gtag("config", "G-N7T2EVFD6J", { anonymize_ip: true });
+      }
       (function () {
         try {
-          if (
-            localStorage.getItem("aqua_analytics_consent") === "true" ||
-            localStorage.getItem("aqua_analytics_consent") === "accepted"
-          ) {
-            var s = document.createElement("script");
-            s.async = true;
-            s.src = "https://www.googletagmanager.com/gtag/js?id=G-N7T2EVFD6J";
-            document.head.appendChild(s);
-            gtag("config", "G-N7T2EVFD6J", { anonymize_ip: true });
+          var stored = localStorage.getItem("aqua_analytics_consent");
+          if (stored === "true" || stored === "accepted") {
+            var whenIdle = function () {
+              if ("requestIdleCallback" in window) {
+                window.requestIdleCallback(aquaLoadGtag, { timeout: 4000 });
+              } else {
+                window.setTimeout(aquaLoadGtag, 2000);
+              }
+            };
+            if (document.readyState === "complete") whenIdle();
+            else window.addEventListener("load", whenIdle, { once: true });
           }
         } catch (e) {}
       })();
       window.__aquaEnableAnalytics = function () {
         try {
           localStorage.setItem("aqua_analytics_consent", "accepted");
-          var s = document.createElement("script");
-          s.async = true;
-          s.src = "https://www.googletagmanager.com/gtag/js?id=G-N7T2EVFD6J";
-          document.head.appendChild(s);
-          gtag("config", "G-N7T2EVFD6J", { anonymize_ip: true });
+          aquaLoadGtag();
         } catch (e) {}
       };
       window.__aquaDeclineAnalytics = function () {
