@@ -9,7 +9,7 @@
     <title>Aqua.Tech | Growth • Software • AI</title>
     <meta
       name="description"
-      content="Aqua.Tech تبني مواقع احترافية وأنظمة مخصصة وأتمتة بالذكاء الاصطناعي وحلول نمو رقمية للشركات ورواد الأعمال."
+      content="Aqua.Tech تبني صفحات تسويقية ومواقع وأنظمة وأتمتة تساعد الشركات ورواد الأعمال على النمو."
     />
     <meta
       name="keywords"
@@ -25,6 +25,25 @@
       content="default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://script.google.com https://script.googleusercontent.com https://cdn.jsdelivr.net; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://www.google-analytics.com https:; base-uri 'self'; form-action 'self' https://script.google.com; upgrade-insecure-requests"
     />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <meta name="aqua-i18n-dict" content="./js/site-i18n-dict.js" />
+
+    <script>
+      /* Saved English: set lang and dir before first paint so the page is not
+         laid out right-to-left first. site-i18n.js translates the text. */
+      try {
+        if (localStorage.getItem("aqua_lang") === "en") {
+          document.documentElement.lang = "en";
+          document.documentElement.dir = "ltr";
+          /* HP20: start the English dictionary now so it is ready when site-i18n.js runs. */
+          var d = document.createElement("script");
+          d.id = "aqua-i18n-dict";
+          d.async = true;
+          d.src = document.querySelector('meta[name="aqua-i18n-dict"]').content;
+          document.head.appendChild(d);
+        }
+      } catch (e) {}
+    </script>
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://aquatechagency.com/" />
@@ -1165,28 +1184,39 @@
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
+      /* HP20: gtag.js is injected once, and with a stored consent only after the
+         load event plus an idle moment, so it never competes with first paint or
+         the page's own scripts. A fresh Accept loads it at once. */
+      var aquaGtagLoaded = false;
+      function aquaLoadGtag() {
+        if (aquaGtagLoaded) return;
+        aquaGtagLoaded = true;
+        var s = document.createElement("script");
+        s.async = true;
+        s.src = "https://www.googletagmanager.com/gtag/js?id=G-N7T2EVFD6J";
+        document.head.appendChild(s);
+        gtag("config", "G-N7T2EVFD6J", { anonymize_ip: true });
+      }
       (function () {
         try {
-          if (
-            localStorage.getItem("aqua_analytics_consent") === "true" ||
-            localStorage.getItem("aqua_analytics_consent") === "accepted"
-          ) {
-            var s = document.createElement("script");
-            s.async = true;
-            s.src = "https://www.googletagmanager.com/gtag/js?id=G-N7T2EVFD6J";
-            document.head.appendChild(s);
-            gtag("config", "G-N7T2EVFD6J", { anonymize_ip: true });
+          var stored = localStorage.getItem("aqua_analytics_consent");
+          if (stored === "true" || stored === "accepted") {
+            var whenIdle = function () {
+              if ("requestIdleCallback" in window) {
+                window.requestIdleCallback(aquaLoadGtag, { timeout: 4000 });
+              } else {
+                window.setTimeout(aquaLoadGtag, 2000);
+              }
+            };
+            if (document.readyState === "complete") whenIdle();
+            else window.addEventListener("load", whenIdle, { once: true });
           }
         } catch (e) {}
       })();
       window.__aquaEnableAnalytics = function () {
         try {
           localStorage.setItem("aqua_analytics_consent", "accepted");
-          var s = document.createElement("script");
-          s.async = true;
-          s.src = "https://www.googletagmanager.com/gtag/js?id=G-N7T2EVFD6J";
-          document.head.appendChild(s);
-          gtag("config", "G-N7T2EVFD6J", { anonymize_ip: true });
+          aquaLoadGtag();
         } catch (e) {}
       };
       window.__aquaDeclineAnalytics = function () {
@@ -2111,6 +2141,7 @@
     <link rel="stylesheet" href="./css/aqua-depth.css?v=hp15" />
     <link rel="stylesheet" href="./css/aqua-refine.css?v=hp16" />
     <link rel="stylesheet" href="./css/aqua-techflux.css?v=hp17" />
+    <link rel="stylesheet" href="./css/aqua-perf.css?v=hp19" />
   </head>
   <body class="dark bg-background text-on-background selection:bg-primary/30">
     <!-- AquaTech background animation layer -->
@@ -2242,7 +2273,7 @@
                   d="M16.04 3C8.86 3 3.02 8.77 3.02 15.87c0 2.27.6 4.48 1.74 6.43L3 29l6.88-1.78a13.1 13.1 0 0 0 6.16 1.55C23.22 28.77 29 23 29 15.87S23.22 3 16.04 3Zm0 23.55c-1.96 0-3.88-.52-5.56-1.5l-.4-.23-4.08 1.06 1.09-3.92-.26-.4a10.55 10.55 0 0 1-1.6-5.69c0-5.87 4.85-10.65 10.8-10.65 5.96 0 10.8 4.78 10.8 10.65 0 5.88-4.84 10.68-10.79 10.68Zm5.92-7.98c-.32-.16-1.9-.93-2.2-1.04-.3-.1-.52-.16-.73.16-.22.32-.84 1.04-1.03 1.25-.19.22-.38.24-.7.08-.32-.16-1.36-.5-2.6-1.6-.96-.85-1.6-1.9-1.8-2.22-.18-.32-.02-.5.14-.66.14-.14.32-.38.48-.57.16-.19.22-.32.32-.54.1-.22.05-.4-.03-.57-.08-.16-.73-1.75-1-2.4-.26-.62-.53-.54-.73-.55h-.62c-.22 0-.57.08-.87.4-.3.32-1.14 1.1-1.14 2.7s1.17 3.14 1.33 3.35c.16.22 2.3 3.5 5.58 4.9.78.34 1.39.54 1.86.69.78.25 1.5.21 2.06.13.63-.09 1.9-.78 2.17-1.52.27-.75.27-1.39.19-1.52-.08-.13-.3-.21-.62-.37Z"
                 /></svg
             ></span>
-            WhatsApp</a
+            واتساب</a
           >
 
           <a
@@ -2250,7 +2281,7 @@
             href="#contact"
             data-i18n="nav.start"
           >
-            Start Project</a
+            ابدأ مشروعك</a
           >
 
           <button
@@ -2335,7 +2366,7 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            WhatsApp</a
+            واتساب</a
           >
         </div>
       </div>
@@ -2432,8 +2463,7 @@
             </h1>
 
             <p class="aqua-hero-subtitle" data-i18n="hero.subtitle">
-              نبني مواقع وأنظمة وأتمتة ذكية تربط عملياتك وعملاءك ونموك ضمن
-              تدفق رقمي واحد واضح وقابل للتوسع.
+              نبني مواقع وأنظمة وأتمتة ذكية تربط عملياتك وعملاءك ونموك ضمن تدفق رقمي واحد واضح وقابل للتوسع.
             </p>
 
             <div class="aqua-hero-actions">
@@ -2447,7 +2477,7 @@
                 href="#trust"
                 class="aqua-hero-btn aqua-hero-btn-secondary tf-btn-ghost"
                 data-i18n="hero.ctaSecondary"
-                >استكشف كيف نعمل</a
+                >استعرض الحلول</a
               >
             </div>
 
@@ -2543,9 +2573,7 @@
       </h2>
 
       <p data-i18n="flow.description">
-        Aqua.Tech وكالة برمجية تبني مواقع وأنظمة وأتمتة تبدأ من مشكلة العمل
-        الفعلية، ثم تربط التجربة والبيانات والتنفيذ في مسار واحد قابل للمتابعة
-        والتحسين.
+        Aqua.Tech وكالة برمجية تبني مواقع وأنظمة وأتمتة تبدأ من مشكلة العمل الفعلية، ثم تربط التجربة والبيانات والتنفيذ في مسار واحد قابل للمتابعة والتحسين.
       </p>
     </header>
 
@@ -2713,8 +2741,7 @@
               class="mt-4 font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto leading-relaxed"
               data-i18n="trust.description"
             >
-              We focus on building clear, executable solutions that serve the
-              project goal instead of only creating a beautiful interface.
+              نركز على بناء حلول واضحة، قابلة للتنفيذ، وتخدم هدف المشروع بدل الاكتفاء بواجهة جميلة فقط.
             </p>
           </div>
 
@@ -2726,7 +2753,7 @@
                 <span class="material-symbols-outlined">route</span>
               </div>
 
-              <span class="section-kicker">First step</span>
+              <span class="section-kicker">الخطوة الأولى</span>
 
               <h3 class="font-headline-md text-headline-md mb-3">
                 خطة واضحة خلال 24 ساعة
@@ -2736,8 +2763,7 @@
                 class="text-on-surface-variant leading-relaxed"
                 data-i18n="trust.card1.desc"
               >
-                We quickly understand your goal, then define what should be
-                built first and what can be delayed.
+                نفهم هدفك بسرعة، ثم نحدد لك ما الذي يجب بناؤه أولًا، وما الذي يمكن تأجيله.
               </p>
             </article>
 
@@ -2748,7 +2774,7 @@
                 <span class="material-symbols-outlined">rocket_launch</span>
               </div>
 
-              <span class="section-kicker">Delivery</span>
+              <span class="section-kicker">التسليم</span>
 
               <h3 class="font-headline-md text-headline-md mb-3">
                 حل يتوسع لاحقًا
@@ -2758,8 +2784,7 @@
                 class="text-on-surface-variant leading-relaxed"
                 data-i18n="trust.card2.desc"
               >
-                We build a useful version now that remains ready for future
-                development without rebuilding from scratch.
+                نبني نسخة مفيدة الآن وتبقى جاهزة للتطوير لاحقًا بدون إعادة بناء من الصفر.
               </p>
             </article>
 
@@ -2768,7 +2793,7 @@
                 <span class="material-symbols-outlined">support_agent</span>
               </div>
 
-              <span class="section-kicker">Support</span>
+              <span class="section-kicker">الدعم</span>
 
               <h3 class="font-headline-md text-headline-md mb-3">
                 دعم بعد الإطلاق
@@ -2778,8 +2803,7 @@
                 class="text-on-surface-variant leading-relaxed"
                 data-i18n="trust.card3.desc"
               >
-                We help with improvements, adjustments, and feedback handling so
-                the solution stays effective.
+                نساعدك في التحسينات، التعديلات، ومعالجة الملاحظات حتى يبقى الحل فعالًا.
               </p>
             </article>
 
@@ -2790,20 +2814,19 @@
                 <span class="material-symbols-outlined">forum</span>
               </div>
 
-              <span class="section-kicker">Clarity</span>
+              <span class="section-kicker">الوضوح</span>
 
               <h3
                 class="font-headline-md text-headline-md mb-3"
                 data-i18n="trust.card4.title"
               >
-                Clearer communication
+                تواصل أوضح
               </h3>
               <p
                 class="text-on-surface-variant leading-relaxed"
                 data-i18n="trust.card4.desc"
               >
-                Clear updates during execution, organized outputs, and
-                structured delivery based on the agreement.
+                تحديثات واضحة أثناء التنفيذ، ومخرجات مرتبة، وتسليم منظم حسب الاتفاق.
               </p>
             </article>
           </div>
@@ -2987,7 +3010,7 @@
                 <span
                   class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm"
                   data-i18n="services.care.tag2"
-                  >Support</span
+                  >الدعم</span
                 >
                 <span
                   class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm"
@@ -3107,8 +3130,7 @@
               class="mt-4 text-on-surface-variant max-w-2xl mx-auto"
               data-i18n="solutions.subtitle"
             >
-              Ready systems and platforms that can be customized based on your
-              business type and current project stage.
+              أنظمة ومنصات جاهزة يمكن تخصيصها بحسب نوع النشاط والمرحلة الحالية لمشروعك.
             </p>
           </div>
 
@@ -3138,21 +3160,20 @@
                   class="font-body-md text-on-surface-variant mb-4 text-sm"
                   data-i18n="solutions.law.desc"
                 >
-                  A system for managing cases, clients, appointments, and legal
-                  files in a clearer way.
+                  نظام لإدارة القضايا والعملاء والمواعيد والملفات القانونية بشكل أوضح.
                 </p>
 
                 <ul class="space-y-2 mb-6">
                   <li class="text-xs text-outline flex items-center gap-2">
                     <span class="w-1 h-1 bg-primary rounded-full"></span>
                     <span data-i18n="solutions.law.point1"
-                      >File management</span
+                      >إدارة الملفات</span
                     >
                   </li>
                   <li class="text-xs text-outline flex items-center gap-2">
                     <span class="w-1 h-1 bg-primary rounded-full"></span>
                     <span data-i18n="solutions.law.point2"
-                      >Appointment tracking</span
+                      >متابعة المواعيد</span
                     >
                   </li>
                 </ul>
@@ -3163,7 +3184,7 @@
                   class="js-service-cta mt-auto block w-full border border-primary/30 text-primary py-2 rounded-lg text-sm text-center hover:bg-primary hover:text-on-primary transition-all no-underline"
                   data-i18n="solutions.cta"
                 >
-                  Request the system</a
+                  اطلب النظام</a
                 >
               </div>
             </article>
@@ -3191,21 +3212,20 @@
                   class="font-body-md text-on-surface-variant mb-4 text-sm"
                   data-i18n="solutions.resume.desc"
                 >
-                  A tool that helps users create resumes more clearly, faster,
-                  and with an easier experience.
+                  أداة تساعد المستخدم على إنشاء سيرة ذاتية بشكل أوضح وأسرع وتجربة أسهل.
                 </p>
 
                 <ul class="space-y-2 mb-6">
                   <li class="text-xs text-outline flex items-center gap-2">
                     <span class="w-1 h-1 bg-primary rounded-full"></span>
                     <span data-i18n="solutions.resume.point1"
-                      >Smart resume builder</span
+                      >بناء ذكي للسيرة</span
                     >
                   </li>
                   <li class="text-xs text-outline flex items-center gap-2">
                     <span class="w-1 h-1 bg-primary rounded-full"></span>
                     <span data-i18n="solutions.resume.point2"
-                      >Professional templates</span
+                      >قوالب احترافية</span
                     >
                   </li>
                 </ul>
@@ -3216,7 +3236,7 @@
                   class="js-service-cta mt-auto block w-full border border-primary/30 text-primary py-2 rounded-lg text-sm text-center hover:bg-primary hover:text-on-primary transition-all no-underline"
                   data-i18n="solutions.cta"
                 >
-                  Request the system</a
+                  اطلب النظام</a
                 >
               </div>
             </article>
@@ -3244,21 +3264,20 @@
                   class="font-body-md text-on-surface-variant mb-4 text-sm"
                   data-i18n="solutions.attendance.desc"
                 >
-                  A smart attendance system based on face recognition to
-                  register attendance automatically.
+                  نظام حضور ذكي يعتمد على التعرف على الوجوه لتسجيل الحضور تلقائيًا.
                 </p>
 
                 <ul class="space-y-2 mb-6">
                   <li class="text-xs text-outline flex items-center gap-2">
                     <span class="w-1 h-1 bg-primary rounded-full"></span>
                     <span data-i18n="solutions.attendance.point1"
-                      >Face recognition</span
+                      >التعرف على الوجوه</span
                     >
                   </li>
                   <li class="text-xs text-outline flex items-center gap-2">
                     <span class="w-1 h-1 bg-primary rounded-full"></span>
                     <span data-i18n="solutions.attendance.point2"
-                      >Instant reports</span
+                      >تقارير فورية</span
                     >
                   </li>
                 </ul>
@@ -3269,7 +3288,7 @@
                   class="js-service-cta mt-auto block w-full bg-primary text-on-primary py-2 rounded-lg text-sm font-bold text-center shadow-lg shadow-primary/20 transition-all no-underline"
                   data-i18n="solutions.cta"
                 >
-                  Request the system</a
+                  اطلب النظام</a
                 >
               </div>
             </article>
@@ -3297,21 +3316,20 @@
                   class="font-body-md text-on-surface-variant mb-4 text-sm"
                   data-i18n="solutions.university.desc"
                 >
-                  A platform for organizing student projects, uploading files,
-                  tracking teams, and academic supervision.
+                  منصة لتنظيم مشاريع الطلبة ورفع الملفات ومتابعة الفرق والإشراف الأكاديمي.
                 </p>
 
                 <ul class="space-y-2 mb-6">
                   <li class="text-xs text-outline flex items-center gap-2">
                     <span class="w-1 h-1 bg-primary rounded-full"></span>
                     <span data-i18n="solutions.university.point1"
-                      >Team organization</span
+                      >تنظيم الفرق</span
                     >
                   </li>
                   <li class="text-xs text-outline flex items-center gap-2">
                     <span class="w-1 h-1 bg-primary rounded-full"></span>
                     <span data-i18n="solutions.university.point2"
-                      >Evaluation tracking</span
+                      >متابعة التقييم</span
                     >
                   </li>
                 </ul>
@@ -3322,7 +3340,7 @@
                   class="js-service-cta mt-auto block w-full border border-primary/30 text-primary py-2 rounded-lg text-sm text-center hover:bg-primary hover:text-on-primary transition-all no-underline"
                   data-i18n="solutions.cta"
                 >
-                  Request the system</a
+                  اطلب النظام</a
                 >
               </div>
             </article>
@@ -3788,8 +3806,7 @@
               class="mt-4 text-on-surface-variant max-w-2xl mx-auto leading-relaxed"
               data-i18n="faq.subtitle"
             >
-              إجابات واضحة تساعدك تعرف كيف نبدأ، كيف نحدد السعر، وما الذي يحدث
-              أثناء التنفيذ وبعد التسليم.
+              إجابات واضحة تساعدك تعرف كيف نبدأ، كيف نحدد السعر، وما الذي يحدث أثناء التنفيذ وبعد التسليم.
             </p>
           </div>
 
@@ -3809,9 +3826,7 @@
                 class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
                 data-i18n="faq.a1"
               >
-                يعتمد ذلك على نوع الخدمة ونطاقها. الصفحات التسويقية أو الشات بوت
-                يمكن إطلاقها خلال وقت قصير، بينما تحتاج المشاريع الأكبر إلى
-                تحليل أوضح وجدول زمني أدق.
+                يعتمد ذلك على نوع الخدمة ونطاقها. الصفحات التسويقية أو الشات بوت يمكن إطلاقها خلال وقت قصير، بينما تحتاج المشاريع الأكبر إلى تحليل أوضح وجدول زمني أدق.
               </div>
             </div>
 
@@ -3830,9 +3845,7 @@
                 class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
                 data-i18n="faq.a2"
               >
-                يتم التسعير حسب نوع الخدمة، نطاق العمل، عدد الصفحات أو الخصائص،
-                التكاملات المطلوبة، وسرعة التنفيذ. بعد فهم هدفك نرسل عرضًا
-                واضحًا بالمراحل والمخرجات.
+                يتم التسعير حسب نوع الخدمة، نطاق العمل، عدد الصفحات أو الخصائص، التكاملات المطلوبة، وسرعة التنفيذ. بعد فهم هدفك نرسل عرضًا واضحًا بالمراحل والمخرجات.
               </div>
             </div>
 
@@ -3851,9 +3864,7 @@
                 class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
                 data-i18n="faq.a3"
               >
-                نعم. نوفر خدمات سريعة مثل الصفحات التسويقية والبوتات، ونبني
-                أيضًا مواقع وأنظمة مخصصة بالكامل حسب احتياج المشروع وطريقة
-                تشغيله.
+                نعم. نوفر خدمات سريعة مثل الصفحات التسويقية والبوتات، ونبني أيضًا مواقع وأنظمة مخصصة بالكامل حسب احتياج المشروع وطريقة تشغيله.
               </div>
             </div>
 
@@ -3872,9 +3883,7 @@
                 class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
                 data-i18n="faq.a4"
               >
-                نعم، نبني شات بوتات وأتمتة تساعد في الرد على العملاء، استقبال
-                الطلبات، تنظيم البيانات، وربط النماذج والأدوات لتقليل العمل
-                اليدوي.
+                نعم، نبني شات بوتات وأتمتة تساعد في الرد على العملاء، استقبال الطلبات، تنظيم البيانات، وربط النماذج والأدوات لتقليل العمل اليدوي.
               </div>
             </div>
 
@@ -3893,8 +3902,7 @@
                 class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
                 data-i18n="faq.a5"
               >
-                نعم عند الطلب. يمكننا مساعدتك في رفع الموقع، ربط الدومين، تفعيل
-                SSL، وتجهيز الإعدادات الأساسية للتشغيل.
+                نعم عند الطلب. يمكننا مساعدتك في رفع الموقع، ربط الدومين، تفعيل SSL، وتجهيز الإعدادات الأساسية للتشغيل.
               </div>
             </div>
 
@@ -3911,8 +3919,7 @@
                 class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
                 data-i18n="faq.a6"
               >
-                نعم، تتوفر باقات دعم وتحسينات وتحديثات حسب الحاجة، حتى يبقى
-                المشروع مستقرًا وقابلًا للتطوير بعد الإطلاق.
+                نعم، تتوفر باقات دعم وتحسينات وتحديثات حسب الحاجة، حتى يبقى المشروع مستقرًا وقابلًا للتطوير بعد الإطلاق.
               </div>
             </div>
 
@@ -3931,8 +3938,7 @@
                 class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
                 data-i18n="faq.a7"
               >
-                نعم، نسلم الموقع أو النظام جاهزًا للاستخدام، مع شرح واضح لطريقة
-                الإدارة والتحديثات الأساسية حسب طبيعة المشروع.
+                نعم، نسلم الموقع أو النظام جاهزًا للاستخدام، مع شرح واضح لطريقة الإدارة والتحديثات الأساسية حسب طبيعة المشروع.
               </div>
             </div>
 
@@ -3949,8 +3955,7 @@
                 class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
                 data-i18n="faq.a8"
               >
-                نتفق على قناة تواصل واضحة، ونشاركك التحديثات حسب مراحل التنفيذ،
-                مع توثيق أي تعديل أو قرار مهم حتى تبقى الصورة واضحة.
+                نتفق على قناة تواصل واضحة، ونشاركك التحديثات حسب مراحل التنفيذ، مع توثيق أي تعديل أو قرار مهم حتى تبقى الصورة واضحة.
               </div>
             </div>
 
@@ -3969,8 +3974,7 @@
                 class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
                 data-i18n="faq.a9"
               >
-                نعم، يمكن دعم المشروع بباقات نمو تشمل المحتوى، التصميم،
-                الإعلانات، والتحسين المستمر حتى لا يتوقف دورنا عند التسليم فقط.
+                نعم، يمكن دعم المشروع بباقات نمو تشمل المحتوى، التصميم، الإعلانات، والتحسين المستمر حتى لا يتوقف دورنا عند التسليم فقط.
               </div>
             </div>
 
@@ -3989,8 +3993,7 @@
                 class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
                 data-i18n="faq.a10"
               >
-                نعم، يمكن توقيع اتفاقية سرية عند الحاجة، ونتعامل مع بيانات
-                المشروع بحذر وفق أفضل الممارسات الممكنة أثناء التطوير والتشغيل.
+                نعم، يمكن توقيع اتفاقية سرية عند الحاجة، ونتعامل مع بيانات المشروع بحذر وفق أفضل الممارسات الممكنة أثناء التطوير والتشغيل.
               </div>
             </div>
 
@@ -4009,9 +4012,7 @@
                 class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
                 data-i18n="faq.a11"
               >
-                إذا كان هدفك حملة أو خدمة محددة وجمع طلبات بسرعة، فغالبًا الصفحة
-                التسويقية تكفي كبداية. أما إذا كنت تريد حضورًا أوسع وثقة أعلى
-                ومحتوى أكثر، فالموقع الكامل أنسب.
+                إذا كان هدفك حملة أو خدمة محددة وجمع طلبات بسرعة، فغالبًا الصفحة التسويقية تكفي كبداية. أما إذا كنت تريد حضورًا أوسع وثقة أعلى ومحتوى أكثر، فالموقع الكامل أنسب.
               </div>
             </div>
 
@@ -4028,8 +4029,7 @@
                 class="faq-a hidden mt-4 text-on-surface-variant leading-relaxed"
                 data-i18n="faq.a12"
               >
-                شاركنا هدفك الحالي، وسنحدد لك أسرع بداية مناسبة، وما الذي يجب
-                بناؤه أولًا، وما الذي يمكن تأجيله بدون تكلفة غير ضرورية.
+                شاركنا هدفك الحالي، وسنحدد لك أسرع بداية مناسبة، وما الذي يجب بناؤه أولًا، وما الذي يمكن تأجيله بدون تكلفة غير ضرورية.
               </div>
             </div>
           </div>
@@ -4040,7 +4040,7 @@
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-20">
           <div class="text-center mb-16">
             <span class="section-kicker" data-i18n="contact.kicker"
-              >Start Project</span
+              >ابدأ مشروعك</span
             >
 
             <h2
@@ -4054,8 +4054,7 @@
               class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto"
               data-i18n="contact.subtitle"
             >
-              احكِ لنا عن هدفك الحالي، وسنقترح عليك خطوة البداية، القناة الأنسب
-              للتواصل، وما الذي يجب بناؤه أولًا.
+              احكِ لنا عن هدفك الحالي، وسنقترح عليك خطوة البداية، القناة الأنسب للتواصل، وما الذي يجب بناؤه أولًا.
             </p>
           </div>
 
@@ -4076,7 +4075,7 @@
                     href="https://wa.me/962780932199"
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="WhatsApp"
+                    aria-label="واتساب"
                     onclick="
                       if (typeof gtag === 'function') {
                         gtag('event', 'whatsapp_click', {
@@ -4103,7 +4102,7 @@
                       class="font-bold text-on-surface group-hover:text-primary transition-colors"
                       dir="ltr"
                     >
-                      WhatsApp</span
+                      واتساب</span
                     ></a
                   >
 
@@ -4424,7 +4423,7 @@
     data-value="landing-page"
     data-i18n="form.service.landing"
   >
-    Professional landing page
+    صفحة تسويقية
   </button>
 
   <button
@@ -4433,7 +4432,7 @@
     data-value="company-website"
     data-i18n="form.service.companyWebsite"
   >
-    Company website or online store
+    موقع شركة أو متجر
   </button>
 
   <button
@@ -4442,7 +4441,7 @@
     data-value="custom-business-system"
     data-i18n="form.service.customSystem"
   >
-    Custom system or dashboard
+    نظام أو لوحة تحكم مخصصة
   </button>
 
   <button
@@ -4460,7 +4459,7 @@
     data-value="lead-intake-system"
     data-i18n="form.service.leadIntake"
   >
-    Website and lead intake system
+    موقع مع نظام استقبال طلبات
   </button>
 
   <!-- Growth Services -->
@@ -4474,7 +4473,7 @@
     data-value="social-media-management"
     data-i18n="form.service.socialMedia"
   >
-    Social media management
+    إدارة السوشيال ميديا
   </button>
 
   <button
@@ -4483,7 +4482,7 @@
     data-value="paid-campaigns"
     data-i18n="form.service.paidCampaigns"
   >
-    Paid advertising campaigns
+    حملات إعلانية
   </button>
 
   <button
@@ -4492,7 +4491,7 @@
     data-value="conversion-optimization"
     data-i18n="form.service.conversion"
   >
-    Conversion optimization
+    تحسين التحويل
   </button>
 
   <button
@@ -4501,7 +4500,7 @@
     data-value="design-branding"
     data-i18n="form.service.designBranding"
   >
-    UI/UX design and branding
+    تصميم واجهات وهوية بصرية
   </button>
 
   <button
@@ -4510,7 +4509,7 @@
     data-value="seo-visibility"
     data-i18n="form.service.seo"
   >
-    SEO visibility optimization
+    تحسين الظهور في البحث SEO
   </button>
 
   <!-- Care Services -->
@@ -4526,7 +4525,7 @@
     data-value="maintenance-updates"
     data-i18n="form.service.maintenance"
   >
-    Maintenance and updates
+    صيانة وتحديثات
   </button>
 
   <button
@@ -4535,7 +4534,7 @@
     data-value="technical-support"
     data-i18n="form.service.support"
   >
-    Technical support
+    دعم فني
   </button>
 
   <button
@@ -4544,7 +4543,7 @@
     data-value="performance-optimization"
     data-i18n="form.service.performance"
   >
-    Performance optimization
+    تحسين السرعة والأداء
   </button>
 
   <button
@@ -4553,12 +4552,12 @@
     data-value="reports-monitoring"
     data-i18n="form.service.reports"
   >
-    Reports and monitoring
+    تقارير ومتابعة
   </button>
 
   <!-- Ready Solutions -->
   <div class="aqua-select-group" data-i18n="form.service.group.ready">
-    Ready solutions
+    حلول جاهزة
   </div>
 
   <button
@@ -4567,7 +4566,7 @@
     data-value="law-firm-system"
     data-i18n="form.service.lawFirm"
   >
-    Law firm management system
+    نظام إدارة مكاتب المحاماة
   </button>
 
   <button
@@ -4576,7 +4575,7 @@
     data-value="university-projects"
     data-i18n="form.service.university"
   >
-    University project management platform
+    منصة إدارة مشاريع جامعية
   </button>
 
   <button
@@ -4603,12 +4602,12 @@
     data-value="other"
     data-i18n="form.service.other"
   >
-    Another service or idea
+    خدمة أخرى أو فكرة جديدة
   </button>
 </div>
 
 <p class="aqua-select-error" data-i18n="form.service.required">
-  Please select a service.
+  يرجى اختيار الخدمة المطلوبة.
 </p>
                       </div>
                     </label>
@@ -4844,7 +4843,7 @@
                 href="https://wa.me/962780932199"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="WhatsApp"
+                aria-label="واتساب"
               >
                 <svg class="h-5 w-5" viewBox="0 0 32 32" aria-hidden="true">
                   <path
@@ -5007,7 +5006,7 @@
                     rel="noopener noreferrer"
                     data-i18n="footer.whatsapp"
                   >
-                    WhatsApp</a
+                    واتساب</a
                   >
                 </li>
                 <li>
@@ -5054,7 +5053,7 @@
       href="https://wa.me/962780932199?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20Aqua.Tech%2C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%D9%83%D9%85"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="WhatsApp"
+      aria-label="واتساب"
       onclick="
         if (typeof gtag === 'function') {
           gtag('event', 'whatsapp_click', {
@@ -5311,12 +5310,13 @@ label.textContent = option.textContent.trim();
       })();
     </script>
 
+    <script src="./js/site-i18n.js?v=hp19"></script>
+    <script src="./js/aqua-scroll.js?v=hp19"></script>
     <script src="./js/aqua-hero-motion.js?v=hp02b"></script>
     <script src="./js/aqua-navigation.js?v=hp09"></script>
     <script src="./js/aqua-motion-system.js?v=hp09"></script>
     <script src="./js/aqua-core.js?v=hp17"></script>
     <script src="./js/aqua-depth.js?v=hp15"></script>
-    <script defer src="./js/site-i18n.js"></script>
     <script defer src="./js/form.js"></script>
     <script src="./js/aquatech-contact-client.js?v=n8n-1" defer></script>
 

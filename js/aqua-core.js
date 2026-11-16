@@ -677,21 +677,32 @@
     pointerHost.addEventListener("pointerleave", onPointerLeave, { passive: true });
   }
 
-  var scrollFrame = 0;
+  /* Scroll depth comes from the shared scheduler (js/aqua-scroll.js): the
+     host position is measured when the page size changes, and each scroll
+     frame is arithmetic on that and the frame's scroll position. */
+  var hostTop = 0;
+  var hostHeight = 0;
+  var scrollSeeded = false;
 
-  function updateScrollDepth() {
-    scrollFrame = 0;
-    var rect = host.getBoundingClientRect();
-    var span = rect.height || window.innerHeight;
-    scrollDepth = Math.min(Math.max(-rect.top / span, 0), 1);
+  function measureHost() {
+    var top = 0;
+    for (var node = host; node; node = node.offsetParent) {
+      top += node.offsetTop;
+    }
+
+    hostTop = top;
+    hostHeight = host.offsetHeight;
   }
 
-  function requestScrollUpdate() {
-    if (scrollFrame || reduceMotion) return;
-    scrollFrame = window.requestAnimationFrame(updateScrollDepth);
+  function updateScrollDepth(metrics) {
+    if (destroyed || (reduceMotion && scrollSeeded)) return;
+    scrollSeeded = true;
+
+    var span = hostHeight || metrics.vh;
+    scrollDepth = Math.min(Math.max(-(hostTop - metrics.y) / span, 0), 1);
   }
 
-  window.addEventListener("scroll", requestScrollUpdate, { passive: true });
+  window.AquaScroll.add({ measure: measureHost, update: updateScrollDepth });
 
   function onContextLost(event) {
     event.preventDefault();
@@ -714,7 +725,6 @@
     if (intersectionObserver) intersectionObserver.disconnect();
 
     document.removeEventListener("visibilitychange", onVisibilityChange);
-    window.removeEventListener("scroll", requestScrollUpdate);
     canvas.removeEventListener("webglcontextlost", onContextLost);
 
     if (finePointer) {
@@ -740,7 +750,6 @@
   /* ------------------------------------------------------------------- boot */
 
   resize();
-  updateScrollDepth();
 
   if (reduceMotion) {
     /* Still render the core, just frozen: full visual value, zero motion. */

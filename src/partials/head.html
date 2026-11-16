@@ -4,10 +4,28 @@
     name="viewport"
     content="width=device-width, initial-scale=1, viewport-fit=cover"
   />
+  <meta name="aqua-i18n-dict" content="./js/site-i18n-dict.js" />
+
+  <script>
+    /* Saved English: set lang and dir before first paint so the page is not
+       laid out right-to-left first. site-i18n.js translates the text. */
+    try {
+      if (localStorage.getItem("aqua_lang") === "en") {
+        document.documentElement.lang = "en";
+        document.documentElement.dir = "ltr";
+        /* HP20: start the English dictionary now so it is ready when site-i18n.js runs. */
+        var d = document.createElement("script");
+        d.id = "aqua-i18n-dict";
+        d.async = true;
+        d.src = document.querySelector('meta[name="aqua-i18n-dict"]').content;
+        document.head.appendChild(d);
+      }
+    } catch (e) {}
+  </script>
   <title>Aqua.Tech | حلول رقمية ونمو فعلي</title>
   <meta
     name="description"
-    content="Aqua.Tech تبني مواقع احترافية وأنظمة مخصصة وأتمتة بالذكاء الاصطناعي وحلول نمو رقمية للشركات ورواد الأعمال."
+    content="Aqua.Tech تبني صفحات تسويقية ومواقع وأنظمة وأتمتة تساعد الشركات ورواد الأعمال على النمو."
   />
   <meta
     name="keywords"
@@ -60,6 +78,7 @@
   <link rel="stylesheet" href="./css/aqua-motion-system.css?v=hp09" />
   <link rel="stylesheet" href="./css/aqua-product-showcase.css?v=hp06a" />
   <link rel="stylesheet" href="./css/aqua-navigation.css?v=hp09" />
+  <link rel="stylesheet" href="./css/aqua-perf.css?v=hp19" />
   <style>
     :root {
       --aqua-bg: #051424;
@@ -663,28 +682,39 @@
       dataLayer.push(arguments);
     }
     gtag("js", new Date());
+    /* HP20: gtag.js is injected once, and with a stored consent only after the
+       load event plus an idle moment, so it never competes with first paint or
+       the page's own scripts. A fresh Accept loads it at once. */
+    var aquaGtagLoaded = false;
+    function aquaLoadGtag() {
+      if (aquaGtagLoaded) return;
+      aquaGtagLoaded = true;
+      var s = document.createElement("script");
+      s.async = true;
+      s.src = "https://www.googletagmanager.com/gtag/js?id=G-N7T2EVFD6J";
+      document.head.appendChild(s);
+      gtag("config", "G-N7T2EVFD6J", { anonymize_ip: true });
+    }
     (function () {
       try {
-        if (
-          localStorage.getItem("aqua_analytics_consent") === "true" ||
-          localStorage.getItem("aqua_analytics_consent") === "accepted"
-        ) {
-          var s = document.createElement("script");
-          s.async = true;
-          s.src = "https://www.googletagmanager.com/gtag/js?id=G-N7T2EVFD6J";
-          document.head.appendChild(s);
-          gtag("config", "G-N7T2EVFD6J", { anonymize_ip: true });
+        var stored = localStorage.getItem("aqua_analytics_consent");
+        if (stored === "true" || stored === "accepted") {
+          var whenIdle = function () {
+            if ("requestIdleCallback" in window) {
+              window.requestIdleCallback(aquaLoadGtag, { timeout: 4000 });
+            } else {
+              window.setTimeout(aquaLoadGtag, 2000);
+            }
+          };
+          if (document.readyState === "complete") whenIdle();
+          else window.addEventListener("load", whenIdle, { once: true });
         }
       } catch (e) {}
     })();
     window.__aquaEnableAnalytics = function () {
       try {
         localStorage.setItem("aqua_analytics_consent", "accepted");
-        var s = document.createElement("script");
-        s.async = true;
-        s.src = "https://www.googletagmanager.com/gtag/js?id=G-N7T2EVFD6J";
-        document.head.appendChild(s);
-        gtag("config", "G-N7T2EVFD6J", { anonymize_ip: true });
+        aquaLoadGtag();
       } catch (e) {}
     };
     window.__aquaDeclineAnalytics = function () {
